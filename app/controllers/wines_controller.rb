@@ -10,6 +10,7 @@ class WinesController < ApplicationController
     config.columns[:reviews].label = 'Opinions'
     config.list.columns = [:name, :color, :variety, :year, :reviews]
     config.create.columns = [:name, :color, :variety, :year]    
+    config.update.columns = [:name, :color, :variety, :year]    
     
     config.create.label = 'Ajouter un nouveau vin'
     config.create.link.label = 'Ajouter un nouveau vin'
