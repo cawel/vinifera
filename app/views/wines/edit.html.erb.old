@@ -1,0 +1,24 @@
+<h1>Editing wine</h1>
+
+<% form_for(@wine) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :variety_id %><br />
+    <%= f.text_field :variety_id %>
+  </p>
+  <p>
+    <%= f.label :color_id %><br />
+    <%= f.text_field :color_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @wine %> |
+<%= link_to 'Back', wines_path %>

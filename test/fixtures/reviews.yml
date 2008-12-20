@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+good_wine:
+  wine_id: 1
+  rating: stars3
+  comment: Tres tres bon vin.
+  person: james
+
+bad_wine:
+  wine_id: 1
+  rating: stars1
+  comment: Tres tres mauvais vin.
+  person: james
+
+bad_wine2:
+  wine_id: 2
+  rating: stars1
+  comment: Ceci etait un vin moyen.
+  person: mat

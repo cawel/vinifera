@@ -1,0 +1,27 @@
+#I wanted to have a 'reviews' link as a custom action link on each row of the wines table, so I had to hack into active_scaffold 
+#plugin, and modified view_helpers.rb as follows:
+        
+      def render_action_link(link, url_options)
+        url_options = url_options.clone
+        url_options[:action] = link.action
+        url_options[:controller] = link.controller if link.controller
+        url_options.delete(:search) if link.controller and link.controller.to_s != params[:controller]
+        url_options.merge! link.parameters if link.parameters
+        if link.parameters and link.parameters[:nested]
+          url_options.merge!("#{link.parameters[:nested]}_id".to_sym => url_options[:id])
+          url_options.delete :id
+          url_options.delete :nested
+        end
+        html_options = link.html_options.merge({:class => link.action})
+        
+        # code continues...
+        
+and then inside the controller's active_scaffold config, you'd have:
+
+#    config.action_links.add 'reviews', :label => 'Reviews'
+#    config.action_links['reviews'].controller = :reviews
+#    config.action_links['reviews'].type = :record
+#    config.action_links['reviews'].parameters = {:nested => "wine"}
+#    config.action_links['reviews'].method = nil
+#    config.action_links['reviews'].page = true
+#    config.action_links['reviews'].action = 'index' #must be last option

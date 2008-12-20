@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+chateau_coulac:
+  id: 1
+  name: Chateau Coulac
+  variety_id: 1
+  color_id: 1
+  year: 2007
+
+chateau_neuf_du_pape:
+  id: 2
+  name: Chateau Neuf du pape
+  variety_id: 2
+  color_id: 2
+  year: 2006

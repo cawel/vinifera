@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+blanc:
+  id: 1
+  name: blanc
+  
+rouge:
+  id: 2
+  name: rouge

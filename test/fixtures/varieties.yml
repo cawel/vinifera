@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+<% File.open(RAILS_ROOT + '/db/varieties.db') do |file| 
+file.each_with_index do |line, i|%>
+
+variety_<%= i+1 %>:
+  id: <%= i+1 %>
+  name: <%= line %>
+<% end %>
+<% end %>

@@ -1,0 +1,18 @@
+<p>
+  <b>Rating:</b>
+  <%=h @review.rating_id %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%=h @review.comment %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%=h @review.person_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>

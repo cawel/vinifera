@@ -1,0 +1,19 @@
+<p>
+  <b>Nom:</b>
+  <%=h @wine.name %>
+</p>
+<p>
+  <b>Couleur:</b>
+  <%=h @wine.color.name %>
+</p>
+<p>
+  <b>C&eacute;page:</b>
+  <%=h @wine.variety.name if @wine.variety %>
+</p>
+<p>
+  <b>Ann&eacute;e:</b>
+  <%=h @wine.year %>
+</p>
+<br/>
+
+<%= render :active_scaffold => 'reviews', :constraints => { :wine_id => @wine.id } %>

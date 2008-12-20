@@ -1,0 +1,16 @@
+#top_menu {
+	padding: 10px;
+	float:left;
+}
+.logo{
+	vertical-align: text-top;
+}
+
+#top_login_box{
+	float:right;
+	margin: 10px;
+}
+#top_nav_bar{
+    background-color: #E6F2FF;
+	border: solid 1px;
+}
