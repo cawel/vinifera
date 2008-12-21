@@ -2,7 +2,6 @@ class CreateWines < ActiveRecord::Migration
   def self.up
     create_table :wines do |t|
       t.string :name
-      t.integer :variety_id
       t.integer :color_id
       t.integer :year
 

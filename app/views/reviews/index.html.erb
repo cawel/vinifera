@@ -8,7 +8,7 @@
 </p>
 <p>
   <b>C&eacute;page:</b>
-  <%=h @wine.variety.name if @wine.variety %>
+  <%=h @wine.varieties.map(&:name).join(", ") if @wine.varieties.size > 0 %>
 </p>
 <p>
   <b>Ann&eacute;e:</b>

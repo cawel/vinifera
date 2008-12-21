@@ -1,4 +1,4 @@
-<h1>Sign up as a new user</h1>
+<h1>Enregistrement en tant que nouvel usager</h1>
 <% @person.password = @person.password_confirmation = nil %>
 
 <%= error_messages_for :person %>
@@ -6,11 +6,11 @@
 <p><label for="email">Email</label><br/>
 <%= f.text_field :email %></p>
 
-<p><label for="password">Password</label><br/>
+<p><label for="password">Mot de passe</label><br/>
 <%= f.password_field :password %></p>
 
-<p><label for="password_confirmation">Confirm Password</label><br/>
+<p><label for="password_confirmation">Mot de passe (confirmation)</label><br/>
 <%= f.password_field :password_confirmation %></p>
 
-<p><%= submit_tag 'Sign up' %></p>
+<p><%= submit_tag "S'enregistrer" %></p>
 <% end -%>

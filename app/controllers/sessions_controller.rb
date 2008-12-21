@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       new_cookie_flag     = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
       
-      flash[:notice] = "Logged in successfully"
+      flash[:notice] = "Session maintenant ouverte avec succes"
       redirect_back_or_default root_url
     else
       note_failed_signin
@@ -20,14 +20,14 @@ class SessionsController < ApplicationController
 
   def destroy
     logout_killing_session!
-    flash[:notice] = "You have been logged out."
+    flash[:notice] = "Votre session est maintenant terminee."
     redirect_back_or_default root_url
   end
 
 protected
   # Track failed login attempts
   def note_failed_signin
-    flash[:error] = "Couldn't log you in as '#{params[:login]}'"
+    flash[:error] = "Pas pu ouvrir une session en tant que '#{params[:login]}'"
     logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
   end
 end

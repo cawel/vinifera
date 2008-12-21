@@ -1,0 +1,12 @@
+one:
+    wine_id: 1
+    variety_id: 1
+  
+two:
+    wine_id: 1
+    variety_id: 2
+
+three:
+    wine_id: 2
+    variety_id: 6
+	

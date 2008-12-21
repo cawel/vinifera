@@ -1,0 +1,4 @@
+Varieties: <%= collection_select :record, :variety_ids,
+        Variety.find(:all), :id, :name, {},
+        :multiple => true,
+        :name => 'record[variety_ids][]' %>
