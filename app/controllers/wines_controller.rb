@@ -1,6 +1,6 @@
 class WinesController < ApplicationController
   layout 'application'
-  
+
   active_scaffold :wine do |config|
     config.label = "Vins"
     config.columns[:color].label = 'Couleur'
@@ -15,9 +15,11 @@ class WinesController < ApplicationController
     config.create.label = 'Ajouter un nouveau vin'
     config.create.link.label = 'Ajouter un nouveau vin'
     config.search.link.label = 'Recherche'
+    config.update.label = 'Editer un vin'
     config.update.link.label = 'Editer'
     config.delete.link.label = 'Effacer'
-    config.show.link.label = 'Afficher'
+    config.actions.exclude :show
+
     config.list.columns.exclude [:created_at, :updated_at]
     config.columns[:color].form_ui = :select
     config.columns[:varieties].clear_link
