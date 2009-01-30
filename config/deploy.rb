@@ -23,6 +23,7 @@ role :db,  domain, :primary => true
 
 task :update_config, :roles => [:app] do
   run "cp -Rf #{shared_path}/config/* #{release_path}/config/"
+  run "ln -s #{shared_path}/db/production.sqlite3 #{release_path}/db/production.sqlite3"
 end
 
 after "deploy:update_code", :update_config
