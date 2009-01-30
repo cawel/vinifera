@@ -22,7 +22,7 @@ role :web, domain
 role :db,  domain, :primary => true
 
 task :update_config, :roles => [:app] do
-  run "cp -Rf #{shared_path}/config/* #{release_path}/config/*"
+  run "cp -Rf #{shared_path}/config/* #{release_path}/config/"
 end
 
 after "deploy:update_code", :update_config
