@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_filter :set_current_user
   
   layout 'application'
   
@@ -31,9 +32,9 @@ class ReviewsController < ApplicationController
   end
   
   # only authenticated users are authorized to create records
-  def create_authorized?
-    current_person
-  end
+#  def create_authorized?
+#    current_person
+#  end
   
   def delete_authorized?
     current_person
@@ -41,6 +42,10 @@ class ReviewsController < ApplicationController
   
   def update_authorized?
     current_person
+  end
+  
+  def set_current_user
+    Thread.current["Review.current_user"] = current_person
   end
   
 end
