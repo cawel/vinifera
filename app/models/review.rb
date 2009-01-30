@@ -1,5 +1,4 @@
 class Review < ActiveRecord::Base
-  cattr_accessor :current_user
   
   belongs_to :wine
   belongs_to :person
@@ -7,8 +6,4 @@ class Review < ActiveRecord::Base
 
   validates_presence_of :rating
 
-  def authorized_for_update?
-    Thread.current["Review.current_user"] == person
-  end
-  
 end
