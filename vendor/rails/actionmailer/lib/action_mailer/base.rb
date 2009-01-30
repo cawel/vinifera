@@ -549,12 +549,7 @@ module ActionMailer #:nodoc:
       end
 
       def render_message(method_name, body)
-        if method_name.respond_to?(:content_type)
-          @current_template_content_type = method_name.content_type
-        end
         render :file => method_name, :body => body
-      ensure
-        @current_template_content_type = nil
       end
 
       def render(opts)
@@ -573,11 +568,7 @@ module ActionMailer #:nodoc:
       end
 
       def default_template_format
-        if @current_template_content_type
-          Mime::Type.lookup(@current_template_content_type).to_sym
-        else
-          :html
-        end
+        :html
       end
 
       def candidate_for_layout?(options)
@@ -597,9 +588,7 @@ module ActionMailer #:nodoc:
       end
 
       def initialize_template_class(assigns)
-        template = ActionView::Base.new(view_paths, assigns, self)
-        template.template_format = default_template_format
-        template
+        ActionView::Base.new(view_paths, assigns, self)
       end
 
       def sort_parts(parts, order = [])
