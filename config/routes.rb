@@ -1,18 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.resources :ratings
-  
-  map.resources :varieties
-
-  map.resources :colors, :active_scaffold => true
-  
-  map.resources :wines, :active_scaffold => true do |wine|
-    wine.resources :reviews, :active_scaffold => true
+  #backend
+  map.namespace(:admin) do |admin|
+    admin.resources :ratings, :active_scaffold => true
+    admin.resources :varieties, :active_scaffold => true
+    admin.resources :colors, :active_scaffold => true
   end
   
-  #  map.connect '/wines/review', :controller => 'wines', :action => 'write_review'
+  #frontend
+  map.resources :wines do |wine|
+    wine.resources :reviews
+  end
   
-  map.root                   :controller => 'wines', :action => 'list'
+  map.root                   :controller => 'wines'
   
   map.login     '/login',    :controller => 'sessions',    :action => 'new'
   map.logout    '/logout',   :controller => 'sessions',    :action => 'destroy'

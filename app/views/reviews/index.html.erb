@@ -1,19 +1,47 @@
-<p>
-  <b>Nom:</b>
-  <%=h @wine.name %>
-</p>
-<p>
-  <b>Couleur:</b>
-  <%=h @wine.color.name %>
-</p>
-<p>
-  <b>C&eacute;page:</b>
-  <%=h @wine.varieties.map(&:name).join(", ") if @wine.varieties.size > 0 %>
-</p>
-<p>
-  <b>Ann&eacute;e:</b>
-  <%=h @wine.year %>
-</p>
+<div id="wine_for_review">
+    <h1>Wine</h1>
+    <p>
+        Name: <%=@wine.name %>
+    </p>
+    <p>
+        Year: <%=@wine.year %>
+    </p>
+    <h1>Listing Reviews</h1>
+</div>
+<table>
+    <tr>
+        <th>
+            Rating
+        </th>
+        <th>
+            Comment
+        </th>
+        <th>
+            Person
+        </th>
+    </tr>
+    <%- @reviews.each do |review| %>
+    <tr>
+        <td>
+            <%=h review.rating.name %>
+        </td>
+        <td>
+            <%=h review.comment %>
+        </td>
+        <td>
+            <%=h review.person.email %>
+        </td>
+        <td>
+            <%=link_to 'Show', wine_review_url(review.wine, review) %>
+        </td>
+        <td>
+            <%=link_to 'Edit', edit_wine_review_url(review.wine, review) %>
+        </td>
+        <td>
+            <%=link_to 'Destroy', wine_review_url(review.wine, review), :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+    </tr>
+    <% end %>
+</table>
 <br/>
-
-<%= render :active_scaffold => 'reviews', :constraints => { :wine_id => @wine.id } %>
+<%= link_to 'New Review', new_wine_review_url(params[:wine_id]) %>

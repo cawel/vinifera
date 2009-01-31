@@ -1,21 +1,11 @@
-<h1>New review</h1>
-
-<% form_for(@review) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :rating_id %><br />
-    <%= f.text_field :rating_id %>
-  </p>
-  <p>
-    <%= f.label :comment %><br />
-    <%= f.text_area :comment %>
-  </p>
-  <p>
-    <%= f.label :person_id %><br />
-    <%= f.text_field :person_id %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
+<h1>New Review</h1>
+<%= error_messages_for :review %>
+<% form_for(:review, :url => wine_reviews_url(@wine)) do |f| %>
+<%= render :partial => "form", :locals => { :f => f } %>
+<%= f.hidden_field :person_id, :value => current_person.id %>
+<p>
+    <%= submit_tag "Create" %>
+</p>
 <% end %>
+<br/>
+<%= link_to 'Back', wine_reviews_url(params[:wine_id]) %>

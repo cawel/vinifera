@@ -1,24 +1,16 @@
-<h1>Editing review</h1>
+<h1>Editing Review</h1>
 
-<% form_for(@review) do |f| %>
-  <%= f.error_messages %>
+<%= error_messages_for :review %>
 
+<% form_for(:review, :url => object_url, :html => { :method => :put }) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
   <p>
-    <%= f.label :rating_id %><br />
-    <%= f.text_field :rating_id %>
-  </p>
-  <p>
-    <%= f.label :comment %><br />
-    <%= f.text_area :comment %>
-  </p>
-  <p>
-    <%= f.label :person_id %><br />
-    <%= f.text_field :person_id %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
+    <%=submit_tag "Update"%>
   </p>
 <% end %>
 
-<%= link_to 'Show', @review %> |
-<%= link_to 'Back', reviews_path %>
+<br/>
+
+<%= link_to 'Show', object_url %>
+|
+<%= link_to 'Back', collection_url %>

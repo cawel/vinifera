@@ -1,18 +1,16 @@
 <p>
-  <b>Rating:</b>
-  <%=h @review.rating_id %>
+  <strong>Wine:</strong><%=h @review.wine %>
 </p>
-
 <p>
-  <b>Comment:</b>
-  <%=h @review.comment %>
+  <strong>Rating:</strong><%=h @review.rating %>
 </p>
-
 <p>
-  <b>Person:</b>
-  <%=h @review.person_id %>
+  <strong>Comment:</strong><%=h @review.comment %>
+</p>
+<p>
+  <strong>Person:</strong><%=h @review.person %>
 </p>
 
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<%= link_to 'Edit', edit_object_url %>
+|
+<%= link_to 'Back', collection_url %>

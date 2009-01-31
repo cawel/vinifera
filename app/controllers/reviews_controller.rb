@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
-  
   layout 'application'
+  resource_controller
+  belongs_to :wine
   
-  def index
-    @wine = Wine.find params[:wine_id]
+  create.response do |wants|
+    wants.html{redirect_to wine_reviews_url(params[:wine_id])}
   end
-  
+
 end
