@@ -1,27 +1,34 @@
 <div id="wine_for_review">
-    <h1>Wine</h1>
+    <h1>Vin</h1>
     <p>
-        Name: <%=h @wine.name %>
+        <b>Nom:</b>
+        <%=h @wine.name %>
     </p>
-	<p>
-    <b>Variety:</b>
-    <%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %>
-</p>
     <p>
-        Year: <%=@wine.year %>
+        <b>Couleur:</b>
+        <%=@wine.color.name %>
     </p>
-    <h1>Listing Reviews [<%=image_tag 'add.gif', :class=>'icon'%><%= link_to 'Add New Review', new_wine_review_url(params[:wine_id]) %>]</h1>
+    <p>
+        <b>Cepage:</b>
+        <%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %>
+    </p>
+    <p>
+        <b>Annee:</b>
+        <%=@wine.year %>
+    </p>
 </div>
+<h1>Liste des opinions</h1>
+<%=image_tag 'add.gif', :class=>'icon' %><%= link_to 'Ajouter une opinion', new_wine_review_url(params[:wine_id]) %>
 <table>
     <tr>
         <th>
-            Rating
+            Cote
         </th>
         <th>
-            Comment
+            Opinion
         </th>
         <th>
-            Person
+            Usager
         </th>
     </tr>
     <%- @reviews.each do |review| %>
@@ -36,13 +43,10 @@
             <%=h review.person.email %>
         </td>
         <td>
-            <%=link_to 'Show', wine_review_url(review.wine, review) %>
+            <%= link_to image_tag('editable.gif', :class=>'icon'), edit_wine_review_path(review.wine, review), :class => 'icon_link' %>
         </td>
         <td>
-            <%=image_tag 'emblem-unreadable.gif', :class=>'icon'%> <%=link_to 'Edit', edit_wine_review_url(review.wine, review) %>
-        </td>
-        <td>
-            <%=link_to 'Destroy', wine_review_url(review.wine, review), :confirm => 'Are you sure?', :method => :delete %>
+            <%= link_to image_tag('emblem-unreadable.gif', :class=>'icon'), wine_review_path(review.wine, review), :confirm => 'Are you sure?', :method => :delete, :class => 'icon_link' %>
         </td>
     </tr>
     <% end %>
