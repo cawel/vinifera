@@ -1,0 +1,27 @@
+<h1>Editing wine</h1>
+<% form_for(@wine) do |f| %>
+<%= f.error_messages %>
+<p>
+    <%= f.label :name %>
+    <br/>
+    <%= f.text_field :name %>
+</p>
+<p>
+    <%= f.label :varieties %>
+    <br/>
+    <%= f.collection_select :variety_ids,
+    Variety.find(:all), :id, :name, {},
+    :multiple => true,
+    :name => 'wine[variety_ids][]', :size => 15 %>
+</p>
+<p>
+    <%= f.label :color %>
+    <br/>
+	    <%= f.collection_select :color_id,
+    Color.find(:all), :id, :name %>
+</p>
+<p>
+    <%= f.submit "Update" %>
+</p>
+<% end %>
+<%= link_to 'Show', @wine %> |<%= link_to 'Back', wines_path %>
