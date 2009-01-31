@@ -32,7 +32,7 @@
         </th>
     </tr>
     <%- @reviews.each do |review| %>
-    <tr>
+    <tr class="<%= cycle("even", "odd") %>">
         <td>
             <%=h review.rating.name %>
         </td>
