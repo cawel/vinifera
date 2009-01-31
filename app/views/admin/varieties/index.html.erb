@@ -1,0 +1,26 @@
+<h1>Listing varieties</h1>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+    </tr>
+    <% for variety in @varieties %>
+    <tr>
+    	<td>
+            <%=h variety.name %>
+        </td>
+        <td>
+            <%= link_to 'Show', variety %>
+        </td>
+        <td>
+            <%= link_to 'Edit', edit_variety_path(variety) %>
+        </td>
+        <td>
+            <%= link_to 'Destroy', variety, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<br/>
+<%= link_to 'New variety', new_variety_path %>
