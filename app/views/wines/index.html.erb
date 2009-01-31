@@ -1,0 +1,42 @@
+<h1>Listing wines</h1>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Variety
+        </th>
+        <th>
+            Color
+        </th>
+        <th>
+            Year
+        </th>
+    </tr>
+    <% for wine in @wines %>
+    <tr>
+        <td>
+            <%=h wine.name %>
+        </td>
+        <td>
+            <%=h wine.variety_wines.map{|e|e.variety.name}.join(', ') %>
+        </td>
+        <td>
+            <%=h wine.color.name %>
+        </td>
+        <td>
+            <%=h wine.year %>
+        </td>
+        <td>
+            <%= link_to 'Show', wine %>
+        </td>
+        <td>
+            <%= link_to 'Edit', edit_wine_path(wine) %>
+        </td>
+        <td>
+            <%= link_to 'Destroy', wine, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+    </tr>
+    <% end %>
+</table>
