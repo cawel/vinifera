@@ -1,30 +1,8 @@
 <h1>New wine</h1>
-<% form_for(@wine) do |f| %>
-<%= f.error_messages %>
-<p>
-    <%= f.label :name %>
-    <br/>
-    <%= f.text_field :name %>
-</p>
-<p>
-    <%= f.label :varieties %>
-    <br/>
-    <%= f.collection_select :variety_ids,
-        Variety.find(:all), :id, :name, {},
-        :multiple => true,
-        :name => 'wine[variety_ids][]', :size => 15 %>
-</p>
-<p>
-    <%= f.label :color_id %>
-    <br/>
-    <%= f.collection_select :color_id, Color.find(:all), :id, :name %>
-</p>
-<p>
-    <%= f.label :year %>
-    <br/>
-    <%= f.text_field :year, :size => 10 %>
-</p>
-<p>
-    <%= f.submit "Create" %>
-</p>
+<%= error_messages_for :wine %>
+<% form_for(:wine, :url => wines_url) do |f| %>
+<%= render :partial => "form", :locals => { :f => f } %>
+<%= f.submit "Create" %>
 <% end %>
+<p>
+</p>

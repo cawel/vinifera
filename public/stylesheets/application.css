@@ -18,6 +18,59 @@ body {
 }
 
 #top_nav_bar {
-    background-color: #E6F2FF;
+    background-color: #e4eafb;
     border: solid 1px;
+}
+
+.icon {
+	margin: 5px;
+	vertical-align: middle;
+	border: 0;
+}
+
+a.icon_link:hover{
+    text-decoration: none;
+    background-color: transparent;
+}
+
+h1{
+	margin-top: 50px;
+	margin-bottom: 40px;
+}
+
+th {
+    background-color: #eee;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+td {
+    border-bottom: 1px solid #E0E0E0;
+	border-top: 1px solid #E0E0E0;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 7px;
+    word-break: keep-all;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border-bottom: 2px solid #d0d0d0;
+    border-top: 2px solid #d0d0d0;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 8px;
+}
+
+tr.odd {
+    background-color: #f5f5f5;
+}
+
+tr.even {
+    background-color: #e4eafb;
 }

@@ -1,12 +1,16 @@
 <div id="wine_for_review">
     <h1>Wine</h1>
     <p>
-        Name: <%=@wine.name %>
+        Name: <%=h @wine.name %>
     </p>
+	<p>
+    <b>Variety:</b>
+    <%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %>
+</p>
     <p>
         Year: <%=@wine.year %>
     </p>
-    <h1>Listing Reviews</h1>
+    <h1>Listing Reviews [<%=image_tag 'add.gif', :class=>'icon'%><%= link_to 'Add New Review', new_wine_review_url(params[:wine_id]) %>]</h1>
 </div>
 <table>
     <tr>
@@ -35,7 +39,7 @@
             <%=link_to 'Show', wine_review_url(review.wine, review) %>
         </td>
         <td>
-            <%=link_to 'Edit', edit_wine_review_url(review.wine, review) %>
+            <%=image_tag 'emblem-unreadable.gif', :class=>'icon'%> <%=link_to 'Edit', edit_wine_review_url(review.wine, review) %>
         </td>
         <td>
             <%=link_to 'Destroy', wine_review_url(review.wine, review), :confirm => 'Are you sure?', :method => :delete %>
@@ -44,4 +48,3 @@
     <% end %>
 </table>
 <br/>
-<%= link_to 'New Review', new_wine_review_url(params[:wine_id]) %>
