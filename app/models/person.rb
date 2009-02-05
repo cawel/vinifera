@@ -42,8 +42,8 @@ class Person < ActiveRecord::Base
   end
   
   #needed by ActiveScaffold in order to have a proper label
-  def to_label
-    email
+  def is_admin?
+    self.admin
   end
   
 end

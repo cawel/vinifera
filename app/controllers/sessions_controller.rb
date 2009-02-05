@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       new_cookie_flag     = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
       
-      flash[:notice] = "Session maintenant ouverte avec succes"
+      flash[:notice] = "Session maintenant ouverte avec succes!"
       redirect_back_or_default root_url
     else
       note_failed_signin

@@ -36,12 +36,12 @@
                 <%= link_to image_tag('reviews.gif', :class=>'icon'), wine_reviews_path(wine), :class => 'icon_link' %>
             </td>
             <td>
-                <% editable? do %>
+                <% editable_wine? do %>
                 <%= link_to image_tag('editable.gif', :class=>'icon'), edit_wine_path(wine), :class => 'icon_link' %>
                 <% end %>
             </td>
             <td>
-                <% editable? do %>
+                <% editable_wine? do %>
                 <%= link_to image_tag('emblem-unreadable.gif', :class=>'icon'), wine, :confirm => 'Are you sure?', :method => :delete, :class => 'icon_link' %>
                 <% end %>
             </td>

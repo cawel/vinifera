@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081221153413) do
+ActiveRecord::Schema.define(:version => 20090205133426) do
 
   create_table "colors", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20081221153413) do
     t.datetime "remember_token_expires_at"
     t.string   "password_reset_code"
     t.datetime "password_reset_code_expires"
+    t.boolean  "admin",                                      :default => false
   end
 
   create_table "ratings", :force => true do |t|

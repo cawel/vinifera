@@ -1,8 +1,9 @@
 <% if logged_in? -%>
-  <div id="person-bar-greeting">Logged in as <%= link_to_current_person :content_method => :login %></div>
-  <div id="person-bar-action"  >(<%= link_to "Log out", logout_path, { :title => "Log out" }    %>)</div>
+  <div id="person-bar-greeting">Session ouverte en tant que <%= link_to current_person.email, edit_person_url(current_person) %></div>
+  <div id="person-bar-action"  >(<%= link_to "Quitter", logout_path, { :title => "Quiter" }    %>)</div>
 <% else -%>
-  <div id="person-bar-greeting">Not logged in</div>
-  <div id="person-bar-action"  ><%= link_to "Log in",  login_path,  { :title => "Log in" } %> /
-                               <%= link_to "Sign up", signup_path, { :title => "Create an account" } %></div>
+  <div id="person-bar-greeting">Aucune session ouverte</div>
+  <div id="person-bar-action"  ><%= link_to "Ouvrir une session",  login_path,  { :title => "Ouvrir une session" } %> /
+                               <%= link_to "S'enregistrer", signup_path, { :title => "S'enregistrer" } %></div>
 <% end -%>
+

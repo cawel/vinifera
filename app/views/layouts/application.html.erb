@@ -16,11 +16,7 @@
                     <%= link_to "liste des vins", wines_url %><% if current_person %> | <%= link_to "ajouter un nouveau vin", new_wine_url %><% end %>
                 </div>
                 <div id="top_login_box">
-                    <% if current_person %>
-                    connect&eacute; en tant que: <%= link_to current_person.email, edit_person_url(current_person) %> | <%= link_to "quitter", logout_url %>
-                    <% else %>
-                    <%= link_to "ouvrir une session", login_url %>| <%= link_to "s'enregistrer", signup_url %>
-                    <% end %>
+                	<%= render :partial => 'people/person_bar'%>
                 </div>
                 <div style="clear:both;">
                 </div>

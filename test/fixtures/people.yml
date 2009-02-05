@@ -1,3 +1,12 @@
+martin:
+  email:                     cawel00@yahoo.com
+  salt:                      salt
+  crypted_password:          <%= Person.password_digest('monkey', 'salt') %>
+  created_at:                <%= 5.days.ago.to_s :db  %>
+  remember_token_expires_at: <%= 1.days.from_now.to_s %>
+  remember_token:            77de68daecd823babbb58edb1c8e14d7106e83bb
+  admin: 1
+
 james:
   email:                     james@giraffesoft.ca
   salt:                      salt
@@ -5,6 +14,7 @@ james:
   created_at:                <%= 5.days.ago.to_s :db  %>
   remember_token_expires_at: <%= 1.days.from_now.to_s %>
   remember_token:            77de68daecd823babbb58edb1c8e14d7106e83bb
+  admin: 0
 
 mat:
   email:                     mat@giraffesoft.ca
@@ -13,11 +23,12 @@ mat:
   created_at:                <%= 5.days.ago.to_s :db  %>
   remember_token_expires_at: <%= 1.days.from_now.to_s %>
   remember_token:            77de68daecd823babbb58edb1c8e14d7106e83bb
+  admin: 0
 
 old_password_holder:
   email:                     salty_dog@example.com
   salt:                      salt
   crypted_password:          <%= Person.password_digest('test', 'salt') %>
   created_at:                <%= 1.days.ago.to_s :db %>
-
+  admin: 0
 

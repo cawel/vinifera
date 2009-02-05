@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_filter :login_required, :only => [:new, :create, :edit, :update]
+  
   layout 'application'
   resource_controller
   belongs_to :wine
