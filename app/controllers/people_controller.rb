@@ -1,5 +1,6 @@
 class PeopleController < ResourceController::Base
-  actions :new, :create
+  actions :new, :create, :edit, :update
+  before_filter :login_required, :only => [:edit, :update]
  
   create do
     before     :logout_keeping_session!

@@ -1,0 +1,16 @@
+<h1>Mise &#224; jour du compte</h1>
+<% form_for(@person, :url => people_url, :html => {:method => :put}) do |f| %>
+<p>
+    <%= f.label :name %>
+    <br/>
+    <%= f.text_field :name %>
+</p>
+<p>
+    <%= f.label :email %>
+    <br/>
+    <%= f.text_field :email %>
+</p>
+<p>
+    <%= f.submit "Mettre &#224; jour" %>
+</p>
+<% end %>

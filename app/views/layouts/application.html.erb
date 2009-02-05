@@ -17,7 +17,7 @@
                 </div>
                 <div id="top_login_box">
                     <% if current_person %>
-                    connect&eacute; en tant que: <%= current_person.email %> | <%= link_to "quitter", logout_url %>
+                    connect&eacute; en tant que: <%= link_to current_person.email, edit_person_url(current_person) %> | <%= link_to "quitter", logout_url %>
                     <% else %>
                     <%= link_to "ouvrir une session", login_url %>| <%= link_to "s'enregistrer", signup_url %>
                     <% end %>
