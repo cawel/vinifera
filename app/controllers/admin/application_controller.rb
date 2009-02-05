@@ -3,9 +3,9 @@ class Admin::ApplicationController < ApplicationController
   before_filter :non_admin_redirect
   
   def non_admin_redirect
-    #if !is_admin?
-    #  flash[:notice] = "You need to be an admin to do that."
-    #  redirect_back_or_default(:controller => "/accounts", :action => "login")
-    #end
+    if !current_person.andand.admin
+      flash[:notice] = "You need to be an admin in order to access the admin interface."
+      redirect_to login_url
+    end
   end
 end
