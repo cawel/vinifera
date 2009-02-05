@@ -15,7 +15,7 @@ class PeopleControllerTest < Test::Unit::TestCase
     resource.formats         = [:html]
     resource.actions         = [:create, :new]
     resource.create.params   = hash_for_person
-    resource.create.redirect = 'people_url'
-    resource.create.flash    = /thanks/i
+    resource.create.redirect = 'root_url'
+    resource.create.flash    = /enregist/i
   end
 end

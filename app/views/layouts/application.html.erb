@@ -13,11 +13,11 @@
             <div id="top_nav_bar">
                 <div id="top_menu">
                     <%= image_tag "wine5-small.jpg", :class => "logo" %>
-                    <%= link_to "liste des vins", wines_url %><% if current_person %>| <%= link_to "ajouter un nouveau vin", new_wine_url %><% end %>
+                    <%= link_to "liste des vins", wines_url %><% if current_person %> | <%= link_to "ajouter un nouveau vin", new_wine_url %><% end %>
                 </div>
                 <div id="top_login_box">
                     <% if current_person %>
-                    connect&eacute; en tant que: <%= current_person.email %>| <%= link_to "quitter", logout_url %>
+                    connect&eacute; en tant que: <%= current_person.email %> | <%= link_to "quitter", logout_url %>
                     <% else %>
                     <%= link_to "ouvrir une session", login_url %>| <%= link_to "s'enregistrer", signup_url %>
                     <% end %>

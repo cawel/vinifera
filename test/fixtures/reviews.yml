@@ -3,17 +3,17 @@
 good_wine:
   wine_id: 1
   rating: stars3
-  comment: - test - Tres tres bon vin.
+  comment: '- test - Tres tres bon vin.'
   person: james
 
 bad_wine:
   wine_id: 1
   rating: stars1
-  comment: - test - Tres tres mauvais vin.
+  comment: '- test - Tres tres mauvais vin.'
   person: james
 
 bad_wine2:
   wine_id: 2
   rating: stars1
-  comment: - test - Ceci etait un vin moyen.
+  comment: '- test - Ceci etait un vin moyen.'
   person: mat
