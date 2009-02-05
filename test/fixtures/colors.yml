@@ -1,9 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 white:
-  id: 1
   name: blanc
   
 red:
-  id: 2
   name: rouge

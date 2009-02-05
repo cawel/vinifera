@@ -10,7 +10,7 @@ module ApplicationHelper
   end
   
   def editable_review?(review, &block)
-    if (review.person == current_person) || current_person.admin
+    if (review.person == current_person) || current_person.andand.admin
       block.call
     else
       "&nbsp;"

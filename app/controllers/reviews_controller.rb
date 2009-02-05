@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_filter :login_required, :only => [:new, :create, :edit, :update]
+  before_filter :login_required, :except => [:index, :show]
   
   layout 'application'
   resource_controller

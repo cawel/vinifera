@@ -3,11 +3,13 @@
 chateau_coulac:
   id: 1
   name: Chateau Coulac
-  color_id: 1
+  color: white
   year: 2007
+  person: martin
 
 chateau_neuf_du_pape:
   id: 2
   name: Chateau Neuf du pape
-  color_id: 2
+  color: red
   year: 2006
+  person: mat

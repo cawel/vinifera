@@ -23,7 +23,6 @@ class ReviewsControllerTest < ActionController::TestCase
   
   
   logged_in_as :james do
-    
     should_be_restful do |resource|
       resource.parent          = :wine
       resource.formats         = [:html]
@@ -57,7 +56,14 @@ class ReviewsControllerTest < ActionController::TestCase
     
     context "on POST :update" do
       setup do
-        post :update, :wine_id => reviews(:good_wine).wine.id, :id => reviews(:good_wine).id
+        put :update, :wine_id => reviews(:good_wine).wine.id, :id => reviews(:good_wine).id
+      end
+      should_redirect_to 'login_url'
+    end
+    
+    context "on DELETE :destroy" do
+      setup do
+        delete :destroy, :wine_id => reviews(:good_wine).wine.id, :id => reviews(:good_wine).id
       end
       should_redirect_to 'login_url'
     end
