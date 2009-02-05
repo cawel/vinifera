@@ -43,10 +43,14 @@
             <%=h review.person.email %>
         </td>
         <td>
+            <% editable_review?(review) do %>
             <%= link_to image_tag('editable.gif', :class=>'icon'), edit_wine_review_path(review.wine, review), :class => 'icon_link' %>
+            <% end %>
         </td>
         <td>
+            <% editable_review?(review) do %>
             <%= link_to image_tag('emblem-unreadable.gif', :class=>'icon'), wine_review_path(review.wine, review), :confirm => 'Are you sure?', :method => :delete, :class => 'icon_link' %>
+            <% end %>
         </td>
     </tr>
     <% end %>

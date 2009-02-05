@@ -30,7 +30,7 @@ Rails::Initializer.run do |config|
   config.gem "ruby-openid", :lib => "openid"
   config.gem "active_presenter"
   config.gem "andand"
-  config.gem 'resource_controller'
+  #config.gem 'resource_controller'
   
   
   config.gem "mislav-will_paginate",              :lib => "will_paginate",      :source => "http://gems.github.com"

@@ -10,7 +10,7 @@ bad_wine:
   wine_id: 1
   rating: stars1
   comment: '- test - Tres tres mauvais vin.'
-  person: james
+  person: mat
 
 bad_wine2:
   wine_id: 2
