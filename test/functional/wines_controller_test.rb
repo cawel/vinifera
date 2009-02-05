@@ -1,4 +1,4 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 require 'wines_controller'
 
@@ -23,9 +23,21 @@ class WinesControllerTest < ActionController::TestCase
     should_be_restful do |resource|
       resource.formats         = [:html]
       resource.actions         = [:new, :create, :edit, :update, :destroy]
-      resource.create.params = { :color_id => 1, :name =>'my new wine'}
+      resource.create.params   = { :color_id => 1, :name =>'my new wine'}
       resource.create.redirect = 'wines_url'
     end
+    
+    context "on POST :create" do
+      setup do
+        post :create, :wine => { :color_id => 1, :name =>'my new wine'}
+      end
+      
+      should "assign person to newly created wine" do
+        wine = Wine.find_by_name('my new wine')
+        assert_equal wine.person, @person
+      end
+    end
+    
   end
   
   not_logged_in do
