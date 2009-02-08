@@ -9,13 +9,22 @@ class PeopleControllerTest < Test::Unit::TestCase
     @controller = PeopleController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
+    @person     = people :james
   end
   
   should_be_restful do |resource|
     resource.formats         = [:html]
-    resource.actions         = [:create, :new]
+    resource.actions         = [:new, :create, :show]
     resource.create.params   = hash_for_person
     resource.create.redirect = 'root_url'
     resource.create.flash    = /enregist/i
   end
+  
+  logged_in_as :james do
+    should_be_restful do |resource|
+      resource.formats         = [:html]
+      resource.actions         = [:edit, :update]
+    end
+  end
+  
 end

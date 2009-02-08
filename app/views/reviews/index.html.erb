@@ -9,11 +9,11 @@
         <%=@wine.color.name %>
     </p>
     <p>
-        <b>Cepage:</b>
+        <b>C&eacute;page:</b>
         <%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %>
     </p>
     <p>
-        <b>Annee:</b>
+        <b>Ann&eacute;e:</b>
         <%=@wine.year %>
     </p>
 </div>
@@ -40,7 +40,7 @@
             <%=h review.comment %>
         </td>
         <td>
-            <%=h review.person.email %>
+            <%=h person_display_name(review.person) %>
         </td>
         <td>
             <% editable_review?(review) do %>

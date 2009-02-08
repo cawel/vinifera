@@ -1,0 +1,9 @@
+<h1>Compte de <%= person_display_name(@person) %><%= link_to image_tag('editable.gif', :class=>'icon'), edit_person_path(@person), :class => 'icon_link' %></h1>
+<p>
+    <b>Nom:</b>
+    <%=h @person.name %>
+</p>
+<p>
+    <b>Courriel:</b>
+    <%= @person.email %>
+</p>

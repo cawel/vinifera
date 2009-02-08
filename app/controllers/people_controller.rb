@@ -1,5 +1,5 @@
 class PeopleController < ResourceController::Base
-  actions :new, :create, :edit, :update
+  actions :new, :create, :edit, :update, :show
   before_filter :login_required, :only => [:edit, :update]
  
   create do

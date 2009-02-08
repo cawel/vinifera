@@ -17,5 +17,11 @@ module ApplicationHelper
     end
   end
   
+  def person_display_name person
+    if person.nil?
+      return "[no user name]"
+    end
+    person.name.blank? ? person.email : person.name
+  end
   
 end
