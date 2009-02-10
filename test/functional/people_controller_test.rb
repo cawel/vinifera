@@ -25,6 +25,15 @@ class PeopleControllerTest < Test::Unit::TestCase
       resource.formats         = [:html]
       resource.actions         = [:edit, :update]
     end
+    
+    context "on GET :edit another person" do
+      setup do
+        get :edit, :id => (@person.id - 1)
+      end
+      should_set_the_flash_to /son propre compte/i
+      should_redirect_to 'edit_person_url(@person)'
+    end
+    
   end
   
 end
