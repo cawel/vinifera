@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 protected
   # Track failed login attempts
   def note_failed_signin
-    flash[:error] = "Pas pu ouvrir une session en tant que '#{params[:login]}'"
+    flash[:error] = "Nous n'avons pas pu ouvrir une session en tant que \"#{params[:email]}\"."
     logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
   end
 end
