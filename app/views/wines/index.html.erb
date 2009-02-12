@@ -1,51 +1,53 @@
 <h1>Liste des vins</h1>
-<div class="table_container">
-    <div class="add_item">
-        <%=image_tag 'add.gif', :class=>'icon' %><%= link_to 'Ajouter un nouveau vin', new_wine_url %>
+<div id="contents">
+    <div class="table_container">
+        <div class="add_item">
+            <%=image_tag 'add.gif', :class=>'icon' %><%= link_to 'Ajouter un nouveau vin', new_wine_url %>
+        </div>
+        <table>
+            <tr>
+                <th>
+                    Nom
+                </th>
+                <th>
+                    C&eacute;page
+                </th>
+                <th>
+                    Couleur
+                </th>
+                <th>
+                    Ann&eacute;e
+                </th>
+            </tr>
+            <% for wine in @wines %>
+            <tr class="<%= cycle("even", "odd") %>">
+                <td>
+                    <%= link_to wine.name, wine_url(wine) %>
+                </td>
+                <td>
+                    <%=h wine.variety_wines.map{|e|e.variety.name}.join(', ') %>
+                </td>
+                <td>
+                    <%=h wine.color.name %>
+                </td>
+                <td>
+                    <%=h wine.year %>
+                </td>
+                <td>
+                    <%= link_to image_tag('reviews.gif', :class=>'icon'), wine_reviews_path(wine), :class => 'icon_link' %>
+                </td>
+                <td>
+                    <% editable_wine? wine do %>
+                    <%= link_to image_tag('editable.gif', :class=>'icon'), edit_wine_path(wine), :class => 'icon_link' %>
+                    <% end %>
+                </td>
+                <td>
+                    <% editable_wine? wine do %>
+                    <%= link_to image_tag('emblem-unreadable.gif', :class=>'icon'), wine, :confirm => 'Are you sure?', :method => :delete, :class => 'icon_link' %>
+                    <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
     </div>
-    <table>
-        <tr>
-            <th>
-                Nom
-            </th>
-            <th>
-                C&eacute;page
-            </th>
-            <th>
-                Couleur
-            </th>
-            <th>
-                Ann&eacute;e
-            </th>
-        </tr>
-        <% for wine in @wines %>
-        <tr class="<%= cycle("even", "odd") %>">
-            <td>
-                <%= link_to wine.name, wine_url(wine) %>
-            </td>
-            <td>
-                <%=h wine.variety_wines.map{|e|e.variety.name}.join(', ') %>
-            </td>
-            <td>
-                <%=h wine.color.name %>
-            </td>
-            <td>
-                <%=h wine.year %>
-            </td>
-            <td>
-                <%= link_to image_tag('reviews.gif', :class=>'icon'), wine_reviews_path(wine), :class => 'icon_link' %>
-            </td>
-            <td>
-                <% editable_wine? wine do %>
-                <%= link_to image_tag('editable.gif', :class=>'icon'), edit_wine_path(wine), :class => 'icon_link' %>
-                <% end %>
-            </td>
-            <td>
-                <% editable_wine? wine do %>
-                <%= link_to image_tag('emblem-unreadable.gif', :class=>'icon'), wine, :confirm => 'Are you sure?', :method => :delete, :class => 'icon_link' %>
-                <% end %>
-            </td>
-        </tr>
-        <% end %>
-    </table>
 </div>

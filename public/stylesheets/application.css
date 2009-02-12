@@ -26,6 +26,10 @@ body {
     border: solid 1px;
 }
 
+#contents{
+	margin-top: 40px;
+}
+
 .icon {
 	margin: 5px;
 	vertical-align: middle;
