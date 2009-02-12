@@ -19,6 +19,7 @@
 </div>
 <h1>Liste des opinions</h1>
 <%=image_tag 'add.gif', :class=>'icon' %><%= link_to 'Ajouter une opinion', new_wine_review_url(params[:wine_id]) %>
+<% if !@reviews.empty? %>
 <table>
     <tr>
         <th>
@@ -55,4 +56,5 @@
     </tr>
     <% end %>
 </table>
+<% end %>
 </div>
