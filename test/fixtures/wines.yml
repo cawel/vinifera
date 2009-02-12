@@ -6,6 +6,7 @@ chateau_coulac:
   color: white
   year: 2007
   person: martin
+  country: France
 
 chateau_neuf_du_pape:
   id: 2
@@ -13,6 +14,7 @@ chateau_neuf_du_pape:
   color: red
   year: 2006
   person: mat
+  country: France
   
 la_vieille_ferme:
   id: 3
@@ -20,3 +22,4 @@ la_vieille_ferme:
   color: white
   year: 2006
   person: james
+  country: Italy

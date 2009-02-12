@@ -24,4 +24,15 @@ module ApplicationHelper
     person.name.blank? ? person.email : person.name
   end
   
+  def country_flag country
+    image_path = get_flag_image_path(country)
+    image_path.blank?? '' : "<img class='flag' title='#{country.name}' src=\"#{image_path}\"/>"   
+  end 
+  
+  private
+  def get_flag_image_path(country)
+    image_path = "/images/flags/" + country.code.downcase + ".gif"
+    File.exists?("#{RAILS_ROOT}/public/#{image_path}") ? image_path : nil
+  end
+  
 end

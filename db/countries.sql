@@ -1,0 +1,11 @@
+insert into countries (name,code, lng, lat) values ('Argentine','AR',-63.616672, -38.416097);
+insert into countries (name,code, lng, lat) values ('Autriche','AT',14.550072, 47.516231);
+insert into countries (name,code, lng, lat) values ('Canada','CA',-106.346771, 56.130366);
+insert into countries (name,code, lng, lat) values ('Chili','CL',-71.542969, -35.675147);
+insert into countries (name,code, lng, lat) values ('France','FR',2.213749, 46.227638);
+insert into countries (name,code, lng, lat) values ('Allemagne','DE',10.451526, 51.165691);
+insert into countries (name,code, lng, lat) values ('Grece','GR',21.824312, 39.074208);
+insert into countries (name,code, lng, lat) values ('Italie','IT',12.56738, 41.87194);
+insert into countries (name,code, lng, lat) values ('Espagne','ES',-3.74922, 40.463667);
+insert into countries (name,code, lng, lat) values ('Suisse','CH',8.227512, 46.818188);
+insert into countries (name,code, lng, lat) values ('Etats-Unis','US',-95.712891, 37.09024);

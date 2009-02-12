@@ -2,6 +2,7 @@ class Wine < ActiveRecord::Base
   
   belongs_to :color
   belongs_to :person
+  belongs_to :country
   
   has_many :reviews, :dependent => :destroy
   has_many :variety_wines

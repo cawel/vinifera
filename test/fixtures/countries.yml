@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+France:
+  name: France
+  code: FR
+  lat: 1.5
+  lng: 1.5
+
+Italy:
+  name: Italie
+  code: IT
+  lat: 1.5
+  lng: 1.5

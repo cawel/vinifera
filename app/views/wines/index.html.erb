@@ -18,6 +18,9 @@
                 <th>
                     Ann&eacute;e
                 </th>
+				<th>
+                    Pays
+                </th>
             </tr>
             <% for wine in @wines %>
             <tr class="<%= cycle("even", "odd") %>">
@@ -32,6 +35,9 @@
                 </td>
                 <td>
                     <%=h wine.year %>
+                </td>
+				<td>
+                    <%= country_flag wine.country%>
                 </td>
                 <td>
                     <%= link_to image_tag('reviews.gif', :class=>'icon'), wine_reviews_path(wine), :class => 'icon_link' %>

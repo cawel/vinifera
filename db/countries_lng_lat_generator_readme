@@ -1,0 +1,23 @@
+# this is the code that was used (through an action in application controller)
+# to generate lat and lng data for each each country in db
+# so that we could generate the countries.sql file (copy/pasting from HTML output in browser)
+
+  def geo_lat_lng_find
+    query = Country.find_all    
+    result = "start <br><br>"
+    
+    query.each do|k|
+      loc = GeoKit::Geocoders::GoogleGeocoder.geocode(k.name)
+      if loc.success
+           result += ("insert into countries (name,code, lng, lat) values ('#{k.name}','#{k.code}',#{loc.lng.to_s}, #{loc.lat.to_s});<br>")
+      else
+           result += ("insert into countries (name,code, lng, lat) values ('#{k.name}','#{k.code}',null, null);<br>")
+      end
+    end
+    
+    result += "<br>end"    
+    render_text result.to_s
+  end
+  
+  
+  

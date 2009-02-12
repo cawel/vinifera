@@ -5,7 +5,7 @@
 </p>
 
 <p>
-    <%= f.label :varieties %>
+    <%= f.label :variety_ids, "C&eacute;pages" %>
     <br/>
     <%= f.collection_select :variety_ids,
     Variety.find(:all), :id, :name, {},
@@ -21,4 +21,10 @@
     <%= f.label :year %>
     <br/>
     <%= f.text_field :year, :size => 10 %>
+</p>
+<p>
+    <%= f.label :country_id %>
+    <br/>
+    <%= f.collection_select :country_id,
+    Country.find(:all), :id, :name, {}%>
 </p>

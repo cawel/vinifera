@@ -1,10 +1,13 @@
 body {
-	font-family: Verdana,Arial,sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     margin-left: 100px;
     margin-right: 100px;
 }
-#container{
-#	background-color: #eee;
+
+#container {
+    # background-color:
+
+#eee;
 }
 
 #top_menu {
@@ -13,6 +16,11 @@ body {
 }
 
 .logo {
+    vertical-align: text-top;
+}
+
+.flag {
+    margin: 5px;
     vertical-align: text-top;
 }
 
@@ -26,31 +34,32 @@ body {
     border: solid 1px;
 }
 
-#contents{
-	margin-top: 40px;
+#contents {
+    margin-top: 40px;
 }
 
 .icon {
-	margin: 5px;
-	vertical-align: middle;
-	border: 0;
+    margin: 5px;
+    vertical-align: middle;
+    border: 0;
 }
 
-a.icon_link:hover{
+a.icon_link:hover {
     text-decoration: none;
     background-color: transparent;
 }
 
-h1{
-	margin-top: 50px;
-	margin-bottom: 20px;
+h1 {
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
-.add_item{
-#	background-color: red;	
+.add_item {
+    # background-color:red;
 }
-.table_container{
-#	background-color: black;
+
+.table_container {
+    # background-color:black;
 }
 
 th {
@@ -61,7 +70,7 @@ th {
 
 td {
     border-bottom: 1px solid #E0E0E0;
-	border-top: 1px solid #E0E0E0;
+    border-top: 1px solid #E0E0E0;
     border-left: 0px;
     border-right: 0px;
     padding: 7px;
