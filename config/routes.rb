@@ -13,6 +13,8 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.root                   :controller => 'wines'
+  map.about     '/about',    :controller => 'application', :action => 'about'
+  map.contact   '/contact',    :controller => 'application', :action => 'contact'
   
   map.login     '/login',    :controller => 'sessions',    :action => 'new'
   map.logout    '/logout',   :controller => 'sessions',    :action => 'destroy'

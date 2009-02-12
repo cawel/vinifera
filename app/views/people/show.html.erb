@@ -1,4 +1,4 @@
-<h1>Compte de <%= person_display_name(@person) %></h1>
+<h1><%=image_tag 'go-home.gif', :class=>'icon' %> Compte de <%= person_display_name(@person) %></h1>
 <%= link_to "Mettre a jour", edit_person_path(@person) %>
 <div id="contents">
     <p>

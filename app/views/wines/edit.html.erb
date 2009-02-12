@@ -1,10 +1,8 @@
-<h1>Editing wine</h1>
+<h1><%=image_tag 'star.gif', :class=>'icon' %>Modifier le vin</h1>
 <%= error_messages_for :wine %>
 <% form_for(:wine, :url => object_url, :html => { :method => :put }) do |f| %>
 <%= render :partial => "form", :locals => { :f => f } %>
 <p>
-    <%= f.submit "Update" %>
+    <%= f.submit "Sauvegarder" %>
 </p>
 <% end %>
-<%= link_to 'Show', object_url %>
-|<%= link_to 'Back', collection_url %>

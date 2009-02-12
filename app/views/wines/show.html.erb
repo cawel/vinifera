@@ -1,17 +1,17 @@
+<h1><%=image_tag 'star.gif', :class=>'icon' %>Vin</h1>
 <p>
-    <b>Name:</b>
+    <b>Nom:</b>
     <%=h @wine.name %>
 </p>
 <p>
-    <b>Variety:</b>
+    <b>C&eacute;pages:</b>
     <%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %>
 </p>
 <p>
-    <b>Color:</b>
+    <b>Couleur:</b>
     <%=h @wine.color.name %>
 </p>
 <p>
-    <b>Year:</b>
+    <b>Ann&eacute;e:</b>
     <%=h @wine.year %>
 </p>
-<%= link_to 'Edit', edit_wine_path(@wine) %> |<%= link_to 'Back', wines_path %>

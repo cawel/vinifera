@@ -9,4 +9,19 @@ two:
 three:
     wine_id: 2
     variety_id: 6
-	
+
+la_vieille_ferme:
+    wine_id: 3
+    variety_id: 6
+
+la_vallee1:
+    wine_id: 4
+    variety_id: 6
+
+la_vallee2:
+    wine_id: 4
+    variety_id: 4	
+
+la_vallee3:
+    wine_id: 4
+    variety_id: 5

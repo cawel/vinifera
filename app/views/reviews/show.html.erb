@@ -1,16 +1,8 @@
+<%= render :partial => 'reviews/parent_wine'%>
+<h1><%=image_tag 'reviews.gif', :class=>'icon' %>Opinion</h1>
 <p>
-  <strong>Wine:</strong><%=h @review.wine %>
+  <strong>Rating:</strong> <%=h @review.rating.name %>
 </p>
 <p>
-  <strong>Rating:</strong><%=h @review.rating %>
+  <strong>Comment:</strong> <%=h @review.comment %>
 </p>
-<p>
-  <strong>Comment:</strong><%=h @review.comment %>
-</p>
-<p>
-  <strong>Person:</strong><%=h @review.person %>
-</p>
-
-<%= link_to 'Edit', edit_object_url %>
-|
-<%= link_to 'Back', collection_url %>

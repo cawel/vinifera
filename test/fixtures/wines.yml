@@ -23,3 +23,11 @@ la_vieille_ferme:
   year: 2006
   person: james
   country: Italy
+  
+la_vallee:
+  id: 4
+  name: La vallee
+  color: white
+  year: 2006
+  person: mat
+  country: Italy

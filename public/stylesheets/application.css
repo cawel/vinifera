@@ -6,7 +6,6 @@ body {
 
 #container {
     # background-color:
-
 #eee;
 }
 
@@ -38,6 +37,14 @@ body {
     margin-top: 40px;
 }
 
+#footer{
+	margin-top: 70px;
+	border-top: solid 1px;
+	text-align: center;
+}
+#subfooter{
+	font-size:smaller;
+}
 .icon {
     margin: 5px;
     vertical-align: middle;
@@ -50,12 +57,17 @@ a.icon_link:hover {
 }
 
 h1 {
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 20px;
+	border-bottom: 1px dashed;
 }
 
 .add_item {
     # background-color:red;
+}
+
+#wine_for_review{
+	margin-bottom: 50px;
 }
 
 .table_container {

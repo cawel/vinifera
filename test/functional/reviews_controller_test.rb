@@ -27,8 +27,8 @@ class ReviewsControllerTest < ActionController::TestCase
       resource.parent          = :wine
       resource.formats         = [:html]
       resource.actions         = [:new, :create, :edit, :update, :destroy]
-      resource.create.params = { :rating_id => 1}
-      resource.create.redirect = 'wine_reviews_url'
+      resource.create.params = { :rating_id => 1, :comment => 'my comment'}
+#      resource.create.redirect = 'wine_reviews_url'
     end
   end
   

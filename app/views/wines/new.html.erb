@@ -1,8 +1,8 @@
-<h1>Nouveau vin</h1>
+<h1><%=image_tag 'star.gif', :class=>'icon' %>Nouveau vin</h1>
 <%= error_messages_for :wine %>
 <% form_for(:wine, :url => wines_url) do |f| %>
 <%= render :partial => "form", :locals => { :f => f } %>
-<%= f.submit "Create" %>
+<%= f.submit "Ajouter" %>
 <% end %>
 <p>
 </p>

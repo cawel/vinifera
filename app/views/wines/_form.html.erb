@@ -1,5 +1,5 @@
 <p>
-    <%= f.label :name %>
+    <%= f.label :name, "Nom" %>
     <br/>
     <%= f.text_field :name	 %>
 </p>
@@ -13,17 +13,17 @@
     :name => 'wine[variety_ids][]', :size => 15 %>
 </p>
 <p>
-    <%= f.label :color_id %>
+    <%= f.label :color_id, "Couleur" %>
     <br/>
     <%= f.collection_select :color_id, Color.find(:all), :id, :name %>
 </p>
 <p>
-    <%= f.label :year %>
+    <%= f.label :year, "Ann&eacute;e" %>
     <br/>
     <%= f.text_field :year, :size => 10 %>
 </p>
 <p>
-    <%= f.label :country_id %>
+    <%= f.label :country_id, "Pays" %>
     <br/>
     <%= f.collection_select :country_id,
     Country.find(:all), :id, :name, {}%>

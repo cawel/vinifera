@@ -1,10 +1,8 @@
-<h1>Nouvel Opinion</h1>
+<h1>Nouvelle Opinion</h1>
 <%= error_messages_for :review %>
 <% form_for(:review, :url => wine_reviews_url(@wine)) do |f| %>
 <%= render :partial => "form", :locals => { :f => f } %>
 <p>
-    <%= submit_tag "Creer" %>
+    <%= submit_tag "Ajouter" %>
 </p>
 <% end %>
-<br/>
-<%= link_to 'Back', wine_reviews_url(params[:wine_id]) %>

@@ -1,7 +1,11 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class ReviewTest < Test::Unit::TestCase
-  def test_truth
-    assert true
-  end
+  should_belong_to :wine
+  should_belong_to :person
+  should_belong_to :rating
+  
+  should_validates_presence_of :rating_id
+  should_validates_presence_of :person_id
+  should_validates_presence_of :comment
 end

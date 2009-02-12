@@ -9,8 +9,8 @@ class ReviewsController < ApplicationController
     object.person = current_person
   end
   
-  create.response do |wants|
-    wants.html{ redirect_to wine_reviews_url(params[:wine_id]) }
-  end
+#  create.response do |wants|
+#    wants.html{ redirect_to wine_reviews_url(params[:wine_id]) }
+#  end
   
 end

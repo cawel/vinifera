@@ -1,0 +1,19 @@
+<div id="wine_for_review">
+    <h1><%=image_tag 'star.gif', :class=>'icon' %>Vin</h1>
+    <p>
+        <b>Nom:</b>
+        <%=h @wine.name %>
+    </p>
+    <p>
+        <b>Couleur:</b>
+        <%=@wine.color.name %>
+    </p>
+    <p>
+        <b>C&eacute;page:</b>
+        <%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %>
+    </p>
+    <p>
+        <b>Ann&eacute;e:</b>
+        <%=@wine.year %>
+    </p>
+</div>
