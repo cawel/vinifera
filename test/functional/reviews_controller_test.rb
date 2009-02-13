@@ -28,7 +28,8 @@ class ReviewsControllerTest < ActionController::TestCase
       resource.formats         = [:html]
       resource.actions         = [:new, :create, :edit, :update, :destroy]
       resource.create.params = { :rating_id => 1, :comment => 'my comment'}
-#      resource.create.redirect = 'wine_reviews_url'
+      resource.create.flash /opinion a été sauvegardée/i
+      resource.create.redirect = 'wine_reviews_url'
     end
   end
   

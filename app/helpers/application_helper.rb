@@ -24,6 +24,10 @@ module ApplicationHelper
     person.name.blank? ? person.email : person.name
   end
   
+  def format_review_comment text
+    simple_format word_wrap((text), :line_width => 100)
+  end
+  
   def country_flag country
     image_path = get_flag_image_path(country)
     image_path.blank?? '' : "<img class='flag' title='#{country.name}' src=\"#{image_path}\"/>"   
