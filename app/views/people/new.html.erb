@@ -1,16 +1,16 @@
-<h1>Enregistrement en tant que nouvel usager</h1>
+<h1><%= I18n.t(:new_user_sign_up) %></h1>
 <% @person.password = @person.password_confirmation = nil %>
 
 <%= error_messages_for :person %>
 <% form_for :person, :url => people_path do |f| -%>
-<p><label for="email">Email</label><br/>
+<p><%= label_tag 'email', I18n.t(:email) %><br/>
 <%= f.text_field :email %></p>
 
-<p><label for="password">Mot de passe</label><br/>
+<p><%= label_tag 'password', I18n.t(:password) %><br/>
 <%= f.password_field :password %></p>
 
-<p><label for="password_confirmation">Mot de passe (confirmation)</label><br/>
+<p><%= label_tag 'password_confirmation', I18n.t(:password_confirmation) %><br/>
 <%= f.password_field :password_confirmation %></p>
 
-<p><%= submit_tag "S'enregistrer" %></p>
+<p><%= submit_tag I18n.t(:sign_up) %></p>
 <% end -%>

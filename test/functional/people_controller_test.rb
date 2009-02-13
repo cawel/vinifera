@@ -17,7 +17,7 @@ class PeopleControllerTest < Test::Unit::TestCase
     resource.actions         = [:new, :create, :show]
     resource.create.params   = hash_for_person
     resource.create.redirect = 'root_url'
-    resource.create.flash    = /enregist/i
+    resource.create.flash    = /Ouverture du compte complétée/i
   end
   
   logged_in_as :james do

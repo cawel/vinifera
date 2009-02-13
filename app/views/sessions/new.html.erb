@@ -1,14 +1,14 @@
-<h1><%=image_tag 'start-here-alt.gif', :class=>'icon' %> Ouvrir une session</h1>
+<h1><%=image_tag 'start-here-alt.gif', :class=>'icon' %> <%= I18n.t(:log_in) %></h1>
 
 <% form_tag session_path do -%>
-<p><label for="login">Courriel</label><br/>
+<p><%= label_tag 'email', I18n.t(:email) %><br />
 <%= text_field_tag 'email', @email %></p>
 
-<p><label for="password">Mot de passe</label><br/>
+<p><%= label_tag 'password', I18n.t(:password) %><br/>
 <%= password_field_tag 'password', nil %></p>
 
-<p><label for="remember_me">Session persistente:</label>
+<p><%= label_tag 'remember_me', I18n.t(:remember_me) %>
 <%= check_box_tag 'remember_me', '1', @remember_me %></p>
 
-<p><%= submit_tag 'Ouvrir une session' %></p>
+<p><%= submit_tag I18n.t(:log_in) %></p>
 <% end -%>

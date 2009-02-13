@@ -5,7 +5,7 @@ class ReviewTest < Test::Unit::TestCase
   should_belong_to :person
   should_belong_to :rating
   
-  should_validates_presence_of :rating_id
-  should_validates_presence_of :person_id
-  should_validates_presence_of :comment
+  should_validate_presence_of :rating_id
+  should_validate_presence_of :person_id
+  should_validate_presence_of :comment
 end

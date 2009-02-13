@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
 
   helper :all
   before_filter :configure_mailers
+  before_filter :localizate
+  
+  def localizate
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
   
   # See ActionController::Base for details 
   # Uncomment this to filter the contents of submitted sensitive data parameters
