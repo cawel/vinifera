@@ -24,6 +24,7 @@ class PeopleControllerTest < Test::Unit::TestCase
     should_be_restful do |resource|
       resource.formats         = [:html]
       resource.actions         = [:edit, :update]
+      resource.update.flash    = /à jour/i
     end
     
     context "on GET :edit another person" do

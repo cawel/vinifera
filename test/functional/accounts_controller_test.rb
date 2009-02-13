@@ -11,6 +11,7 @@ class AccountsControllerTest < ActionController::TestCase
       resource.klass           = Person
       resource.actions         = [:edit, :update]
       resource.update.redirect = 'account_url'
+      resource.update.flash    = /à jour/i
     end
   end
   
