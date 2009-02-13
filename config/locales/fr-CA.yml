@@ -32,7 +32,7 @@ fr-CA:
   account_created : "Votre compte a été créé."
   activation_complete_email_subject : 'Votre compte a été activé!'
   activation_required_email_subject : 'Veuillez activer votre nouveau compte'
-  blank_activation_code : "Le code d'activation est manquant. Veuillez aller a l'adresse indiquée dans votre courriel."
+  blank_activation_code : "Le code d'activation est manquant. Veuillez aller a l'adresse telle qu'indiquée dans votre courriel."
   bogus_activation_code : "Nous n'avons pas pu trouver le {{model}} avec ce code d'activation -- consultez votre courriel? Ou peut-être votre compte est déjà activé -- vous pourriez essayer d'ouvrir une session."
   create_account : "Création du compte"
   email : "Courriel"
@@ -43,7 +43,7 @@ fr-CA:
   logged_out : "Votre session est maintenant terminée."
   login : "Login"
   login_failed : "N'a pas pu ouvrir la session en tant que '{{login}}'"
-  new_user_sign_up : "Enregistrement comme nouvel usager"
+  new_user_sign_up : "Enregistrement en tant que nouvel usager"
   not_logged_in : "Session non ouverte"
   password : "Mot de passe"
   password_confirmation : "Confirmation du mot de passe"
@@ -52,4 +52,4 @@ fr-CA:
   signup_complete : "Ouverture du compte complétée!"
   signup_complete_and_do_login : "Ouverture du compte complétée! Veuillez ouvrir une session pour continuer."
   signup_complete_with_activation : "Merci de vous être enregistré! Nous vous envoyons envoyé un courriel avec votre code d'activation."
-  signup_problem : "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
+  signup_problem : "Nous n'avons pu compléter la création du compte. Veuillez réessayer, ou encore contacter un administrateur (voir lien ci-haut)."
