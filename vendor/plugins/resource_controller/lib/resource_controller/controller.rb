@@ -40,21 +40,21 @@ module ResourceController
           end
 
           create do
-            flash "Successfully created!"
+            flash I18n.t(:successfully_created)
             wants.html { redirect_to object_url }
 
             failure.wants.html { render :action => "new" }
           end
 
           update do
-            flash "Successfully updated!"
+            flash I18n.t(:successfully_updated)
             wants.html { redirect_to object_url }
 
             failure.wants.html { render :action => "edit" }
           end
 
           destroy do
-            flash "Successfully removed!"
+            flash I18n.t(:successfully_removed)
             wants.html { redirect_to collection_url }
           end
           
