@@ -9,26 +9,27 @@
         <%= active_scaffold_includes %>
     </head>
     <body>
-        <div id="container">
-            <div id="top_nav_bar">
+        <div id="top_nav_bar">
+            <div id="top_nav_bar_overlay">
                 <div id="top_menu">
-                    <%= image_tag "wine5-small.jpg", :class => "logo" %>
-                    <%= link_to "liste des vins", wines_url %><% if current_person %> | <%= link_to "ajouter un nouveau vin", new_wine_url %><% end %>
+                    <span id="logo">VINIFERA</span><%= link_to "liste des vins", wines_url %><% if current_person %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "ajouter un nouveau vin", new_wine_url %><% end %>
                 </div>
                 <div id="top_login_box">
-                	<%= render :partial => 'people/person_bar'%>
-                </div>
-                <div style="clear:both;">
+                    <%= render :partial => 'people/person_bar' %>
                 </div>
             </div>
+            <div style="clear:both;">
+            </div>
+        </div>
+        <div id="container">
             <p style="color: green">
                 <%= flash[:notice] %>
             </p>
-			<p style="color: red">
+            <p style="color: red">
                 <%= flash[:error] %>
             </p>
             <%= yield %>
-            <%= render :partial => "layouts/footer" %>
         </div>
+        <%= render :partial => "layouts/footer" %>
     </body>
 </html>

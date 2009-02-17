@@ -1,17 +1,78 @@
 body {
     font-family: Verdana, Arial, sans-serif;
-    margin-left: 100px;
-    margin-right: 100px;
+    width: 1024px;
+    margin: auto;
+    background: #e3e3e3;
 }
 
-#container {
-    # background-color:
-#eee;
+#top_nav_bar {
+    background-image: url(/images/red_right.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+    height: 67px;
+    margin-right: -12px;
+    margin-left: -5px;
+    margin-bottom: 10px;
+}
+
+#top_nav_bar_overlay {
+    background-image: url(/images/red_left.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    margin-left: -10px;
+    height: 52px;
+}
+
+#logo {
+    color: white;
+    margin-right: 50px;
+    font-size: large;
+    font-weight: bolder;
+	margin-left: 5px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 #top_menu {
-    padding: 10px;
+    padding: 20px;
     float: left;
+    color: #bbb;
+    font-family: "Lucida Grande", Arial, Helvetica, Verdana, sans-serif;
+}
+
+#top_menu a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none
+}
+
+#top_menu a:hover {
+    text-decoration: underline;
+    background: none;
+}
+
+#top_login_box {
+    float: right;
+    padding: 20px;
+    font-size: 11px;
+    line-height: 1.36364;
+    color: #bbb;
+}
+
+#top_login_box a {
+    color: white;
+    text-decoration: none;
+}
+
+#top_login_box a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+#container {
+    background-color: white;
+    border: 1px solid #bbb;
+    padding: 25px;
 }
 
 .logo {
@@ -23,28 +84,19 @@ body {
     vertical-align: text-top;
 }
 
-#top_login_box {
-    float: right;
-    margin: 10px;
-}
-
-#top_nav_bar {
-    background-color: #e4eafb;
-    border: solid 1px;
-}
-
 #contents {
     margin-top: 40px;
 }
 
-#footer{
-	margin-top: 70px;
-	border-top: solid 1px;
-	text-align: center;
+#footer {
+    margin-top: 30px;
+    text-align: center;
 }
-#subfooter{
-	font-size:smaller;
+
+#subfooter {
+    font-size: smaller;
 }
+
 .icon {
     margin: 5px;
     vertical-align: middle;
@@ -59,15 +111,15 @@ a.icon_link:hover {
 h1 {
     margin-top: 30px;
     margin-bottom: 20px;
-	border-bottom: 1px dashed;
+    border-bottom: 1px dashed;
 }
 
 .add_item {
     # background-color:red;
 }
 
-#wine_for_review{
-	margin-bottom: 50px;
+#wine_for_review {
+    margin-bottom: 50px;
 }
 
 .table_container {
