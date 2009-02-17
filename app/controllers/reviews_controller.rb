@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     object.person = current_person
   end
   
-  create.flash {"Votre critique a été sauvegardée!"}
+  create.flash {"Votre critique a été ajoutée!"}
   create.response do |wants|
     wants.html{ redirect_to wine_reviews_url(params[:wine_id]) }
   end
@@ -19,6 +19,8 @@ class ReviewsController < ApplicationController
   update.response do |wants|
     wants.html{ redirect_to wine_reviews_url(params[:wine_id]) }
   end
+
+  destroy.flash {"Votre critique a été retirée!"}
   
   private
   def check_if_user_has_reviewed_wine_yet

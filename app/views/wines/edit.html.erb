@@ -1,4 +1,4 @@
-<h1><%=image_tag 'star.gif', :class=>'icon' %>Modifier le vin</h1>
+<h1><%=image_tag 'star.gif', :class=>'icon' %>Mettre à jour le vin</h1>
 <%= error_messages_for :wine %>
 <% form_for(:wine, :url => object_url, :html => { :method => :put }) do |f| %>
 <%= render :partial => "form", :locals => { :f => f } %>

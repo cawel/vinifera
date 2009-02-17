@@ -28,7 +28,7 @@ body {
     margin-right: 50px;
     font-size: large;
     font-weight: bolder;
-	margin-left: 5px;
+    margin-left: 5px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
@@ -72,7 +72,9 @@ body {
 #container {
     background-color: white;
     border: 1px solid #bbb;
-    padding: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
 }
 
 .logo {

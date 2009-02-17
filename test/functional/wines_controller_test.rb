@@ -25,10 +25,12 @@ class WinesControllerTest < ActionController::TestCase
       resource.actions         = [:new, :create, :edit, :update, :destroy]
       resource.create.params   = { :color_id => 1, :name =>'my new wine'}
       resource.create.redirect = 'wines_url'
-
-      resource.create.flash    = /Création/i
+      resource.create.flash    = /ajouté/i
+      
+      resource.update.redirect = 'wines_url'
       resource.update.flash    = /à jour/i
-      resource.destroy.flash   = /Retrait/i
+      
+      resource.destroy.flash   = /retiré/i
     end
     
     context "on POST :create" do

@@ -29,11 +29,11 @@ class ReviewsControllerTest < ActionController::TestCase
       resource.actions         = [:new, :create, :edit, :update, :destroy]
       resource.create.params   = {:rating_id => 1, :comment => 'my comment'}
 
-      resource.create.flash    = /critique a été sauvegardée/i
+      resource.create.flash    = /critique a été ajoutée/i
       resource.create.redirect = 'wine_reviews_url'
       resource.update.flash    = /à jour/i
       resource.update.redirect = 'wine_reviews_url'
-      resource.destroy.flash   = /Retrait/i
+      resource.destroy.flash   = /retiré/i
     end
   end
   
