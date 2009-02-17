@@ -29,7 +29,7 @@ class ReviewsControllerTest < ActionController::TestCase
       resource.actions         = [:new, :create, :edit, :update, :destroy]
       resource.create.params   = {:rating_id => 1, :comment => 'my comment'}
 
-      resource.create.flash    = /opinion a été sauvegardée/i
+      resource.create.flash    = /critique a été sauvegardée/i
       resource.create.redirect = 'wine_reviews_url'
       resource.update.flash    = /à jour/i
       resource.update.redirect = 'wine_reviews_url'
@@ -42,7 +42,7 @@ class ReviewsControllerTest < ActionController::TestCase
     setup do
       get :new, :wine_id => reviews(:wine2_according_to_martin).wine.id
     end
-    should_set_the_flash_to /Vous avez déjà donné une opinion pour ce vin./i
+    should_set_the_flash_to /Vous avez déjà fait une critique pour ce vin./i
     should_redirect_to 'edit_wine_review_url(@review.wine, @review)'
   end
 end

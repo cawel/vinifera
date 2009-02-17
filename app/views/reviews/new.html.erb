@@ -1,5 +1,5 @@
 <%= render :partial => 'reviews/parent_wine'%>
-<h1><%=image_tag 'reviews.gif', :class=>'icon' %>Nouvelle Opinion</h1>
+<h1><%=image_tag 'reviews.gif', :class=>'icon' %>Ajout d'une critique</h1>
 <%= error_messages_for :review %>
 <% form_for(:review, :url => wine_reviews_url(@wine)) do |f| %>
 <%= render :partial => "form", :locals => { :f => f } %>

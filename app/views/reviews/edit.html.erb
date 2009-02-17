@@ -1,4 +1,4 @@
-<h1><%=image_tag 'reviews.gif', :class=>'icon' %>Modifier l'opinion</h1>
+<h1><%=image_tag 'reviews.gif', :class=>'icon' %>Mise à jour de la critique</h1>
 <%= error_messages_for :review %>
 <% form_for(:review, :url => object_url, :html => { :method => :put }) do |f| %>
 <%= render :partial => "form", :locals => { :f => f } %>
