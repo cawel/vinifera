@@ -1,0 +1,8 @@
+<%% if logged_in? -%>
+  <div id="<%= file_name %>-bar-greeting"><%%= I18n.t(:logged_in_as, :login => link_to_current_<%= file_name %>, :content_method => :login) %></div>
+  <div id="<%= file_name %>-bar-action"  >(<%%= link_to t(:log_out), logout_path, { :title => t(:log_out) }    %>)</div>
+<%% else -%>
+  <div id="<%= file_name %>-bar-greeting"><%%= link_to_login_with_IP I18n.t(:not_logged_in), :style => 'border: none;' %></div>
+  <div id="<%= file_name %>-bar-action"  ><%%= link_to I18n.t(:log_in),  login_path,  { :title => I18n.t(:log_in) } %> /
+                               <%%= link_to I18n.t(:sign_up), signup_path, { :title => I18n.t(:create_account) } %></div>
+<%% end -%>

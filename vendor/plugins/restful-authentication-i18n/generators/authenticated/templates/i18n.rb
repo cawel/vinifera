@@ -1,0 +1,1 @@
+I18n.default_locale = "<%= $rest_auth_default_locale %>"

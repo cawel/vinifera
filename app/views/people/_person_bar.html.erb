@@ -1,7 +1,0 @@
-<div id="person-bar-greeting">
-    <% if logged_in? -%>
-    <%= link_to "profile", edit_person_url(current_person), { :class => "icon_link", :title => "Compte de #{current_person.email}" } %>&nbsp;|&nbsp;<%= link_to "quitter", logout_path, { :class => "icon_link", :title => "Quiter la session" } %>
-    <% else -%>
-    <%= link_to "Ouvrir une session",  login_path,  { :title => "Ouvrir une session" } %>&nbsp;/&nbsp;<%= link_to "S'enregistrer", signup_path, { :title => "S'enregistrer" } %>
-    <% end -%>
-</div>

@@ -1,0 +1,19 @@
+<h1><%%= I18n.t(:new_user_sign_up) %></h1>
+<%% @<%= file_name %>.password = @<%= file_name %>.password_confirmation = nil %>
+
+<%%= error_messages_for :<%= file_name %> %>
+<%% form_for :<%= file_name %>, :url => <%= model_controller_routing_name %>_path do |f| -%>
+<p><%%= label_tag 'login', I18n.t(:login) %><br/>
+<%%= f.text_field :login %></p>
+
+<p><%%= label_tag 'email', I18n.t(:email) %><br/>
+<%%= f.text_field :email %></p>
+
+<p><%%= label_tag 'password', I18n.t(:password) %><br/>
+<%%= f.password_field :password %></p>
+
+<p><%%= label_tag 'password_confirmation', I18n.t(:password_confirmation) %><br/>
+<%%= f.password_field :password_confirmation %></p>
+
+<p><%%= submit_tag I18n.t(:sign_up) %></p>
+<%% end -%>
