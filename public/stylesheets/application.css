@@ -1,3 +1,13 @@
+/* Available Colours */
+/*
+  Source: http://www.colourlovers.com/palette/148760/faded_jeans
+  Lees::        #274B66
+  Share My Sky: #708882
+  Desdemona:    #EBDABF
+  Millésimé:    #ECCD7C
+  New Chianti:  #6D0523
+*/
+
 /* CSS Reset */
 html,body,div,span,object,iframe,
 h1,h2,h3,h4,h5,h6,p,blockquote,pre,
@@ -34,8 +44,8 @@ h1 img,h2 img,h3 img,
 h4 img,h5 img,h6 img{margin:0;}
 p{margin:0 0 1.5em;}
 a:focus,
-a:hover{color:#000;}
-a{color:#009;text-decoration:underline;outline:none;}
+a:hover{text-decoration:none;}
+a{color:#274B66;text-decoration:underline;outline:none;}
 blockquote{margin:1.5em;color:#666;font-style:italic;}
 strong{font-weight:bold;}
 em,dfn{font-style:italic;}
@@ -71,11 +81,32 @@ caption{background:#eee;}
 .top{margin-top:0;padding-top:0;}
 .bottom{margin-bottom:0;padding-bottom:0;}
 
+/* Layout */
+div.page_width { width: 950px; margin: 0 auto; }
+#content { overflow: hidden; margin: 30px auto; }
+#main { float: left; width: 620px; }
+#sidebar { float: right; width: 310px; }
+
 /* Masthead */
-#masthead {}
+#masthead { overflow: hidden; background: #6D0523; padding: 20px 0; }
+#masthead h1 { float: left; margin-right: 20px; }
+#masthead h1 a { color: #FFFFFF; font-weight: bold; font-size: 24px; text-decoration: none; }
+#masthead #nav { float: left; overflow: hidden; margin: 0; }
+#masthead #nav li { float: left; display: block; margin-right: 10px; list-style: none; }
+#masthead #nav li a { line-height: 1; padding: 5px 10px; text-decoration: none; display: block; background: #6D0523; font-size: 14px; color: #FFFFFF; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+#masthead #nav li a:hover { background: #8D3739; color: #FFFFFF; }
+#masthead #nav li.current a { background: #FFFFFF; color: #8D3739; }
+#masthead #utilities { float: right; }
+#masthead #utilities li { float: left; list-style: none; display: block; margin-left: 5px; padding-right: 5px; border-right: 1px solid #8D3739; }
+#masthead #utilities li.last { padding-right: 0; border: none; }
+#masthead #utilities li a { line-height: 1; color: #FFFFFF; font-size: 12px; }
 
 /* Footer */
-#footer {}
+#footer { overflow: hidden; margin: 50px auto; font-size: 12px; }
+#footer ul.nav { float: left; margin: 0; }
+#footer ul.nav li { float: left; display: block; margin-right: 10px; padding-right: 10px; border-right: 1px solid #808080; }
+#footer ul.nav li.last { margin-right: 0; padding-right: 0; border-right: none; }
+#footer p.legal { float: right; color: #808080; margin: 0; }
 
 /*
 
