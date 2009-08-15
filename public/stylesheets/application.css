@@ -35,7 +35,7 @@ html[xmlns] .clearfix{display:block;}
 body{font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
 h1,h2,h3,h4,h5,h6{font-weight:normal;color:#111;}
 h1{font-size:3em;line-height:1;margin-bottom:0.5em;}
-h2{font-size:2em;margin-bottom:0.75em;}
+h2{font-size:2em;margin-bottom:1em;font-weight:bold;}
 h3{font-size:1.5em;line-height:1;margin-bottom:1em;}
 h4{font-size:1.2em;line-height:1.25;margin-bottom:1.25em;height:1.25em;}
 h5{font-size:1em;font-weight:bold;margin-bottom:1.5em;}
@@ -51,6 +51,7 @@ strong{font-weight:bold;}
 em,dfn{font-style:italic;}
 dfn{font-weight:bold;}
 sup,sub{line-height:0;}
+input,textarea{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
 abbr,
 acronym{border-bottom:1px dotted #666;}
 address{margin:0 0 1.5em;font-style:italic;}
@@ -86,10 +87,10 @@ table td.title { font-weight: bold; }
 table td.controls a { font-size: 11px; display: inline-block; height: 16px; padding-left: 19px; line-height: 16px; }
 
 /* Layout */
-div.page_width { width: 950px; margin: 0 auto; position: relative; }
+div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hidden; }
 #content { overflow: hidden; margin: 30px auto; }
-#main { float: left; width: 620px; }
-#sidebar { float: right; width: 310px; }
+#main { float: left; width: 700px; }
+#sidebar { float: right; width: 230px; }
 
 /* Masthead */
 #masthead { overflow: hidden; background: #6D0523; padding: 20px 0; }
@@ -100,11 +101,14 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; }
 #masthead #nav li { float: left; display: block; margin-right: 10px; list-style: none; }
 #masthead #nav li a { line-height: 1; padding: 5px 10px; text-decoration: none; display: block; background: #6D0523; font-size: 14px; color: #FFFFFF; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 #masthead #nav li a:hover { background: #8D3739; color: #FFFFFF; }
-#masthead #nav li.current a { background: #FFFFFF; color: #8D3739; }
+#masthead #nav li.current a { background: #FAF3DE; color: #8D3739; }
 #masthead #utilities { position: absolute; top: 0; right: 0; }
 #masthead #utilities li { float: left; list-style: none; display: block; margin-left: 5px; padding-right: 5px; border-right: 1px solid #8D3739; }
 #masthead #utilities li.last { padding-right: 0; border: none; }
 #masthead #utilities li a { line-height: 1; color: #FFFFFF; font-size: 12px; }
+#masthead #search { position: absolute; right: 0; bottom: 0; }
+#masthead #search input { border: 1px solid #ECCD7C; font-size: 14px; padding: 3px; }
+#masthead #search a.submit { line-height: 23px; height: 24px; }
 
 /* Footer */
 #footer { overflow: hidden; margin: 50px auto; font-size: 12px; }
@@ -112,6 +116,32 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; }
 #footer ul.nav li { float: left; display: block; margin-right: 5px; padding-right: 5px; border-right: 1px solid #C0C0C0; }
 #footer ul.nav li.last { margin-right: 0; padding-right: 0; border-right: none; }
 #footer p.legal { float: right; color: #808080; margin: 0; }
+
+/* Form Elements */
+a.button { background: #274B66; color: #FFFFFF; display: inline-block; font-size: 14px; padding: 0 8px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; padding: 0 8px; line-height: 23px; height: 24px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+input[type="text"],
+input[type="password"] { border: 1px solid #d0cbc4; height: 22px; font-size: 14px; padding: 3px 20px 0 3px; }
+label { line-height: 25px; text-align: right; color: #404040; font-size: 14px; display: block; float: left; width: 80px; margin-right: 5px; }
+form.lw40 label { width: 40px; }
+form.lw40 p.indent { margin-left: 45px; }
+form.lw80 label { width: 80px; }
+form.lw80 p.indent { margin-left: 85px; }
+form.lw120 label { width: 120px; }
+form.lw120 p.indent { margin-left: 125px; }
+form.lw160 label { width: 160px; }
+form.lw160 p.indent { margin-left: 165px; }
+form.lw200 label { width: 200px; }
+form.lw200 p.indent { margin-left: 205px; }
+form.lw240 label { width: 240px; }
+form.lw240 p.indent { margin-left: 245px; }
+form p { margin-bottom: 0.75em; }
+form p.submit { margin-bottom: 0; }
+form p.choice label { display: inline; float: none; line-height: normal; }
+
+/* Sidebar Elements */
+p.add a.button { font-size: 16px; font-weight: bold; padding: 10px 15px 10px 36px; line-height: 1; background-image: url('../images/icons/plus-circle.png'); background-repeat: no-repeat; background-position: 15px center; line-height: 1; height: auto; }
+
+
 
 /*
 

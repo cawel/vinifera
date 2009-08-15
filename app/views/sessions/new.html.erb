@@ -1,14 +1,19 @@
-<h1><%=image_tag 'start-here-alt.gif', :class=>'icon' %> <%= I18n.t(:log_in) %></h1>
+<% @title = I18n.t(:log_in) %>
 
-<% form_tag session_path do -%>
-<p><%= label_tag 'email', I18n.t(:email) %><br />
-<%= text_field_tag 'email', @email %></p>
-
-<p><%= label_tag 'password', I18n.t(:password) %><br/>
-<%= password_field_tag 'password', nil %></p>
-
-<p><%= label_tag 'remember_me', I18n.t(:remember_me) %>
-<%= check_box_tag 'remember_me', '1', @remember_me %></p>
-
-<p><%= submit_tag I18n.t(:log_in) %></p>
+<% form_tag session_path, :class => "lw120" do -%>
+  <p>
+    <%= label_tag 'email', I18n.t(:email) %>
+    <%= text_field_tag 'email', @email %>
+  </p>
+  <p>
+    <%= label_tag 'password', I18n.t(:password) %>
+    <%= password_field_tag 'password', nil %>
+  </p>
+  <p class="indent choice">
+    <%= check_box_tag 'remember_me', '1', @remember_me %>
+    <%= label_tag 'remember_me', I18n.t(:remember_me) %>
+  </p>
+  <p class="submit indent">
+    <%= link_to_function I18n.t(:log_in), "$(this).parents('form').submit()", :title => I18n.t(:log_in), :class => "button" %>
+  </p>
 <% end -%>

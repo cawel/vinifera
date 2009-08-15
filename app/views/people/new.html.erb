@@ -1,16 +1,22 @@
-<h1><%= I18n.t(:new_user_sign_up) %></h1>
+<% @title = I18n.t(:new_user_sign_up) %>
+
 <% @person.password = @person.password_confirmation = nil %>
 
 <%= error_messages_for :person %>
-<% form_for :person, :url => people_path do |f| -%>
-<p><%= label_tag 'email', I18n.t(:email) %><br/>
-<%= f.text_field :email %></p>
-
-<p><%= label_tag 'password', I18n.t(:password) %><br/>
-<%= f.password_field :password %></p>
-
-<p><%= label_tag 'password_confirmation', I18n.t(:password_confirmation) %><br/>
-<%= f.password_field :password_confirmation %></p>
-
-<p><%= submit_tag I18n.t(:sign_up) %></p>
+<% form_for :person, :url => people_path, :html => { :class => "lw200" } do |f| -%>
+  <p>
+    <%= label_tag 'email', I18n.t(:email) %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= label_tag 'password', I18n.t(:password) %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= label_tag 'password_confirmation', I18n.t(:password_confirmation) %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p class="submit indent">
+    <%= link_to_function I18n.t(:sign_up), "$(this).parents('form').submit()", :title => I18n.t(:sign_up), :class => "button" %>
+  </p>
 <% end -%>

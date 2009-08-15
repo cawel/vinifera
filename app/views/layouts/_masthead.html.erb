@@ -5,7 +5,6 @@
     <ul id="nav">
       <li><%= link_to "Accueil", root_url, :title => "Accueil" %></li>
       <li><%= link_to "Liste des vins", wines_url, :title => "Liste des vins" %></li>
-      <li><%= link_to "Ajouter un vin", new_wine_url, :title => "Ajouter un vin" if current_person %></li>
     </ul>
     <ul id="utilities">
       <% if logged_in? -%>
@@ -16,5 +15,9 @@
         <li class="last"><%= link_to "S'enregistrer", signup_path, :title => "S'enregistrer" %></li>
       <% end -%>
     </ul>
+    <form id="search">
+      <input/>
+      <%= link_to_function "Recherche", "$(this).parents('form').submit()", :title => "Recherche", :class => "button submit" %>
+    </form>
   </div>
 </div>
