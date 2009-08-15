@@ -1,11 +1,8 @@
 <p>
-    <%= f.label :rating_id %><br>
-    <%= f.collection_select :rating_id,
-    Rating.find(:all), :id, :name %>
+  <%= f.label :rating_id %>
+  <%= f.collection_select :rating_id, Rating.find(:all), :id, :name %>
 </p>
 <p>
-    <label for="review_comment">
-        Comment:
-    </label><br>
-    <%= f.text_area :comment, :cols => 100, :rows => 10 %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment, :cols => 50, :rows => 10 %>
 </p>

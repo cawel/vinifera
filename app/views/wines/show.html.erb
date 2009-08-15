@@ -1,17 +1,3 @@
-<h1><%=image_tag 'star.gif', :class=>'icon' %>Vin</h1>
-<p>
-    <b>Nom:</b>
-    <%=h @wine.name %>
-</p>
-<p>
-    <b>C&eacute;pages:</b>
-    <%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %>
-</p>
-<p>
-    <b>Couleur:</b>
-    <%=h @wine.color.name %>
-</p>
-<p>
-    <b>Ann&eacute;e:</b>
-    <%=h @wine.year %>
-</p>
+<% @title = "Vin: #{h @wine.name}" %>
+
+<%= render :partial => "wine_profile" %>

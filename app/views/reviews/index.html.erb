@@ -1,42 +1,33 @@
-<%= render :partial => 'reviews/parent_wine'%>
-<h1><%=image_tag 'reviews.gif', :class=>'icon' %> Liste des critiques</h1>
-<%=image_tag 'add.gif', :class=>'icon' %><%= link_to 'Ajouter une opinion', new_wine_review_url(params[:wine_id]) %>
-<% if !@reviews.empty? %>
-<table>
-    <tr>
-        <th>
-            Cote
-        </th>
-        <th>
-            Critique
-        </th>
-        <th>
-            Usager
-        </th>
-    </tr>
-    <%- @reviews.each do |review| %>
-    <tr class="<%= cycle("even", "odd") %>">
-        <td>
-            <%=h review.rating.name %>
-        </td>
-        <td>
-            <%=format_review_comment review.comment %>
-        </td>
-        <td>
-            <%=h person_display_name(review.person) %>
-        </td>
-        <td>
+<% @title = "Vin: #{h @wine.name}" %>
+
+<%= render :partial => "wines/wine_profile" %>
+
+<% unless @reviews.empty? %>
+  <table>
+    <thead>
+      <th>Cote</th>
+      <th>Critique</th>
+      <th>Usager</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <%- @reviews.each do |review| %>
+        <tr class="<%= cycle("even", "odd") %>">
+          <td><%=h review.rating.name %></td>
+          <td><%=format_review_comment review.comment %></td>
+          <td><%=h person_display_name(review.person) %></td>
+          <td class="actions">
             <% editable_review?(review) do %>
-            <%= link_to image_tag('editable.gif', :class=>'icon'), edit_wine_review_path(review.wine, review), :class => 'icon_link' %>
+              <%= link_to "Mettre à jour", edit_wine_review_path(review.wine, review), :title => "Mettre à jour", :class => "update" %>
             <% end %>
-        </td>
-        <td>
             <% editable_review?(review) do %>
-            <%= link_to image_tag('emblem-unreadable.gif', :class=>'icon'), wine_review_path(review.wine, review), :confirm => 'Are you sure?', :method => :delete, :class => 'icon_link' %>
+              <%= link_to "Supprimer", wine_review_path(review.wine, review), :confirm => 'Are you sure?', :title => "Supprimer", :method => :delete, :class => "remove" %>
             <% end %>
-        </td>
-    </tr>
-    <% end %>
-</table>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
-</div>
+
+<%= link_to "Ajouter une opinion", new_wine_review_url(params[:wine_id]), :title => "Ajouter une opinion", :class => "button add" %>

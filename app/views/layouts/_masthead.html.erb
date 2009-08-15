@@ -16,8 +16,8 @@
       <% end -%>
     </ul>
     <form id="search">
-      <input/>
-      <%= link_to_function "Recherche", "$(this).parents('form').submit()", :title => "Recherche", :class => "button submit" %>
+      <input type="text"/>
+      <%= submit_tag "Recherche" %>
     </form>
   </div>
 </div>

@@ -1,9 +1,9 @@
-<h1><%=image_tag 'reviews.gif', :class=>'icon' %>Mise à jour de la critique</h1>
+<% @title = "Mise à jour de la critique" %>
+
 <%= error_messages_for :review %>
-<% form_for(:review, :url => object_url, :html => { :method => :put }) do |f| %>
-<%= render :partial => "form", :locals => { :f => f } %>
-<p>
+<% form_for :review, :url => object_url, :html => { :method => :put, :class => "lw80" } do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <p class="indent submit">
     <%=submit_tag "Sauvegarder" %>
-</p>
+  </p>
 <% end %>
-<br/>

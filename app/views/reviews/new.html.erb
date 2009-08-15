@@ -1,9 +1,12 @@
-<%= render :partial => 'reviews/parent_wine'%>
-<h1><%=image_tag 'reviews.gif', :class=>'icon' %>Ajout d'une critique</h1>
+<% @title = "Vin: #{h @wine.name}" %>
+
+<%= render :partial => "wines/wine_profile" %>
+<h3>Ajout d'une critique</h3>
+
 <%= error_messages_for :review %>
-<% form_for(:review, :url => wine_reviews_url(@wine)) do |f| %>
-<%= render :partial => "form", :locals => { :f => f } %>
-<p>
+<% form_for :review, :url => wine_reviews_url(@wine), :html => { :class => "lw80" } do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <p class="indent submit">
     <%= submit_tag "Ajouter" %>
-</p>
+  </p>
 <% end %>

@@ -17,6 +17,6 @@
     <%= f.password_field :password_confirmation %>
   </p>
   <p class="submit indent">
-    <%= link_to_function I18n.t(:sign_up), "$(this).parents('form').submit()", :title => I18n.t(:sign_up), :class => "button" %>
+    <%= submit_tag I18n.t(:sign_up) %>
   </p>
 <% end -%>

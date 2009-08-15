@@ -1,30 +1,21 @@
 <p>
-    <%= f.label :name, "Nom" %>
-    <br/>
-    <%= f.text_field :name	 %>
-</p>
-
-<p>
-    <%= f.label :variety_ids, "C&eacute;pages" %>
-    <br/>
-    <%= f.collection_select :variety_ids,
-    Variety.find(:all), :id, :name, {},
-    :multiple => true,
-    :name => 'wine[variety_ids][]', :size => 15 %>
+  <%= f.label :name, "Nom" %>
+  <%= f.text_field :name	 %>
 </p>
 <p>
-    <%= f.label :color_id, "Couleur" %>
-    <br/>
-    <%= f.collection_select :color_id, Color.find(:all), :id, :name %>
+  <%= f.label :variety_ids, "C&eacute;pages" %>
+  <%= f.collection_select :variety_ids, Variety.find(:all), :id, :name, {},
+    :multiple => true, :name => 'wine[variety_ids][]', :size => 15, :class => "multi" %>
 </p>
 <p>
-    <%= f.label :year, "Ann&eacute;e" %>
-    <br/>
-    <%= f.text_field :year, :size => 10 %>
+  <%= f.label :color_id, "Couleur" %>
+  <%= f.collection_select :color_id, Color.find(:all), :id, :name %>
 </p>
 <p>
-    <%= f.label :country_id, "Pays" %>
-    <br/>
-    <%= f.collection_select :country_id,
-    Country.find(:all), :id, :name, {}%>
+  <%= f.label :year, "Ann&eacute;e" %>
+  <%= f.text_field :year, :size => 10 %>
+</p>
+<p>
+  <%= f.label :country_id, "Pays" %>
+  <%= f.collection_select :country_id, Country.find(:all), :id, :name, {}%>
 </p>

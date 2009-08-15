@@ -1,8 +1,8 @@
-<h1><%=image_tag 'star.gif', :class=>'icon' %>Ajout d'un vin</h1>
+<% @title = "Ajout d'un vin" %>
+
 <%= error_messages_for :wine %>
-<% form_for(:wine, :url => wines_url) do |f| %>
-<%= render :partial => "form", :locals => { :f => f } %>
-<%= f.submit "Ajouter" %>
+
+<% form_for :wine, :url => wines_url, :html => { :class => "lw80" } do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <p class="indent submit"><%= f.submit "Ajouter" %></p>
 <% end %>
-<p>
-</p>

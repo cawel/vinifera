@@ -14,6 +14,6 @@
     <%= label_tag 'remember_me', I18n.t(:remember_me) %>
   </p>
   <p class="submit indent">
-    <%= link_to_function I18n.t(:log_in), "$(this).parents('form').submit()", :title => I18n.t(:log_in), :class => "button" %>
+    <%= submit_tag I18n.t(:log_in) %>
   </p>
 <% end -%>

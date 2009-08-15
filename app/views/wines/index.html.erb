@@ -14,16 +14,16 @@
       <tr class="<%= cycle("even", "odd") %>">
         <td class="title"><%= link_to wine.name, wine_url(wine) %></td>
         <td><%=h wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
-        <td><%=h wine.color.name %></td>
+        <td><%=h wine.color.name.titleize %></td>
         <td><%=h wine.year %></td>
         <td><%= country_flag wine.country%></td>
-        <td class="controls">
-          <%= link_to image_tag('reviews.gif', :class=>'icon', :title => 'voir les opinions'), wine_reviews_path(wine), :class => 'icon_link' %>
+        <td class="actions">
+          <%= link_to "Critique", wine_reviews_path(wine), :title => "Critique", :class => "comments" %>
           <% editable_wine? wine do %>
-            <%= link_to image_tag('editable.gif', :class=>'icon', :title => 'modifier'), edit_wine_path(wine), :class => 'icon_link' %>
+            <%= link_to "Mettre à jour", edit_wine_path(wine), :title => "Mettre à jour", :class => "update" %>
           <% end %>
           <% editable_wine? wine do %>
-            <%= link_to image_tag('emblem-unreadable.gif', :class=>'icon', :title => 'effacer'), wine, :confirm => 'Are you sure?', :method => :delete, :class => 'icon_link' %>
+            <%= link_to "Supprimer", wine, :title => "Supprimer", :confirm => 'Are you sure?', :method => :delete, :class => "remove" %>
           <% end %>
         </td>
       </tr>
@@ -33,6 +33,8 @@
 
 <% content_for :sidebar do %>
 
-  <p class="add"><%= link_to "Ajouter un vin", new_wine_url, :title => "Ajouter un vin", :class => "button" %></p>
+  <% if logged_in? -%>
+    <p class="actions"><%= link_to "Ajouter un vin", new_wine_url, :title => "Ajouter un vin", :class => "button add" %></p>
+  <% end %>
 
 <% end %>

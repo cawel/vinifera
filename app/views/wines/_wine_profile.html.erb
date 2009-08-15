@@ -1,0 +1,23 @@
+<div class="wine_profile">
+  <%= image_tag "wine_image_placeholder.jpg", :alt => @wine.name, :class => "bottle" %>
+  <table>
+    <tbody>
+      <tr>
+        <th>Nom:</th>
+        <td><%=h @wine.name %></td>
+      </tr>
+      <tr>
+        <th>C&eacute;pages:</th>
+        <td><%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
+      </tr>
+      <tr>
+        <th>Couleur:</th>
+        <td><%=h @wine.color.name.titleize %></td>
+      </tr>
+      <tr>
+        <th>Ann&eacute;e:</th>
+        <td><%=h @wine.year %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
