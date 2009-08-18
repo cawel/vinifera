@@ -12,29 +12,20 @@
   <tbody>
     <% for wine in @wines %>
       <tr class="<%= cycle("even", "odd") %>">
-        <td class="title"><%= link_to wine.name, wine_url(wine) %></td>
+        <td class="title"><%= link_to wine.name, wine_reviews_url(wine) %></td>
         <td><%=h wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
         <td><%=h wine.color.name.titleize %></td>
         <td><%=h wine.year %></td>
         <td><%= country_flag wine.country%></td>
-        <td class="actions">
-          <%= link_to "Critique", wine_reviews_path(wine), :title => "Critique", :class => "comments" %>
-          <% editable_wine? wine do %>
+        <% editable_wine? wine do %>
+          <td class="actions">
             <%= link_to "Mettre à jour", edit_wine_path(wine), :title => "Mettre à jour", :class => "update" %>
-          <% end %>
-          <% editable_wine? wine do %>
-            <%= link_to "Supprimer", wine, :title => "Supprimer", :confirm => 'Are you sure?', :method => :delete, :class => "remove" %>
-          <% end %>
-        </td>
+            <%= link_to "Supprimer", wine, :title => "Supprimer", :confirm => "Etes-vous sur?", :method => :delete, :class => "remove" %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<% content_for :sidebar do %>
 
-  <% if logged_in? -%>
-    <p class="actions"><%= link_to "Ajouter un vin", new_wine_url, :title => "Ajouter un vin", :class => "button add" %></p>
-  <% end %>
-
-<% end %>

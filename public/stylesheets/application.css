@@ -113,7 +113,7 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 #masthead #utilities li.last { padding-right: 0; border: none; }
 #masthead #utilities li a { line-height: 1; color: #FFFFFF; font-size: 12px; }
 #masthead #search { position: absolute; right: 0; bottom: 0; }
-#masthead #search input[type="text"] { float: left; border: 1px solid #ECCD7C; font-size: 14px; }
+#masthead #search input[type="text"] { float: left; border: 1px solid #ECCD7C; font-size: 14px; width: 250px; }
 #masthead #search input[type="submit"] { float: right; top: 0; margin: 0 0 0 5px; }
 
 /* Footer */
@@ -126,15 +126,15 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 /* Form Elements */
 input[type="submit"] { background: #274B66; color: #FFFFFF; font-size: 14px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; line-height: 1; padding: 0 8px 6px; height: 28px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 a.button { background: #274B66; color: #FFFFFF; display: inline-block; font-size: 14px; padding: 0 8px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; padding: 0 8px; line-height: 23px; height: 24px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
-a.button.add { background-image: url('../images/icons/plus-circle.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
+a.button.reviews { background-image: url('../images/icons/ballons.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 input[type="text"],
 input[type="password"] { border: 1px solid #C0C0C0; height: 22px; font-size: 14px; padding: 3px 20px 0 3px; }
 textarea { border: 1px solid #C0C0C0; padding: 3px; font-size: 14px; }
 label { line-height: 25px; text-align: right; color: #404040; font-size: 14px; display: block; float: left; margin-right: 5px; }
 form.lw40 label { width: 40px; }
 form.lw40 p.indent { margin-left: 45px; }
-form.lw80 label { width: 80px; }
-form.lw80 p.indent { margin-left: 85px; }
+form.lw80 label { width: 90px; }
+form.lw80 p.indent { margin-left: 95px; margin-top: 30px }
 form.lw120 label { width: 120px; }
 form.lw120 p.indent { margin-left: 125px; }
 form.lw160 label { width: 160px; }
@@ -152,6 +152,7 @@ form select.multi { height: auto; }
 /* Sidebar Elements */
 p.actions a.button { font-size: 16px; font-weight: bold; padding: 10px 15px 10px 36px; line-height: 1; background-repeat: no-repeat; background-position: 15px center; line-height: 1; height: auto; }
 p.actions a.button.add { background-image: url('../images/icons/plus-circle.png'); }
+p.actions a.button.reviews { background-image: url('../images/icons/balloons.png'); }
 p.actions a.button.update { background-image: url('../images/icons/pencil.png'); }
 
 /* Flash Notices */

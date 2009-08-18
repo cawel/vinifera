@@ -2,7 +2,7 @@
 
 <%= error_messages_for :wine %>
 
-<% form_for :wine, :url => wines_url, :html => { :class => "lw80" } do |f| %>
+<% form_for :wine, :url => wine_url, :html => { :method => :put, :class => "lw80" } do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
   <p class="indent submit"><%= f.submit "Sauvegarder" %></p>
 <% end %>

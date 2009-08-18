@@ -10,12 +10,12 @@ class WinesController < ApplicationController
 
   create.flash "Votre vin a été ajouté!"
   create.response do |wants|
-    wants.html{redirect_to wines_url}
+    wants.html{redirect_to wine_reviews_url(@wine)}
   end
   
   update.flash {"Votre vin a été mis à jour!"}
   update.response do |wants|
-    wants.html{redirect_to wines_url}
+    wants.html{redirect_to wine_reviews_url(@wine)}
   end
   
   destroy.flash {"Votre vin a été retiré!"}
