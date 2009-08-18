@@ -1,0 +1,4 @@
+<% if logged_in? -%>
+  <p class="actions"><%= link_to "Ajouter un vin", new_wine_url, :title => "Ajouter un vin", :class => "button add" %></p>
+  <p class="actions"><%= link_to "Mes critiques", '', :title => "Mes critiques", :class => "button reviews" %></p>
+<% end %>

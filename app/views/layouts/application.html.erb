@@ -17,15 +17,15 @@
     <div id="content" class="page_width">
 
       <div id="main">
-        <h2><%= @title %></h2>
         <%- flash.each do |name, message| -%>
           <%= content_tag :p, message, :id => "flash_#{name}", :class => "flash #{name}" %>
         <%- end -%>
+        <h2><%= @title %></h2>
         <%= yield %>
       </div>
 
       <div id="sidebar">
-        <%= yield :sidebar %>
+        <%= render :partial => 'layouts/sidebar'  %>
       </div>
 
     </div>
