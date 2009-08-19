@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class ColorTest < ActiveSupport::TestCase
+class RegionTest < ActiveSupport::TestCase
   # Replace this with your real tests.
-  def test_truth
+  test "the truth" do
     assert true
   end
 end

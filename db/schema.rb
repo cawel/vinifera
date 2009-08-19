@@ -9,10 +9,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090212000215) do
+ActiveRecord::Schema.define(:version => 20090819025310) do
 
-  create_table "colors", :force => true do |t|
-    t.string   "name"
+  create_table "categories", :force => true do |t|
+    t.string   "name",       :limit => 50
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(:version => 20090212000215) do
     t.datetime "updated_at"
   end
 
+  create_table "regions", :force => true do |t|
+    t.string   "name",       :limit => 50
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "reviews", :force => true do |t|
     t.integer  "rating_id"
     t.integer  "wine_id"
@@ -73,8 +79,10 @@ ActiveRecord::Schema.define(:version => 20090212000215) do
     t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "person_id",  :default => 0, :null => false
+    t.integer  "person_id",   :default => 0, :null => false
     t.integer  "country_id"
+    t.integer  "category_id"
+    t.integer  "region_id"
   end
 
 end

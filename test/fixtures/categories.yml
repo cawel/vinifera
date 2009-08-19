@@ -1,0 +1,5 @@
+red_wine:
+  name: vin rouge
+
+white_wine:
+  name: vin blanc

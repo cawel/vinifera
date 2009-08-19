@@ -3,16 +3,20 @@
   <table>
     <tbody>
       <tr>
-        <th>Nom:</th>
-        <td><%=h @wine.name %></td>
+        <th>Categorie:</th>
+        <td><%=h @wine.category.name %></td>
+      </tr>
+      <tr>
+        <th>Pays:</th>
+        <td><%=h @wine.country.name %></td>
+      </tr>
+      <tr>
+        <th>Region:</th>
+        <td><%=h @wine.region.name %></td>
       </tr>
       <tr>
         <th>C&eacute;pages:</th>
         <td><%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
-      </tr>
-      <tr>
-        <th>Couleur:</th>
-        <td><%=h @wine.color.name.titleize %></td>
       </tr>
       <tr>
         <th>Ann&eacute;e:</th>

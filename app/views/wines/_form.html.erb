@@ -3,13 +3,17 @@
   <%= f.text_field :name	 %>
 </p>
 <p>
+  <%= f.label :category_id, "Categorie" %>
+  <%= f.collection_select :category_id, Category.find(:all), :id, :name %>
+</p>
+<p>
   <%= f.label :variety_ids, "C&eacute;pages" %>
   <%= f.collection_select :variety_ids, Variety.find(:all), :id, :name, {},
     :multiple => true, :name => 'wine[variety_ids][]', :size => 15, :class => "multi" %>
 </p>
 <p>
-  <%= f.label :color_id, "Couleur" %>
-  <%= f.collection_select :color_id, Color.find(:all), :id, :name %>
+  <%= f.label :region_id, "Region" %>
+  <%= f.collection_select :region_id, Region.find(:all), :id, :name %>
 </p>
 <p>
   <%= f.label :year, "Ann&eacute;e" %>
