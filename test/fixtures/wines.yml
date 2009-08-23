@@ -4,31 +4,35 @@ chateau_coulac:
   id: 1
   name: Chateau Coulac
   year: 2007
-  person: martin
   category: red_wine
+  color: white
   region: catalogna
   country: France
+  person: martin
 
 chateau_neuf_du_pape:
   id: 2
   name: Chateau Neuf du pape
   year: 2006
-  person: mat
   category: red_wine
+  color: red
   country: France
+  person: mat
   
 la_vieille_ferme:
   id: 3
   name: La Vieille Ferme
   year: 2006
-  person: james
   category: red_wine
+  color: red
   country: Italy
+  person: james
   
 la_vallee:
   id: 4
   name: La vallee
   year: 2006
-  person: mat
   category: red_wine
+  color: red
   country: Italy
+  person: mat

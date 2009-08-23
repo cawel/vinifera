@@ -4,6 +4,7 @@ class Wine < ActiveRecord::Base
   belongs_to :category
   belongs_to :country
   belongs_to :region
+  belongs_to :color
   
   has_many :reviews, :dependent => :destroy
   has_many :variety_wines
@@ -12,5 +13,6 @@ class Wine < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :category_id
   validates_presence_of :person_id
+  validates_presence_of :color_id
   
 end
