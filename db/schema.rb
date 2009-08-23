@@ -9,10 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090819025310) do
+ActiveRecord::Schema.define(:version => 20090823205700) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :limit => 50
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "colors", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -22,6 +28,12 @@ ActiveRecord::Schema.define(:version => 20090819025310) do
     t.string   "code"
     t.float    "lat"
     t.float    "lng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "natures", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -79,10 +91,20 @@ ActiveRecord::Schema.define(:version => 20090819025310) do
     t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "person_id",   :default => 0, :null => false
+    t.integer  "person_id",      :default => 0, :null => false
     t.integer  "country_id"
     t.integer  "category_id"
     t.integer  "region_id"
+    t.string   "code_saq"
+    t.string   "cup"
+    t.integer  "nature_id"
+    t.string   "format"
+    t.decimal  "price"
+    t.string   "provider"
+    t.decimal  "alcool"
+    t.string   "image_filename"
   end
+
+  add_index "wines", ["code_saq"], :name => "index_wines_on_code_saq", :unique => true
 
 end
