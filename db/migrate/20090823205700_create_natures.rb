@@ -1,4 +1,4 @@
-class AddNatures < ActiveRecord::Migration
+class CreateNatures < ActiveRecord::Migration
   def self.up
     create_table :natures do |t|
       t.column :name,       :string
