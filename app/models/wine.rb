@@ -7,6 +7,7 @@ class Wine < ActiveRecord::Base
   belongs_to :sub_region
   belongs_to :color
   belongs_to :nature
+  belongs_to :appellation
   
   has_many :reviews, :dependent => :destroy
   has_many :variety_wines
