@@ -1,0 +1,7 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+beaujolais:
+  name: Beaujolais
+
+cotes_du_rhones:
+  name: Côtes-du-Rhône
