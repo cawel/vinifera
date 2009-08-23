@@ -9,7 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090823215436) do
+ActiveRecord::Schema.define(:version => 20090823221035) do
+
+  create_table "appellations", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :limit => 50
@@ -28,6 +34,12 @@ ActiveRecord::Schema.define(:version => 20090823215436) do
     t.string   "code"
     t.float    "lat"
     t.float    "lng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "flavors", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -110,6 +122,8 @@ ActiveRecord::Schema.define(:version => 20090823215436) do
     t.decimal  "alcool"
     t.string   "image_filename"
     t.integer  "sub_region_id"
+    t.integer  "appellation_id"
+    t.integer  "flavor_id"
   end
 
   add_index "wines", ["code_saq"], :name => "index_wines_on_code_saq", :unique => true
