@@ -13,11 +13,13 @@ class Wine < ActiveRecord::Base
   has_many :variety_wines
   has_many :varieties, :through => :variety_wines
   
+  # those are the fields always present on the SAQ website
   validates_presence_of :name
-  validates_presence_of :color_id
   validates_presence_of :category_id
+  validates_presence_of :color_id
+  validates_presence_of :nature_id
   validates_presence_of :country_id
-  validates_presence_of :region_id
+
   validates_presence_of :person_id
   
 end
