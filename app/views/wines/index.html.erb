@@ -10,7 +10,7 @@
     <th></th>
   </thead>
   <tbody>
-    <% for wine in @wines %>
+    <% @wines.each do |wine| %>
       <tr class="<%= cycle("even", "odd") %>">
         <td class="title"><%= link_to wine.name, wine_reviews_url(wine) %></td>
         <td><%=h wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
@@ -27,5 +27,7 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @wines %>
+
 
 

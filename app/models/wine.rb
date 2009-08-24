@@ -1,5 +1,5 @@
 class Wine < ActiveRecord::Base
-  
+
   belongs_to :person
   belongs_to :category
   belongs_to :country
@@ -8,11 +8,11 @@ class Wine < ActiveRecord::Base
   belongs_to :color
   belongs_to :nature
   belongs_to :appellation
-  
+
   has_many :reviews, :dependent => :destroy
   has_many :variety_wines
   has_many :varieties, :through => :variety_wines
-  
+
   # those are the fields always present on the SAQ website
   validates_presence_of :name
   validates_presence_of :category_id
@@ -21,5 +21,8 @@ class Wine < ActiveRecord::Base
   validates_presence_of :country_id
 
   validates_presence_of :person_id
-  
+
+  cattr_reader :per_page
+  @@per_page = 20
+
 end
