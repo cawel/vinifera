@@ -16,7 +16,7 @@
         <td><%=h wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
         <td><%=h wine.color.name.titleize %></td>
         <td><%=h wine.year %></td>
-        <td><%= country_flag wine.country%></td>
+        <td><%#= country_flag wine.country%></td>
         <% editable_wine? wine do %>
           <td class="actions">
             <%= link_to "Mettre à jour", edit_wine_path(wine), :title => "Mettre à jour", :class => "update" %>
