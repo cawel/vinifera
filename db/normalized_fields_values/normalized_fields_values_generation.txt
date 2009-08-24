@@ -1,0 +1,5 @@
+grep "^couleur: " output | sort | uniq | sed 's/^[a-z]*: //' > ../vinifera/db/normalized_fields_values/colors
+grep "^nature: " output | sort | uniq | sed 's/^[a-z]*: //' > ../vinifera/db/normalized_fields_values/natures
+grep "^categorie: " output | sort | uniq | sed 's/^[a-z]*: //' > ../vinifera/db/normalized_fields_values/categories
+grep "^region: " output | sort | uniq | sed 's/^[a-z]*: //' > ../vinifera/db/normalized_fields_values/regions
+grep "^sous_region: " output | sort | uniq | sed 's/^[a-z_]*: //' > ../vinifera/db/normalized_fields_values/subregions
