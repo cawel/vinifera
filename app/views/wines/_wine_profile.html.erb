@@ -7,21 +7,89 @@
         <td><%=h @wine.category.name %></td>
       </tr>
       <tr>
+        <th>Couleur:</th>
+        <td><%=h @wine.color.name %></td>
+      </tr>
+      <% field_exists?(@wine.nature) do  %>
+        <tr>
+          <th>Nature:</th>
+          <td><%=h @wine.nature.name %></td>
+        </tr>
+      <% end %>
+      <% field_exists?(@wine.flavor) do  %>
+      <tr>
+        <th>Arome:</th>
+        <td><%=h @wine.flavor.name %></td>
+      </tr>
+      <% end %>
+      <% field_exists?(@wine.country) do  %>
+      <tr>
         <th>Pays:</th>
         <td><%=h @wine.country.name %></td>
       </tr>
+      <% end %>
+      <% field_exists?(@wine.appellation) do  %>
+      <tr>
+        <th>Appellation:</th>
+        <td><%=h @wine.appellation.name %></td>
+      </tr>
+      <% end %>
+      <% field_exists?(@wine.region) do  %>
       <tr>
         <th>Region:</th>
         <td><%=h @wine.region.name %></td>
       </tr>
+      <% end %>
+      <% field_exists?(@wine.sub_region) do  %>
+      <tr>
+        <th>Sous-Region:</th>
+        <td><%=h @wine.sub_region.name %></td>
+      </tr>
+      <% end %>
+      <% field_exists?(@wine.provider) do  %>
+      <tr>
+        <th>Fournisseur:</th>
+        <td><%=h @wine.provider %></td>
+      </tr>
+      <% end %>
       <tr>
         <th>C&eacute;pages:</th>
         <td><%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
       </tr>
+      <% field_exists?(@wine.year) do  %>
       <tr>
         <th>Ann&eacute;e:</th>
         <td><%=h @wine.year %></td>
       </tr>
+      <% end %>
+      <tr>
+        <th></th>
+        <td>&nbsp;</td>
+      </tr>
+      <% field_exists?(@wine.code_saq) do  %>
+      <tr>
+        <th>SAQ #:</th>
+        <td><%=h @wine.code_saq %></td>
+      </tr>
+      <% end %>
+      <% field_exists?(@wine.format) do  %>
+      <tr>
+        <th>Format:</th>
+        <td><%=h @wine.format %></td>
+      </tr>
+      <% end %>
+      <% field_exists?(@wine.alcool) do  %>
+      <tr>
+        <th>Alcool:</th>
+        <td><%=h @wine.alcool %> %</td>
+      </tr>
+      <% end %>
+      <% field_exists?(@wine.price) do  %>
+      <tr>
+        <th>Prix:</th>
+        <td><%=h @wine.price %> $</td>
+      </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

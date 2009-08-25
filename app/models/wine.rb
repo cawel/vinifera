@@ -2,12 +2,13 @@ class Wine < ActiveRecord::Base
 
   belongs_to :person
   belongs_to :category
-  belongs_to :country
-  belongs_to :region
-  belongs_to :sub_region
   belongs_to :color
   belongs_to :nature
+  belongs_to :flavor
+  belongs_to :country
   belongs_to :appellation
+  belongs_to :region
+  belongs_to :sub_region
 
   has_many :reviews, :dependent => :destroy
   has_many :variety_wines

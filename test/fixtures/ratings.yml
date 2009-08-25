@@ -1,5 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+stars5:
+  weight: 5
+  name: *****
+
+stars4:
+  weight: 4
+  name: ****
+
 stars3:
   weight: 3
   name: ***
@@ -11,7 +19,3 @@ stars2:
 stars1:
   weight: 1
   name: *
-  
-stars0:
-  weight: 0
-  name: -

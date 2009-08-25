@@ -1,5 +1,6 @@
-<% @title = "Liste des vins" %>
+<% @title = "R&eacute;sultats de recherche" %>
 
+<% if @wines.any? %>
 <table>
   <thead>
     <th>Nom</th>
@@ -28,6 +29,7 @@
   </tbody>
 </table>
 <%= will_paginate @wines %>
-
-
+<% else %>
+  Aucuns resultats.
+<% end %>
 
