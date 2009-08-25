@@ -12,7 +12,9 @@ ActionController::Routing::Routes.draw do |map|
     wine.resources :reviews
   end
   
-  map.root                   :controller => 'wines'
+  map.root                   :controller => 'wines', :action => 'home'
+  map.search    '/search',   :controller => 'wines', :action => 'index'
+
   map.about     '/about',    :controller => 'application', :action => 'about'
   map.contact   '/contact',  :controller => 'application', :action => 'contact'
   

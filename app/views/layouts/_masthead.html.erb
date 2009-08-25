@@ -15,8 +15,8 @@
         <li class="last"><%= link_to "S'enregistrer", signup_path, :title => "S'enregistrer" %></li>
       <% end -%>
     </ul>
-    <form id="search">
-      <input type="text"/>
+    <form id="search" action="/search">
+      <input type="text" name="q" value="<%= params[:q] %>"/>
       <%= submit_tag "Recherche" %>
     </form>
   </div>

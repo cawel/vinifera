@@ -4,9 +4,17 @@ class WinesController < ApplicationController
   layout 'application'
   resource_controller
 
+  def home
+  end
+
   index.response do |wants|
     wants.html do 
-     @wines = Wine.paginate :page => params[:page]
+      unless params[:q].nil?
+        conditions = ["name like ?",  "%#{params[:q]}%"]
+        @wines = Wine.paginate(:all, :page => params[:page], :conditions => conditions)
+      else
+        @wines = Wine.paginate :page => params[:page]
+      end
     end
   end
 

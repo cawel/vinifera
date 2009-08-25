@@ -33,6 +33,10 @@ module ApplicationHelper
     image_path.blank?? '' : "<img class='flag' title='#{country.name}' src=\"#{image_path}\"/>"   
   end 
   
+  def field_exists? field
+    yield unless field.nil?
+  end
+
   private
   def get_flag_image_path(country)
     image_path = "/images/flags/" + country.code.downcase + ".gif"
