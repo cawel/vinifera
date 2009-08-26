@@ -5,66 +5,60 @@ class Person < ActiveRecord::Base
   include Authentication::ByPassword
   include Authentication::ByCookieToken
 
-  validates_format_of       :name,     :with => Authentication.name_regex,  :message => Authentication.bad_name_message, :allow_nil => true
+  #validates_format_of       :name,     :with => RE_NAME_OK,  :message => MSG_NAME_BAD, :allow_nil => true
   validates_length_of       :name,     :maximum => 100
 
-  validates_presence_of     :email
-  validates_length_of       :email,    :within => 6..100 #r@a.wk
-  validates_uniqueness_of   :email
-  validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
+  #validates_presence_of     :email,    :if => :email_required?
+  #validates_length_of       :email,    :if => :email_required?, :within => 6..100 #r@a.wk
+  #validates_format_of       :email,    :if => :email_required?, :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD
+  validates_uniqueness_of   :email,    :case_sensitive => false, :allow_nil => true
 
-  
+  #validates_uniqueness_of   :open_id_url, :if => :open_id_url?
+  #validate                  :validate_open_id_url_authentication, :if => :open_id_url?
 
-  # HACK HACK HACK -- how to do attr_accessible from here?
-  # prevents a user from submitting a crafted form that bypasses activation
-  # anything else you want your user to change should be added here.
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation, :open_id_url
+  attr_accessor :open_id_url_authenticated, :open_id_url_message
 
-
-
-  # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
-  #
-  # uff.  this is really an authorization, not authentication routine.  
-  # We really need a Dispatch Chain here or something.
-  # This will also let us return a human error message.
-  #
-  def self.authenticate(email, password)
-    return nil if email.blank? || password.blank?
-    u = find_by_email(email) # need to get the salt
-    u && u.authenticated?(password) ? u : nil
-  end
-  
-  def self.find_by_valid_password_reset_code(code)
-      u = find_by_password_reset_code(code)
-      u.andand.password_reset_code_expires.andand.after?(Time.now) ? u : nil
+  class << self
+    def authenticate(email, password)
+      u = find_by_email(email) # need to get the salt
+      u && u.authenticated?(password) ? u : nil
     end
 
-  def email=(value)
-    write_attribute :email, (value ? value.downcase : nil)
+    def find_by_valid_password_reset_code(code)
+      u = find_by_password_reset_code(code)
+      u && u.password_reset_code_expires && u.password_reset_code_expires.after?(Time.now) ? u : nil
+    end
   end
-
 
   def create_password_reset_code
     self[:password_reset_code]         = self.class.make_token
     self[:password_reset_code_expires] = 1.week.from_now
     save(false)
-    
+
     PasswordResetMailer.deliver_password_reset(self)
   end
-  
+
   def expire_password_reset_code
     self[:password_reset_code]         = nil
     self[:password_reset_code_expires] = nil
     save(false)
   end
-  
-  #needed by ActiveScaffold in order to have a proper label
-  def is_admin?
-    self.admin
+
+  def open_id_url_authenticated?
+    !!open_id_url_authenticated
   end
 
   protected
-    
+  def validate_open_id_url_authentication
+    errors.add(:open_id_url, open_id_url_message) if new_record? && !open_id_url_authenticated?
+  end
 
+  #def password_required?
+    #!open_id_url?
+  #end
 
+  #def email_required?
+    #!open_id_url?
+  #end
 end

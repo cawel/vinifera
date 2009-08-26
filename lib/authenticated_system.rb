@@ -31,7 +31,7 @@ module AuthenticatedSystem
     #    current_person.login != "bob"
     #  end
     #
-    def authorized?(action = action_name, resource = nil)
+    def authorized?(action=nil, resource=nil, *args)
       logged_in?
     end
 
@@ -62,16 +62,16 @@ module AuthenticatedSystem
     # to access the requested action.  For example, a popup window might
     # simply close itself.
     def access_denied
+      flash[:error] = "You must be logged in to access that area."
+      
       respond_to do |format|
         format.html do
           store_location
           redirect_to login_url
         end
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987
-        # Add any other API formats here.  (Some browsers, notably IE6, send Accept: */* and trigger 
-        # the 'format.any' block incorrectly. See http://bit.ly/ie6_borken or http://bit.ly/ie6_borken2
-        # for a workaround.)
-        format.any(:json, :xml) do
+        # you may want to change format.any to e.g. format.any(:js, :xml)
+        format.any do
           request_http_basic_authentication 'Web Password'
         end
       end
@@ -166,7 +166,7 @@ module AuthenticatedSystem
     end
     
     # Refresh the cookie auth token if it exists, create it otherwise
-    def handle_remember_cookie!(new_cookie_flag)
+    def handle_remember_cookie! new_cookie_flag
       return unless @current_person
       case
       when valid_remember_cookie? then @current_person.refresh_token # keeping same expiry date

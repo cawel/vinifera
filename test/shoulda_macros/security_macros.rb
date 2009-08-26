@@ -13,17 +13,6 @@ module SecurityMacros
   end
   
   module ClassMethods
-    def logged_in_as(person)
-      context "logged in as #{person}" do
-        setup do
-          # Restful Auth's login_as test helper
-          login_as person
-        end
-        
-        yield
-      end
-    end
-    
     def not_logged_in
       context "not logged in" do
         setup do
@@ -35,10 +24,20 @@ module SecurityMacros
       end
     end
     
+    # Asserts that access is denied, meaning the browser knows there's something
+    # there, and just needs the proper credentials
     def should_deny_access
       should_respond_with :redirect
-      should_redirect_to  'login_url'
-      #should_set_the_flash_to(/must be logged in/i)
+      should_redirect_to("the login page") { login_url }
+      should_set_the_flash_to(/must be logged in/i)
+    end
+
+    # Asserts that the response is a 404.
+    # This prevents an attacker from knowing that there's something at this location.
+    def should_block_access
+      should_respond_with :missing
+      should_render_template "404"
+      should_not_set_the_flash
     end
   end
 end

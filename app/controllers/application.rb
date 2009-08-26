@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   before_filter :localizate
   
   def localizate
-    I18n.locale = params[:locale] || I18n.default_locale
+    #I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = 'fr-CA'
   end
   
   # See ActionController::Base for details 

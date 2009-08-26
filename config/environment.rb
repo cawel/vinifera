@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.1.1' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -25,20 +25,19 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
-  
+
   # Blank's default dependencies
   config.gem "ruby-openid", :lib => "openid"
   config.gem "active_presenter"
   config.gem "andand"
   #config.gem 'resource_controller'
-  
-  
+
   config.gem "mislav-will_paginate",              :lib => "will_paginate",      :source => "http://gems.github.com"
-  config.gem "thoughtbot-shoulda",                :lib => "shoulda/rails",      :source => "http://gems.github.com"
   config.gem "giraffesoft-attribute_fu",          :lib => "attribute_fu",       :source => "http://gems.github.com"
-  
+
   # Application-specific dependencies
   #config.gem ''
+  config.gem 'jkraemer-acts_as_ferret', :version => '~> 0.4.4', :lib => 'acts_as_ferret', :source => 'http://gems.github.com'
 
 
   # Only load the plugins named here, in the order given. By default, all plugins 
@@ -59,20 +58,7 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
 
   session_config = RAILS_ROOT+'/config/session.rb'
-  File.exist?(session_config) ? load(session_config) : raise("You are missing your config/session.rb file. Please run rake blank:session_config.")
-  
+  File.exist?(session_config) ? load(session_config) : raise("You are missing your config/session.rb file. Please run rake blank:session_config.")  
   config.action_controller.session = SESSION_CONFIG
-  
-  # Use the database for sessions instead of the cookie-based default,
-  # which shouldn't be used to store highly confidential information
-  # (create the session table with "rake db:sessions:create")
-  # config.action_controller.session_store = :active_record_store
 
-  # Use SQL instead of Active Record's schema dumper when creating the test database.
-  # This is necessary if your schema can't be completely dumped by the schema dumper,
-  # like if you have constraints or database-specific column types
-  # config.active_record.schema_format = :sql
-
-  # Activate observers that should always be running
-  # config.active_record.observers = :cacher, :garbage_collector
 end

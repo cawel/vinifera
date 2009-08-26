@@ -11,7 +11,7 @@ module ResourceController
         NAME_ACCESSORS.each { |accessor| send(accessor, controller_name.singularize.underscore) }
 
         ACTIONS.each do |action|
-          class_scoping_reader action, FAILABLE_ACTIONS.include?(action) ? FailableActionOptions.new : ActionOptions.new
+          class_scoping_reader action, FAILABLE_ACTIONS.include?(action) ? ResourceController::FailableActionOptions.new : ResourceController::ActionOptions.new
         end
 
         self.helper_method :object_url, :edit_object_url, :new_object_url, :collection_url, :object, :collection, 
@@ -40,21 +40,21 @@ module ResourceController
           end
 
           create do
-            flash I18n.t(:successfully_created)
+            flash "Successfully created!"
             wants.html { redirect_to object_url }
 
             failure.wants.html { render :action => "new" }
           end
 
           update do
-            flash I18n.t(:successfully_updated)
+            flash "Successfully updated!"
             wants.html { redirect_to object_url }
 
             failure.wants.html { render :action => "edit" }
           end
 
           destroy do
-            flash I18n.t(:successfully_removed)
+            flash "Successfully removed!"
             wants.html { redirect_to collection_url }
           end
           
