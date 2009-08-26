@@ -1,5 +1,5 @@
 class WinesController < ApplicationController
-  before_filter :login_required, :except => [:index, :show]
+  before_filter :login_required, :except => [:home, :index, :show]
 
   layout 'application'
   resource_controller
@@ -10,8 +10,7 @@ class WinesController < ApplicationController
   index.response do |wants|
     wants.html do 
       unless params[:q].nil?
-        conditions = ["name like ?",  "%#{params[:q]}%"]
-        @wines = Wine.paginate(:all, :page => params[:page], :conditions => conditions)
+        @wines = Wine.search(params[:q], :page => params[:page])
       else
         @wines = Wine.paginate :page => params[:page]
       end
