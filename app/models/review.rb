@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
+  fires :reviewed, :on => :create, :actor => :person, :subject => :wine
   
   belongs_to :wine
   belongs_to :person

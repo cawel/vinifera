@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090823221035) do
+ActiveRecord::Schema.define(:version => 20090831233441) do
 
   create_table "appellations", :force => true do |t|
     t.string   "name"
@@ -88,6 +88,18 @@ ActiveRecord::Schema.define(:version => 20090823221035) do
 
   create_table "sub_regions", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "timeline_events", :force => true do |t|
+    t.string   "event_type"
+    t.string   "subject_type"
+    t.string   "actor_type"
+    t.string   "secondary_subject_type"
+    t.integer  "subject_id"
+    t.integer  "actor_id"
+    t.integer  "secondary_subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
