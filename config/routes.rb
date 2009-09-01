@@ -1,13 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
   
-  #backend
+  # backend
   map.namespace(:admin) do |admin|
     admin.resources :ratings, :active_scaffold => true
     admin.resources :varieties, :active_scaffold => true
     admin.resources :colors, :active_scaffold => true
   end
   
-  #frontend
+  # frontend
   map.resources :wines do |wine|
     wine.resources :reviews
   end
@@ -29,6 +29,9 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect '/account', :controller => 'accounts', :action => 'edit'
   
-  map.resources :people
+  map.resources :people, :as => 'usager' do |person|
+    person.reviews_index 'critiques', :controller => 'reviews', :action => 'user_index'
+  end
+
   map.resource  :session, :account
 end
