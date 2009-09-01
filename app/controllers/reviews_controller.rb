@@ -6,6 +6,14 @@ class ReviewsController < ApplicationController
   resource_controller
   belongs_to :wine
   
+  def user_index
+    @reviews = Review.find(:all, :conditions => ['person_id = ?', params[:person_id] ]) 
+  end
+
+  index.response do |wants|
+    wants.html{ }
+  end
+
   create.before do
     object.person = current_person
   end
