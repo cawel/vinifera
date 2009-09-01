@@ -1,4 +1,5 @@
 martin:
+  name:                      Martin
   email:                     cawel00@yahoo.com
   salt:                      salt
   crypted_password:          <%= Person.password_digest('monkey', 'salt') %>

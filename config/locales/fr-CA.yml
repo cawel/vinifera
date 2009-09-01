@@ -53,3 +53,40 @@ fr-CA:
   signup_complete_and_do_login : "Ouverture du compte complétée! Veuillez ouvrir une session pour continuer."
   signup_complete_with_activation : "Merci de vous être enregistré! Nous vous envoyons envoyé un courriel avec votre code d'activation."
   signup_problem : "Nous n'avons pu compléter la création du compte. Veuillez réessayer, ou encore contacter un administrateur (voir lien ci-haut)."
+
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "une demi-minute"
+      less_than_x_seconds:
+        zero: "moins d'une seconde"
+        one: "moins de 1 seconde"
+        other: "moins de {{count}} secondes"
+      x_seconds:
+        one: "1 seconde"
+        other: "{{count}} secondes"
+      less_than_x_minutes:
+        zero: "moins d'une minute"
+        one: "moins de 1 minute"
+        other: "moins de {{count}} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "{{count}} minutes"
+      about_x_hours:
+        one: "environ une heure"
+        other: "environ {{count}} heures"
+      x_days:
+        one: "1 jour"
+        other: "{{count}} jours"
+      about_x_months:
+        one: "environ un mois"
+        other: "environ {{count}} mois"
+      x_months:
+        one: "1 mois"
+        other: "{{count}} mois"
+      about_x_years:
+        one: "environ un an"
+        other: "environ {{count}} ans"
+      over_x_years:
+        one: "plus d'un an"
+        other: "plus de {{count}} ans"

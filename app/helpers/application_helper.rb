@@ -25,7 +25,7 @@ module ApplicationHelper
   end
   
   def format_review_comment text
-    simple_format word_wrap((text), :line_width => 100)
+    simple_format word_wrap((text))
   end
   
   def country_flag country

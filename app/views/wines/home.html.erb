@@ -1,1 +1,20 @@
-<% @title = "Dernieres activites" %>
+<% @title = "Derni&egrave;res critiques" %>
+
+<table>
+
+  <% @timeline_events.each do |event| %>
+    <tr>
+      <td>
+        <% case event.event_type 
+         when "reviewed" %>
+          <%= link_to(event.actor.name, person_url(event.actor)) %> a fait une critique de <%= link_to(event.subject.name, wine_reviews_url(event.subject)) %>.
+        <% when "edited" %>
+          <%= link_to(event.actor.name, person_url(event.actor)) %> a modifi&eacute; sa critique de <%= link_to(event.subject.name, wine_reviews_url(event.subject)) %>.
+        <% end %>
+        <br>il y a <%= time_ago_in_words event.created_at %>
+        <br>
+      </td>
+    </tr>
+  <% end %>
+
+</table>

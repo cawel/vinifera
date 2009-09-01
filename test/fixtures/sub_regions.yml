@@ -1,7 +1,5 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-beaujolais:
+sub_region_beaujolais:
   name: Beaujolais
 
-cotes_du_rhones:
+sub_region_cotes_du_rhones:
   name: Côtes-du-Rhône

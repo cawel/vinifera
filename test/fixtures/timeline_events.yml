@@ -1,0 +1,15 @@
+reviewed_event:
+  event_type: reviewed
+  subject: chateau_coulac
+  subject_type: Wine
+  actor: martin
+  actor_type: Person
+  created_at: <%= 2.days.ago.to_s(:db) %>
+
+edited_event:
+  event_type: edited
+  subject: chateau_coulac
+  subject_type: Wine
+  actor: martin
+  actor_type: Person
+  created_at: <%= 2.minutes.ago.to_s(:db) %>

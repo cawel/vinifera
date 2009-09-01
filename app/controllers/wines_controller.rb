@@ -5,6 +5,7 @@ class WinesController < ApplicationController
   resource_controller
 
   def home
+    @timeline_events = TimelineEvent.recent
   end
 
   index.response do |wants|

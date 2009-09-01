@@ -26,12 +26,15 @@ class Wine < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 20
 
-  define_index do
-    # fields
-    indexes name, :sortable => true
+  # otherwise it messes up associations in fixtures
+  if RAILS_ENV == 'production'
+    define_index do
+      # fields
+      indexes name, :sortable => true
 
-    # attributes
-    # has author_id, created_at, updated_at
+      # attributes
+      # has author_id, created_at, updated_at
+    end
   end
 
 
