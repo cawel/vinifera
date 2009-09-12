@@ -131,6 +131,7 @@ a.button { background: #274B66; color: #FFFFFF; display: inline-block; font-size
 a.button.reviews { background-image: url('../images/icons/ballons.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 input[type="text"],
 input[type="password"] { border: 1px solid #C0C0C0; height: 22px; font-size: 14px; padding: 3px 20px 0 3px; }
+input[type="text"].search { background-image: url('../images/icons/magnifier.png'); background-repeat: no-repeat; background-position: 5px center; padding-left: 26px; }
 textarea { border: 1px solid #C0C0C0; padding: 3px; font-size: 14px; }
 label { line-height: 25px; text-align: right; color: #404040; font-size: 14px; display: block; float: left; margin-right: 5px; }
 form.lw40 label { width: 40px; }
