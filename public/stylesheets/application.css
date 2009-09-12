@@ -94,7 +94,7 @@ table p { margin-bottom: 10px; }
 
 /* Layout */
 div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hidden; }
-#content { overflow: hidden; min-height: 350px; background: url('../images/sidebar_bg.png') no-repeat 630px top; }
+#content { overflow: hidden; min-height: 350px; background: url('../images/sidebar_bg.gif') repeat-y 630px top; }
 #main { float: left; width: 610px; padding-top: 20px; }
 #sidebar { float: right; width: 300px; padding: 20px 0 0 20px; }
 
