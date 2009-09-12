@@ -87,7 +87,7 @@ caption{background:#eee;}
 table td.title { font-weight: bold; }
 table td.actions { white-space: nowrap; }
 table td.actions a { display: inline-block; height: 16px; width: 16px; text-indent: -9000px; }
-table td.actions a.comments { background: url('../images/icons/balloons.png'); }
+table td.actions a.comments { background: url('../images/icons/balloon.png'); }
 table td.actions a.update { background: url('../images/icons/pencil.png'); }
 table td.actions a.remove { background: url('../images/icons/minus-circle.png'); }
 table p { margin-bottom: 10px; }
@@ -155,7 +155,7 @@ form select.multi { height: auto; }
 /* Sidebar Elements */
 p.actions a.button { font-size: 16px; font-weight: bold; padding: 10px 15px 10px 36px; line-height: 1; background-repeat: no-repeat; background-position: 15px center; line-height: 1; height: auto; }
 p.actions a.button.add { background-image: url('../images/icons/plus-circle.png'); }
-p.actions a.button.reviews { background-image: url('../images/icons/balloons.png'); }
+p.actions a.button.reviews { background-image: url('../images/icons/balloon.png'); }
 p.actions a.button.update { background-image: url('../images/icons/pencil.png'); }
 
 /* Flash Notices */
