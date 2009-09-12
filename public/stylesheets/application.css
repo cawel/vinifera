@@ -100,7 +100,7 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 #sidebar { float: right; width: 300px; padding: 20px 0 0 20px; }
 
 /* Masthead */
-#masthead { overflow: hidden; background: #52041a url('../images/masthead_bg.png') repeat-x left bottom; padding: 20px 0; }
+#masthead { overflow: hidden; background: #a30835 url('../images/masthead_bg.png') repeat-x left bottom; padding: 20px 0; }
 #masthead h1 { margin-right: 20px; margin: 0; display: inline; }
 #masthead h1 a { color: #FFFFFF; font-weight: bold; font-size: 24px; text-decoration: none; }
 #masthead p { color: #B68291; font-size: 16px; margin: 0 0 10px; }
