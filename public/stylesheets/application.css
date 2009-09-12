@@ -96,7 +96,7 @@ table p { margin-bottom: 10px; }
 div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hidden; }
 #content { background: #FFFFFF; }
 #content div.page_width { overflow: hidden; min-height: 350px; background: url('../images/sidebar_bg.gif') repeat-y 630px top; }
-#main { float: left; width: 610px; padding-top: 20px; }
+#main { float: left; width: 610px; padding: 20px 0 80px; }
 #sidebar { float: right; width: 300px; padding: 20px 0 0 20px; }
 
 /* Masthead */
@@ -161,6 +161,21 @@ p.actions a.button.update { background-image: url('../images/icons/pencil.png');
 p.flash { padding: 10px 10px 10px 31px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 p.flash.notice { background: #E2E4F6 url('../images/icons/information.png') no-repeat 10px center; }
 p.flash.error { background: #F6E0E1 url('../images/icons/exclamation-red.png') no-repeat 10px center; }
+
+/* Typography for Content Pages */
+#contents_controller #content p,
+#contents_controller #content li,
+#contents_controller #content dt,
+#contents_controller #content dd { font-size: 14px; }
+#contents_controller #content ol,
+#contents_controller #content ul { margin-left: 40px; margin: 0 0 1.5em; }
+#contents_controller #content p.img.embedded { margin-bottom: 20px; }
+#contents_controller #content p img.embedded.right { float: right; margin-left: 20px; }
+#contents_controller #content p img.embedded.left { float: left; margin-right: 20px; }
+#contents_controller.contact #content img.portrait { float: left; width: 80px; }
+#contents_controller.contact #content table { width: auto; margin-left: 100px; }
+#contents_controller.contact #content table th { font-weight: normal; border: none; font-size: 14px; background: none; text-align: right; color: #404040; padding: 0 10px 10px 0; white-space: nowrap; }
+#contents_controller.contact #content table td { font-size: 14px; color: #000000; padding: 0 0 10px; }
 
 /* Wine Profile */
 div.wine_profile { overflow: hidden; margin: 0 0 1.5em; }
