@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
-  fires :reviewed,  :on => :create, :actor => :person, :subject => :wine
-  fires :edited,    :on => :update, :actor => :person, :subject => :wine
+  fires :reviewed,  :on => :create, :actor => :person
+  fires :edited,    :on => :update, :actor => :person
   
   belongs_to :wine
   belongs_to :person
