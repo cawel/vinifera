@@ -37,7 +37,7 @@ Rails::Initializer.run do |config|
 
   # Application-specific dependencies
   #config.gem ''
-  config.gem 'freelancing-god-thinking-sphinx',   :lib => 'thinking_sphinx',    :version  => '1.1.12'
+  config.gem "freelancing-god-thinking-sphinx",   :lib => 'thinking_sphinx',    :version  => '1.1.12'
 
 
   # Only load the plugins named here, in the order given. By default, all plugins 
