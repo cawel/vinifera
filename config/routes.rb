@@ -15,8 +15,9 @@ ActionController::Routing::Routes.draw do |map|
   map.root                   :controller => 'wines', :action => 'home'
   map.search    '/search',   :controller => 'wines', :action => 'index'
 
-  map.about     '/a-propos',    :controller => 'contents', :action => 'about'
-  map.contact   '/contact',  :controller => 'contents', :action => 'contact'
+  map.about         '/a-propos',    :controller => 'contents', :action => 'about'
+  map.contact       '/contact',  :controller => 'contents', :action => 'contact'
+  map.ratings_help  '/signification-des-cotes',  :controller => 'contents', :action => 'ratings_help'
   
   map.login     '/login',    :controller => 'sessions',    :action => 'new'
   map.logout    '/logout',   :controller => 'sessions',    :action => 'destroy'

@@ -5,4 +5,7 @@ class ContentsController < ApplicationController
 
   def about
   end
+
+  def ratings_help
+  end
 end
