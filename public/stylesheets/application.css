@@ -180,9 +180,9 @@ p.flash.error { background: #F6E0E1 url('../images/icons/exclamation-red.png') n
 
 /* Wine Profile */
 div.wine_profile { overflow: hidden; margin: 0 0 1.5em; }
-div.wine_profile img.bottle { float: left; display: block; width: 100px; }
+div.wine_profile img.bottle { float: right; display: block; width: 100px; }
 div.wine_profile table { width: auto; }
-div.wine_profile table * { font-size: 14px; margin: 0 0 0 110px; }
+div.wine_profile table * { font-size: 14px; margin: 0 110px 0 0; }
 div.wine_profile table th,
 div.wine_profile table td { padding: 0 10px 5px 0; }
 div.wine_profile table th { background: none; text-align: right; white-space: nowrap; border: none; width: 1%; }
