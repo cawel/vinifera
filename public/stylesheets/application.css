@@ -86,9 +86,10 @@ caption{background:#eee;}
 /* More Table Style Rules */
 table td.title { font-weight: bold; }
 table td.actions { white-space: nowrap; }
-table td.actions a { display: inline-block; height: 16px; width: 16px; text-indent: -9000px; }
+table td.actions a { display: inline-block; height: 16px; width: 16px; text-indent: -9000px; filter: alpha(opacity=66); opacity: 0.66; -moz-opacity: 0.66; }
+table td.actions a:hover { filter: alpha(opacity=100); opacity: 1; -moz-opacity: 1; }
 table td.actions a.comments { background: url('../images/icons/balloon.png'); }
-table td.actions a.update { background: url('../images/icons/pencil.png'); }
+table td.actions a.update { background: url('../images/icons/shape_square_edit.png'); }
 table td.actions a.remove { background: url('../images/icons/minus-circle.png'); }
 table p { margin-bottom: 10px; }
 
@@ -129,6 +130,7 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 input[type="submit"] { background: #274B66; color: #FFFFFF; font-size: 14px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; line-height: 1; padding: 0 8px 6px; height: 28px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 a.button { background: #274B66; color: #FFFFFF; display: inline-block; font-size: 14px; padding: 0 8px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; padding: 0 8px; line-height: 23px; height: 24px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 a.button.reviews { background-image: url('../images/icons/ballons.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
+a.button.add { background-image: url('../images/icons/add.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 input[type="text"],
 input[type="password"] { border: 1px solid #C0C0C0; height: 22px; font-size: 14px; padding: 3px 20px 0 3px; }
 input[type="text"].search { background-image: url('../images/icons/magnifier.png'); background-repeat: no-repeat; background-position: 5px center; padding-left: 26px; }
