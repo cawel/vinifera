@@ -1,6 +1,13 @@
 <p>
   <%= f.label :rating_id %>
-  <%#= f.hidden_field :rating_id %>
+  <ul class="star_rating">
+    <li class="stars_1"><%= link_to "Une &#233;toile", "javascript:;", :title => "Une &#233;toile" %></li>
+    <li class="stars_2"><%= link_to "Deux &#233;toiles", "javascript:;", :title => "Deux &#233;toiles" %></li>
+    <li class="stars_3"><%= link_to "Trois &#233;toiles", "javascript:;", :title => "Trois &#233;toiles" %></li>
+    <li class="stars_4"><%= link_to "Quatre &#233;toiles", "javascript:;", :title => "Quatre &#233;toiles" %></li>
+    <li class="stars_5"><%= link_to "Cinq &#233;toiles", "javascript:;", :title => "Cinq &#233;toiles" %></li>
+  </ul>
+  <input type="hidden" id="rating" />
   <%= f.collection_select :rating_id, Rating.find(:all), :id, :name %>
 </p>
 <p>
