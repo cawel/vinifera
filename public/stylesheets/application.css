@@ -93,6 +93,9 @@ table td.actions a.comments { background: url('../images/icons/balloon.png'); }
 table td.actions a.update { background: url('../images/icons/shape_square_edit.png'); }
 table td.actions a.remove { background: url('../images/icons/minus-circle.png'); }
 table p { margin-bottom: 10px; }
+table tfoot td { border-top: 1px solid #C0C0C0; background: #F0F0F0; font-style: normal; text-align: right; }
+table tfoot td div.pagination a.prev_page,
+table tfoot td div.pagination a.next_page { font-weight: bold; }
 
 /* Layout */
 div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hidden; }
@@ -181,6 +184,11 @@ p.flash.error { background: #F6E0E1 url('../images/icons/exclamation-red.png') n
 #contents_controller.contact #content table { width: auto; margin-left: 100px; }
 #contents_controller.contact #content table th { font-weight: normal; border: none; font-size: 14px; background: none; text-align: right; color: #404040; padding: 0 10px 10px 0; white-space: nowrap; }
 #contents_controller.contact #content table td { font-size: 14px; color: #000000; padding: 0 0 10px; }
+
+/* Wine Listings */
+table.wines td.wine span.bottle { float: left; display: block; width: 35px; height: 35px; border: 1px solid #E0E0E0; overflow: hidden; margin-right: 5px; }
+table.wines td.wine span.bottle img { width: 100%; position: relative; top: -10px; }
+table.wines td.wine a.name { font-weight: bold; display: block; margin-left: 40px; }
 
 /* Wine Profile */
 div.wine_profile { overflow: hidden; margin: 0 0 1.5em; }

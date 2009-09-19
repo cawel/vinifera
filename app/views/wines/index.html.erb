@@ -1,34 +1,45 @@
 <% @title = "R&eacute;sultats de recherche" %>
 
 <% if @wines.any? %>
-<table>
-  <thead>
-    <th>Nom</th>
-    <th>C&eacute;page</th>
-    <th>Couleur</th>
-    <th>Ann&eacute;e</th>
-    <th>Pays</th>
-    <th></th>
-  </thead>
-  <tbody>
-    <% @wines.each do |wine| %>
-      <tr class="<%= cycle("even", "odd") %>">
-        <td class="title"><%= link_to wine.name, wine_reviews_url(wine) %></td>
-        <td><%=h wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
-        <td><%=h wine.color.name.titleize %></td>
-        <td><%=h wine.year %></td>
-        <td><%#= country_flag wine.country%></td>
-        <% editable_wine? wine do %>
-          <td class="actions">
-            <%= link_to "Mettre à jour", edit_wine_path(wine), :title => "Mettre à jour", :class => "update" %>
-            <%= link_to "Supprimer", wine, :title => "Supprimer", :confirm => "Etes-vous sur?", :method => :delete, :class => "remove" %>
+  <table class="wines">
+    <thead>
+      <th>Vin</th>
+      <th>C&eacute;page</th>
+      <th>Couleur</th>
+      <th>Ann&eacute;e</th>
+      <th>Pays</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @wines.each do |wine| %>
+        <tr class="<%= cycle("even", "odd") %>">
+          <td class="wine">
+            <span class="bottle">
+              <%= link_to image_tag("wine_image_placeholder.jpg", :alt => wine.name), wine_reviews_url(wine), :title => wine.name %>
+            </span>
+            <%= link_to wine.name, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
           </td>
-        <% end %>
+          <td><%=h wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
+          <td><%=h wine.color.name.titleize %></td>
+          <td><%=h wine.year %></td>
+          <td><%#= country_flag wine.country%></td>
+          <% editable_wine? wine do %>
+            <td class="actions">
+              <%= link_to "Mettre à jour", edit_wine_path(wine), :title => "Mettre à jour", :class => "update" %>
+              <%= link_to "Supprimer", wine, :title => "Supprimer", :confirm => "Etes-vous sur?", :method => :delete, :class => "remove" %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6">
+          <%= will_paginate @wines %>
+        </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @wines %>
+    </tfoot>
+  </table>
 <% else %>
   Aucuns resultats.
 <% end %>
