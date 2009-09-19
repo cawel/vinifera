@@ -48,6 +48,14 @@ module ApplicationHelper
 
   end
 
+  def glass_image_filename wine
+    if wine.color.name == "Rouge" 
+      "glasses/red_small.jpg"
+    else
+      "glasses/white_small.jpg"
+    end
+  end
+
   private
   def get_flag_image_path(country)
     image_path = "/images/flags/" + country.code.downcase + ".gif"

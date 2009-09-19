@@ -13,7 +13,7 @@
         <tr class="<%= cycle("even", "odd") %>">
           <td class="wine">
             <span class="bottle">
-              <%= link_to image_tag("wine_image_placeholder.jpg", :alt => wine.name), wine_reviews_url(wine), :title => wine.name %>
+              <%= link_to image_tag( glass_image_filename(wine), :alt => wine.name), wine_reviews_url(wine), :title => wine.name %>
             </span>
             <%= link_to wine.name, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
           </td>
