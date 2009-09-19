@@ -1,25 +1,36 @@
 <% @title = "Derni&egrave;res critiques" %>
 
-<ul class="activity_stream">
-  <% @timeline_events.each do |event| %>
-    <li>
-      <span class="when">il y a <%= time_ago_in_words event.created_at %></span>
-      <span class="rating"><%= stars_rating event.subject.rating.name %></span>
-      <%= link_to event.subject.wine.name, wine_reviews_url(event.subject.wine), :title => event.subject.wine.name, :class => "wine" %>
-      <small>
-        Une critique
-          <% case event.event_type when "reviewed" %>
-            cr&#233;&#233;e
-          <% when "edited" %>
-            modifi&#233;
-          <% end %>
-        par
-        <% unless event.actor.name.blank? %>
-          <%= link_to event.actor.name, person_url(event.actor) %>.
-        <% else %>
-          moi.
-        <% end %>
-      </small>
-    </li>
-  <% end %>
-</ul>
+<table class="activity_stream">
+  <tbody>
+    <% @timeline_events.each do |event| %>
+      <tr>
+        <td class="wine">
+          <span class="bottle">
+            <%= link_to image_tag("wine_image_placeholder.jpg", :alt => event.subject.wine.name), wine_reviews_url(event.subject.wine), :title => event.subject.wine.name %>
+          </span>
+          <%= link_to event.subject.wine.name, wine_reviews_url(event.subject.wine), :title => event.subject.wine.name, :class => "name" %>
+          <small>
+            Une critique
+              <% case event.event_type when "reviewed" %>
+                cr&#233;&#233;e
+              <% when "edited" %>
+                modifi&#233;
+              <% end %>
+            par
+            <% unless event.actor.name.blank? %>
+              <%= link_to event.actor.name, person_url(event.actor) %>.
+            <% else %>
+              moi.
+            <% end %>
+          </small>
+        </td>
+        <td class="rating">
+          <%= stars_rating event.subject.rating.name %>
+        </td>
+        <td class="when">
+          il y a <%= time_ago_in_words event.created_at %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
