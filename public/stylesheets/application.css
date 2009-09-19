@@ -207,15 +207,12 @@ table.user_profile td { padding: 0 10px 5px 0; }
 table.user_profile th { background: none; text-align: right; white-space: nowrap; border: none; width: 1%; }
 
 /* Activity Stream */
-table.activity_stream { border-top: 1px solid #E0E0E0; }
-table.activity_stream tr { border-bottom: 1px solid #E0E0E0; margin-bottom: 1px; }
-table.activity_stream td { padding: 10px 0; }
+table.activity_stream tr { margin-bottom: 1px; }
+table.activity_stream td { padding: 13px 0; }
 table.activity_stream td.wine span.bottle { float: left; display: block; width: 35px; height: 35px; border: 1px solid #E0E0E0; overflow: hidden; margin-right: 5px; }
 table.activity_stream td.wine span.bottle img { width: 100%; position: relative; top: -10px; }
 table.activity_stream td.wine a.name { font-weight: bold; display: block; margin-left: 40px; }
 table.activity_stream td.wine small { font-size: 11px; color: #808080; display: block; margin: 1px 0 0 40px; }
-table.activity_stream td.rating img { margin-top: 3px; }
-table.activity_stream td.when { text-align: right; color: #808080; }
 
 /* Star Ratings */
 ul.star_rating { display: inline-block; width: 80px; height: 16px; margin: 0; padding: 0; position: relative; background: url('../images/star_rating_bg.png') repeat-x left top; }

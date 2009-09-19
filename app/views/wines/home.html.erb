@@ -8,7 +8,7 @@
           <span class="bottle">
             <%= link_to image_tag("wine_image_placeholder.jpg", :alt => event.subject.wine.name), wine_reviews_url(event.subject.wine), :title => event.subject.wine.name %>
           </span>
-          <%= link_to event.subject.wine.name, wine_reviews_url(event.subject.wine), :title => event.subject.wine.name, :class => "name" %>
+          <%= stars_rating event.subject.rating.name %><%= link_to event.subject.wine.name, wine_reviews_url(event.subject.wine), :title => event.subject.wine.name, :class => "name" %>
           <small>
             Une critique
               <% case event.event_type when "reviewed" %>
@@ -17,18 +17,8 @@
                 modifi&#233;
               <% end %>
             par
-            <% unless event.actor.name.blank? %>
-              <%= link_to event.actor.name, person_url(event.actor) %>.
-            <% else %>
-              moi.
-            <% end %>
+              <%= link_to event.actor.name, person_url(event.actor) %>, il y a <%= time_ago_in_words event.created_at %>.
           </small>
-        </td>
-        <td class="rating">
-          <%= stars_rating event.subject.rating.name %>
-        </td>
-        <td class="when">
-          il y a <%= time_ago_in_words event.created_at %>
         </td>
       </tr>
     <% end %>
