@@ -1,24 +1,25 @@
 <% @title = "Derni&egrave;res critiques" %>
 
-<table>
-
+<ul class="activity_stream">
   <% @timeline_events.each do |event| %>
-    <tr>
-      <td>
-        <% case event.event_type 
-  when "reviewed" %>
-  <%= stars_rating event.subject.rating.name %>  <%= link_to(event.subject.wine.name, wine_reviews_url(event.subject.wine)) %>.
-  <br>
-  <%= link_to(event.actor.name, person_url(event.actor)) %> a fait une critique,
-<% when "edited" %>
-  <%= stars_rating event.subject.rating.name %> <%= link_to(event.subject.wine.name, wine_reviews_url(event.subject.wine)) %>.
-  <br>
-  <%= link_to(event.actor.name, person_url(event.actor)) %> a modifi&eacute; sa critique,
-<% end %>
-il y a <%= time_ago_in_words event.created_at %>
-<br>
-      </td>
-    </tr>
+    <li>
+      <span class="when">il y a <%= time_ago_in_words event.created_at %></span>
+      <span class="rating"><%= stars_rating event.subject.rating.name %></span>
+      <%= link_to event.subject.wine.name, wine_reviews_url(event.subject.wine), :title => event.subject.wine.name, :class => "wine" %>
+      <small>
+        Une critique
+          <% case event.event_type when "reviewed" %>
+            cr&#233;&#233;e
+          <% when "edited" %>
+            modifi&#233;
+          <% end %>
+        par
+        <% unless event.actor.name.blank? %>
+          <%= link_to event.actor.name, person_url(event.actor) %>.
+        <% else %>
+          moi.
+        <% end %>
+      </small>
+    </li>
   <% end %>
-
-</table>
+</ul>

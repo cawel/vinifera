@@ -1,5 +1,6 @@
 <p>
   <%= f.label :rating_id %>
+  <%#= f.hidden_field :rating_id %>
   <%= f.collection_select :rating_id, Rating.find(:all), :id, :name %>
 </p>
 <p>

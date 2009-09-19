@@ -197,3 +197,23 @@ table.user_profile * { font-size: 14px; margin: 0 0 0 110px; }
 table.user_profile th,
 table.user_profile td { padding: 0 10px 5px 0; }
 table.user_profile th { background: none; text-align: right; white-space: nowrap; border: none; width: 1%; }
+
+/* Activity Stream */
+ul.activity_stream { margin: 0; }
+ul.activity_stream li { margin: 0 0 10px; list-style: none; }
+ul.activity_stream li span.rating { float: left; margin-top: 5px; }
+ul.activity_stream li span.when { float: right; color: #808080; }
+ul.activity_stream li a.wine { font-weight: bold; display: block; margin-left: 56px; }
+ul.activity_stream li small { font-size: 11px; color: #808080; display: block; margin-left: 56px; }
+ul.activity_stream {}
+ul.activity_stream {}
+ul.activity_stream {}
+ul.activity_stream {}
+ul.activity_stream {}
+
+
+
+
+
+
+
