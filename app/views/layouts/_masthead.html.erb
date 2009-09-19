@@ -1,7 +1,7 @@
 <div id="masthead">
   <div class="page_width">
     <h1><%= link_to "Le Tastevin", root_url, :title => "Accueil" %></h1>
-    <p>Mes decouvertes vinicoles</p>
+    <p>Mes d&eacute;couvertes vinicoles</p>
     <ul id="utilities">
       <% if logged_in? -%>
         <li><%= link_to "Mon Profile", edit_person_url(current_person), :title => "Compte de #{current_person.email}" %></li>
