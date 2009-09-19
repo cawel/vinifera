@@ -4,9 +4,7 @@
   <table class="wines">
     <thead>
       <th>Vin</th>
-      <th>C&eacute;page</th>
       <th>Couleur</th>
-      <th>Ann&eacute;e</th>
       <th>Pays</th>
       <th></th>
     </thead>
@@ -19,9 +17,7 @@
             </span>
             <%= link_to wine.name, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
           </td>
-          <td><%=h wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
           <td><%=h wine.color.name.titleize %></td>
-          <td><%=h wine.year %></td>
           <td><%#= country_flag wine.country%></td>
           <% editable_wine? wine do %>
             <td class="actions">
