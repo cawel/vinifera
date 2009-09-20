@@ -17,7 +17,7 @@
   <% @top_wines.each do |wine| %>
     <tr>
       <td>
-        <%= link_to wine.name, wine %> (<%= wine.review_count %> critiques)
+        <%= link_to wine.name, wine_reviews_path(wine) %> (<%= wine.review_count %> critiques)
       </td>
     </tr>
   <% end %>
