@@ -2,18 +2,22 @@
 
 <% @person.password = @person.password_confirmation = nil %>
 
-<%= error_messages_for :person %>
+<%= error_messages_for :person, :object_name => "usager" %>
 <% form_for :person, :url => people_path, :html => { :class => "lw200" } do |f| -%>
   <p>
-    <%= label_tag 'email', I18n.t(:email) %>
+    <%= f.label 'name', I18n.t(:name) %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label 'email', I18n.t(:email) %>
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= label_tag 'password', I18n.t(:password) %>
+    <%= f.label 'password', I18n.t(:password) %>
     <%= f.password_field :password %>
   </p>
   <p>
-    <%= label_tag 'password_confirmation', I18n.t(:password_confirmation) %>
+    <%= f.label 'password_confirmation', I18n.t(:password_confirmation) %>
     <%= f.password_field :password_confirmation %>
   </p>
   <p class="submit indent">

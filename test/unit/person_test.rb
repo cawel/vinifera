@@ -1,6 +1,7 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class PersonTest < ActiveSupport::TestCase
+
   def self.should_set_remember_token
     should "set remember_token" do
       assert_not_nil @person.remember_token      
@@ -16,7 +17,7 @@ class PersonTest < ActiveSupport::TestCase
       @person = Person.new
     end
 
-    should_validate_presence_of :password, :password_confirmation
+    should_validate_presence_of :password, :password_confirmation, :name
   end
 
   #context "Given a person using OpenID" do
