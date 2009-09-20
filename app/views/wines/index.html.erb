@@ -16,6 +16,10 @@
               <%= link_to image_tag( glass_image_filename(wine), :alt => wine.name), wine_reviews_url(wine), :title => wine.name %>
             </span>
             <%= link_to wine.name, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
+            <small>
+            <%= (wine.appellation.name + ", ") unless wine.appellation.nil? %> 
+            <%= wine.region.name unless wine.region.nil? %>
+          </small>
           </td>
           <td><%=h wine.color.name.titleize %></td>
           <td><%= country_flag wine.country%></td>
