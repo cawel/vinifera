@@ -26,6 +26,15 @@ class Wine < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 20
 
+  # this is bullshit (what I really need is a wines.weighted_rating)
+  named_scope :top_wines,
+    :select => "wines.*, count(*) as review_count",
+    :from => "wines, reviews, ratings",
+    :conditions => ["wines.id = reviews.wine_id and reviews.rating_id = ratings.id"],
+    :group => "wine_id",
+    :order => "ratings.name desc, review_count desc",
+    :limit => 5
+
   # otherwise it messes up associations in fixtures
   if RAILS_ENV == 'production'
     define_index do

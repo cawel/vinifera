@@ -1,4 +1,4 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class WineTest < ActiveSupport::TestCase
   # Replace this with your real tests.
@@ -18,4 +18,14 @@ class WineTest < ActiveSupport::TestCase
   should_have_many :reviews, :dependent => :destroy
   should_have_many :variety_wines
   should_have_many :varieties, :through => :variety_wines
+
+  context "the top wines" do
+    setup do
+      @top = Wine.top_wines
+    end
+    should "be a list of wines" do
+      assert @top.is_a? Array
+      assert @top.first.is_a? Wine
+    end
+  end
 end
