@@ -9,6 +9,7 @@ martin:
   admin: 1
 
 james:
+  name:                      James
   email:                     james@giraffesoft.ca
   salt:                      salt
   crypted_password:          <%= Person.password_digest('monkey', 'salt') %>
@@ -18,6 +19,7 @@ james:
   admin: 0
 
 mat:
+  name:                      Mat
   email:                     mat@giraffesoft.ca
   salt:                      salt
   crypted_password:          <%= Person.password_digest('monkey', 'salt') %>
