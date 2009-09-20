@@ -18,7 +18,7 @@
             <%= link_to wine.name, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
           </td>
           <td><%=h wine.color.name.titleize %></td>
-          <td><%#= country_flag wine.country%></td>
+          <td><%= country_flag wine.country%></td>
           <% editable_wine? wine do %>
             <td class="actions">
               <%= link_to "Mettre à jour", edit_wine_path(wine), :title => "Mettre à jour", :class => "update" %>
