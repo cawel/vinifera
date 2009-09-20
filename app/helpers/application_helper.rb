@@ -37,15 +37,14 @@ module ApplicationHelper
     yield unless field.nil?
   end
 
-  def stars_rating stars
-    case stars
-    when "*" ; image_tag("stars/1star.gif")
-    when "**";  image_tag("stars/2star.gif")
-    when "***";  image_tag("stars/3star.gif")
-    when "****";  image_tag("stars/4star.gif")
-    when "*****";  image_tag("stars/5star.gif")
+  def stars_rating rating
+    case rating.id
+    when 1; image_tag("stars/1star.gif")
+    when 2; image_tag("stars/2star.gif")
+    when 3; image_tag("stars/3star.gif")
+    when 4; image_tag("stars/4star.gif")
+    when 5; image_tag("stars/5star.gif")
     end
-
   end
 
   def glass_image_filename wine

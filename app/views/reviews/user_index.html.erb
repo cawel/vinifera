@@ -11,7 +11,7 @@
     <tbody>
       <%- @reviews.each do |review| %>
         <tr class="<%= cycle("even", "odd") %>">
-          <td class="rating"><%= stars_rating review.rating.name %></td>
+          <td class="rating"><%= stars_rating review.rating %></td>
           <td><%= link_to review.wine.name, review.wine %></td>
           <td><%=format_review_comment review.comment %></td>
           <td class="actions">

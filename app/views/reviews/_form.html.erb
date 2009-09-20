@@ -1,14 +1,13 @@
 <p>
-  <%= f.label :rating_id %>
+  <%= f.label :review_rating_id %>
   <ul class="star_rating">
-    <li class="stars_1"><%= link_to "Une &#233;toile", "javascript:;", :title => "Une &#233;toile" %></li>
-    <li class="stars_2"><%= link_to "Deux &#233;toiles", "javascript:;", :title => "Deux &#233;toiles" %></li>
-    <li class="stars_3"><%= link_to "Trois &#233;toiles", "javascript:;", :title => "Trois &#233;toiles" %></li>
-    <li class="stars_4"><%= link_to "Quatre &#233;toiles", "javascript:;", :title => "Quatre &#233;toiles" %></li>
-    <li class="stars_5"><%= link_to "Cinq &#233;toiles", "javascript:;", :title => "Cinq &#233;toiles" %></li>
+    <li class="stars_1"><%= link_to "1 &#233;toile", "javascript:;", :title => "1 &#233;toile" %></li>
+    <li class="stars_2"><%= link_to "2 &#233;toiles", "javascript:;", :title => "2 &#233;toiles" %></li>
+    <li class="stars_3"><%= link_to "3 &#233;toiles", "javascript:;", :title => "3 &#233;toiles" %></li>
+    <li class="stars_4"><%= link_to "4 &#233;toiles", "javascript:;", :title => "4 &#233;toiles" %></li>
+    <li class="stars_5"><%= link_to "5 &#233;toiles", "javascript:;", :title => "5 &#233;toiles" %></li>
   </ul>
-  <input type="hidden" id="rating" />
-  <%= f.collection_select :rating_id, Rating.find(:all), :id, :name %>
+  <input type="hidden" id="review_rating_id" name="review[rating_id]" />
 </p>
 <p>
   <%= f.label :comment %>

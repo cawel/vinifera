@@ -1,19 +1,24 @@
-stars5:
-  weight: 5
-  name: *****
-
-stars4:
-  weight: 4
-  name: ****
-
-stars3:
-  weight: 3
-  name: ***
+stars1:
+  id: 1
+  weight: 1
+  name: 1
 
 stars2:
+  id: 2
   weight: 2
-  name: **
-  
-stars1:
-  weight: 1
-  name: *
+  name: 2
+
+stars3:
+  id: 3
+  weight: 3
+  name: 3
+
+stars4:
+  id: 4
+  weight: 4
+  name: 4
+
+stars5:
+  id: 5
+  weight: 5
+  name: 5

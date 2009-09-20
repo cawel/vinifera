@@ -5,7 +5,7 @@ $(function() {
 
   // Star Ratings Behaviour
   $("ul.star_rating li a").click(function() {
-    $("#rating").val($(this).parent().attr("class").replace("stars_", "").replace("current", "").replace(" ", ""));
+    $("#review_rating_id").val($(this).parent().attr("class").replace("stars_", "").replace("current", "").replace(" ", ""));
     $("ul.star_rating li").removeClass("current");
     $(this).parent().addClass("current");
   });
