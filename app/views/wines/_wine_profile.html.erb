@@ -2,20 +2,9 @@
   <%= image_tag "wine_image_placeholder.jpg", :alt => @wine.name, :class => "bottle" %>
   <table>
     <tbody>
-      <tr>
-        <th>Categorie:</th>
-        <td><%=h @wine.category.name %></td>
-      </tr>
-      <tr>
         <th>Couleur:</th>
         <td><%=h @wine.color.name %></td>
       </tr>
-      <% field_exists?(@wine.nature) do  %>
-        <tr>
-          <th>Nature:</th>
-          <td><%=h @wine.nature.name %></td>
-        </tr>
-      <% end %>
       <% field_exists?(@wine.flavor) do  %>
       <tr>
         <th>Arome:</th>
