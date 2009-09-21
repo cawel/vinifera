@@ -14,6 +14,11 @@ class ReviewsController < ApplicationController
     wants.html{ }
   end
 
+  new_action.before do
+    # default value: 1 star
+    @review.rating_id = 1
+  end
+
   create.before do
     object.person = current_person
   end

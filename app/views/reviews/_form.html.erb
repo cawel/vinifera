@@ -10,6 +10,11 @@
   <input type="hidden" id="review_rating_id" name="review[rating_id]" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to image_tag("/images/icons/help.png", :title => "Signification des cotes" ), "" %> 
 </p>
+<script type="text/javascript">
+  $("ul.star_rating li").removeClass("current");
+  $("ul.star_rating li.stars_<%= @review.rating.id %>").addClass("current");
+  $("#review_rating_id").val(<%= @review.rating.id.to_s %>);
+</script>
 <p>
 <%= f.label :comment, "Commentaire"  %>
   <%= f.text_area :comment, :cols => 50, :rows => 10 %>
