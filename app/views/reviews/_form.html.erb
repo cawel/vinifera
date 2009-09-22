@@ -1,4 +1,4 @@
-<div class="complex_field">
+<div class="complex_field clearfix">
   <%= f.label :review_rating_id, "Cote" %>
   <ul class="star_rating">
     <li class="stars_1 current"><%= link_to "1 &#233;toile", "javascript:;", :title => "1 &#233;toile" %></li>
@@ -13,7 +13,10 @@
     $("ul.star_rating li.stars_<%= @review.rating.id %>").addClass("current");
     $("#review_rating_id").val(<%= @review.rating.id.to_s %>);
   </script>
-  <%= link_to image_tag("/images/icons/help.png", :title => "Signification des cotes" ), "", :title => "Signification des cotes", :class => "help_icon"  %> 
+  <%= link_to image_tag("/images/icons/help.png", :title => "Signification des cotes" ), "", :title => "Signification des cotes", :class => "toggle_tooltip" %>
+  <script type="text/javascript">
+    $("a.toggle_tooltip").simpletip({ content: "Help!", fixed: true });
+  </script>
 </div>
 <p>
   <%= f.label :comment, "Commentaire"  %>
