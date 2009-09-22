@@ -61,4 +61,7 @@ Rails::Initializer.run do |config|
   File.exist?(session_config) ? load(session_config) : raise("You are missing your config/session.rb file. Please run rake blank:session_config.")  
   config.action_controller.session = SESSION_CONFIG
 
+  # Better handling of erroneous fields
+  ActionView::Base.field_error_proc = Proc.new { |html_tag, instance| "<span class=\"fieldWithErrors\">#{html_tag}</span>" }
+
 end

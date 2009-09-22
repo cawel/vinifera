@@ -251,3 +251,17 @@ ul.star_rating li.stars_5.current a { width: 80px; left: 0; }
 #sidebar #sidebar_wines ol { margin-bottom: 0; }
 #sidebar #sidebar_reviews h3 { padding-left: 31px; background-image: url('../images/icons/rosette.png'); background-position: 10px center; background-repeat: no-repeat; }
 
+/* Error Explanation */
+#errorExplanation { color: black; padding: 10px 10px 10px 31px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; margin: 0 0 20px; background: #C00000 url('../images/icons/exclamation.png') no-repeat 10px 10px; }
+#errorExplanation h2 { font-size: 14px; margin: 0 0 5px; color: #FFFFFF; line-height: 1; }
+#errorExplanation p { font-size: 12px; margin-bottom: 5px; color: black; color: #FFFFFF; }
+#errorExplanation ul { margin-left: 20px; color: #FFFFFF; margin-bottom: 5px; }
+#errorExplanation ul li { font-size: 12px; }
+
+/* Field with Errors */
+span.fieldWithErrors input[type="text"],
+span.fieldWithErrors input[type="password"],
+span.fieldWithErrors select,
+span.fieldWithErrors textarea { border: 1px solid #FF0000; }
+span.fieldWithErrors input[type="radio"]
+span.fieldWithErrors input[type="checkbox"] { background: #FF0000; }
