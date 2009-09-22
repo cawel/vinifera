@@ -62,6 +62,6 @@ Rails::Initializer.run do |config|
   config.action_controller.session = SESSION_CONFIG
 
   # Better handling of erroneous fields
-  ActionView::Base.field_error_proc = Proc.new { |html_tag, instance| "<span class=\"fieldWithErrors\">#{html_tag}</span>" }
+  #ActionView::Base.field_error_proc = Proc.new { |html_tag, instance| "<span class=\"fieldWithErrors\">#{html_tag}</span>" }
 
 end
