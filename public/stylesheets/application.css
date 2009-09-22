@@ -191,6 +191,8 @@ p.flash.error { background: #F6E0E1 url('../images/icons/exclamation-red.png') n
 table.wines td.wine span.bottle { float: left; display: block; width: 40px; height: 40px; overflow: hidden; margin-right: 5px; }
 table.wines td.wine span.bottle img { width: 100%; position: relative; -10px; }
 table.wines td.wine a.name { font-weight: bold; display: block; margin-left: 40px; }
+table.wines th.country,
+table.wines td.country { text-align: center; }
 
 /* Wine Profile */
 div.wine_profile { overflow: hidden; margin: 0 0 1.5em; }
