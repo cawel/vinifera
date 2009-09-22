@@ -6,9 +6,12 @@
       <tr>
         <td class="wine">
           <span class="bottle">
-              <%= link_to image_tag( glass_image_filename(event.subject.wine), :alt => event.subject.wine.name), wine_reviews_url(event.subject.wine), :title => event.subject.wine.name %>
+            <%= link_to image_tag( glass_image_filename(event.subject.wine), :alt => event.subject.wine.name), wine_reviews_url(event.subject.wine), :title => event.subject.wine.name %>
           </span>
-          <%= stars_rating event.subject.rating %><%= link_to event.subject.wine.name, wine_reviews_url(event.subject.wine), :title => event.subject.wine.name, :class => "name" %>
+          <%= link_to event.subject.wine.name, wine_reviews_url(event.subject.wine), :title => event.subject.wine.name, :class => "name" %>
+          <span class="rating">
+            <%= stars_rating event.subject.rating %>
+          </span>
           <small>
             Une critique
             <% case event.event_type when "reviewed" %>

@@ -207,12 +207,13 @@ table.user_profile td { padding: 0 10px 5px 0; }
 table.user_profile th { background: none; text-align: right; white-space: nowrap; border: none; width: 1%; }
 
 /* Activity Stream */
-table.activity_stream tr { margin-bottom: 1px; }
+table.activity_stream tr { border-bottom: 1px solid #F0F0F0; }
 table.activity_stream td { padding: 13px 0; }
-table.activity_stream td.wine span.bottle { float: left; display: block; width: 40px; height: 40px; overflow: hidden; margin-right: 5px; }
+table.activity_stream td.wine span.bottle { float: left; display: block; width: 40px; height: 40px; overflow: hidden; margin: 5px 0 0 0; }
 table.activity_stream td.wine span.bottle img { width: 100%; position: relative; }
-table.activity_stream td.wine a.name { font-weight: bold; display: block; margin-left: 40px; }
-table.activity_stream td.wine small { font-size: 11px; color: #808080; display: block; margin: 1px 0 0 40px; }
+table.activity_stream td.wine span.rating { margin: 3px 0 3px 45px; display: block; }
+table.activity_stream td.wine a.name { font-weight: bold; display: block; margin-left: 45px; }
+table.activity_stream td.wine small { font-size: 11px; color: #808080; display: block; margin: 1px 0 0 45px; }
 
 /* Star Ratings */
 ul.star_rating { display: inline-block; width: 80px; height: 16px; margin: 0; padding: 0; position: relative; background: url('../images/star_rating_bg.png') repeat-x left top; }
