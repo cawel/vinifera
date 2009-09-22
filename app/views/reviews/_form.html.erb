@@ -13,9 +13,26 @@
     $("ul.star_rating li.stars_<%= @review.rating.id %>").addClass("current");
     $("#review_rating_id").val(<%= @review.rating.id.to_s %>);
   </script>
-  <%= link_to image_tag("/images/icons/help.png", :title => "Signification des cotes" ), "", :title => "Signification des cotes", :class => "toggle_tooltip" %>
+  <%= link_to image_tag("/images/icons/help.png"), "", :title => "Place tooltip help here", :class => "toggle_tooltip" %>
   <script type="text/javascript">
-    $("a.toggle_tooltip").simpletip({ content: "Help!", fixed: true });
+    //$("a.toggle_tooltip").simpletip({ content: "Help!", fixed: true });
+    $("a.toggle_tooltip[title]").qtip({
+      show: "mouseover",
+      hide: "mouseout",
+      position: {
+        corner: {
+          target: "rightTop",
+          tooltip: "bottomLeft"
+        }
+      },
+      style: {
+        name: "cream",
+        tip: {
+          corner: "bottomLeft",
+          size: { x: 5, y: 3 }
+        }
+      }
+    });
   </script>
 </div>
 <p>

@@ -266,5 +266,4 @@ span.fieldWithErrors input[type="radio"]
 span.fieldWithErrors input[type="checkbox"] { background: #FF0000; }
 
 /* Tooltip */
-a.toggle_tooltip { margin-left: 20px; cursor: help; display: inline-block; }
-div.tooltip { padding: 5px 10px; background: #FFFFE0; border: 1px solid #E0E0C0; position: absolute; color: #000000; font-size: 12px; line-height: normal; z-index: 50; display: none; margin: 0; }
+a.toggle_tooltip { margin-left: 20px; cursor: help; }
