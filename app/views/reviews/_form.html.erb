@@ -1,4 +1,4 @@
-<p>
+<div class="complex_field">
   <%= f.label :review_rating_id, "Cote" %>
   <ul class="star_rating">
     <li class="stars_1 current"><%= link_to "1 &#233;toile", "javascript:;", :title => "1 &#233;toile" %></li>
@@ -8,14 +8,14 @@
     <li class="stars_5"><%= link_to "5 &#233;toiles", "javascript:;", :title => "5 &#233;toiles" %></li>
   </ul>
   <input type="hidden" id="review_rating_id" name="review[rating_id]" />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to image_tag("/images/icons/help.png", :title => "Signification des cotes" ), "" %> 
-</p>
-<script type="text/javascript">
-  $("ul.star_rating li").removeClass("current");
-  $("ul.star_rating li.stars_<%= @review.rating.id %>").addClass("current");
-  $("#review_rating_id").val(<%= @review.rating.id.to_s %>);
-</script>
+  <script type="text/javascript">
+    $("ul.star_rating li").removeClass("current");
+    $("ul.star_rating li.stars_<%= @review.rating.id %>").addClass("current");
+    $("#review_rating_id").val(<%= @review.rating.id.to_s %>);
+  </script>
+  <%= link_to image_tag("/images/icons/help.png", :title => "Signification des cotes" ), "", :title => "Signification des cotes", :class => "help_icon"  %> 
+</div>
 <p>
-<%= f.label :comment, "Commentaire"  %>
+  <%= f.label :comment, "Commentaire"  %>
   <%= f.text_area :comment, :cols => 50, :rows => 10 %>
 </p>
