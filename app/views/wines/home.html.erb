@@ -17,7 +17,7 @@
             <% case event.event_type when "reviewed" %>
               cr&#233;&#233;e
             <% when "edited" %>
-              modifi&#233e;
+              modifi&#233;e
             <% end %>
             par
             <%= link_to event.actor.name, person_url(event.actor) %>, il y a <%= time_ago_in_words event.created_at %>.
