@@ -94,8 +94,13 @@ table td.actions a.update { background: url('../images/icons/shape_square_edit.p
 table td.actions a.remove { background: url('../images/icons/minus-circle.png'); }
 table p { margin-bottom: 10px; }
 table tfoot td { border-top: 1px solid #C0C0C0; background: #F0F0F0; font-style: normal; text-align: right; }
-table tfoot td div.pagination a.prev_page,
-table tfoot td div.pagination a.next_page { font-weight: bold; }
+table tfoot td div.pagination span,
+table tfoot td div.pagination a { display: inline-block; line-height: 1; padding: 3px 5px; background: #FFFFFF; text-decoration: none; }
+table tfoot td div.pagination span { border: 1px solid #C0C0C0; }
+table tfoot td div.pagination a { border: 1px solid #8C9EAB; }
+table tfoot td div.pagination a:hover { border: 1px solid #274B66; }
+table tfoot td div.pagination .prev_page,
+table tfoot td div.pagination .next_page { font-weight: bold; }
 
 /* Layout */
 div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hidden; }
@@ -194,6 +199,7 @@ table.wines td.wine span.bottle img { width: 100%; position: relative; -10px; }
 table.wines td.wine a.name { font-weight: bold; display: block; margin-left: 40px; }
 table.wines th.country,
 table.wines td.country { text-align: center; }
+table.wines td.country { padding-top: 8px; }
 
 /* Wine Profile */
 div.wine_profile { overflow: hidden; margin: 0 0 1.5em; }
