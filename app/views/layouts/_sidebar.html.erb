@@ -10,7 +10,7 @@
       <% @top_contributers.each do |user| %>
         <li>
           <%= link_to content_tag(:strong, user.name), person_path(user.id), :title => user.name %>
-          (<%= user.review_count %> critiques)
+          <small><strong><%= user.review_count %></strong> critiques</small>
         </li>
       <% end %>
     </ol>
@@ -24,7 +24,7 @@
       <% @top_wines.each do |wine| %>
         <li>
           <%= link_to content_tag(:strong, wine.name), wine_reviews_path(wine), :title => wine.name %>
-          (<%= wine.review_count %> critiques)
+          <small><strong><%= wine.review_count %></strong> critiques</small>
         </li>
       <% end %>
     </ol>

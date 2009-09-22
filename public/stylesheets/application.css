@@ -253,10 +253,11 @@ ul.star_rating li.stars_5.current a { width: 80px; left: 0; }
 #sidebar div.panel { margin: 0 0 1.5em; }
 #sidebar div.panel h3 { padding: 10px 10px; line-height: 1; background: #6D0523; color: #FFFFFF; font-size: 16px; border-top-left-radius: 3px; -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; border-top-right-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; margin: 0; }
 #sidebar div.panel div.content { padding: 10px; border-bottom: 1px solid #c0c0c0; border-bottom-left-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; border-left: 1px solid #c0c0c0; border-right: 1px solid #c0c0c0; }
-#sidebar #sidebar_reviews ol,
-#sidebar #sidebar_wines ol { margin-bottom: 0; }
+#sidebar div.panel ol { margin-bottom: 0; }
 #sidebar #sidebar_wines h3,
 #sidebar #sidebar_reviews h3 { padding-left: 31px; background-image: url('../images/icons/rosette.png'); background-position: 10px center; background-repeat: no-repeat; }
+#sidebar div.panel small { font-size: 11px; color: #808080; display: block; }
+#sidebar div.panel small strong { color: #404040; }
 
 /* Error Explanation */
 #errorExplanation { color: black; padding: 10px 10px 10px 31px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; margin: 0 0 20px; background: #C00000 url('../images/icons/exclamation.png') no-repeat 10px 10px; }
