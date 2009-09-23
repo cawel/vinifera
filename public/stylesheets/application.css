@@ -177,17 +177,17 @@ p.flash.notice { background: #E2E4F6 url('../images/icons/information.png') no-r
 p.flash.error { background: #F6E0E1 url('../images/icons/exclamation-red.png') no-repeat 10px center; }
 
 /* Typography for Content Pages */
-#contents_controller #content p,
-#contents_controller #content li,
-#contents_controller #content dt,
-#contents_controller #content dd { font-size: 14px; }
-#contents_controller #content ol,
-#contents_controller #content ul { margin: 0 0 1.5em 3em; }
-#contents_controller #content ol { list-style: decimal; }
-#contents_controller #content li { list-style: disc; }
-#contents_controller #content p.img.embedded { margin-bottom: 20px; }
-#contents_controller #content p img.embedded.right { float: right; margin-left: 20px; }
-#contents_controller #content p img.embedded.left { float: left; margin-right: 20px; }
+#contents_controller #content #main p,
+#contents_controller #content #main li,
+#contents_controller #content #main dt,
+#contents_controller #content #main dd { font-size: 14px; }
+#contents_controller #content #main ol,
+#contents_controller #content #main ul { margin: 0 0 1.5em 3em; }
+#contents_controller #content #main ol { list-style: decimal; }
+#contents_controller #content #main li { list-style: disc; }
+#contents_controller #content #main p.img.embedded { margin-bottom: 20px; }
+#contents_controller #content #main p img.embedded.right { float: right; margin-left: 20px; }
+#contents_controller #content #main p img.embedded.left { float: left; margin-right: 20px; }
 #contents_controller.contact #content img.portrait { float: left; width: 80px; }
 #contents_controller.contact #content table { width: auto; margin-left: 100px; }
 #contents_controller.contact #content table th { font-weight: normal; border: none; font-size: 14px; background: none; text-align: right; color: #404040; padding: 0 10px 10px 0; white-space: nowrap; }
