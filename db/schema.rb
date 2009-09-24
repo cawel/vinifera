@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090831233441) do
+ActiveRecord::Schema.define(:version => 20090924041154) do
 
   create_table "appellations", :force => true do |t|
     t.string   "name"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(:version => 20090831233441) do
     t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "person_id",                                                   :default => 0, :null => false
+    t.integer  "person_id",                                    :default => 0, :null => false
     t.integer  "country_id"
     t.integer  "category_id"
     t.integer  "region_id"
@@ -129,9 +129,9 @@ ActiveRecord::Schema.define(:version => 20090831233441) do
     t.string   "cup"
     t.integer  "nature_id"
     t.string   "format"
-    t.integer  "price",          :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "price",          :precision => 6, :scale => 2
     t.string   "provider"
-    t.integer  "alcool",         :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "alcool",         :precision => 5, :scale => 2
     t.string   "image_filename"
     t.integer  "sub_region_id"
     t.integer  "appellation_id"
