@@ -40,6 +40,7 @@ class Wine < ActiveRecord::Base
     define_index do
       # fields
       indexes name, :sortable => true
+      indexes code_saq, :sortable => true
 
       # attributes
       # has author_id, created_at, updated_at
