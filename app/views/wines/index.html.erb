@@ -6,7 +6,6 @@
       <th>Vin</th>
       <th>Couleur</th>
       <th class="country">Pays</th>
-      <th></th>
     </thead>
     <tbody>
       <% @wines.each do |wine| %>
@@ -23,16 +22,6 @@
           </td>
           <td><%=h wine.color.name.titleize %></td>
           <td class="country"><%= country_flag wine.country%></td>
-          <% if current_person.andand.admin || current_person == wine.person %>
-            <% editable_wine? wine do %>
-              <td class="actions">
-                <%= link_to "Mettre à jour", edit_wine_path(wine), :title => "Mettre à jour", :class => "update" %>
-                <%= link_to "Supprimer", wine, :title => "Supprimer", :confirm => "Etes-vous sur?", :method => :delete, :class => "remove" %>
-              </td>
-            <% end %>
-          <% else %>
-            <td></td>
-          <% end %>
         </tr>
       <% end %>
     </tbody>
