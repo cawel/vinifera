@@ -1,6 +1,8 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  DELETE_CONFIRM_MESSAGE = "Etes vous certain?"
+
   def editable_wine?(wine, &block)
     if current_person.andand.admin || current_person == wine.person
       block.call
