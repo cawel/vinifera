@@ -3,9 +3,9 @@
 <% if @wines.any? %>
   <table class="wines">
     <thead>
-      <th>Vin</th>
-      <th>Couleur</th>
+      <th class="wine">Vin</th>
       <th class="country">Pays</th>
+      <th class="provider">Fournisseur</th>
     </thead>
     <tbody>
       <% @wines.each do |wine| %>
@@ -20,8 +20,8 @@
             <%= wine.region.name unless wine.region.nil? %>
           </small>
           </td>
-          <td><%=h wine.color.name.titleize %></td>
           <td class="country"><%= country_flag wine.country%></td>
+          <td><%=h wine.provider.titleize %></td>
         </tr>
       <% end %>
     </tbody>

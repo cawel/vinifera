@@ -201,6 +201,8 @@ table.wines td.wine small { font-size: 11px; color: #808080; display: block; mar
 table.wines th.country,
 table.wines td.country { text-align: center; }
 table.wines td.country { padding-top: 8px; }
+table.wines th.wine { padding-left: 50px; }
+table.wines th.provider { text-align: center; }
 
 /* Wine Profile */
 div.wine_profile { overflow: hidden; margin: 0 0 1.5em; }
