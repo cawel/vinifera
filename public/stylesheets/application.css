@@ -259,6 +259,7 @@ ul.star_rating li.stars_5.current a { width: 80px; left: 0; }
 #sidebar #sidebar_wines h3,
 #sidebar #sidebar_reviews h3 { padding-left: 31px; background-image: url('../images/icons/rosette.png'); background-position: 10px center; background-repeat: no-repeat; }
 #sidebar div.panel small { font-size: 11px; font-weight: normal; color: #808080; display: block; }
+#sidebar li{margin-top: 5px; margin-bottom: 5px;}
 
 /* Error Explanation */
 #errorExplanation { color: black; padding: 10px 10px 10px 31px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; margin: 0 0 20px; background: #C00000 url('../images/icons/exclamation.png') no-repeat 10px 10px; }
