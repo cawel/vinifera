@@ -55,6 +55,15 @@ module ApplicationHelper
     end
   end
 
+  def bottle_image wine
+    filename = "/images/bottles/#{wine.code_saq}.jpg"
+    if File.exists?("#{RAILS_ROOT}/public" + filename)
+      image_tag filename, :title => @wine.name, :class => "bottle"
+    else
+      ""
+    end
+  end
+
   private
   def get_flag_image_path(country)
     image_path = "/images/flags/" + country.code.downcase + ".gif"
