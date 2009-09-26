@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090924041154) do
+ActiveRecord::Schema.define(:version => 20090926131348) do
 
   create_table "appellations", :force => true do |t|
     t.string   "name"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20090924041154) do
     t.string   "password_reset_code"
     t.datetime "password_reset_code_expires"
     t.boolean  "admin",                                      :default => false
+    t.text     "description"
   end
 
   create_table "ratings", :force => true do |t|

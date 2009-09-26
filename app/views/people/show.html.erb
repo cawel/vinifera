@@ -1,4 +1,4 @@
-<% @title = "Compte de " + person_display_name(@person) %>
+<% @title = "Profil de " + person_display_name(@person) %>
 
 <table class="user_profile">
   <tbody>
@@ -6,13 +6,19 @@
       <th>Nom</th>
       <td><%=h @person.name %></td>
     </tr>
+    <% if current_person == @person %>
     <tr>
-      <th>Courriel:</th>
+      <th>Courriel</th>
       <td><%= @person.email %></td>
+    </tr>
+  <% end %>
+    <tr>
+      <th>Description</th>
+      <td><%=h @person.description %></td>
     </tr>
   </tbody>
 </table>
 
-<% content_for :sidebar do %>
+<% if current_person == @person %>
   <p class="actions"><%= link_to "Mettre à jour", edit_person_path(@person), :title => "Mettre à jour", :class => "button update" %></p>
 <% end %>

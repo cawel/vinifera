@@ -1,4 +1,4 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class PeopleControllerTest < ActionController::TestCase
   not_logged_in do
@@ -21,12 +21,6 @@ class PeopleControllerTest < ActionController::TestCase
         end
       end
 
-      #should "have OpenID field for login in" do
-        #assert_form signup_with_open_id_people_url, :post do
-          #assert_text_field :openid_url
-          #assert_submit
-        #end
-      #end
     end
 
     context "on POST to :create with invalid attributes" do
@@ -52,55 +46,22 @@ class PeopleControllerTest < ActionController::TestCase
       end
     end
 
-    #context "Signing up with a valid OpenID and no parameters" do
-      #setup do
-        #stub_open_id(true, 'you rock')
-        #post :signup_with_open_id, :openid_url => 'http://jamesgolick.com'
-      #end
-#
-      #should "create a person and associate the OpenID URL with that person" do
-        #assert_not_nil Person.find_by_open_id_url('http://jamesgolick.com')
-      #end
-#
-      #should_redirect_to("the homepage") { root_url }
-    #end
-#
-    #context "Signing up with a valid OpenID and full parameters" do
-      #setup do
-        #stub_open_id(true, 'you rock')
-        #post :signup_with_open_id, :openid_url => 'http://jamesgolick.com', :person => {:email => "james@giraffesoft.ca", :name => "james", :password => "monkey", :password_confirmation => "monkey"}
-      #end
-#
-      #should "create a person and associate the OpenID URL with that person" do
-        #assert_not_nil Person.find_by_open_id_url('http://jamesgolick.com')
-      #end
-#
-      #should_redirect_to("the homepage") { root_url }
-#
-      #should "set the name" do
-        #assert_equal "james", assigns(:person).name
-      #end
-#
-      #should "set the email" do
-        #assert_equal "james@giraffesoft.ca", assigns(:person).email
-      #end
-#
-      #should "set the password" do
-        #assert_equal assigns(:person), Person.authenticate("james@giraffesoft.ca", "monkey")
-      #end
-    #end
-#
-    #context "When signing up with an invalid openid url" do
-      #setup do
-        #Person.find_by_open_id_url('http://jamesgolick.com').andand.destroy
-        #stub_open_id(false, 'you suck')
-        #post :signup_with_open_id, :openid_url => 'http://jamesgolick.com'
-      #end
-#
-      #should_respond_with :success
-      #should_render_template 'new'
-#
-      #should_not_change "Person.count"
-    #end
   end
+
+  logged_in_as :martin do
+
+    context "on PUT to :update with valid attributes" do
+      setup do
+        @user = people(:martin)
+        put :update, :id => @user.id, :person => { :name => "new name", :description => "my new description" }
+      end
+
+      should "set the new description" do
+        assert_equal "new name", @user.name
+        assert_equal "my new description", @user.description
+      end
+      should_respond_with :redirect
+    end
+  end
+
 end

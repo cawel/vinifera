@@ -1,13 +1,17 @@
-<% @title = "Mise &#224; jour du compte" %>
+<% @title = "Mise &#224; jour du profil" %>
 
 <% form_for :person, :url => object_url, :html => { :method => :put, :class => "lw80" } do |f| %>
   <p>
-    <%= f.label :name, "Nom d'usager" %>
+    <%= f.label :name, :Nom %>
     <%= f.text_field :name %>
   </p>
   <p>
     <%= f.label :email, :Courriel %>
     <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :description, :Description %>
+    <%= f.text_area :description, :rows => 5, :cols => 30 %>
   </p>
   <p class="indent submit">
     <%= f.submit "Sauvegarder" %>

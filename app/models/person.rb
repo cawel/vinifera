@@ -11,13 +11,9 @@ class Person < ActiveRecord::Base
   #validates_presence_of     :email,    :if => :email_required?
   #validates_length_of       :email,    :if => :email_required?, :within => 6..100 #r@a.wk
   #validates_format_of       :email,    :if => :email_required?, :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD
-  validates_uniqueness_of   :email,    :case_sensitive => false, :allow_nil => true
+  validates_uniqueness_of   :email,    :case_sensitive => false
 
-  #validates_uniqueness_of   :open_id_url, :if => :open_id_url?
-  #validate                  :validate_open_id_url_authentication, :if => :open_id_url?
-
-  attr_accessible :email, :name, :password, :password_confirmation, :open_id_url
-  attr_accessor :open_id_url_authenticated, :open_id_url_message
+  attr_accessible :email, :name, :description, :password, :password_confirmation
 
   class << self
     def authenticate(email, password)
@@ -45,20 +41,4 @@ class Person < ActiveRecord::Base
     save(false)
   end
 
-  def open_id_url_authenticated?
-    !!open_id_url_authenticated
-  end
-
-  protected
-  def validate_open_id_url_authentication
-    errors.add(:open_id_url, open_id_url_message) if new_record? && !open_id_url_authenticated?
-  end
-
-  #def password_required?
-    #!open_id_url?
-  #end
-
-  #def email_required?
-    #!open_id_url?
-  #end
 end
