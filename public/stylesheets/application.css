@@ -69,7 +69,7 @@ dd{margin-left:1.5em;}
 table{margin-bottom:1.4em;width:100%;}
 th{font-weight:bold;background:#ECCD7C;border-bottom:1px solid #B19A5D;vertical-align:bottom;}
 th,td{padding:5px;}
-td{vertical-align:top;}
+th,td{vertical-align:top;}
 tr.even td{background:#FAF9EE;}
 tfoot{font-style:italic;}
 caption{background:#eee;}
