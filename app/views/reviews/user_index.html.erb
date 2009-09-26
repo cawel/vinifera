@@ -1,7 +1,7 @@
 <% @title = "Mon journal de critiques" %>
 
 <% unless @reviews.empty? %>
-  <table>
+  <table class="reviews">
     <thead>
       <th>Cote</th>
       <th>Vin</th>
@@ -12,7 +12,13 @@
       <%- @reviews.each do |review| %>
         <tr class="<%= cycle("even", "odd") %>">
           <td class="rating"><%= stars_rating review.rating %></td>
-          <td><%= link_to review.wine.name, wine_reviews_path(review.wine) %></td>
+          <td class="wine">
+            <%= link_to review.wine.name, wine_reviews_url(review.wine), :title => review.wine.name, :class => "name" %>
+            <small>
+            <%= (review.wine.appellation.name + ", ") unless review.wine.appellation.nil? %> 
+            <%= review.wine.region.name unless review.wine.region.nil? %>
+          </small>
+          </td>
           <td><%= format_user_content review.comment %></td>
           <td class="actions">
             <% editable_review?(review) do %>
