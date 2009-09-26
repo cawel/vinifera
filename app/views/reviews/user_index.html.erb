@@ -13,7 +13,7 @@
         <tr class="<%= cycle("even", "odd") %>">
           <td class="rating"><%= stars_rating review.rating %></td>
           <td><%= link_to review.wine.name, wine_reviews_path(review.wine) %></td>
-          <td><%=format_review_comment review.comment %></td>
+          <td><%= format_user_content review.comment %></td>
           <td class="actions">
             <% editable_review?(review) do %>
               <%= link_to "Mettre à jour", edit_wine_review_path(review.wine, review), :title => "Mettre à jour", :class => "update" %>

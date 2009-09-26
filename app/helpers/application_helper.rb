@@ -26,8 +26,8 @@ module ApplicationHelper
     person.name.blank? ? person.email : person.name
   end
 
-  def format_review_comment text
-    simple_format word_wrap((text))
+  def format_user_content text
+    simple_format word_wrap((h text))
   end
 
   def country_flag country

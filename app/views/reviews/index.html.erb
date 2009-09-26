@@ -14,7 +14,7 @@
       <%- @reviews.each do |review| %>
         <tr class="<%= cycle("even", "odd") %>">
           <td class="rating"><%= stars_rating review.rating %></td>
-          <td><%=format_review_comment review.comment %></td>
+          <td><%=format_user_content review.comment %></td>
           <td><%=h person_display_name(review.person) %></td>
           <td class="actions">
             <% editable_review?(review) do %>
