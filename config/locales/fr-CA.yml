@@ -55,6 +55,7 @@ fr-CA:
   signup_complete_and_do_login : "Ouverture du compte complétée! Veuillez ouvrir une session pour continuer."
   signup_complete_with_activation : "Merci de vous être enregistré! Nous vous envoyons envoyé un courriel avec votre code d'activation."
   signup_problem : "Nous n'avons pu compléter la création du compte. Veuillez réessayer, ou encore contacter un administrateur (voir lien ci-haut)."
+  must_be_logged_in: "Vous devez d'abord ouvrir une session!"
 
 
   datetime:

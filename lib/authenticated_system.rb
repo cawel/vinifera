@@ -62,7 +62,7 @@ module AuthenticatedSystem
     # to access the requested action.  For example, a popup window might
     # simply close itself.
     def access_denied
-      flash[:error] = "You must be logged in to access that area."
+      flash[:error] = I18n.t(:must_be_logged_in) 
       
       respond_to do |format|
         format.html do
