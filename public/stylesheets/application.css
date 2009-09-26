@@ -145,7 +145,7 @@ input[type="text"],
 input[type="password"] { border: 1px solid #C0C0C0; height: 22px; font-size: 14px; padding: 3px 20px 0 3px; }
 input[type="text"].search { background-image: url('../images/icons/magnifier.png'); background-repeat: no-repeat; background-position: 5px center; padding-left: 26px; }
 textarea { border: 1px solid #C0C0C0; padding: 3px; font-size: 14px; }
-label { line-height: 25px; text-align: right; color: #404040; font-size: 14px; display: block; float: left; margin-right: 5px; }
+label { line-height: 25px; text-align: right; color: #404040; font-size: 14px; font-weight: bold; display: block; float: left; margin-right: 5px; }
 form.lw40 label { width: 40px; }
 form.lw40 p.indent { margin-left: 45px; }
 form.lw80 label { width: 90px; }
@@ -203,6 +203,10 @@ table.wines td.country { text-align: center; }
 table.wines td.country { padding-top: 8px; }
 table.wines th.wine { padding-left: 50px; }
 table.wines th.provider { text-align: center; }
+
+/* Reviews Listings */
+table.reviews td.wine a.name { font-weight: bold; display: block; }
+table.reviews td.wine small { font-size: 11px; color: #808080; display: block; margin: 1px 0 0px 0px; }
 
 /* Wine Profile */
 div.wine_profile { overflow: hidden; margin: 0 0 1.5em; }
