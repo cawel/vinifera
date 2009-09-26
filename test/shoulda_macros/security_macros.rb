@@ -24,6 +24,16 @@ module SecurityMacros
       end
     end
     
+    def logged_in_as username
+      context "logged in as #{username.to_s}" do
+        setup do
+          login_as username.to_sym
+        end
+    
+        yield
+      end
+    end
+
     # Asserts that access is denied, meaning the browser knows there's something
     # there, and just needs the proper credentials
     def should_deny_access
