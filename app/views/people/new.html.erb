@@ -3,7 +3,7 @@
 <% @person.password = @person.password_confirmation = nil %>
 
 <%= error_messages_for :person, :object_name => "usager" %>
-<% form_for :person, :url => people_path, :html => { :class => "lw200" } do |f| -%>
+<% form_for :person, :url => people_path, :html => { :class => "lw220" } do |f| -%>
   <p>
     <%= f.label 'name', I18n.t(:name) %>
     <%= f.text_field :name %>

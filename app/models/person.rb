@@ -7,11 +7,12 @@ class Person < ActiveRecord::Base
 
   #validates_format_of       :name,     :with => RE_NAME_OK,  :message => MSG_NAME_BAD, :allow_nil => true
 
-  validates_presence_of     :name
+  validates_presence_of     :name, :email
   #validates_presence_of     :email,    :if => :email_required?
   #validates_length_of       :email,    :if => :email_required?, :within => 6..100 #r@a.wk
   #validates_format_of       :email,    :if => :email_required?, :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD
   validates_uniqueness_of   :email,    :case_sensitive => false
+  validates_uniqueness_of   :name,    :case_sensitive => false
 
   attr_accessible :email, :name, :description, :password, :password_confirmation
 

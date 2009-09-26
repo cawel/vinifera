@@ -154,8 +154,8 @@ form.lw120 label { width: 120px; }
 form.lw120 p.indent { margin-left: 125px; }
 form.lw160 label { width: 160px; }
 form.lw160 p.indent { margin-left: 165px; }
-form.lw200 label { width: 200px; }
-form.lw200 p.indent { margin-left: 205px; }
+form.lw220 label { width: 220px; }
+form.lw220 p.indent { margin-left: 225px; }
 form.lw240 label { width: 240px; }
 form.lw240 p.indent { margin-left: 245px; }
 form p,
@@ -169,7 +169,7 @@ form select.multi { height: auto; }
 p.actions a.button { font-size: 16px; font-weight: bold; padding: 10px 15px 10px 36px; line-height: 1; background-repeat: no-repeat; background-position: 15px center; line-height: 1; height: auto; }
 p.actions a.button.add { background-image: url('../images/icons/plus-circle.png'); }
 p.actions a.button.reviews { background-image: url('../images/icons/comments.png'); }
-p.actions a.button.update { background-image: url('../images/icons/pencil.png'); }
+p.actions a.button.update { background-image: url('../images/icons/shape_square_edit.png'); }
 
 /* Flash Notices */
 p.flash { padding: 10px 10px 10px 31px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
@@ -190,7 +190,7 @@ p.flash.error { background: #F6E0E1 url('../images/icons/exclamation-red.png') n
 #contents_controller #content #main p img.embedded.left { float: left; margin-right: 20px; }
 #contents_controller.contact #content img.portrait { float: left; width: 80px; }
 #contents_controller.contact #content table { width: auto; margin-left: 100px; }
-#contents_controller.contact #content table th { font-weight: normal; border: none; font-size: 14px; background: none; text-align: right; color: #404040; padding: 0 10px 10px 0; white-space: nowrap; }
+#contents_controller.contact #content table th { font-weight: bold; border: none; font-size: 14px; background: none; text-align: right; color: #404040; padding: 0 10px 10px 0; white-space: nowrap; }
 #contents_controller.contact #content table td { font-size: 14px; color: #000000; padding: 0 0 10px; }
 
 /* Wine Listings */
@@ -273,12 +273,12 @@ ul.star_rating li.stars_5.current a { width: 80px; left: 0; }
 #errorExplanation ul li { font-size: 12px; }
 
 /* Field with Errors */
-span.fieldWithErrors input[type="text"],
-span.fieldWithErrors input[type="password"],
-span.fieldWithErrors select,
-span.fieldWithErrors textarea { border: 1px solid #FF0000; }
-span.fieldWithErrors input[type="radio"]
-span.fieldWithErrors input[type="checkbox"] { background: #FF0000; }
+div.fieldWithErrors input[type="text"],
+div.fieldWithErrors input[type="password"],
+div.fieldWithErrors select,
+div.fieldWithErrors textarea { border: 1px solid #FF0000; }
+div.fieldWithErrors input[type="radio"]
+div.fieldWithErrors input[type="checkbox"] { background: #FF0000; }
 
 /* Tooltip */
 a.toggle_tooltip { margin-left: 20px; cursor: help; }

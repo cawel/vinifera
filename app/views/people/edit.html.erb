@@ -1,5 +1,6 @@
 <% @title = "Mise &#224; jour du profil" %>
 
+<%= error_messages_for :person, :object_name => "usager" %>
 <% form_for :person, :url => object_url, :html => { :method => :put, :class => "lw80" } do |f| %>
   <p>
     <%= f.label :name, :Nom %>

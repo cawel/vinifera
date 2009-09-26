@@ -14,7 +14,7 @@ class PeopleController < ResourceController::Base
   
   def prevent_inpersonification
     if current_person.andand != Person.find_by_id(params[:id])
-      flash[:notice] = "Il est impossible d'editer le compte de quelqu'un d'autre. Il est seulement possible d'editer son propre compte."
+      flash[:notice] = "Il est impossible de changer le profil de quelqu'un d'autre. Il est seulement possible de changer son propre profil."
       redirect_to edit_person_url(current_person)
     end
   end
