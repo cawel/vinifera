@@ -202,7 +202,6 @@ table.wines th.country,
 table.wines td.country { text-align: center; }
 table.wines td.country { padding-top: 8px; }
 table.wines th.wine { padding-left: 50px; }
-table.wines th.provider { text-align: center; }
 
 /* Reviews Listings */
 table.reviews td.wine a.name { font-weight: bold; display: block; }
