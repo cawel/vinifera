@@ -23,14 +23,14 @@ ActionController::Routing::Routes.draw do |map|
   map.logout        '/fermer-session',          :controller => 'sessions',  :action => 'destroy'
   
   map.register      '/enregistrer',             :controller => 'people',    :action => 'create'
-  map.signup        '/creer-profil',            :controller => 'people',    :action => 'new'
+  map.signup        '/creer-compte',            :controller => 'people',    :action => 'new'
   
   # map.reset_password '/reset_password',         :controller => 'password_resets', :action => 'new',    :conditions => {:method => :get}
   # map.reset_password '/reset_password',         :controller => 'password_resets', :action => 'create', :conditions => {:method => :post}
   
   map.connect '/account', :controller => 'accounts', :action => 'edit'
   
-  map.resources :people, :as => 'profil' do |person|
+  map.resources :people, :as => 'compte' do |person|
     person.reviews_index 'critiques', :controller => 'reviews', :action => 'user_index'
   end
 

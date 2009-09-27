@@ -4,11 +4,11 @@
     <p>Mes d&eacute;couvertes vinicoles</p>
     <ul id="utilities">
       <% if logged_in? -%>
-        <li><%= link_to "mon profil", person_url(current_person), :title => "Profil de #{person_display_name(current_person)}" %></li>
-        <li class="last"><%= link_to "quitter", logout_path, :title => "Quitter la session" %></li>
+        <li><%= link_to "mon compte", person_url(current_person), :title => "Compte de #{person_display_name(current_person)}" %></li>
+        <li class="last"><%= link_to "fermer", logout_path, :title => "Fermer la session" %></li>
       <% else -%>
         <li><%= link_to "ouvrir une session", login_path,  :title => "Ouvrir une session" %></li>
-        <li class="last"><%= link_to "créer un profil", signup_path, :title => "Créer un profil" %></li>
+        <li class="last"><%= link_to "créer un compte", signup_path, :title => "Créer un compte" %></li>
       <% end -%>
     </ul>
     <form id="search" action="/resultats-de-recherche" method="get">

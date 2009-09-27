@@ -28,7 +28,7 @@ fr-CA:
         # The variable :count is also available
         body: "Il y a eu des problèmes avec les champs suivants:"
     models:
-      usager: "profil"
+      usager: "compte"
     attributes:
       person:
         name: "Le nom"
@@ -53,13 +53,13 @@ fr-CA:
   logged_out : "Votre session est maintenant terminée."
   login : "Login"
   login_failed : "N'a pas pu ouvrir la session en tant que '{{login}}'"
-  new_user_sign_up : "Création d'un profil"
+  new_user_sign_up : "Création d'un compte"
   not_logged_in : "Session non ouverte"
   password : "Mot de passe"
   password_confirmation : "Confirmation du mot de passe"
   remember_me : "Session persistente"
-  sign_up : "Créer le profil"
-  signup_complete : "Création du profil complété!"
+  sign_up : "Créer le compte"
+  signup_complete : "Création du compte complété!"
   signup_complete_and_do_login : "Ouverture du compte complétée! Veuillez ouvrir une session pour continuer."
   signup_complete_with_activation : "Merci de vous être enregistré! Nous vous envoyons envoyé un courriel avec votre code d'activation."
   signup_problem : "Nous n'avons pu compléter la création du compte. Veuillez réessayer, ou encore contacter un administrateur (voir lien ci-haut)."

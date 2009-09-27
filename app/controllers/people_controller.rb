@@ -10,11 +10,11 @@ class PeopleController < ResourceController::Base
     wants.html { redirect_back_or_default(root_url) } 
   end
   
-  update.flash "Votre profil a été mis a jour!"
+  update.flash "Votre compte a été mis a jour!"
   
   def prevent_impersonification
     if current_person != Person.find_by_id(params[:id])
-      flash[:notice] = "Il est impossible de changer le profil de quelqu'un d'autre. Il est seulement possible de changer son propre profil."
+      flash[:notice] = "Il est impossible de changer le compte de quelqu'un d'autre. Il est seulement possible de changer son propre compte."
       redirect_to edit_person_url(current_person)
     end
   end
