@@ -1,4 +1,5 @@
 config/initializers/site_keys.rb
+db/sphinx/**/*
 db/*.sqlite3
 tmp/**/*
 log/*

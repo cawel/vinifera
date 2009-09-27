@@ -22,9 +22,6 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
-task :update_config, :roles => [:app] do
-  run "cp -Rf #{shared_path}/config/* #{release_path}/config/"
-end
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
@@ -33,4 +30,27 @@ namespace :deploy do
   end 
 end
 
-after "deploy:update_code", :update_config
+desc "Re-establish symlinks"
+task :after_symlink do
+  run <<-CMD
+    rm -fr #{release_path}/db/sphinx &&
+    ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx
+  CMD
+  run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+end
+
+desc "Stop the sphinx server"
+task :stop_sphinx , :roles => :app do
+  run "cd #{current_path} && rake thinking_sphinx:stop RAILS_ENV=production"
+end
+
+desc "Start the sphinx server"
+task :start_sphinx, :roles => :app do
+  run "cd #{current_path} && rake thinking_sphinx:configure RAILS_ENV=production && rake thinking_sphinx:start RAILS_ENV=production"
+end
+
+desc "Restart the sphinx server"
+task :restart_sphinx, :roles => :app do
+  stop_sphinx
+  start_sphinx
+end  
