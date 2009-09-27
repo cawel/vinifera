@@ -9,7 +9,7 @@
     <% if current_person == @person %>
     <tr>
       <th>Courriel</th>
-      <td><%= @person.email %></td>
+      <td><%=h @person.email %></td>
     </tr>
   <% end %>
     <tr>

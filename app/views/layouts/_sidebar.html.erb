@@ -9,7 +9,7 @@
     <ol>
       <% @top_contributers.each do |user| %>
         <li>
-          <%= link_to content_tag(:strong, user.name), person_path(user.id), :title => user.name %>
+          <%= link_to content_tag(:strong, person_display_name(user)), person_path(user.id), :title => user.name %>
           <small><%= user.review_count %> critiques</small>
         </li>
       <% end %>

@@ -23,7 +23,7 @@ module ApplicationHelper
     if person.nil?
       return "[no user name]"
     end
-    person.name.blank? ? person.email : person.name
+    person.name.blank? ? h(person.email) : h(person.name)
   end
 
   def format_user_content text

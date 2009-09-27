@@ -4,7 +4,7 @@
     <p>Mes d&eacute;couvertes vinicoles</p>
     <ul id="utilities">
       <% if logged_in? -%>
-        <li><%= link_to "mon profil", edit_person_url(current_person), :title => "Profil de #{current_person.email}" %></li>
+        <li><%= link_to "mon profil", person_url(current_person), :title => "Profil de #{current_person.email}" %></li>
         <li class="last"><%= link_to "quitter", logout_path, :title => "Quitter la session" %></li>
       <% else -%>
         <li><%= link_to "ouvrir une session", login_path,  :title => "Ouvrir une session" %></li>
