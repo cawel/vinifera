@@ -11,7 +11,7 @@ class WinesController < ApplicationController
   index.response do |wants|
     wants.html do 
       unless params[:q].nil?
-        @wines = Wine.search(params[:q], :page => params[:page])
+        @wines = Wine.search(params[:q], :order => :name, :page => params[:page])
       else
         @wines = Wine.paginate :page => params[:page]
       end
