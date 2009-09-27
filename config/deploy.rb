@@ -37,6 +37,7 @@ task :after_symlink do
     ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx
   CMD
   run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  run "ln -nfs #{shared_path}/config/site_keys.rb #{release_path}/config/initializers/site_keys.rb"
 end
 
 desc "Stop the sphinx server"
