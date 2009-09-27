@@ -1,5 +1,3 @@
 HoptoadNotifier.configure do |config|
-  config.api_key = ''
+  config.api_key = '7f814990aee0aac542dc1b25caf89d3f'
 end
-
-RAILS_DEFAULT_LOGGER.warn('Please add a hoptoad key to config/initializers/hoptoad.rb.') if HoptoadNotifier.api_key.blank?
