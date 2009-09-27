@@ -20,7 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.ratings_help  '/signification-des-cotes', :controller => 'contents',  :action => 'ratings_help'
   
   map.login         '/ouvrir-session',          :controller => 'sessions',  :action => 'new'
-  map.logout        '/fermer-session',          :controller => 'sessions',  :action => 'destroy'
+  map.logout        '/terminer-session',          :controller => 'sessions',  :action => 'destroy'
   
   map.register      '/enregistrer',             :controller => 'people',    :action => 'create'
   map.signup        '/creer-compte',            :controller => 'people',    :action => 'new'

@@ -49,7 +49,7 @@ fr-CA:
   log_in : "Ouvrir une session"
   log_out : "Quitter la session"
   logged_in : "Session maintenant ouverte!"
-  logged_in_as : "Session ouverte en tant que '{{login}}'"
+  logged_in_as : "Session ouverte en tant que '{{login}}'."
   logged_out : "Votre session est maintenant terminée."
   login : "Login"
   login_failed : "N'a pas pu ouvrir la session en tant que '{{login}}'"

@@ -5,7 +5,7 @@
     <ul id="utilities">
       <% if logged_in? -%>
         <li><%= link_to "mon compte", person_url(current_person), :title => "Compte de #{person_display_name(current_person)}" %></li>
-        <li class="last"><%= link_to "fermer", logout_path, :title => "Fermer la session" %></li>
+        <li class="last"><%= link_to "terminer la session", logout_path, :title => "Terminer la session" %></li>
       <% else -%>
         <li><%= link_to "ouvrir une session", login_path,  :title => "Ouvrir une session" %></li>
         <li class="last"><%= link_to "créer un compte", signup_path, :title => "Créer un compte" %></li>
