@@ -41,10 +41,6 @@
         <td><%=h @wine.provider %></td>
       </tr>
       <% end %>
-      <tr>
-        <th>C&eacute;pages</th>
-        <td><%=h @wine.variety_wines.map{|e|e.variety.name}.join(', ') %></td>
-      </tr>
       <% field_exists?(@wine.year) do  %>
       <tr>
         <th>Ann&eacute;e</th>
