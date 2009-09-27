@@ -65,6 +65,9 @@ fr-CA:
   signup_problem : "Nous n'avons pu compléter la création du compte. Veuillez réessayer, ou encore contacter un administrateur (voir lien ci-haut)."
   must_be_logged_in: "Vous devez d'abord ouvrir une session!"
 
+  will_paginate:
+    previous: page précédente
+    next: page suivante
 
   datetime:
     distance_in_words:
