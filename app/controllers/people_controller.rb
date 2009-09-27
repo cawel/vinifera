@@ -1,7 +1,7 @@
 class PeopleController < ResourceController::Base
   actions :new, :create, :edit, :update, :show
-  before_filter :login_required, :only => [:edit, :update]
-  before_filter :prevent_inpersonification, :only => [:edit, :update]
+  before_filter :login_required,            :only => [:edit, :update]
+  before_filter :prevent_impersonification, :only => [:edit, :update]
   
   create do
     before     :logout_keeping_session!
@@ -12,8 +12,8 @@ class PeopleController < ResourceController::Base
   
   update.flash "Votre profil a été mis a jour!"
   
-  def prevent_inpersonification
-    if current_person.andand != Person.find_by_id(params[:id])
+  def prevent_impersonification
+    if current_person != Person.find_by_id(params[:id])
       flash[:notice] = "Il est impossible de changer le profil de quelqu'un d'autre. Il est seulement possible de changer son propre profil."
       redirect_to edit_person_url(current_person)
     end

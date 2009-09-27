@@ -24,10 +24,10 @@ module SecurityMacros
       end
     end
     
-    def logged_in_as username
-      context "logged in as #{username.to_s}" do
+    def logged_in_as user
+      context "logged in as #{user.to_s}" do
         setup do
-          login_as username.to_sym
+          login_as people(user.to_sym)
         end
     
         yield
@@ -39,7 +39,7 @@ module SecurityMacros
     def should_deny_access
       should_respond_with :redirect
       should_redirect_to("the login page") { login_url }
-      should_set_the_flash_to(/must be logged in/i)
+      should_set_the_flash_to(/Vous devez d'abord ouvrir une session!/i)
     end
 
     # Asserts that the response is a 404.

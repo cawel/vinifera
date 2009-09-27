@@ -57,10 +57,32 @@ class PeopleControllerTest < ActionController::TestCase
       end
 
       should "set the new description" do
+        @user.reload
         assert_equal "new name", @user.name
         assert_equal "my new description", @user.description
       end
+
+      should_assign_to :person
       should_respond_with :redirect
+      should_redirect_to("the user's profile") {person_path(@user)}
+    end
+
+    context "on PUT to :update to another user profile" do
+      setup do
+        @user = people(:james)
+        put :update, :id => @user.id, :person => { :name => "new name", :description => "my new description" }
+      end
+
+      should_redirect_to("your own user profile") { edit_person_path(people(:martin)) }
+    end
+
+    context "on GET to :edit to another user profile" do
+      setup do
+        @user = people(:james)
+        get :edit, :id => @user.id
+      end
+
+      should_redirect_to("your own user profile") { edit_person_path(people(:martin)) }
     end
   end
 

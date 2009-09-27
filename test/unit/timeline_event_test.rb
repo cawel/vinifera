@@ -10,7 +10,7 @@ class TimelineEventTest < ActiveSupport::TestCase
       @review = Review.create(:person_id => @martin.id, :rating_id => @rating.id, :wine_id => @wine.id,  :comment => "Good good wine!")
     end
 
-    should_change "TimelineEvent.count", :by => 1
+    should_change("the TimelineEvent count", :by => 1) { TimelineEvent.count}
 
     context "the timeline event" do
       setup do
@@ -37,7 +37,7 @@ class TimelineEventTest < ActiveSupport::TestCase
       @review.update_attributes(:comment => "this is my changed review")
     end
 
-    should_change "TimelineEvent.count", :by => 1
+    should_change("the TimelineEvent count", :by => 1) { TimelineEvent.count }
 
     context "the timeline event" do
       setup do

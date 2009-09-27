@@ -1,4 +1,4 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
   def self.should_login
@@ -50,7 +50,7 @@ class SessionsControllerTest < ActionController::TestCase
         end
 
         should_respond_with :redirect
-        should_change "session[:person_id]", :to => nil
+        should_change("the person_id to nil", :to => nil) { session[:person_id] }
 
         should "delete the login token" do
           assert @response.cookies["auth_token"].blank?
