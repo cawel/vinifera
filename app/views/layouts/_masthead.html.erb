@@ -11,9 +11,9 @@
         <li class="last"><%= link_to "créer un profil", signup_path, :title => "Créer un profil" %></li>
       <% end -%>
     </ul>
-    <form id="search" action="/search">
+    <form id="search" action="/resultats-de-recherche" method="get">
       <input type="text" name="q" value="<%= params[:q] %>" class="search"/>
-      <input type="submit" value="Recherche"/>
+      <input type="submit" value="Rechercher"/>
     </form>
   </div>
 </div>
