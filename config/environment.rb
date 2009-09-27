@@ -32,12 +32,11 @@ Rails::Initializer.run do |config|
   config.gem "andand"
   #config.gem 'resource_controller'
 
-  config.gem "mislav-will_paginate",              :lib => "will_paginate",      :source => "http://gems.github.com"
-  config.gem "giraffesoft-attribute_fu",          :lib => "attribute_fu",       :source => "http://gems.github.com"
+  config.gem "mislav-will_paginate",            :lib => "will_paginate",   :source => "http://gems.github.com"
+  config.gem "giraffesoft-attribute_fu",        :lib => "attribute_fu",    :source => "http://gems.github.com"
 
   # Application-specific dependencies
-  #config.gem ''
-  config.gem "freelancing-god-thinking-sphinx",   :lib => 'thinking_sphinx',    :version  => '1.1.12'
+  config.gem "freelancing-god-thinking-sphinx", :lib => "thinking_sphinx", :source => "http://gems.github.com", :version => "1.2.11"
 
 
   # Only load the plugins named here, in the order given. By default, all plugins 
