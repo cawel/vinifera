@@ -51,9 +51,9 @@ module ApplicationHelper
 
   def glass_image_filename wine
     if wine.color.name == "Rouge" 
-      "glasses/red_small.jpg"
+      "glasses/red_small.png"
     else
-      "glasses/white_small.jpg"
+      "glasses/white_small.png"
     end
   end
 
