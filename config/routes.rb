@@ -8,8 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   # frontend
-  map.resources :wines, :as => "vins" do |wine|
-    wine.resources :reviews, :as => "critiques"
+  map.resources :wines, :as => "vins", :only => [:index]  do |wine|
+    wine.resources :reviews, :as => "critiques", :only => [:index, :new, :create, :edit, :update, :destroy]
   end
   
   map.root                                      :controller => 'application', :action => 'home'
@@ -30,7 +30,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect '/account', :controller => 'accounts', :action => 'edit'
   
-  map.resources :people, :as => 'compte' do |person|
+  map.resources :people, :as => 'compte', :only => [:new, :create, :edit, :update] do |person|
     person.reviews_index 'critiques', :controller => 'reviews', :action => 'user_index'
   end
 

@@ -59,6 +59,7 @@ Rails::Initializer.run do |config|
   session_config = RAILS_ROOT+'/config/session.rb'
   File.exist?(session_config) ? load(session_config) : raise("You are missing your config/session.rb file. Please run rake blank:session_config.")  
   config.action_controller.session = SESSION_CONFIG
+  config.action_controller.resources_path_names = { :new => 'creation', :edit => 'mise-a-jour' } 
 
   # Better handling of erroneous fields
   #ActionView::Base.field_error_proc = Proc.new { |html_tag, instance| "<span class=\"fieldWithErrors\">#{html_tag}</span>" }
