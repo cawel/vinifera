@@ -5,6 +5,7 @@ class Review < ActiveRecord::Base
   belongs_to :wine
   belongs_to :person
   belongs_to :rating
+  has_many :timeline_events, :foreign_key => 'subject_id', :dependent => :destroy
 
   validates_presence_of :rating_id
   validates_presence_of :person_id
