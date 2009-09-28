@@ -1,9 +1,7 @@
 class WinesController < ResourceController::Base
   actions :index, :show
-  before_filter :login_required, :except => [:home, :index, :show]
-
   layout 'application'
-  resource_controller
+  before_filter :login_required, :except => [:home, :index, :show]
 
   index.response do |wants|
     wants.html do 
