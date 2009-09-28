@@ -14,7 +14,7 @@
       <% field_exists?(@wine.country) do  %>
       <tr>
         <th>Pays</th>
-        <td><%=h @wine.country.name %></td>
+        <td><%= country_flag @wine.country %>&nbsp;&nbsp;<%=h @wine.country.name %></td>
       </tr>
       <% end %>
       <% field_exists?(@wine.appellation) do  %>
@@ -72,7 +72,7 @@
       <% field_exists?(@wine.price) do  %>
       <tr>
         <th>Prix</th>
-        <td><%=h @wine.price %> $</td>
+        <td><%=h number_to_currency(@wine.price, :precision => 2, :delimiter => ',',:separator => ',', :unit => '$', :format => "%n %u") %></td>
       </tr>
       <% end %>
     </tbody>
