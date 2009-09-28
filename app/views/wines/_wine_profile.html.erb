@@ -60,13 +60,13 @@
       <% field_exists?(@wine.format) do  %>
       <tr>
         <th>Format</th>
-        <td><%=h @wine.format %></td>
+        <td><%=h @wine.format.to_s.gsub('.',',') %></td>
       </tr>
       <% end %>
       <% field_exists?(@wine.alcool) do  %>
       <tr>
         <th>Alcool</th>
-        <td><%=h @wine.alcool %> %</td>
+        <td><%=h @wine.alcool.to_s.gsub('.',',') %> %</td>
       </tr>
       <% end %>
       <% field_exists?(@wine.price) do  %>
