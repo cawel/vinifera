@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   
   def home
     @timeline_events = TimelineEvent.recent
+    render :template => 'layouts/home'
   end
 
   def top_contributers

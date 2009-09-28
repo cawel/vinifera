@@ -9,17 +9,6 @@ class WinesControllerTest < ActionController::TestCase
     @person               = people(:james)
   end
   
-  should_route :get, "/", :controller => :wines, :action => :home
-
-  context "the home page" do
-    setup do
-      get :home
-    end
-    should "assign timeline_events" do
-      assert assigns( :timeline_events)
-    end
-  end
-
 
   #should_be_restful do |resource|
     #resource.formats         = [:html]
