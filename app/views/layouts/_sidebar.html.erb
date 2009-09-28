@@ -1,5 +1,4 @@
 <% if logged_in? -%>
-  <!-- p class="actions"><%= link_to "Ajouter un vin", new_wine_url, :title => "Ajouter un vin", :class => "button add" %></p -->
   <p class="actions"><%= link_to "Mon journal de critiques", person_reviews_index_url(:person_id => current_person.id), :title => "Mon journal de critiques", :class => "button reviews" %></p>
 <% end %>
 
@@ -7,7 +6,7 @@
   <h3>Top des vins</h3>
   <div class="content">
     <ol>
-      <% @top_wines.each do |wine| %>
+      <% @top_wines.andand.each do |wine| %>
         <li>
           <%= link_to content_tag(:strong, wine.name), wine_reviews_path(wine), :title => wine.name %>
           <small><%= wine.review_count %> critiques</small>
@@ -21,7 +20,7 @@
   <h3>Top contributeurs</h3>
   <div class="content">
     <ol>
-      <% @top_contributers.each do |user| %>
+      <% @top_contributers.andand.each do |user| %>
         <li>
           <%= link_to content_tag(:strong, person_display_name(user)), person_path(user.id), :title => user.name %>
           <small><%= user.review_count %> critiques</small>
