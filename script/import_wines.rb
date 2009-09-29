@@ -49,19 +49,21 @@ File.open("../scraper/output") do |f|
       flavor = line.gsub(/^\w+:/,'').strip 
       flavor = Flavor.find_by_name(flavor).id 
     end
-    
+   
+    # wine model creation
     if line =~ /#/
+      # only take those which fit the natures
       unless nature_id.nil?
-      wine = Wine.create(:name => name, :code_saq => code_saq, :cup => cup, :category_id => category_id, :color_id => color_id, 
-                         :region_id => region_id, :country_id => country_id, :nature_id => nature_id, :format => format, :price => price,
-      :provider => provider, :alcool => alcool, :sub_region_id => sub_region_id, :appellation_id => appellation_id, :flavor_id => flavor_id, :image_filename => image_filename)
-      puts wine.errors.full_messages if wine.errors.any?
-      else
-  name, code_saq, cup, category_id, color_id, region_id, country_id, nature_id, format, price, provider, alcool, sub_region_id, appellation_id, flavor_id, image_filename = nil
+        wine = Wine.create(:name => name, :code_saq => code_saq, :cup => cup, :category_id => category_id, :color_id => color_id, 
+                           :region_id => region_id, :country_id => country_id, :nature_id => nature_id, :format => format, :price => price,
+                           :provider => provider, :alcool => alcool, :sub_region_id => sub_region_id, :appellation_id => appellation_id, 
+                           :flavor_id => flavor_id, :image_filename => image_filename)
+        puts wine.errors.full_messages if wine.errors.any?
       end
+    name, code_saq, cup, category_id, color_id, region_id, country_id, nature_id, format, price, provider, alcool, sub_region_id, appellation_id, flavor_id, image_filename = nil
     end
+
   end
 end
 
 puts "wines count: #{Wine.count}"
-#Wine.all.each{|w| puts w.inspect; puts ""}
