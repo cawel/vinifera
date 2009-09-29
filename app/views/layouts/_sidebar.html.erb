@@ -9,7 +9,7 @@
       <% @top_wines.andand.each do |wine| %>
         <li>
           <%= link_to content_tag(:strong, wine.name), wine_reviews_path(wine), :title => wine.name %>
-          <small><%= wine.review_count %> critiques</small>
+          <small><%= pluralize(wine.review_count, 'critique') %></small>
         </li>
       <% end %>
     </ol>
@@ -23,7 +23,7 @@
       <% @top_contributers.andand.each do |user| %>
         <li>
           <%= link_to content_tag(:strong, person_display_name(user)), person_path(user.id), :title => user.name %>
-          <small><%= user.review_count %> critiques</small>
+          <small><%= pluralize(user.review_count, 'critique') %></small>
         </li>
       <% end %>
     </ol>
