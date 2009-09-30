@@ -127,6 +127,9 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 #masthead #search input[type="text"] { float: left; border: 1px solid #ECCD7C; font-size: 14px; width: 250px; }
 #masthead #search input[type="submit"] { float: right; top: 0; margin: 0 0 0 5px; }
 
+/* Page Titles */
+#timeline_events_controller h2.page_title { background: url('../images/icons/feed.png') no-repeat left center; padding-left: 21px; }
+
 /* Footer */
 #footer { overflow: hidden; margin: 0 auto; font-size: 12px; }
 #footer div.page_width { padding: 40px ;}
