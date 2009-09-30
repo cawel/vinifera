@@ -130,6 +130,7 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 /* Page Titles */
 #timeline_events_controller h2.page_title { background: url('../images/icons/feed.png') no-repeat left center; padding-left: 21px; }
 #reviews_controller h2.page_title { background: url('../images/icons/comments.png') no-repeat left center; padding-left: 21px; }
+#people_controller h2.page_title { background: url('../images/icons/user.png') no-repeat left center; padding-left: 21px; }
 
 /* Footer */
 #footer { overflow: hidden; margin: 0 auto; font-size: 12px; }
