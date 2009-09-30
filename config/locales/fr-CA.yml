@@ -52,7 +52,7 @@ fr-CA:
   logged_in_as : "Session ouverte en tant que '{{login}}'."
   logged_out : "Votre session est maintenant terminée."
   login : "Login"
-  login_failed : "N'a pas pu ouvrir la session en tant que '{{login}}'"
+  login_failed : "La session n'a pas pu être ouverte en tant que '{{login}}'."
   new_user_sign_up : "Création d'un compte"
   not_logged_in : "Session non ouverte"
   password : "Mot de passe"
