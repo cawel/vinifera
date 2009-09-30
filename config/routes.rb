@@ -12,18 +12,18 @@ ActionController::Routing::Routes.draw do |map|
     wine.resources :reviews, :as => "critiques", :only => [:index, :new, :create, :edit, :update, :destroy]
   end
   
-  map.root                                      :controller => 'application', :action => 'home'
-  map.search        '/resultats-de-recherche',  :controller => 'wines',       :action => 'index'
+  map.root                                      :controller => 'timeline_events', :action => 'index'
+  map.search        '/resultats-de-recherche',  :controller => 'wines',           :action => 'index'
 
-  map.about         '/a-propos',                :controller => 'contents',    :action => 'about'
-  map.contact       '/contact',                 :controller => 'contents',    :action => 'contact'
-  map.ratings_help  '/signification-des-cotes', :controller => 'contents',    :action => 'ratings_help'
+  map.about         '/a-propos',                :controller => 'contents',        :action => 'about'
+  map.contact       '/contact',                 :controller => 'contents',        :action => 'contact'
+  map.ratings_help  '/signification-des-cotes', :controller => 'contents',        :action => 'ratings_help'
   
-  map.login         '/ouvrir-session',          :controller => 'sessions',    :action => 'new'
-  map.logout        '/terminer-session',        :controller => 'sessions',    :action => 'destroy'
+  map.login         '/ouvrir-session',          :controller => 'sessions',        :action => 'new'
+  map.logout        '/terminer-session',        :controller => 'sessions',        :action => 'destroy'
   
-  map.register      '/enregistrer',             :controller => 'people',      :action => 'create'
-  map.signup        '/creer-compte',            :controller => 'people',      :action => 'new'
+  map.register      '/enregistrer',             :controller => 'people',          :action => 'create'
+  map.signup        '/creer-compte',            :controller => 'people',          :action => 'new'
   
   # map.reset_password '/reset_password',         :controller => 'password_resets', :action => 'new',    :conditions => {:method => :get}
   # map.reset_password '/reset_password',         :controller => 'password_resets', :action => 'create', :conditions => {:method => :post}

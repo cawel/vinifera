@@ -12,11 +12,6 @@ class ApplicationController < ActionController::Base
     I18n.locale = 'fr-CA'
   end
   
-  def home
-    @timeline_events = TimelineEvent.recent
-    render :template => 'layouts/home'
-  end
-
   def top_contributers
     @top_contributers = Review.top_contributers
   end
