@@ -2,14 +2,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-  <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-    <title><%= @title || "Le Tastevin" %></title>
-    <%= javascript_include_tag "jquery.min", "jquery.qtip.min", "application" %>
-    <%= stylesheet_link_tag 'application' %>
-  </head>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+  <title><%= @title || "Le Tastevin" %></title>
+  <%= javascript_include_tag "jquery.min", "jquery.qtip.min", "application" %>
+  <%= stylesheet_link_tag 'application' %>
+</head>
 
-  <body id="<%= @controller.controller_name %>_controller" class="<%= @controller.action_name %>">
+<%
+  unless params[:q].nil?
+    is_search = "search"
+  end
+%>
+<body id="<%= @controller.controller_name %>_controller" class="<%= @template.instance_variable_get(:@_first_render).name %> <%= is_search %>">
 
     <%= render :partial => "layouts/masthead" %>
 
