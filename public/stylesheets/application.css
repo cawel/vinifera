@@ -137,6 +137,7 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 
 /* Form Elements */
 input[type="submit"] { background: #274B66; color: #FFFFFF; font-size: 14px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; line-height: 1; padding: 0 8px 6px; height: 28px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+input[type="submit"]:hover { cursor: pointer; }
 a.button { background: #274B66; color: #FFFFFF; display: inline-block; font-size: 14px; padding: 0 8px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; padding: 0 8px; line-height: 23px; height: 24px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 a.button.reviews { background-image: url('../images/icons/comment.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 a.button.add { background-image: url('../images/icons/add.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
@@ -164,6 +165,7 @@ form p.submit { margin-bottom: 0; margin-top: 1.5em; }
 form p.choice label { display: inline; float: none; line-height: normal; }
 form select { border: 1px solid #C0C0C0; font-size: 14px; height: 27px; padding-top: 2px }
 form select.multi { height: auto; }
+.is_blank { color: #C0C0C0; }
 
 /* Sidebar Elements */
 p.actions a.button { font-size: 16px; font-weight: bold; padding: 10px 15px 10px 36px; line-height: 1; background-repeat: no-repeat; background-position: 15px center; line-height: 1; height: auto; }

@@ -10,4 +10,25 @@ $(function() {
     $(this).parent().addClass("current");
   });
 
+  // Suggest search in search box
+  if ($("#search").val().replace(" ", "") == "") {
+    $("#search").value = "Bordeaux, 2008";
+    $("#search").addClass("is_blank");
+  }
+  $("#search").focus(function() {
+    if($(this).hasClass("is_blank")) {
+      this.value  = '';
+      $(this).removeClass("is_blank");
+    }
+    $(this).blur(function() {
+      if(this.value == '') {
+        this.value = "Bordeaux, 2008";
+        $(this).addClass("is_blank");
+      }
+      else if(this.value != "Bordeaux, 2008") {
+        $(this).removeClass("is_blank");
+      }
+    });
+  });
+
 });
