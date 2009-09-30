@@ -11,21 +11,27 @@ $(function() {
   });
 
   // Suggest search in search box
-  if ($("#search").val().replace(" ", "") == "") {
-    $("#search").value = "Bordeaux, 2008";
-    $("#search").addClass("is_blank");
+  var suggestion = "ex.: Bordeaux, 2008"
+  search_field = "#search .search"
+  function is_search_empty() {
+    return ($(search_field).val() == "");
   }
-  $("#search").focus(function() {
+
+  if (is_search_empty()) {
+    $(search_field).val(suggestion)
+    $(search_field).addClass("is_blank");
+  }
+  $(search_field).focus(function() {
     if($(this).hasClass("is_blank")) {
-      this.value  = '';
+      $(this).val("");
       $(this).removeClass("is_blank");
     }
     $(this).blur(function() {
-      if(this.value == '') {
-        this.value = "Bordeaux, 2008";
+      if (is_search_empty()) {
+        $(this).val(suggestion);
         $(this).addClass("is_blank");
       }
-      else if(this.value != "Bordeaux, 2008") {
+      else if($(this).val() != suggestion) {
         $(this).removeClass("is_blank");
       }
     });
