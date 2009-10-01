@@ -46,7 +46,7 @@ class ReviewsController < ApplicationController
   end
 
   def check_for_authorization
-    unless Review.find(params[:id]).andand.person_id == current_person.id
+    unless (Review.find(params[:id]).andand.person_id == current_person.id) or current_person.admin?
       flash[:notice] = "Vous ne pouvez pas modifier les critiques d'un autre usager!"
       redirect_to person_reviews_index_url(:person_id => current_person.id)
     end

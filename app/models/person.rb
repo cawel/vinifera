@@ -44,4 +44,8 @@ class Person < ActiveRecord::Base
     save(false)
   end
 
+  def admin?
+    admin
+  end
+
 end

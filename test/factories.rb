@@ -26,3 +26,9 @@ Factory.define :remembered_person, :parent => :person do |p|
   p.remember_token            { Person.make_token }
   p.remember_token_expires_at 10.days.from_now
 end
+
+#Factory.define :review do |r|
+  #r.rating_id  1
+  #r.comment  "my review"
+  #r.association :person, :factory => :person
+#end
