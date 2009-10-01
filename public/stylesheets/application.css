@@ -128,7 +128,7 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 #masthead #search input[type="submit"] { float: right; top: 0; margin: 0 0 0 5px; }
 
 /* Page Titles */
-#reviews_controller.user_index h2.page_title { background: url('../images/icons/comments.png') no-repeat left center; padding-left: 25px; }
+#reviews_controller.user_reviews_index h2.page_title { background: url('../images/icons/comments.png') no-repeat left center; padding-left: 25px; }
 #people_controller h2.page_title { background: url('../images/icons/user.png') no-repeat left center; padding-left: 25px; }
 #wines_controller.search h2.page_title { background: url('../images/icons/table_multiple.png') no-repeat left center; padding-left: 25px; }
 #contents_controller.contact h2.page_title { background: url('../images/icons/user_suit.png') no-repeat left center; padding-left: 25px; }

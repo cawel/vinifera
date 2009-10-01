@@ -1,75 +1,40 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class ReviewsControllerTest < ActionController::TestCase
-  def setup
-    @controller           = ReviewsController.new
-    @request              = ActionController::TestRequest.new
-    @response             = ActionController::TestResponse.new
-    @review               = reviews :wine1_according_to_james
-    @person = people(:james)
+
+  logged_in_as :mat do
+    context "GET /edit somebody else's review" do
+      setup do
+        @mat = people(:mat)
+        @martin = people(:martin)
+        get :edit, :wine_id => @martin.reviews.first.wine.id, :id => @martin.reviews.first.id
+      end
+
+      should_set_the_flash_to(/pas modifier les critiques/)
+      should_redirect_to("the user's reviews index") { person_reviews_index_url(@mat)  }
+    end
+
+    context "PUT update somebody else's review" do
+      setup do
+        @mat = people(:mat)
+        @martin = people(:martin)
+        put :update, :wine_id => @martin.reviews.first.wine.id, :id => @martin.reviews.first.id
+      end
+
+      should_set_the_flash_to(/pas modifier les critiques/)
+      should_redirect_to("the user's reviews index") { person_reviews_index_url(@mat)  }
+    end
+
+    context "DELETE destroy somebody else's review" do
+      setup do
+        @mat = people(:mat)
+        @martin = people(:martin)
+        delete :destroy, :wine_id => @martin.reviews.first.wine.id, :id => @martin.reviews.first.id
+      end
+
+      should_set_the_flash_to(/pas modifier les critiques/)
+      should_redirect_to("the user's reviews index") { person_reviews_index_url(@mat)  }
+    end
   end
 
-  #login_as :mat do
-    #should_be_restful do |resource|
-      #resource.parent          = :wine
-      #resource.formats         = [:html]
-      #resource.actions         = [:new, :create, :edit, :update, :destroy]
-      #resource.create.params   = {:rating_id => 1, :comment => 'my comment'}
-#
-      #resource.create.flash    = /critique a été ajoutée/i
-      #resource.create.redirect = 'wine_reviews_url'
-      #resource.update.flash    = /à jour/i
-      #resource.update.redirect = 'wine_reviews_url'
-      #resource.destroy.flash   = /retiré/i
-    #end
-  #end
-#
-  #login_as :martin do
-    #context "GET :new for a wine the user has already reviewed" do
-      #setup do
-        #get :new, :wine_id => reviews(:wine2_according_to_martin).wine.id
-      #end
-      #should_set_the_flash_to /Vous avez déjà fait une critique pour ce vin./i
-      #should_redirect_to 'edit_wine_review_url(@review.wine, @review)'
-    #end
-  #end
-
-  #not_logged_in do
-    #context "on GET :new" do
-      #setup do
-        #get :new, :wine_id => wines(:chateau_coulac).id
-      #end
-      #should_redirect_to 'login_url'
-    #end
-#
-    #context "on POST :create" do
-      #setup do
-        #post :create, :wine_id => wines(:chateau_coulac).id
-      #end
-      #should_redirect_to 'login_url'
-    #end
-#
-    #context "on GET :edit" do
-      #setup do
-        #get :edit, :wine_id => reviews(:wine1_according_to_james).wine.id, :id => reviews(:wine1_according_to_james).id
-      #end
-      #should_redirect_to 'login_url'
-    #end
-#
-    #context "on POST :update" do
-      #setup do
-        #put :update, :wine_id => reviews(:wine1_according_to_james).wine.id, :id => reviews(:wine1_according_to_james).id
-      #end
-      #should_redirect_to 'login_url'
-    #end
-#
-    #context "on DELETE :destroy" do
-      #setup do
-        #delete :destroy, :wine_id => reviews(:wine1_according_to_james).wine.id, :id => reviews(:wine1_according_to_james).id
-      #end
-      #should_redirect_to 'login_url'
-    #end
-#
-  #end
-#
 end

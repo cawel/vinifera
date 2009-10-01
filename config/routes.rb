@@ -32,7 +32,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/account', :controller => 'accounts', :action => 'edit'
   
   map.resources :people, :as => 'compte', :only => [:show, :new, :create, :edit, :update] do |person|
-    person.reviews_index 'critiques', :controller => 'reviews', :action => 'user_index'
+    person.reviews_index 'critiques', :controller => 'reviews', :action => 'user_reviews_index'
   end
 
   map.resource  :session, :account
