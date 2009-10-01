@@ -2,7 +2,7 @@ reviewed_event:
   event_type: reviewed
   subject: wine1_according_to_james
   subject_type: Review
-  actor: martin
+  actor: admin
   actor_type: Person
   created_at: <%= 2.days.ago.to_s(:db) %>
 
@@ -10,6 +10,6 @@ edited_event:
   event_type: edited
   subject: wine2_according_to_mat
   subject_type: Review
-  actor: martin
+  actor: admin
   actor_type: Person
   created_at: <%= 2.minutes.ago.to_s(:db) %>

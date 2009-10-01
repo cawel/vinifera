@@ -6,7 +6,7 @@ chateau_coulac:
   color: white
   region: catalogna
   country: France
-  person: martin
+  person: admin
 
 chateau_neuf_du_pape:
   name: Chateau Neuf du pape

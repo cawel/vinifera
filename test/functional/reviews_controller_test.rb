@@ -6,8 +6,8 @@ class ReviewsControllerTest < ActionController::TestCase
     context "GET /edit somebody else's review" do
       setup do
         @mat = people(:mat)
-        @martin = people(:martin)
-        get :edit, :wine_id => @martin.reviews.first.wine.id, :id => @martin.reviews.first.id
+        @james = people(:james)
+        get :edit, :wine_id => @james.reviews.first.wine.id, :id => @james.reviews.first.id
       end
 
       should_set_the_flash_to(/pas modifier les critiques/)
@@ -17,8 +17,8 @@ class ReviewsControllerTest < ActionController::TestCase
     context "PUT update somebody else's review" do
       setup do
         @mat = people(:mat)
-        @martin = people(:martin)
-        put :update, :wine_id => @martin.reviews.first.wine.id, :id => @martin.reviews.first.id
+        @james = people(:james)
+        put :update, :wine_id => @james.reviews.first.wine.id, :id => @james.reviews.first.id
       end
 
       should_set_the_flash_to(/pas modifier les critiques/)
@@ -28,8 +28,8 @@ class ReviewsControllerTest < ActionController::TestCase
     context "DELETE destroy somebody else's review" do
       setup do
         @mat = people(:mat)
-        @martin = people(:martin)
-        delete :destroy, :wine_id => @martin.reviews.first.wine.id, :id => @martin.reviews.first.id
+        @james = people(:james)
+        delete :destroy, :wine_id => @james.reviews.first.wine.id, :id => @james.reviews.first.id
       end
 
       should_set_the_flash_to(/pas modifier les critiques/)

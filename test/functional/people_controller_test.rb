@@ -48,11 +48,11 @@ class PeopleControllerTest < ActionController::TestCase
 
   end
 
-  logged_in_as :martin do
+  logged_in_as :mat do
 
     context "on PUT to :update with valid attributes" do
       setup do
-        @user = people(:martin)
+        @user = people(:mat)
         put :update, :id => @user.id, :person => { :name => "new name", :description => "my new description" }
       end
 
@@ -67,22 +67,22 @@ class PeopleControllerTest < ActionController::TestCase
       should_redirect_to("the user's profile") {person_path(@user)}
     end
 
-    context "on PUT to :update to another user profile" do
+    context "on PUT to :update another user's profile" do
       setup do
         @user = people(:james)
         put :update, :id => @user.id, :person => { :name => "new name", :description => "my new description" }
       end
 
-      should_redirect_to("your own user profile") { edit_person_path(people(:martin)) }
+      should_redirect_to("your own user profile") { person_path(people(:mat)) }
     end
 
-    context "on GET to :edit to another user profile" do
+    context "on GET to :edit another user's profile" do
       setup do
         @user = people(:james)
         get :edit, :id => @user.id
       end
 
-      should_redirect_to("your own user profile") { edit_person_path(people(:martin)) }
+      should_redirect_to("your own user profile") { person_path(people(:mat)) }
     end
   end
 

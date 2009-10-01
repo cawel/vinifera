@@ -4,10 +4,10 @@ class TimelineEventTest < ActiveSupport::TestCase
 
   context "Reviewing on a wine" do
     setup do
-      @martin = people(:martin)
+      @mat = people(:mat)
       @rating = ratings(:stars2)
       @wine = wines(:chateau_coulac)
-      @review = Review.create(:person_id => @martin.id, :rating_id => @rating.id, :wine_id => @wine.id,  :comment => "Good good wine!")
+      @review = Review.create(:person_id => @mat.id, :rating_id => @rating.id, :wine_id => @wine.id,  :comment => "Good good wine!")
     end
 
     should_change("the TimelineEvent count", :by => 1) { TimelineEvent.count}
@@ -17,7 +17,7 @@ class TimelineEventTest < ActiveSupport::TestCase
         @event = TimelineEvent.last
       end
       should "set the actor to be the person who did the review" do
-        assert_equal @martin, @event.actor
+        assert_equal @mat, @event.actor
       end
 
       should "set the subject to be the wine which was reviewed" do
@@ -33,7 +33,7 @@ class TimelineEventTest < ActiveSupport::TestCase
 
   context "Editing the review of a wine" do
     setup do
-      @review = reviews(:wine2_according_to_martin)
+      @review = reviews(:wine2_according_to_mat)
       @review.update_attributes(:comment => "this is my changed review")
     end
 
@@ -44,7 +44,7 @@ class TimelineEventTest < ActiveSupport::TestCase
         @event = TimelineEvent.last
       end
       should "set the actor to be the person who edited the review" do
-        assert_equal @martin, @event.actor
+        assert_equal @mat, @event.actor
       end
 
       should "set the subject to be the wine which was reviewed" do
