@@ -1,7 +1,7 @@
 <% @title = "Vin: #{h @wine.name}" %>
 
 <%= render :partial => "wines/wine_profile" %>
-<h3>Ajout d'une critique</h3>
+<h3>Écrire une critique</h3>
 
 <%= error_messages_for :review %>
 <% form_for :review, :url => wine_reviews_url(@wine), :html => { :class => "lw80" } do |f| %>
