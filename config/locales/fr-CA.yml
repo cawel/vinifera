@@ -8,7 +8,7 @@ fr-CA:
         confirmation: "ne correspond pas à la confirmation"
         accepted: "doit être accepté"
         empty: "ne peut être vide"
-        blank: "ne peut être blanc"
+        blank: "ne peut être vide"
         too_long: "est trop long (le maximum est {{count}} caractères)"
         too_short: "est trop court (le minimum est {{count}} caractères)"
         wrong_length: "n'est pas de la bonne longueur (devrait être {{count}} caractères)"
@@ -23,18 +23,21 @@ fr-CA:
         even: "doit être pair"
       template:
         header:
-          one:    "1 erreur a empêché le {{model}} d'être sauvegardé"
-          other:  "{{count}} erreurs ont empêché le {{model}} d'être sauvegardé"
+          one:    "1 erreur a empêché {{model}} d'être sauvegardé"
+          other:  "{{count}} erreurs ont empêché {{model}} d'être sauvegardé"
         # The variable :count is also available
         body: "Il y a eu des problèmes avec les champs suivants:"
     models:
-      usager: "compte"
+      usager: "le compte"
+      review: "la critique"
     attributes:
       person:
         name: "Le nom"
         email: "Le courriel"
         password: "Le mot de passe"
         password_confirmation: "La confirmation du mot de passe"
+      review:
+        comment: "La critique"
 
   account_activated : "{{login}} votre compte a été activé. Bienvenue!"
   account_activation_url_message : "Veuillez aller à cette adresse afin d'activer votre compte:"
