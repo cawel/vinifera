@@ -3,6 +3,10 @@ class PeopleController < ResourceController::Base
   before_filter :login_required,            :only => [:edit, :update]
   before_filter :prevent_impersonification, :only => [:edit, :update]
   
+  show do
+    before    { @reviews = Review.find_all_by_person_id(params[:id]) }
+  end
+
   create do
     before     :logout_keeping_session!
     after      { self.current_person = @person }

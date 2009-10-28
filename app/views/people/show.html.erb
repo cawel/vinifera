@@ -22,3 +22,8 @@
 <% if current_person == @person %>
   <p class="actions"><%= link_to "Mettre à jour", edit_person_path(@person), :title => "Mettre à jour", :class => "button update" %></p>
 <% end %>
+
+<% if @reviews.any? and (current_person.andand.id.to_s != params[:id]) %>
+<h2 class='second_page_title'>Son journal de critiques</h2>
+<%= render :partial => 'reviews/user_reviews' %>
+<% end %>

@@ -1,38 +1,7 @@
 <% @title = "Mon journal de critiques" %>
 
 <% unless @reviews.empty? %>
-  <table class="reviews">
-    <thead>
-      <th>Cote</th>
-      <th>Vin</th>
-      <th>Critique</th>
-      <th></th>
-    </thead>
-    <tbody>
-      <%- @reviews.each do |review| %>
-        <tr class="<%= cycle("even", "odd") %>">
-          <td class="rating"><%= stars_rating review.rating %></td>
-          <td class="wine">
-            <%= link_to review.wine.name, wine_reviews_url(review.wine), :title => review.wine.name, :class => "name" %>
-            <small>
-            <%= (review.wine.appellation.name + ", ") unless review.wine.appellation.nil? %> 
-            <%= review.wine.region.name unless review.wine.region.nil? %>
-          </small>
-          </td>
-          <td><%= format_user_content review.comment %></td>
-          <td class="actions">
-            <% editable_review?(review) do %>
-              <%= link_to "Mettre à jour", edit_wine_review_path(review.wine, review), :title => "Mettre à jour", :class => "update" %>
-            <% end %>
-            <% editable_review?(review) do %>
-              <%= link_to "Supprimer", wine_review_path(review.wine, review), :confirm => ApplicationHelper::DELETE_CONFIRM_MESSAGE, :title => "Supprimer", :method => :delete, :class => "remove" %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+  <%= render :partial => 'user_reviews' %>
 <% else %>
 
   <p>
