@@ -27,7 +27,7 @@ module ApplicationHelper
   end
 
   def format_user_content text
-    simple_format word_wrap((h text))
+    simple_format(h text)
   end
 
   def country_flag country
