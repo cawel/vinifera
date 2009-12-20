@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090926131348) do
+ActiveRecord::Schema.define(:version => 20091220144843) do
 
   create_table "appellations", :force => true do |t|
     t.string   "name"
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(:version => 20090926131348) do
     t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "person_id",                                    :default => 0, :null => false
+    t.integer  "person_id",                                      :default => 0,     :null => false
     t.integer  "country_id"
     t.integer  "category_id"
     t.integer  "region_id"
@@ -130,13 +130,14 @@ ActiveRecord::Schema.define(:version => 20090926131348) do
     t.string   "cup"
     t.integer  "nature_id"
     t.string   "format"
-    t.decimal  "price",          :precision => 6, :scale => 2
+    t.decimal  "price",            :precision => 6, :scale => 2
     t.string   "provider"
-    t.decimal  "alcool",         :precision => 5, :scale => 2
+    t.decimal  "alcool",           :precision => 5, :scale => 2
     t.string   "image_filename"
     t.integer  "sub_region_id"
     t.integer  "appellation_id"
     t.integer  "flavor_id"
+    t.boolean  "currently_at_saq",                               :default => false
   end
 
   add_index "wines", ["code_saq"], :name => "index_wines_on_code_saq", :unique => true
