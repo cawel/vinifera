@@ -1,6 +1,8 @@
 require 'ruby-debug'
 
-Wine.delete_all
+#Wine.delete_all
+wines_added = 0
+already_had = 0
 
 File.open("../scraper/output") do |f|
   name, code_saq, cup, category_id, color_id, region_id, country_id, nature_id, format, price, provider, alcool, sub_region_id, appellation_id, flavor_id, image_filename = nil
@@ -54,16 +56,26 @@ File.open("../scraper/output") do |f|
     if line =~ /#/
       # only take those which fit the natures
       unless nature_id.nil?
+        w = Wine.find_by_code_saq(code_saq)
+        if !w.nil?
+          already_had += 1
+          puts "already had: #{w.code_saq} old price: #{w.price}, new price: #{price}" if w.price != price
+          puts w.update_attributes(:price => price, :currently_at_saq => true)
+          next
+        end
+        wines_added += 1
         wine = Wine.create(:name => name, :code_saq => code_saq, :cup => cup, :category_id => category_id, :color_id => color_id, 
                            :region_id => region_id, :country_id => country_id, :nature_id => nature_id, :format => format, :price => price,
                            :provider => provider, :alcool => alcool, :sub_region_id => sub_region_id, :appellation_id => appellation_id, 
-                           :flavor_id => flavor_id, :image_filename => image_filename)
+                           :flavor_id => flavor_id, :image_filename => image_filename, :currently_at_saq => true)
+        puts "new wine: #{wine.code_saq}"
         puts wine.errors.full_messages if wine.errors.any?
       end
     name, code_saq, cup, category_id, color_id, region_id, country_id, nature_id, format, price, provider, alcool, sub_region_id, appellation_id, flavor_id, image_filename = nil
     end
-
   end
 end
 
+puts "wines added = #{wines_added}"
+puts "already had = #{already_had}"
 puts "wines count: #{Wine.count}"
