@@ -1,4 +1,4 @@
-# in order to populate production DB, this script should be as:
+# in order to populate the production DB, this script should be called as:
 # script/runner -e production script/import_normalized_field_values.rb
 
 def import model
