@@ -23,6 +23,8 @@ class Wine < ActiveRecord::Base
 
   validates_presence_of :person_id
 
+  validates_uniqueness_of :code_saq, :scope => :year
+
   cattr_reader :per_page
   @@per_page = 20
 
