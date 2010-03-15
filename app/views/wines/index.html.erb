@@ -4,6 +4,7 @@
   <table class="wines">
     <thead>
       <th class="wine">Vin</th>
+      <th class="year">Année</th>
       <th class="country">Pays</th>
       <th class="provider">Fournisseur</th>
     </thead>
@@ -20,6 +21,7 @@
             <%= wine.region.name unless wine.region.nil? %>
           </small>
           </td>
+          <td class="year"><%= wine.year%></td>
           <td class="country"><%= country_flag wine.country%></td>
           <td><%=h wine.provider.titleize %></td>
         </tr>
@@ -32,5 +34,5 @@
     </tfoot>
   </table>
 <% else %>
-  <p class="blank">Aucuns resultats.</p>
+  <p class="blank">Aucuns résultats.</p>
 <% end %>

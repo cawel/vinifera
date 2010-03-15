@@ -208,7 +208,9 @@ table.wines td.wine span.bottle img { width: 100%; position: relative; -10px; }
 table.wines td.wine a.name { font-weight: bold; display: block; margin-left: 40px; }
 table.wines td.wine small { font-size: 11px; color: #808080; display: block; margin: 1px 0 0 45px; }
 table.wines th.country,
-table.wines td.country { text-align: center; }
+table.wines td.country,
+table.wines td.year,
+table.wines th.year { text-align: center; }
 table.wines td.country { padding-top: 8px; }
 table.wines th.wine { padding-left: 50px; }
 
