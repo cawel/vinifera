@@ -1,11 +1,11 @@
 require 'ruby-debug'
 
-#Wine.delete_all
-wines_added = 0
+# Wine.delete_all
+added = 0
 already_had = 0
 
 File.open("../scraper/output") do |f|
-  name, code_saq, cup, category_id, color_id, region_id, country_id, nature_id, format, price, provider, alcool, sub_region_id, appellation_id, flavor_id, image_filename = nil
+  name, code_saq, year, cup, category_id, color_id, region_id, country_id, nature_id, format, price, provider, alcool, sub_region_id, appellation_id, flavor_id, image_filename = nil
   f.each do |line|
     name = line.gsub(/^\w+:/,'').strip if line =~ /^nom_produit:/
       code_saq = line.gsub(/^\w+:/,'').strip if line =~ /^code_saq:/
@@ -15,6 +15,10 @@ File.open("../scraper/output") do |f|
       provider = line.gsub(/^\w+:/,'').strip if line =~ /^fournisseur:/
       alcool = line.gsub(/^[\w+_]*:/,'').strip.to_f if line =~ /^pourcentage_d_alcool:/
       image_filename = line.match(/[0-9]+.+$/)[0].strip if line =~ /^image_url:/
+
+      year = name.scan(/[0-9]{4}/).first
+    name = name.sub(/ [0-9]{4}/, '')
+
       if line =~ /^categorie:/
         category = line.gsub(/^\w+:/,'').strip 
     category_id = Category.find_by_name(category).id 
@@ -56,26 +60,25 @@ File.open("../scraper/output") do |f|
     if line =~ /#/
       # only take those which fit the natures
       unless nature_id.nil?
-        w = Wine.find_by_code_saq(code_saq)
-        if !w.nil?
+        w = Wine.find_by_code_saq_and_year(code_saq, year)
+        unless w.nil?
           already_had += 1
-          puts "already had: #{w.code_saq} old price: #{w.price}, new price: #{price}" if w.price != price
-          puts w.update_attributes(:price => price, :currently_at_saq => true)
+          w.update_attributes(:price => price, :times_updated => w.times_updated + 1)
           next
         end
-        wines_added += 1
-        wine = Wine.create(:name => name, :code_saq => code_saq, :cup => cup, :category_id => category_id, :color_id => color_id, 
+        added += 1
+        wine = Wine.create(:name => name, :year => year, :code_saq => code_saq, :cup => cup, :category_id => category_id, :color_id => color_id, 
                            :region_id => region_id, :country_id => country_id, :nature_id => nature_id, :format => format, :price => price,
                            :provider => provider, :alcool => alcool, :sub_region_id => sub_region_id, :appellation_id => appellation_id, 
-                           :flavor_id => flavor_id, :image_filename => image_filename, :currently_at_saq => true)
-        puts "new wine: #{wine.code_saq}"
+                           :flavor_id => flavor_id, :image_filename => code_saq + "_g.jpg", :times_updated => 0)
+        puts wine.code_saq
         puts wine.errors.full_messages if wine.errors.any?
       end
-    name, code_saq, cup, category_id, color_id, region_id, country_id, nature_id, format, price, provider, alcool, sub_region_id, appellation_id, flavor_id, image_filename = nil
+    name, code_saq, year, cup, category_id, color_id, region_id, country_id, nature_id, format, price, provider, alcool, sub_region_id, appellation_id, flavor_id, image_filename = nil
     end
   end
 end
 
-puts "wines added = #{wines_added}"
+puts "wines added = #{added}"
 puts "already had = #{already_had}"
 puts "wines count: #{Wine.count}"
