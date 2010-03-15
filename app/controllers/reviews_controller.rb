@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   belongs_to :wine
   
   def user_reviews_index
-    @reviews = Review.find_all_by_person_id(params[:person_id]) 
+    @reviews = Review.find_all_by_person_id(params[:person_id], :order => 'updated_at DESC') 
   end
 
   index.response do |wants|

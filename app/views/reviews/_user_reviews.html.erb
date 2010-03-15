@@ -10,7 +10,7 @@
       <tr class="<%= cycle("even", "odd") %>">
         <td class="rating"><%= stars_rating review.rating %></td>
         <td class="wine">
-          <%= link_to review.wine.name, wine_reviews_url(review.wine), :title => review.wine.name, :class => "name" %>
+          <%= link_to "#{review.wine.name} #{review.wine.year}", wine_reviews_url(review.wine), :title => review.wine.name, :class => "name" %>
           <small>
             <%= (review.wine.appellation.name + ", ") unless review.wine.appellation.nil? %> 
             <%= review.wine.region.name unless review.wine.region.nil? %>
