@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100314220000) do
+ActiveRecord::Schema.define(:version => 20100315001946) do
 
   create_table "appellations", :force => true do |t|
     t.string   "name"
@@ -140,6 +140,6 @@ ActiveRecord::Schema.define(:version => 20100314220000) do
     t.integer  "times_updated",                                :default => 0, :null => false
   end
 
-  add_index "wines", ["code_saq"], :name => "index_wines_on_code_saq", :unique => true
+  add_index "wines", ["code_saq"], :name => "index_wines_on_code_saq"
 
 end
