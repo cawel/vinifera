@@ -66,6 +66,15 @@ module ApplicationHelper
     end
   end
 
+  def select_image_filename link
+    if link =~ /busurleweb/
+      "wine_news/bu_sur_le_web.jpg"
+    elsif link =~ /mechantraisin/
+      "wine_news/mechant_raison.png"
+    else
+      "wine_news/cyberpresse.png"
+    end
+  end
   
   include WillPaginate::ViewHelpers 
   def will_paginate_with_i18n(collection, options = {}) 

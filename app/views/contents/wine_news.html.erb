@@ -1,15 +1,18 @@
 <% @title = "Les nouvelles du monde du vin" %>
 
 <table class="activity_stream">
-  <% @feed.entries[0..10].each do |item| %>
+  <% @feed.entries[0..6].each do |item| %>
     <tr>
       <td class="post">
-        <%= link_to item.title, item.link, :class => "title" %>
+        <div class="icon">
+          <%= image_tag(select_image_filename(item.link)) %>
+        </div>
+        <%= link_to item.title, item.link, :target => '_blank', :class => "title" %>
         <span class="date">
           publi&eacute; le <%= item.pubDate.to_s(:short) %>
         </span>
         <span class="description">
-          <%= item.description %>
+          <%= item.description %> <%= link_to "Lire la suite", item.link %>
         </span>
     </td></tr>
   <% end %>
