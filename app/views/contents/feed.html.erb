@@ -1,0 +1,16 @@
+<% @title = "Les nouvelles du monde du vin" %>
+
+<table class="activity_stream">
+  <% @feed.entries[0..10].each do |item| %>
+    <tr>
+      <td class="post">
+        <%= link_to item.title, item.link, :class => "title" %>
+        <span class="date">
+          publi&eacute; le <%= item.pubDate.to_s(:short) %>
+        </span>
+        <span class="description">
+          <%= item.description %>
+        </span>
+    </td></tr>
+  <% end %>
+</table>

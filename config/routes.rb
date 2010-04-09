@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.about         '/a-propos',                :controller => 'contents',        :action => 'about'
   map.contact       '/contact',                 :controller => 'contents',        :action => 'contact'
   map.ratings_help  '/signification-des-cotes', :controller => 'contents',        :action => 'ratings_help'
+  map.nouvelles     '/nouvelles-monde-du-vin', :controller => 'contents',        :action => 'feed'
   
   map.login         '/ouvrir-session',          :controller => 'sessions',        :action => 'new'
   map.logout        '/terminer-session',        :controller => 'sessions',        :action => 'destroy'

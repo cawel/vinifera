@@ -201,6 +201,9 @@ p.flash.error { background: #F6E0E1 url('../images/icons/exclamation-red.png') n
 #contents_controller.contact #content table { width: auto; margin-left: 100px; }
 #contents_controller.contact #content table th { font-weight: bold; border: none; font-size: 14px; background: none; text-align: right; color: #404040; padding: 0 10px 10px 0; white-space: nowrap; }
 #contents_controller.contact #content table td { font-size: 14px; color: #000000; padding: 0 0 10px; }
+#contents_controller #content #main a.title {font-size: 14px; font-weight: bold;}
+#contents_controller #content #main div.date {font-size: 12px; color: #808080;}
+#contents_controller #content #main p.description {font-size: 12px; margin-top: 5px; margin-bottom: 20px;}
 
 /* Wine Listings */
 table.wines td.wine span.bottle { float: left; display: block; width: 40px; height: 40px; overflow: hidden; margin-right: 5px; }
@@ -242,6 +245,9 @@ table.activity_stream td.wine span.bottle img { width: 100%; position: relative;
 table.activity_stream td.wine span.rating { margin: 3px 0 3px 45px; display: block; }
 table.activity_stream td.wine a.name { font-weight: bold; display: block; margin-left: 45px; }
 table.activity_stream td.wine small { font-size: 11px; color: #808080; display: block; margin: 1px 0 0 45px; }
+
+table.activity_stream td.post span.date { display: block; margin: 3px 0 0 0; color: #808080; }
+table.activity_stream td.post span.description { display: block; margin: 3px 0 0 0; }
 
 /* Star Ratings */
 ul.star_rating { display: inline-block; width: 80px; height: 16px; margin: 3px 0 0 0; padding: 0; position: relative; background: url('../images/star_rating_bg.png') repeat-x left top; }
