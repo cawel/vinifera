@@ -259,7 +259,7 @@ table.activity_stream td.wine small { font-size: 11px; color: #808080; display: 
 table.activity_stream td.post a.title { display: block; margin: 0 0 0 110px; }
 table.activity_stream td.post span.date { display: block; margin: 3px 0 0 110px; color: #808080; }
 table.activity_stream td.post span.description { display: block; margin: 3px 0 0 110px; }
-table.activity_stream td.post div.icon { float: left; width: 100px; text-align: center; position: relative; margin-top: 5px; }
+table.activity_stream td.post div.icon { float: left; height: 100px; width: 100px; text-align: center; position: relative; margin-top: 5px; }
 table.activity_stream td.post div.icon img { }
 
 /* Star Ratings */

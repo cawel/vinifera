@@ -71,9 +71,18 @@ module ApplicationHelper
       "wine_news/bu_sur_le_web.jpg"
     elsif link =~ /mechantraisin/
       "wine_news/mechant_raison.png"
+    elsif link =~ /ChacunSaBouteille/
+      "wine_news/remy_charest.jpg"
     else
       "wine_news/cyberpresse.png"
     end
+  end
+  
+  def clean_post_description description
+    # Remy Charest
+    description = description.gsub(/&amp;#8217;/, "'")
+      # Aurelia Filion (bu sur le web)
+      description = description.gsub(/\&lt.*?gt\;/, '').gsub(/\n/,'') 
   end
   
   include WillPaginate::ViewHelpers 

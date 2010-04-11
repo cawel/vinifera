@@ -12,7 +12,7 @@
           publi&eacute; le <%= item.pubDate.to_s(:short) %>
         </span>
         <span class="description">
-          <%= item.description.gsub(/\&lt.*?gt\;/, '').gsub(/\n/,'') %> <%= link_to "Lire la suite", item.link %>
+          <%= clean_post_description item.description %> <%= link_to "Lire la suite", item.link %>
         </span>
     </td></tr>
   <% end %>
