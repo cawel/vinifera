@@ -197,13 +197,20 @@ p.flash.error { background: #F6E0E1 url('../images/icons/exclamation-red.png') n
 #contents_controller #content #main p.img.embedded { margin-bottom: 20px; }
 #contents_controller #content #main p img.embedded.right { float: right; margin-left: 20px; }
 #contents_controller #content #main p img.embedded.left { float: left; margin-right: 20px; }
-#contents_controller.contact #content img.portrait { float: left; width: 80px; }
+#contents_controller.contact #content .bio .picture { float: left; width: 100px; text-align: center; }
+#contents_controller.contact #content .bio .portrait { float: left; width: 100px; }
+#contents_controller.contact #content .bio span.name {float:right; font-weight: bold; padding: 5px; font-size: 14px;}
 #contents_controller.contact #content table { width: auto; margin-left: 100px; }
 #contents_controller.contact #content table th { font-weight: bold; border: none; font-size: 14px; background: none; text-align: right; color: #404040; padding: 0 10px 10px 0; white-space: nowrap; }
 #contents_controller.contact #content table td { font-size: 14px; color: #000000; padding: 0 0 10px; }
 #contents_controller #content #main a.title {font-size: 14px; font-weight: bold;}
 #contents_controller #content #main div.date {font-size: 12px; color: #808080;}
 #contents_controller #content #main p.description {font-size: 12px; margin-top: 5px; margin-bottom: 20px;}
+
+img.framed {padding: 2px; border: 1px solid #c0c0c0; }
+.bio p {margin-left: 130px;}
+.bio p.motivation {font-size: 14px; text-align: justify}
+.bio .title {font-size: 16px; font-weight: bold;}
 
 /* Wine Listings */
 table.wines td.wine span.bottle { float: left; display: block; width: 40px; height: 40px; overflow: hidden; margin-right: 5px; }
@@ -236,6 +243,9 @@ table.user_profile * { font-size: 14px; margin: 0 0 0 110px; }
 table.user_profile th,
 table.user_profile td { padding: 0 10px 5px 0; }
 table.user_profile th { background: none; text-align: right; white-space: nowrap; border: none; width: 1%; }
+
+/* Contact page */
+div.icons img {margin-right: 20px;}
 
 /* Activity Stream */
 table.activity_stream tr { border-bottom: 1px solid #F0F0F0; }
