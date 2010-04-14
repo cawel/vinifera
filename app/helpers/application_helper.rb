@@ -79,8 +79,8 @@ module ApplicationHelper
   end
   
   def clean_post_description description
-    # Remy Charest
-    description = description.gsub(/&amp;#8217;/, "'")
+    # Remy Charest (achacunsabouteille)
+    description = description.gsub(/&amp;#8217;/, "'").gsub("&amp;#8230", "...")
       # Aurelia Filion (bu sur le web)
       description = description.gsub(/\&lt.*?gt\;/, '').gsub(/\n/,'') 
   end
