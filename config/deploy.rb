@@ -22,6 +22,13 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
+after "deploy:update",  :tag_deployed_commit
+
+task :tag_deployed_commit do
+  tag = "#{ Time.now.strftime('%y%m%d-%H%M%S') }"
+  run_locally "git tag -m 'deploy by #{ENV['USER']}' -a #{tag} remotes/origin/#{branch} && git push --tags"
+end
+
 
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
