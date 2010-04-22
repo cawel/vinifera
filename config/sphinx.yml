@@ -1,5 +1,6 @@
 # http://yob.id.au/blog/2008/05/08/thinking_sphinx_and_unicode/
-production:
+
+sphinx_defaults: &sphinx_defaults
   allow_star: true
   charset_table: "0..9, a..z, _, A..Z->a..z, U+00C0->a, U+00C1->a,
     U+00C2->a, U+00C3->a, U+00C4->a, U+00C5->a, U+00C7->c, U+00C8->e,
@@ -84,3 +85,8 @@ production:
     U+1EF3->y, U+1EF4->y, U+1EF5->y, U+1EF6->y, U+1EF7->y, U+1EF8->y,
     U+1EF9->y"
 
+production: 
+  <<: *sphinx_defaults
+
+development:
+  <<: *sphinx_defaults

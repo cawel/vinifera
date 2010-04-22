@@ -38,7 +38,7 @@ class Wine < ActiveRecord::Base
     :limit => 5
 
   # otherwise it messes up associations in fixtures
-  if RAILS_ENV == 'production'
+  unless RAILS_ENV == 'test'
     define_index do
       # fields
       indexes name, :sortable => true
