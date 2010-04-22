@@ -14,9 +14,9 @@ namespace :db do
     `gunzip -f db/dump/vinifera_production.sql.gz`
   end
 
-  desc "Load DB dump into local prod DB"
+  desc "Load DB dump into local dev DB"
   task :load do
-    puts command = "mysql -uroot -p vinifera_production < db/dump/vinifera_production.sql"
+    puts command = "mysql -uroot -p vinifera_development < db/dump/vinifera_production.sql"
     system command
   end
 end
