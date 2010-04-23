@@ -13,6 +13,7 @@ set :deploy_via, :remote_cache
 set :user, 'cawel'
 set :runner, 'cawel'
 set :use_sudo, false
+set :branch, 'master'
 
 set :keep_releases, 5 
 
@@ -22,10 +23,24 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
+before "deploy", "validate_remote_branch_freshness"
 after "deploy:update",  :tag_deployed_commit
 
+task :validate_remote_branch_freshness do
+  unless 'true' == ENV['DEPLOY_OLD_BRANCH']
+    refs          = run_locally "git show-ref #{branch}"
+    local_ref     = refs.scan(/(\w+)\s+refs\/heads\//).to_s
+    deployed_ref  = refs.scan(/(\w+)\s+refs\/remotes\/origin\//).to_s
+    if local_ref != deployed_ref
+      abort "\nYour local #{branch} branch is not up to date with origin/#{branch}.\n" +
+      "  (local: #{local_ref} remote: #{deployed_ref})\n" +
+      "Push your changes or force the deployment of the outdated branch with 'cap deploy DEPLOY_OLD_BRANCH=true'"
+    end 
+  end 
+end
+
 task :tag_deployed_commit do
-  tag = "#{ Time.now.strftime('%y%m%d-%H%M%S') }"
+  tag = "prod #{ Time.now.strftime('%Y-%b-%d--%H%M%S') }"
   run_locally "git tag -m 'deploy by #{ENV['USER']}' -a #{tag} remotes/origin/#{branch} && git push --tags"
 end
 
