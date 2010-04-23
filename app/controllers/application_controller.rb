@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include AuthenticatedSystem
 
   helper :all
+  before_filter :seo_defaults
   before_filter :configure_mailers
   before_filter :localizate
   before_filter :top_wines
@@ -42,5 +43,10 @@ class ApplicationController < ActionController::Base
   protected
     def configure_mailers
       PasswordResetMailer.configure(request)
+    end
+
+    def seo_defaults 
+      @keywords = "tastevin, vin, critique, critiques, degustation, SAQ"
+      @description = "Le Tastevin: nos critiques de vin."
     end
 end

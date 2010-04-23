@@ -4,17 +4,14 @@
 
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-  <title><%= @title || "Le Tastevin" %></title>
+  <title><%= @page_title || @title || "Le Tastevin" %></title>
+  <meta name="keywords" content="<%= @keywords %>">
+  <meta name="description" content="<%= @description %>">
   <%= javascript_include_tag "jquery.min", "jquery.qtip.min", "application" %>
   <%= stylesheet_link_tag 'application' %>
 </head>
 
-<%
-  unless params[:q].nil?
-    is_search = "search"
-  end
-%>
-<body id="<%= @controller.controller_name %>_controller" class="<%= @template.instance_variable_get(:@_first_render).name %> <%= is_search %>">
+<body id="<%= @controller.controller_name %>_controller" class="<%= @template.instance_variable_get(:@_first_render).name %> <%= 'search' if params[:q].nil? %>">
 
     <%= render :partial => "layouts/masthead" %>
 

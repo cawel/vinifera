@@ -12,7 +12,10 @@ class ReviewsController < ApplicationController
   end
 
   index.response do |wants|
-    wants.html{ }
+    wants.html do
+      @description = "Critique de vin: #{@wine.name}"
+      @keywords = @wine.name
+    end
   end
 
   new_action.before do
