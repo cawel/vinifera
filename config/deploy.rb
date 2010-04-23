@@ -40,7 +40,7 @@ task :validate_remote_branch_freshness do
 end
 
 task :tag_deployed_commit do
-  tag = "prod #{ Time.now.strftime('%Y-%b-%d--%H%M%S') }"
+  tag = "prod #{ Time.now.strftime('%Y-%b-%d-%Hh%M') }"
   run_locally "git tag -m 'deploy by #{ENV['USER']}' -a #{tag} remotes/origin/#{branch} && git push --tags"
 end
 
