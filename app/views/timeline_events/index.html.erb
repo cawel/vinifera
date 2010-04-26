@@ -1,7 +1,8 @@
-<% @title = "Derni&egrave;res critiques" %>
-<% content_for :page_title_with_link do %>
+<%= image_tag "splash/wine_bottles.jpg", :width => '400', :class => 'framed', :style => "margin-bottom: 30px;" %>
+
+<h2 class="page_title">
   <%= link_to image_tag("/images/icons/feed.png"), activity_feed_url, :title => "Derni&egrave;res critiques" %>&nbsp; Derni&egrave;res critiques
-<% end %>
+</h2>
 
 <table class="activity_stream">
   <tbody>

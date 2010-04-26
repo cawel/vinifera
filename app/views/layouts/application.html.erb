@@ -22,13 +22,11 @@
           <%- flash.each do |name, message| -%>
             <%= content_tag :p, message, :id => "flash_#{name}", :class => "flash #{name}" %>
           <%- end -%>
+          <% if @title.present? %>
           <h2 class="page_title">
-            <% if @content_for_page_title_with_link %>
-              <%= yield :page_title_with_link %>
-            <% else %>
               <%= @title %>
-            <% end %>
           </h2>
+        <% end %>
           <%= yield %>
         </div>
 

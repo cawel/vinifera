@@ -3,5 +3,5 @@ class TimelineEvent < ActiveRecord::Base
   belongs_to :subject,            :polymorphic => true
   belongs_to :secondary_subject,  :polymorphic => true
 
-  named_scope :recent, :order => "created_at desc limit 7"
+  named_scope :recent, :order => "created_at desc limit 5"
 end
