@@ -3,11 +3,12 @@
 <%= render :partial => "wines/wine_profile" %>
 
 <% unless @reviews.empty? %>
-  <table>
+  <table class="reviews">
     <thead>
       <th>Cote</th>
       <th>Critique</th>
-      <th>Usager</th>
+      <th class="nowrap">Usager</th>
+      <th class="nowrap">Date</th>
       <th></th>
     </thead>
     <tbody>
@@ -15,7 +16,8 @@
         <tr class="<%= cycle("even", "odd") %>">
           <td class="rating"><%= stars_rating review.rating %></td>
           <td><%=format_user_content review.comment %></td>
-          <td><%=h person_display_name(review.person) %></td>
+          <td class="nowrap"><%=h person_display_name(review.person) %></td>
+          <td class="nowrap"><%= format_date review.created_at %></td>
           <td class="actions">
             <% editable_review?(review) do %>
               <%= link_to "Mettre à jour", edit_wine_review_path(review.wine, review), :title => "Mettre à jour", :class => "update" %>

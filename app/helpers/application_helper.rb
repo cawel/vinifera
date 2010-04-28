@@ -30,6 +30,10 @@ module ApplicationHelper
     simple_format(h text)
   end
 
+  def format_date datetime
+    I18n.localize(datetime.to_date, :format => :short) 
+  end
+
   def country_flag country
     image_path = get_flag_image_path(country)
     image_path.blank?? '' : "<img class='flag' title='#{country.name}' src=\"#{image_path}\"/>"   

@@ -23,8 +23,8 @@ fr-CA:
         even: "doit être pair"
       template:
         header:
-          one:    "1 erreur a empêché {{model}} d'être sauvegardé"
-          other:  "{{count}} erreurs ont empêché {{model}} d'être sauvegardé"
+          one: "1 erreur a empêché {{model}} d'être sauvegardé"
+          other: "{{count}} erreurs ont empêché {{model}} d'être sauvegardé"
         # The variable :count is also available
         body: "Il y a eu des problèmes avec les champs suivants:"
     models:
@@ -71,6 +71,31 @@ fr-CA:
   will_paginate:
     previous: page précédente
     next: page suivante
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b %Y"
+      long: "%e %B %Y"
+      long_ordinal: "%e %B %Y"
+      only_day: "%e"
+
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+    abbr_month_names: [~, jan., fév., mar., avr., mai, juin, juil., août, sept., oct., nov., déc.]
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      default: "%d %B %Y %H:%M"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y %H:%M:%S %Z"
+      long_ordinal: "%A %d %B %Y %H:%M:%S %Z"
+      only_second: "%S"
+    am: 'am'
+    pm: 'pm'
 
   datetime:
     distance_in_words:

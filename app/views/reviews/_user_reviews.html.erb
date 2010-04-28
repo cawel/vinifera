@@ -3,6 +3,7 @@
     <th>Cote</th>
     <th>Vin</th>
     <th>Critique</th>
+    <th>Date</th>
     <th></th>
   </thead>
   <tbody>
@@ -17,6 +18,7 @@
           </small>
         </td>
         <td><%= format_user_content review.comment %></td>
+        <td class="nowrap"><%= format_date review.created_at %></td>
         <td class="actions">
           <% editable_review?(review) do %>
             <%= link_to "Mettre à jour", edit_wine_review_path(review.wine, review), :title => "Mettre à jour", :class => "update" %>

@@ -229,6 +229,8 @@ table.wines th.wine { padding-left: 50px; }
 /* Reviews Listings */
 table.reviews td.wine a.name { font-weight: bold; display: block; }
 table.reviews td.wine small { font-size: 11px; color: #808080; display: block; margin: 1px 0 0px 0px; }
+table.reviews th {text-align: center;}
+td.nowrap {white-space: nowrap;}
 
 /* Wine Profile */
 div.wine_profile { overflow: hidden; margin: 0 0 1.5em; }
