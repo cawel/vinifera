@@ -4,7 +4,7 @@ class PeopleController < ResourceController::Base
   before_filter :prevent_impersonification, :only => [:edit, :update]
   
   show do
-    before    { @reviews = Review.find_all_by_person_id(params[:id]) }
+    before    { @reviews = Review.find_all_by_person_id(params[:id], :order => 'created_at desc') }
   end
 
   create do
