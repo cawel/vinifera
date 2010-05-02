@@ -36,6 +36,7 @@ body{font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue",Helve
 h1,h2,h3,h4,h5,h6{font-weight:normal;color:#111;}
 h1{font-size:3em;line-height:1;margin-bottom:0.5em;}
 h2{font-size:2em;margin-bottom:1em;font-weight:bold;}
+h2.l2 {margin-top:2em}
 h3{font-size:1.5em;font-weight:bold;line-height:1;margin-bottom:1em;}
 h4{font-size:1.2em;line-height:1.25;margin-bottom:1.25em;height:1.25em;}
 h5{font-size:1em;font-weight:bold;margin-bottom:1.5em;}
@@ -135,6 +136,7 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 #contents_controller.contact h2.page_title { background: url('../images/icons/user_suit.png') no-repeat left center; padding-left: 25px; }
 #contents_controller.wine_news h2.page_title { background:url("../images/icons/newspaper.png") no-repeat scroll left center transparent; padding-left:25px;}
 #contents_controller.ratings_help h2.page_title { background:url("../images/icons/layout_edit.png") no-repeat scroll left center transparent; padding-left:25px;}
+#cellars_controller.index h2.page_title { background:url("../images/icons/door.png") no-repeat scroll left center transparent; padding-left:25px;}
 
 /* Footer */
 #footer { overflow: hidden; margin: 0 auto; font-size: 12px; }
@@ -148,7 +150,8 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 input[type="submit"] { background: #274B66; color: #FFFFFF; font-size: 14px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; line-height: 1; padding: 0 8px 6px; height: 28px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
 input[type="submit"]:hover { cursor: pointer; }
 a.button { background: #274B66; color: #FFFFFF; display: inline-block; font-size: 14px; padding: 0 8px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; padding: 0 8px; line-height: 23px; height: 24px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
-a.button.reviews { background-image: url('../images/icons/comment.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
+a.button.reviews { background-image: url('../images/icons/page_edit.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
+a.button.cellar { background-image: url('../images/icons/door.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 a.button.add { background-image: url('../images/icons/add.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 a.button.save { background-image: url('../images/icons/disk.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 input[type="text"],
@@ -179,7 +182,7 @@ form select.multi { height: auto; }
 /* Sidebar Elements */
 p.actions a.button { font-size: 16px; font-weight: bold; padding: 10px 15px 10px 36px; line-height: 1; background-repeat: no-repeat; background-position: 15px center; line-height: 1; height: auto; }
 p.actions a.button.add { background-image: url('../images/icons/plus-circle.png'); }
-p.actions a.button.reviews { background-image: url('../images/icons/comments.png'); }
+p.actions a.button.reviews { background-image: url('../images/icons/page_edit.png'); }
 p.actions a.button.update { background-image: url('../images/icons/shape_square_edit.png'); }
 
 /* Flash Notices */
@@ -219,12 +222,16 @@ table.wines td.wine span.bottle { float: left; display: block; width: 40px; heig
 table.wines td.wine span.bottle img { width: 100%; position: relative; -10px; }
 table.wines td.wine a.name { font-weight: bold; display: block; margin-left: 40px; }
 table.wines td.wine small { font-size: 11px; color: #808080; display: block; margin: 1px 0 0 45px; }
-table.wines th.country,
-table.wines td.country,
-table.wines td.year,
-table.wines th.year { text-align: center; }
 table.wines td.country { padding-top: 8px; }
 table.wines th.wine { padding-left: 50px; }
+table.wines th.country,
+table.wines td.country,
+table.wines th.provider,
+table.wines td.provider,
+table.wines th.date,
+table.wines td.date,
+table.wines td.year,
+table.wines th.year { text-align: center; }
 
 /* Reviews Listings */
 table.reviews td.wine a.name { font-weight: bold; display: block; }
@@ -233,13 +240,16 @@ table.reviews th {text-align: center;}
 td.nowrap {white-space: nowrap;}
 
 /* Wine Profile */
-div.wine_profile { overflow: hidden; margin: 0 0 1.5em; }
+div.wine_profile { overflow: hidden; }
 div.wine_profile img.bottle { float: right; display: block; width: 100px; }
 div.wine_profile table { width: auto; }
 div.wine_profile table * { font-size: 14px; }
 div.wine_profile table th,
-div.wine_profile table td { padding: 0 10px 5px 0; }
+div.wine_profile table td { padding: 0 10px 2px 0; }
 div.wine_profile table th { background: none; text-align: right; white-space: nowrap; border: none; width: 1%; }
+.wine_actions { margin-bottom: 20px; }
+.wine_actions .action { padding-right: 20px; }
+.wine_actions .add{ vertical-align: middle; }
 
 /* User Profile */
 table.user_profile { width: auto; }

@@ -1,0 +1,45 @@
+<% if @person.id == current_person.andand.id %>
+  <% @title = "Mon cellier" %>
+<% else %>
+  <% @title = "Cellier de " + person_display_name(@person) %>
+<% end %>
+
+<% if @cellar_wines.any? %>
+  <table class="wines">
+    <thead>
+      <th class="wine">Vin</th>
+      <th class="year">Année</th>
+      <th class="country">Pays</th>
+      <th class="provider">Fournisseur</th>
+      <th class="nowrap date">Date</th>
+      <th class="note">Note</th>
+      <th></th>
+    </thead>
+    <% @cellar_wines.each do |cellar_wine| %>
+      <% wine = cellar_wine.wine %>
+      <tr class="<%= cycle("even", "odd") %>">
+        <td class="wine">
+          <span class="bottle">
+            <%= link_to image_tag( glass_image_filename(wine), :alt => wine.name), wine_reviews_url(wine), :title => wine.name %>
+          </span>
+          <%= link_to wine.name, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
+          <small>
+            <%= (wine.appellation.name + ", ") unless wine.appellation.nil? %> 
+            <%= wine.region.name unless wine.region.nil? %>
+          </small>
+        </td>
+        <td class="year"><%= wine.year%></td>
+        <td class="country"><%= country_flag wine.country%></td>
+        <td class="provider"><%=h wine.provider.titleize %></td>
+        <td class="nowrap date"><%= format_date cellar_wine.created_at %></td>
+        <td class="note"><%= cellar_wine.note %></td>
+        <td class="actions">
+          <%= link_to "Supprimer", person_cellar_url(current_person, cellar_wine), :confirm => ApplicationHelper::DELETE_CONFIRM_MESSAGE, :title => "Supprimer", :method => :delete, :class => "remove" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+<% else %>
+  <p>Vous n'avez aucun vin dans votre cellier.</p>
+<% end %>

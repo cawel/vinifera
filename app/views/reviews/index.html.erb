@@ -2,6 +2,9 @@
 
 <%= render :partial => "wines/wine_profile" %>
 
+<%= render :partial => "wines/wine_actions" %>
+
+<h2 class="l2">Critiques</h2>
 <% unless @reviews.empty? %>
   <table class="reviews">
     <thead>
@@ -32,4 +35,3 @@
   </table>
 <% end %>
 
-<%= link_to "Écrire une critique", new_wine_review_url(params[:wine_id]), :title => "Écrire une critique", :class => "button add" %>

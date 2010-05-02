@@ -11,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :wines, :as => "vins", :only => [:index]  do |wine|
     wine.resources :reviews, :as => "critiques", :only => [:index, :new, :create, :edit, :update, :destroy]
   end
-  
+
   map.root                                      :controller => 'timeline_events', :action => 'index'
   map.activity_feed 'dernieres_critiques.rss',  :controller => 'timeline_events', :action => 'index', :format => 'rss'
   map.search        '/resultats-de-recherche',  :controller => 'wines',           :action => 'index'
@@ -34,7 +34,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :people, :as => 'compte', :only => [:show, :new, :create, :edit, :update] do |person|
     person.reviews_index 'critiques', :controller => 'reviews', :action => 'user_reviews_index'
+    person.resources :cellars, :as => "cellier"
   end
 
-  map.resource  :session, :account
+  map.resource :session, :account
 end
