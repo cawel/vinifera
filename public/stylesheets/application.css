@@ -178,6 +178,10 @@ form p.choice label { display: inline; float: none; line-height: normal; }
 form select { border: 1px solid #C0C0C0; font-size: 14px; height: 27px; padding-top: 2px }
 form select.multi { height: auto; }
 .is_blank { color: #C0C0C0; }
+.inplace_field {display: block; clear: both;}
+.inplace_save {font-size: 8px;}
+.inplace_cancel {font-size: 8px;}
+
 
 /* Sidebar Elements */
 p.actions a.button { font-size: 16px; font-weight: bold; padding: 10px 15px 10px 36px; line-height: 1; background-repeat: no-repeat; background-position: 15px center; line-height: 1; height: auto; }

@@ -1,3 +1,4 @@
+
 <% if @person.id == current_person.andand.id %>
   <% @title = "Mon cellier" %>
 <% else %>
@@ -32,7 +33,23 @@
         <td class="country"><%= country_flag wine.country%></td>
         <td class="provider"><%=h wine.provider.titleize %></td>
         <td class="nowrap date"><%= format_date cellar_wine.created_at %></td>
-        <td class="note"><%= cellar_wine.note %></td>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+      $(".inplace-editor<%= cellar_wine.id %>").editInPlace({
+        url: "<%= update_inplace_note_url %>",
+        field_type: "textarea",
+        textarea_rows: "3",
+        textarea_cols: "10",
+        default_text: '[Cliquer pour editer]',
+        show_buttons: true,
+        cancel_button: "<input type='image' src='/images/icons/cancel.png' title='Annuler' class='inplace_cancel' />",
+        save_button: "<input type='image' src='/images/icons/tick.png' title='Sauvegarder' class='inplace_save' />",
+        saving_image: '/images/animations/spinner_unstarted.gif',
+        params: "id=<%= cellar_wine.id %>&person_id=<%= current_person.id %>"
+      });
+    });
+</script>
+        <td class="note"><p class="inplace-editor<%= cellar_wine.id %>"><%= cellar_wine.note %></p></td>
         <td class="actions">
           <%= link_to "Supprimer", person_cellar_url(current_person, cellar_wine), :confirm => ApplicationHelper::DELETE_CONFIRM_MESSAGE, :title => "Supprimer", :method => :delete, :class => "remove" %>
         </td>

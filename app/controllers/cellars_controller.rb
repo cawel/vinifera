@@ -24,6 +24,17 @@ class CellarsController < ApplicationController
       redirect_to :action => :index
   end
 
+  def update_inplace_note
+    cellar = Cellar.find params[:id]
+    value = params[:update_value]
+    cellar.update_attribute(:note, value)
+    if value.present?
+    render :text => value
+    else
+      render :text => '[Cliquer pour editer]'
+    end
+  end
+
   private
   def load_person
     @person = Person.find(params[:person_id])

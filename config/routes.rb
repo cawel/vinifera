@@ -37,5 +37,7 @@ ActionController::Routing::Routes.draw do |map|
     person.resources :cellars, :as => "cellier"
   end
 
+  map.update_inplace_note '/cellars/update_inplace_note', :controller => 'cellars', :action => 'update_inplace_note'
+
   map.resource :session, :account
 end
