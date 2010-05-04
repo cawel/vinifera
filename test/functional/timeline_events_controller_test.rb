@@ -33,4 +33,29 @@ class TimelineEventsControllerTest < ActionController::TestCase
     end
   end
 
+  context "GET /" do
+    setup do
+      get :index
+    end
+
+    should "not show any action buttons in sidebar" do
+      assert_select "#sidebar .actions", 0
+    end
+  end
+
+  logged_in_as :mat do
+    context "GET /" do
+      setup do
+        get :index
+      end
+
+      should "show 'journal des critiques' button" do
+        assert_select "#sidebar .actions .reviews"
+      end
+
+      should "show 'mon cellier' button" do
+        assert_select "#sidebar .actions .cellar"
+      end
+    end
+  end
 end

@@ -44,6 +44,10 @@ class Person < ActiveRecord::Base
     save(false)
   end
 
+  def in_cellar? wine
+    Cellar.find_by_person_id_and_wine_id(id, wine.id)
+  end
+
   def admin?
     admin
   end
