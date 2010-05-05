@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   before_filter :localizate
   before_filter :top_wines
   before_filter :top_contributers
+  before_filter :cellar_count
+  before_filter :review_count
   
   def localizate
     #I18n.locale = params[:locale] || I18n.default_locale
@@ -19,6 +21,14 @@ class ApplicationController < ActionController::Base
 
   def top_wines
     @top_wines = Wine.top_wines
+  end
+
+  def cellar_count
+    @cellar_count = (logged_in? ? Cellar.for_person(current_person).count : 0)
+  end
+
+  def review_count
+    @review_count = (logged_in? ? Review.for_person(current_person).count : 0)
   end
 
   def local_request?

@@ -1,6 +1,6 @@
 <% if logged_in? -%>
-  <p class="actions"><%= link_to "Mon journal de critiques", person_reviews_index_url(:person_id => current_person.id), :title => "Mon journal de critiques", :class => "button reviews" %></p>
-  <p class="actions"><%= link_to "Mon cellier", person_cellars_url(current_person) , :title => "Mon cellier", :class => "button cellar" %></p>
+  <p class="actions"><%= link_to "Mon journal de critiques (#{@review_count})", person_reviews_index_url(:person_id => current_person.id), :title => "Mon journal de critiques", :class => "button reviews" %></p>
+  <p class="actions"><%= link_to "Mon cellier (#{@cellar_count})", person_cellars_url(current_person) , :title => "Mon cellier", :class => "button cellar" %></p>
 <% end %>
 
 <div id="sidebar_wines" class="panel">

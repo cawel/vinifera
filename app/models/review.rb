@@ -11,6 +11,8 @@ class Review < ActiveRecord::Base
   validates_presence_of :person_id
   validates_presence_of :comment
 
+  named_scope :for_person, lambda {|person| { :conditions => ['person_id = ?', person.id]}}
+
   named_scope :top_contributers,
     :select => "people.name, people.id, COUNT(*) AS review_count",
     :from => "people, reviews",

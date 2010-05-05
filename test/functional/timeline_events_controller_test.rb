@@ -15,6 +15,14 @@ class TimelineEventsControllerTest < ActionController::TestCase
     should "assign timeline_events" do
       assert assigns( :timeline_events)
     end
+
+    should "assign cellar_count" do
+      assert assigns( :cellar_count)
+    end
+
+    should "assign review_count" do
+      assert assigns( :review_count)
+    end
   end
 
 
