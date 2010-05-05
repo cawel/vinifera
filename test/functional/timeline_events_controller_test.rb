@@ -41,13 +41,22 @@ class TimelineEventsControllerTest < ActionController::TestCase
     end
   end
 
+  def review_button_selector
+    "#sidebar .actions .reviews"
+  end
+
+  def cellar_button_selector
+    "#sidebar .actions .cellar"
+  end
+
   context "GET /" do
     setup do
       get :index
     end
 
     should "not show any action buttons in sidebar" do
-      assert_select "#sidebar .actions", 0
+      assert_select review_button_selector, 0
+      assert_select cellar_button_selector, 0
     end
   end
 
@@ -58,11 +67,11 @@ class TimelineEventsControllerTest < ActionController::TestCase
       end
 
       should "show 'journal des critiques' button" do
-        assert_select "#sidebar .actions .reviews"
+        assert_select review_button_selector
       end
 
       should "show 'mon cellier' button" do
-        assert_select "#sidebar .actions .cellar"
+        assert_select cellar_button_selector
       end
     end
   end
