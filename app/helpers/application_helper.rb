@@ -101,4 +101,8 @@ module ApplicationHelper
     File.exists?("#{RAILS_ROOT}/public/#{image_path}") ? image_path : nil
   end
 
+  def user_turf?
+    @person.id == current_person.andand.id
+  end
+
 end

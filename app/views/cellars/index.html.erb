@@ -1,5 +1,4 @@
-
-<% if @person.id == current_person.andand.id %>
+<% if user_turf?  %>
   <% @title = "Mon cellier" %>
 <% else %>
   <% @title = "Cellier de " + person_display_name(@person) %>
@@ -14,7 +13,9 @@
       <th class="provider">Fournisseur</th>
       <th class="nowrap date">Date</th>
       <th class="note">Note</th>
-      <th></th>
+      <% if user_turf?  %>
+        <th></th>
+      <% end %>
     </thead>
     <% @cellar_wines.each do |cellar_wine| %>
       <% wine = cellar_wine.wine %>
@@ -33,26 +34,30 @@
         <td class="country"><%= country_flag wine.country%></td>
         <td class="provider"><%=h wine.provider.titleize %></td>
         <td class="nowrap date"><%= format_date cellar_wine.created_at %></td>
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-      $(".inplace-editor<%= cellar_wine.id %>").editInPlace({
-        url: "<%= update_inplace_note_url %>",
-        field_type: "textarea",
-        textarea_rows: "3",
-        textarea_cols: "10",
-        default_text: '[Cliquer pour editer]',
-        show_buttons: true,
-        cancel_button: "<input type='image' src='/images/icons/cancel.png' title='Annuler' class='inplace_cancel' />",
-        save_button: "<input type='image' src='/images/icons/tick.png' title='Sauvegarder' class='inplace_save' />",
-        saving_image: '/images/animations/spinner_unstarted.gif',
-        params: "id=<%= cellar_wine.id %>&person_id=<%= current_person.id %>"
-      });
-    });
-</script>
+        <% if user_turf?  %>
+          <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(){
+                $(".inplace-editor<%= cellar_wine.id %>").editInPlace({
+                  url: "<%= update_inplace_note_url %>",
+                  field_type: "textarea",
+                  textarea_rows: "3",
+                  textarea_cols: "10",
+                  default_text: '[Cliquer pour editer]',
+                  show_buttons: true,
+                  cancel_button: "<input type='image' src='/images/icons/cancel.png' title='Annuler' class='inplace_cancel' />",
+                  save_button: "<input type='image' src='/images/icons/tick.png' title='Sauvegarder' class='inplace_save' />",
+                  saving_image: '/images/animations/spinner_unstarted.gif',
+                  params: "id=<%= cellar_wine.id %>&person_id=<%= current_person.id %>"
+                });
+              });
+          </script>
+        <% end %>
         <td class="note"><p class="inplace-editor<%= cellar_wine.id %>"><%= cellar_wine.note %></p></td>
-        <td class="actions">
-          <%= link_to "Supprimer", person_cellar_url(current_person, cellar_wine), :confirm => ApplicationHelper::DELETE_CONFIRM_MESSAGE, :title => "Supprimer", :method => :delete, :class => "remove" %>
-        </td>
+        <% if user_turf?  %>
+          <td class="actions">
+            <%= link_to "Supprimer", person_cellar_url(current_person, cellar_wine), :confirm => ApplicationHelper::DELETE_CONFIRM_MESSAGE, :title => "Supprimer", :method => :delete, :class => "remove" %>
+          </td>
+      <% end %>
       </tr>
     <% end %>
   </table>
