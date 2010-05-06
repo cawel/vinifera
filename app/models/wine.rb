@@ -1,5 +1,7 @@
 class Wine < ActiveRecord::Base
 
+  include Tastevin::UrlHelper
+
   belongs_to :person
   belongs_to :category
   belongs_to :color
@@ -36,6 +38,15 @@ class Wine < ActiveRecord::Base
     :group => "wine_id",
     :order => "ratings.name desc, review_count desc",
     :limit => 5
+
+  def to_param
+    url = if year
+            "#{id}-#{name}-#{year}"
+          else
+            "#{id}-#{name}"
+          end
+    seo_friendlize url
+  end
 
   # otherwise it messes up associations in fixtures
   unless RAILS_ENV == 'test'
