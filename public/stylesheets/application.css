@@ -191,13 +191,12 @@ p.actions a.button.reviews { background-image: url('../images/icons/page_edit.pn
 p.actions a.button.update { background-image: url('../images/icons/shape_square_edit.png'); }
 
 /* Flash Notices */
-p.flash { padding: 10px 10px 10px 31px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
-p.flash.notice { background: #E2E4F6 url('../images/icons/information.png') no-repeat 10px center; }
+p.flash, p.text { padding: 10px 10px 10px 35px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+p.flash.notice, p.text { background: #E2E4F6 url('../images/icons/information.png') no-repeat 10px center; }
 p.flash.error { background: #F6E0E1 url('../images/icons/exclamation-red.png') no-repeat 10px center; }
 
 /* Help messages */
-p.text { padding: 10px 10px 10px 35px; margin-bottom: 20px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
-p.text { background: #E2E4F6 url('../images/icons/information.png') no-repeat 10px center; }
+p.text { margin-bottom: 20px;}
 
 /* Typography for Content Pages */
 #contents_controller #content #main p,
