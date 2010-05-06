@@ -55,7 +55,7 @@
         <td class="note"><p class="inplace-editor<%= cellar_wine.id %>"><%= cellar_wine.note %></p></td>
         <% if user_turf?  %>
           <td class="actions">
-            <%= link_to "Supprimer", person_cellar_url(current_person, cellar_wine), :confirm => ApplicationHelper::DELETE_CONFIRM_MESSAGE, :title => "Supprimer", :method => :delete, :class => "remove" %>
+            <%= link_to "Supprimer", person_cellar_wine_url(current_person, cellar_wine), :confirm => ApplicationHelper::DELETE_CONFIRM_MESSAGE, :title => "Supprimer", :method => :delete, :class => "remove" %>
           </td>
       <% end %>
       </tr>

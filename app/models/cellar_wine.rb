@@ -1,4 +1,4 @@
-class Cellar < ActiveRecord::Base
+class CellarWine < ActiveRecord::Base
   belongs_to :wine
   belongs_to :person
 

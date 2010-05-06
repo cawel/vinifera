@@ -2,6 +2,10 @@ Factory.sequence :name do |n|
   "Name #{n}"
 end
 
+Factory.sequence :code_saq do |n|
+  "SAQ #{n}"
+end
+
 Factory.sequence :email do |n|
   "name#{n}@host.com"
 end
@@ -25,6 +29,34 @@ end
 Factory.define :remembered_person, :parent => :person do |p|
   p.remember_token            { Person.make_token }
   p.remember_token_expires_at 10.days.from_now
+end
+
+Factory.define :color do |c|
+end
+
+Factory.define :country do |c|
+end
+
+Factory.define :category do |c|
+end
+
+Factory.define :nature do |c|
+end
+
+Factory.define :wine do |w|
+  w.name 'wine name'
+  w.association :color, :factory => :color
+  w.association :country, :factory => :country
+  w.association :category, :factory => :category
+  w.association :nature, :factory => :nature
+  w.provider 'wine provider'
+  w.code_saq {Factory.next :code_saq}
+end
+
+
+Factory.define :cellar_wine do |c|
+  c.association :wine, :factory => :wine
+  c.association :person, :factory => :person
 end
 
 #Factory.define :review do |r|

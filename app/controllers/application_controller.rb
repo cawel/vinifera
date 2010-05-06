@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def cellar_count
-    @cellar_count = (logged_in? ? Cellar.for_person(current_person).count : 0)
+    @cellar_count = (logged_in? ? CellarWine.for_person(current_person).count : 0)
   end
 
   def review_count

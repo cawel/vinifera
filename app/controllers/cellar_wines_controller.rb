@@ -1,12 +1,12 @@
-class CellarsController < ApplicationController
+class CellarWinesController < ApplicationController
   before_filter :load_person
 
   def index
-    @cellar_wines = Cellar.for_person(@person)
+    @cellar_wines = CellarWine.for_person(@person)
   end
 
   def create
-    @cellar_wine = Cellar.new(:person_id => @person.id, :wine_id => params[:wine_id])
+    @cellar_wine = CellarWine.new(:person_id => @person.id, :wine_id => params[:wine_id])
     if @cellar_wine.save
       render :text => "Ajout au cellier fait!"
     else
@@ -15,7 +15,7 @@ class CellarsController < ApplicationController
   end
 
   def destroy 
-    cellar = Cellar.find params[:id]
+    cellar = CellarWine.find params[:id]
     if cellar.destroy
       flash[:notice] = "Retrait du cellier reussi."
     else
@@ -25,7 +25,7 @@ class CellarsController < ApplicationController
   end
 
   def update_inplace_note
-    cellar = Cellar.find params[:id]
+    cellar = CellarWine.find params[:id]
     value = params[:update_value]
     cellar.update_attribute(:note, value)
     if value.present?

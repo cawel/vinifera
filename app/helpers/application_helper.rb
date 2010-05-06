@@ -35,6 +35,7 @@ module ApplicationHelper
   end
 
   def country_flag country
+    return nil if Rails.env.test?
     image_path = get_flag_image_path(country)
     image_path.blank?? '' : "<img class='flag' title='#{country.name}' src=\"#{image_path}\"/>"   
   end 
