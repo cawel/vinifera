@@ -1,4 +1,4 @@
-<% @title = h(@wine.name) %>
+<% @title = h(@wine.name + ' ' +  @wine.year.to_s) %>
 
 <%= render :partial => "wines/wine_profile" %>
 
