@@ -17,7 +17,7 @@
       }); 
       $(".wine_actions .cellar_results").click(function() {
           $.ajax({
-            url: "<%= person_cellars_url(current_person, :wine_id => @wine.id) %>",
+            url: "<%= person_cellar_wines_url(current_person, :wine_id => @wine.id) %>",
             type: 'post',
             success: function(data) {
               $(".wine_actions .cellar_results").html(data);

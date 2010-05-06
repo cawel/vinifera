@@ -136,7 +136,7 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 #contents_controller.contact h2.page_title { background: url('../images/icons/user_suit.png') no-repeat left center; padding-left: 25px; }
 #contents_controller.wine_news h2.page_title { background:url("../images/icons/newspaper.png") no-repeat scroll left center transparent; padding-left:25px;}
 #contents_controller.ratings_help h2.page_title { background:url("../images/icons/layout_edit.png") no-repeat scroll left center transparent; padding-left:25px;}
-#cellars_controller.index h2.page_title { background:url("../images/icons/door.png") no-repeat scroll left center transparent; padding-left:25px;}
+#cellar_wines_controller.index h2.page_title { background:url("../images/icons/door.png") no-repeat scroll left center transparent; padding-left:25px;}
 
 /* Footer */
 #footer { overflow: hidden; margin: 0 auto; font-size: 12px; }
