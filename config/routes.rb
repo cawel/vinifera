@@ -34,7 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :people, :as => 'compte', :only => [:show, :new, :create, :edit, :update] do |person|
     person.reviews_index 'critiques', :controller => 'reviews', :action => 'user_reviews_index'
-    person.resources :cellar_wines, :as => "cellier"
+    person.resources :cellar_wines, :as => "cellier", :only => [:index, :create, :destroy]
   end
 
   map.update_inplace_note '/cellar_wines/update_inplace_note', :controller => 'cellar_wines', :action => 'update_inplace_note'
