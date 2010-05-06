@@ -54,6 +54,7 @@ class PeopleControllerTest < ActionController::TestCase
       setup do
         @user = people(:mat)
         put :update, :id => @user.id, :person => { :name => "new name", :description => "my new description" }
+        @user.reload
       end
 
       should "set the new description" do

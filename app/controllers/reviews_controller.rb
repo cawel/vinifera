@@ -29,12 +29,12 @@ class ReviewsController < ApplicationController
   
   create.flash {"Votre critique a été ajoutée!"}
   create.response do |wants|
-    wants.html{ redirect_to wine_reviews_url(params[:wine_id]) }
+    wants.html{ redirect_to wine_reviews_url(@wine) }
   end
   
   update.flash {"Votre critique a été mise à jour!"}
   update.response do |wants|
-    wants.html{ redirect_to wine_reviews_url(params[:wine_id]) }
+    wants.html{ redirect_to wine_reviews_url(@wine) }
   end
 
   destroy.flash {"Votre critique a été retirée!"}
@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
   def check_for_authorization
     unless (Review.find(params[:id]).andand.person_id == current_person.id) or current_person.admin?
       flash[:notice] = "Vous ne pouvez pas modifier les critiques d'un autre usager!"
-      redirect_to person_reviews_index_url(:person_id => current_person.id)
+      redirect_to person_reviews_index_url(current_person)
     end
   end
   

@@ -70,12 +70,12 @@ class ReviewsControllerTest < ActionController::TestCase
     context "DELETE destroy somebody else's review" do
       setup do
         @james = people(:james)
-        @wine_id = @james.reviews.first.wine.id
-        delete :destroy, :wine_id => @wine_id, :id => @james.reviews.first.id
+        @wine = @james.reviews.first.wine
+        delete :destroy, :wine_id => @wine.id, :id => @james.reviews.first.id
       end
 
       should_set_the_flash_to(/Votre critique a été retirée/)
-      should_redirect_to("the wine's reviews") { wine_reviews_url(@wine_id) }
+      should_redirect_to("the wine's reviews") { wine_reviews_url(@wine) }
     end
   end
 

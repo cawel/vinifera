@@ -14,7 +14,7 @@ class Review < ActiveRecord::Base
   named_scope :for_person, lambda {|person| { :conditions => ['person_id = ?', person.id]}}
 
   named_scope :top_contributers,
-    :select => "people.name, people.id, COUNT(*) AS review_count",
+    :select => "*, COUNT(*) AS review_count",
     :from => "people, reviews",
     :conditions => ['reviews.person_id = people.id'],
     :group => 'person_id',

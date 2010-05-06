@@ -5,6 +5,8 @@ class Person < ActiveRecord::Base
   include Authentication::ByPassword
   include Authentication::ByCookieToken
 
+  include Tastevin::UrlHelper
+
   has_many :reviews
 
   #validates_format_of       :name,     :with => RE_NAME_OK,  :message => MSG_NAME_BAD, :allow_nil => true
@@ -50,6 +52,10 @@ class Person < ActiveRecord::Base
 
   def admin?
     admin
+  end
+
+  def to_param
+    seo_friendlize "#{id}-#{name}"
   end
 
 end
