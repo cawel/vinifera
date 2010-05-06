@@ -3,6 +3,7 @@
 <% else %>
   <% @title = "Cellier de " + person_display_name(@person) %>
 <% end %>
+<p class="text">Le cellier est l'endroit ou vous pouvez entreposer des vins pour une degustation future. Sur chaque page de vin du site se trouve un bouton qui vous permet d'ajouter le vin en question dans votre cellier.</p>
 
 <% if @cellar_wines.any? %>
   <table class="wines">
@@ -10,8 +11,7 @@
       <th class="wine">Vin</th>
       <th class="year">Année</th>
       <th class="country">Pays</th>
-      <th class="provider">Fournisseur</th>
-      <th class="nowrap date">Date</th>
+      <th class="nowrap date">Entr&eacute;e au cellier</th>
       <th class="note">Note</th>
       <% if user_turf?  %>
         <th></th>
@@ -27,12 +27,12 @@
           <%= link_to wine.name, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
           <small>
             <%= (wine.appellation.name + ", ") unless wine.appellation.nil? %> 
-            <%= wine.region.name unless wine.region.nil? %>
+            <%=h wine.region.name unless wine.region.nil? %><br/>
+            <%=h wine.provider.titleize %>
           </small>
         </td>
         <td class="year"><%= wine.year%></td>
         <td class="country"><%= country_flag wine.country%></td>
-        <td class="provider"><%=h wine.provider.titleize %></td>
         <td class="nowrap date"><%= format_date cellar_wine.created_at %></td>
         <% if user_turf?  %>
           <script type="text/javascript" charset="utf-8">
