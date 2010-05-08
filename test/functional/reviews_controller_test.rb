@@ -2,6 +2,14 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 class ReviewsControllerTest < ActionController::TestCase
 
+  context "POST /reviews when not logged in" do
+    setup do
+      post :create, :wine_id => 1, :person_id => 1
+    end
+    should_set_the_flash_to(/d'abord ouvrir une session/)
+    should_redirect_to("the new session url") { login_url }
+  end
+
   logged_in_as :mat do
     context "PUT /create a new review" do
       setup do
@@ -43,6 +51,16 @@ class ReviewsControllerTest < ActionController::TestCase
 
       should_set_the_flash_to(/pas modifier les critiques/)
       should_redirect_to("the user's reviews index") { person_reviews_index_url(@mat)  }
+    end
+  end
+
+  logged_in_as :mat do
+    context "GET user_reviews_index for a user which does not exist" do
+      setup do
+        get :user_reviews_index, :person_id => 999
+      end
+      should_set_the_flash_to(/existe pas/)
+      should_redirect_to("the homepage") { root_url }
     end
   end
 

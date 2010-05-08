@@ -1,4 +1,5 @@
 class CellarWinesController < ApplicationController
+  before_filter :login_required, :except => [:index]
   before_filter :load_person
 
   def index
@@ -10,14 +11,14 @@ class CellarWinesController < ApplicationController
     if @cellar_wine.save
       render :text => "Ajout au cellier fait!"
     else
-      render :text => "Ajout au cellier non reussi!"
+      render :text => "Probleme lors de l'ajout au cellier!"
     end
   end
 
   def destroy 
     cellar = CellarWine.find params[:id]
     if cellar.destroy
-      flash[:notice] = "Retrait du cellier reussi."
+      flash[:notice] = "#{cellar.wine.name} a été retiré de votre cellier."
     else
       flash[:notice] = "Erreur lors du retrait du cellier."
     end
@@ -37,6 +38,11 @@ class CellarWinesController < ApplicationController
 
   private
   def load_person
-    @person = Person.find(params[:person_id])
+    @person = Person.find_by_id(params[:person_id])
+    if @person.nil?
+      flash[:error] = "Cet usager n'existe pas."
+      redirect_to root_url
+      false
+    end
   end
 end

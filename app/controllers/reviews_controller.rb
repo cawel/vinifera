@@ -1,14 +1,24 @@
 class ReviewsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show]
+  before_filter :login_required, :except => [:index, :show, :user_reviews_index]
   before_filter :check_if_user_has_reviewed_wine_yet, :only => [:new]
   before_filter :check_for_authorization, :only => [:edit, :update, :destroy]
+  before_filter :load_person, :only => [:user_reviews_index]
   
   layout 'application'
   resource_controller
   belongs_to :wine
   
+  def load_person
+    @person = Person.find_by_id params[:person_id]
+    if @person.nil?
+      flash[:error] = "Cet usager n'existe pas."
+      redirect_to root_url
+      false
+    end
+  end
+
   def user_reviews_index
-    @reviews = Review.find_all_by_person_id(params[:person_id], :order => 'updated_at DESC') 
+    @reviews = Review.find_all_by_person_id(@person.id, :order => 'updated_at DESC') 
   end
 
   index.response do |wants|

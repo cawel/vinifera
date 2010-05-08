@@ -1,25 +1,35 @@
-<% @title = "Mon journal de critiques" %>
+<% if user_turf? %>
+  <% @title = "Mon journal de critiques" %>
+<% else %>
+  <% @title = "Journal de critiques de #{person_display_name @person}" %>
+<% end %>
 
 <% unless @reviews.empty? %>
   <%= render :partial => 'user_reviews' %>
 <% else %>
 
-  <p>
-  Votre journal ne contient aucune critique de vin pour le moment.
-  </p>
-  <p>
-  Pour écrire une critique:
-  <ol>
-    <li>Chercher d'abord un vin (via l'outil de recherche en haut à droite)
-    </li>
-    <li>Rendez-vous sur la page du vin choisi
-    </li>
-    <li>Cliquez sur le bouton "écrire une critique"
-    </li>
-  </ol>
-  </p>
-  <p>
-  Une fois votre critique écrite, vous la verrez apparaître ici, sur la page "Mon journal de critiques".
-  </p>
+  <% if user_turf? %>
+    <p>
+    Votre journal ne contient aucune critique de vin pour le moment.
+    </p>
+    <p>
+    Pour écrire une critique:
+    <ol>
+      <li>Chercher d'abord un vin (via l'outil de recherche en haut à droite)
+      </li>
+      <li>Rendez-vous sur la page du vin choisi
+      </li>
+      <li>Cliquez sur le bouton "écrire une critique"
+      </li>
+    </ol>
+    </p>
+    <p>
+    Une fois votre critique écrite, vous la verrez apparaître ici, sur la page "Mon journal de critiques".
+    </p>
+  <% else %>
+    <p>
+    Le journal ne contient aucune critique de vin pour le moment.
+    </p>
+  <% end %>
 
 <% end %>

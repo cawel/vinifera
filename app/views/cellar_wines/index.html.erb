@@ -63,5 +63,9 @@
   </table>
 
 <% else %>
-  <p>Vous n'avez aucun vin dans votre cellier.</p>
+  <% if user_turf? %>
+    <p>Vous n'avez aucun vin dans votre cellier.</p>
+  <% else %>
+    <p>Le cellier ne contient aucun vin.</p>
+  <% end %>
 <% end %>
