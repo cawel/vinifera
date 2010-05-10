@@ -4,7 +4,7 @@
 </span>
 <% if current_person.andand.in_cellar?(@wine) %>
   Bouteille au cellier!
-<% else %>
+<% elsif current_person %>
   <span class="action cellar_results">
     <%= link_to "Ajouter au cellier", "#", :title => "Ajouter au cellier", :class => "button cellar" %>
     <%= image_tag 'loading.gif', :class => 'ajax_loading', :style => "display: none" %>
