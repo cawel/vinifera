@@ -27,8 +27,8 @@ ActionController::Routing::Routes.draw do |map|
   map.register      '/enregistrer',             :controller => 'people',          :action => 'create'
   map.signup        '/creer-compte',            :controller => 'people',          :action => 'new'
   
-  # map.reset_password '/reset_password',         :controller => 'password_resets', :action => 'new',    :conditions => {:method => :get}
-  # map.reset_password '/reset_password',         :controller => 'password_resets', :action => 'create', :conditions => {:method => :post}
+  map.reset_password '/reset_password',         :controller => 'password_resets', :action => 'new',    :conditions => {:method => :get}
+  map.reset_password '/reset_password',         :controller => 'password_resets', :action => 'create', :conditions => {:method => :post}
   
   map.connect '/account', :controller => 'accounts', :action => 'edit'
   

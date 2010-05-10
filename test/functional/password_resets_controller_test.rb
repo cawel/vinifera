@@ -1,4 +1,4 @@
-require 'test_helper'
+require File.dirname(__FILE__) + '/../test_helper'
 
 class PasswordResetsControllerTest < ActionController::TestCase
   context "on GET to :new" do
@@ -6,9 +6,8 @@ class PasswordResetsControllerTest < ActionController::TestCase
       get :new
     end
 
-    #should_render_template :new
-    #should_respond_with :success
-    #should_render_a_form
+    should_render_template :new
+    should_respond_with :success
   end
 
   context "on POST to :create with an invalid email" do
@@ -16,9 +15,9 @@ class PasswordResetsControllerTest < ActionController::TestCase
       post :create, :email => 'clearly@nouser.bythisemail.com'
     end
 
-    #should_render_template :new
-    #should_respond_with :success
-    #should_set_the_flash_to(/cannot/i)
+    should_render_template :new
+    should_respond_with :success
+    should_set_the_flash_to(/Aucun utilisateur avec cette adresse email/i)
   end
 
   context "Given an existing user" do
@@ -31,11 +30,11 @@ class PasswordResetsControllerTest < ActionController::TestCase
         post :create, :email => @person.email
       end
 
-      #should_change "@person.reload.password_reset_code"
-      #should_change "@person.reload.password_reset_code_expires"
-      #should_render_template :create
-      #should_respond_with :success
-      #should_set_the_flash_to(/email/i)
+      should_change("the password_reset_code field") { @person.reload.password_reset_code}
+      should_change("the password_reset_code_expires"){@person.reload.password_reset_code_expires}
+      should_render_template :create
+      should_respond_with :success
+      should_set_the_flash_to(/réinitialiser/i)
     end
   end
 end
