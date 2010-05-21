@@ -110,7 +110,7 @@ File.open("../scraper/output") do |f|
           puts wine.errors.full_messages if wine.errors.any?
         else
           already_had += 1
-          # update wine with the fresh data
+          # update the wine with the fresh data
           w.update_attributes(input.to_hash)
           w.update_attributes(:times_updated => w.times_updated + 1)
         end
