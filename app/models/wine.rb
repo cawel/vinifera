@@ -53,6 +53,7 @@ class Wine < ActiveRecord::Base
     define_index do
       # fields
       indexes name, :sortable => true
+      indexes year, :sortable => true
       indexes code_saq, :sortable => true
 
       # attributes
