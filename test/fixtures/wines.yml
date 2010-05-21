@@ -6,7 +6,6 @@ chateau_coulac:
   color: white
   region: catalogna
   country: France
-  person: admin
 
 chateau_neuf_du_pape:
   name: Chateau Neuf du pape
@@ -14,7 +13,6 @@ chateau_neuf_du_pape:
   category: red_wine
   color: red
   country: France
-  person: mat
 
 la_vieille_ferme:
   name: La Vieille Ferme
@@ -22,7 +20,6 @@ la_vieille_ferme:
   category: red_wine
   color: red
   country: Italy
-  person: james
 
 la_vallee:
   name: La vallee
@@ -30,4 +27,3 @@ la_vallee:
   category: red_wine
   color: red
   country: Italy
-  person: mat

@@ -6,6 +6,12 @@ already_had = 0
 
 InputBottle = Struct.new(:name, :code_saq, :year, :cup, :category_id, :color_id, :region_id, :country_id, :nature_id, :format, :price, :provider, :alcool, :sub_region_id, :appellation_id, :flavor_id, :image_filename)
 
+class InputBottle
+  def to_hash
+    members.inject({}){|memo, m| memo[m.to_sym] = send(m.to_sym);  memo}
+  end
+end
+
 File.open("../scraper/output") do |f|
 
   input = InputBottle.new
@@ -21,8 +27,8 @@ File.open("../scraper/output") do |f|
 
       if line =~ /^nom_produit:/
         input.name = line.gsub(/^\w+:/,'').strip 
-    input.year = input.name.scan(/[0-9]{4}/).first
-    input.name = input.name.sub(/ [0-9]{4}/, '')
+        input.year = input.name.scan(/[0-9]{4}/).first
+        input.name = input.name.sub(/ [0-9]{4}/, '')
       end
 
     if line =~ /^categorie:/
@@ -35,15 +41,33 @@ File.open("../scraper/output") do |f|
     end
     if line =~ /^region:/
       region = line.gsub(/^\w+:/,'').strip 
-      input.region_id = Region.find_by_name(region).id 
+      begin
+        input.region_id = Region.find_by_name(region).id 
+      rescue RuntimeError
+        puts "adding region: #{region}"
+        Region.create(:name => region)
+        retry
+      end
     end
     if line =~ /^sous_region:/
       sub_region = line.gsub(/^\w+:/,'').strip 
-      input.sub_region_id = SubRegion.find_by_name(sub_region).id 
+      begin
+        input.sub_region_id = SubRegion.find_by_name(sub_region).id 
+      rescue RuntimeError
+        puts "adding subregion #{sub_region}"
+        SubRegion.create(:name => sub_region)
+        retry
+      end
     end
     if line =~ /^pays:/
       country = line.gsub(/^\w+:/,'').strip 
-      input.country_id = Country.find_by_name(country).id 
+      begin
+        input.country_id = Country.find_by_name(country).id 
+      rescue RuntimeError
+        puts "adding country #{country}"
+        Country.create(:name => country)
+        retry
+      end
     end
     if line =~ /^nature:/
       nature = line.gsub(/^\w+:/,'').strip 
@@ -53,11 +77,23 @@ File.open("../scraper/output") do |f|
     end
     if line =~ /^appellation:/
       appellation = line.gsub(/^\w+:/,'').strip 
-      input.appellation_id = Appellation.find_by_name(appellation).id 
+      begin
+        input.appellation_id = Appellation.find_by_name(appellation).id 
+      rescue RuntimeError
+        puts "adding appellation #{appellation}"
+        Appellation.create(:name => appellation)
+        retry
+      end
     end
     if line =~ /^arome:/
       flavor = line.gsub(/^\w+:/,'').strip 
+      begin
       input.flavor_id = Flavor.find_by_name(flavor).id 
+      rescue RuntimeError
+        puts "adding flavor #{flavor}"
+        Flavor.create(:name => flavor)
+        retry
+      end
     end
    
     # wine model creation
@@ -74,7 +110,9 @@ File.open("../scraper/output") do |f|
           puts wine.errors.full_messages if wine.errors.any?
         else
           already_had += 1
-          w.update_attributes(:price => input.price, :times_updated => w.times_updated + 1)
+          # update wine with the fresh data
+          w.update_attributes(input.to_hash)
+          w.update_attributes(:times_updated => w.times_updated + 1)
         end
       end
     input = InputBottle.new

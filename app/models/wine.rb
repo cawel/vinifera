@@ -2,7 +2,6 @@ class Wine < ActiveRecord::Base
 
   include Tastevin::UrlHelper
 
-  belongs_to :person
   belongs_to :category
   belongs_to :color
   belongs_to :nature
