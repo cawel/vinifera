@@ -1,2 +1,10 @@
+May 21 2010
+- refreshed SAQ data
+- fixed wrong regional data for wines which have other years (so at least 2 similar code_saq in DB)
+
+May 9 2010
 - added date on which reviews were created
-- cellar
+- cellar functionality
+
+March 18 2010
+- refreshed SAQ data
