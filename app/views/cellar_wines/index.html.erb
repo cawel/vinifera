@@ -3,16 +3,15 @@
 <% else %>
   <% @title = "Cellier de " + person_display_name(@person) %>
 <% end %>
-<p class="text">Le cellier est l'endroit ou vous pouvez entreposer des vins pour une degustation future. Sur chaque page de vin du site se trouve un bouton qui vous permet d'ajouter le vin en question dans votre cellier.</p>
+<p class="text">Le cellier est l'endroit où vous pouvez entreposer des vins pour une dégustation future. Sur chaque page de vin du site vous trouverez un bouton permettant d'ajouter le vin en question ici dans votre cellier.</p>
 
 <% if @cellar_wines.any? %>
   <table class="wines">
     <thead>
       <th class="wine">Vin</th>
-      <th class="year">Année</th>
       <th class="country">Pays</th>
       <th class="nowrap date">Entr&eacute;e au cellier</th>
-      <th class="note">Note</th>
+      <th class="note">Notes</th>
       <% if user_turf?  %>
         <th></th>
       <% end %>
@@ -24,14 +23,13 @@
           <span class="bottle">
             <%= link_to image_tag( glass_image_filename(wine), :alt => wine.name), wine_reviews_url(wine), :title => wine.name %>
           </span>
-          <%= link_to wine.name, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
+          <%= link_to wine.name + ' ' + wine.year.to_s, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
           <small>
             <%= (wine.appellation.name + ", ") unless wine.appellation.nil? %> 
             <%=h wine.region.name unless wine.region.nil? %><br/>
             <%=h wine.provider.titleize %>
           </small>
         </td>
-        <td class="year"><%= wine.year%></td>
         <td class="country"><%= country_flag wine.country%></td>
         <td class="nowrap date"><%= format_date cellar_wine.created_at %></td>
         <% if user_turf?  %>
@@ -41,8 +39,8 @@
                   url: "<%= update_inplace_note_url %>",
                   field_type: "textarea",
                   textarea_rows: "3",
-                  textarea_cols: "10",
-                  default_text: '[Cliquer pour editer]',
+                  textarea_cols: "25",
+                  default_text: '[Cliquer pour éditer]',
                   show_buttons: true,
                   cancel_button: "<input type='image' src='/images/icons/cancel.png' title='Annuler' class='inplace_cancel' />",
                   save_button: "<input type='image' src='/images/icons/tick.png' title='Sauvegarder' class='inplace_save' />",
