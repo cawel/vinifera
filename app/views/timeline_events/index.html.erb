@@ -1,29 +1,39 @@
 <%= image_tag "splash/wine_bottles.jpg", :width => '400', :class => 'framed', :style => "margin-bottom: 30px;" %>
 
 <h2 class="page_title">
-  <%= link_to image_tag("/images/icons/feed.png"), activity_feed_url, :title => "Derni&egrave;res critiques" %>&nbsp; Derni&egrave;res critiques
+  <%= link_to image_tag("/images/icons/feed.png"), activity_feed_url, :title => "Activit&eacute; sur le site " %>&nbsp; Activit&eacute; sur le site
 </h2>
 
 <table class="activity_stream">
   <tbody>
     <% @timeline_events.each do |event| %>
+      <% wine = case event.event_type 
+                when "reviewed" 
+                  event.subject.wine
+                when "edited" 
+                  event.subject.wine
+                when "cellar_wine_created" 
+                  event.subject
+                end %>
       <tr>
         <td class="wine">
           <span class="bottle">
-            <%= link_to image_tag( glass_image_filename(event.subject.wine), :alt => event.subject.wine.name), wine_reviews_url(event.subject.wine), :title => event.subject.wine.name %>
+            <%= link_to image_tag( glass_image_filename(wine), :alt => wine.name), wine_reviews_url(wine), :title => wine.name %>
           </span>
-          <%= link_to event.subject.wine.name, wine_reviews_url(event.subject.wine), :title => event.subject.wine.name, :class => "name" %>
-          <span class="rating">
-            <%= stars_rating event.subject.rating %>
-          </span>
+          <%= link_to wine.name, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
+          <% if event.event_type != 'cellar_wine_created' %>
+            <span class="rating">
+              <%= stars_rating event.subject.rating %>
+            </span>
+          <% end %>
           <small>
-            Une critique
             <% case event.event_type when "reviewed" %>
-              cr&#233;&#233;e
+              Nouvelle critique de
             <% when "edited" %>
-              modifi&#233;e
+              Critique modifi&#233;e par
+            <% when "cellar_wine_created" %>
+              Ajout&eacute; dans le cellier de
             <% end %>
-            par 
             <%= link_to event.actor.name, person_url(event.actor) %>, il y a <%= time_ago_in_words event.created_at %>. 
           </small>
         </td>

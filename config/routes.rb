@@ -13,7 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.root                                      :controller => 'timeline_events', :action => 'index'
-  map.activity_feed 'dernieres_critiques.rss',  :controller => 'timeline_events', :action => 'index', :format => 'rss'
+  map.activity_feed 'flux_activite.rss',        :controller => 'timeline_events', :action => 'index', :format => 'rss'
   map.search        '/resultats-de-recherche',  :controller => 'wines',           :action => 'index'
 
   map.about         '/a-propos',                :controller => 'contents',        :action => 'about'

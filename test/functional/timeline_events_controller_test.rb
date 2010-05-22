@@ -26,7 +26,7 @@ class TimelineEventsControllerTest < ActionController::TestCase
   end
 
 
-  should_route :get, '/dernieres_critiques.rss', :controller => :timeline_events, :action => :index, :format => :rss
+  should_route :get, '/flux_activite.rss', :controller => :timeline_events, :action => :index, :format => :rss
 
   context "GET on / format rss" do 
     setup do
