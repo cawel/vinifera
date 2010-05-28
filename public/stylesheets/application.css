@@ -105,13 +105,13 @@ table tfoot td div.pagination .next_page { font-weight: bold; }
 
 /* Layout */
 div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hidden; }
-#content { background: #FFFFFF; }
+#content { background: #FFFFFF; border-top: 2px solid #E0E0E0; }
 #content div.page_width { overflow: hidden; min-height: 350px; background: url('../images/sidebar_bg.gif') repeat-y 630px top; }
 #main { float: left; width: 610px; padding: 20px 0 40px; }
 #sidebar { float: right; width: 300px; padding: 20px 0 0 20px; overflow: hidden; }
 
 /* Masthead */
-#masthead { overflow: hidden; background: #a30835 url('../images/masthead_bg.png') repeat-x left bottom; padding: 20px 0; }
+#masthead { overflow: hidden; background: #a30835 url('../images/masthead_bg.png') repeat-x left bottom; padding: 20px 0; border-bottom: 1px solid #808080;}
 #masthead h1 { margin-right: 20px; margin: 0; display: inline; }
 #masthead h1 a { color: #FFFFFF; font-weight: bold; font-size: 24px; text-decoration: none; }
 #masthead p { color: #B68291; font-size: 16px; margin: 0 0 10px; }
