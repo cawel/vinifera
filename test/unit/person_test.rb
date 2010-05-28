@@ -12,13 +12,7 @@ class PersonTest < ActiveSupport::TestCase
     end
   end
 
-  context "With a new person" do
-    setup do
-      @person = Person.new
-    end
-
-    should_validate_presence_of :password, :password_confirmation, :name
-  end
+  should_validate_presence_of :password, :password_confirmation, :name
 
   #context "Given a person using OpenID" do
     #setup do
