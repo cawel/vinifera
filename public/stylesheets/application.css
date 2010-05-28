@@ -147,9 +147,12 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 #footer p.legal { float: right; color: #808080; margin: 0; }
 
 /* Form Elements */
-input[type="submit"] { background: #274B66; color: #FFFFFF; font-size: 14px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; line-height: 1; padding: 0 8px 6px; height: 28px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
-input[type="submit"]:hover { cursor: pointer; }
-a.button { background: #274B66; color: #FFFFFF; display: inline-block; font-size: 14px; padding: 0 8px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; padding: 0 8px; line-height: 23px; height: 24px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+input[type="submit"] { background: #274B66; color: #FFFFFF; font-size: 14px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; line-height: 1; padding: 0 8px 6px; height: 28px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; text-shadow: 1px 1px 1px #142633; -webkit-text-shadow: 1px 1px 1px #142633; -moz-text-shadow: 1px 1px 1px #142633; }
+input[type="submit"]:hover { cursor: pointer; background: #3B5B74; }
+input[type="submit"]:active { cursor: pointer; background: #3B5B74; border: 1px solid #5D788C; border-top-color: #1D384D; border-left-color: #1D384D; }
+a.button { background: #274B66; color: #FFFFFF; display: inline-block; font-size: 14px; padding: 0 8px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; padding: 0 8px; line-height: 23px; height: 24px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; text-shadow: 1px 1px 1px #142633; -webkit-text-shadow: 1px 1px 1px #142633; -moz-text-shadow: 1px 1px 1px #142633; }
+a.button:hover { background: #3B5B74; }
+a.button:active { background: #3B5B74; border: 1px solid #5D788C; border-top-color: #1D384D; border-left-color: #1D384D; }
 a.button.reviews { background-image: url('../images/icons/page_edit.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 a.button.cellar { background-image: url('../images/icons/door.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 a.button.add { background-image: url('../images/icons/add.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
