@@ -32,7 +32,7 @@ html[xmlns] .clearfix{display:block;}
 * html .clearfix{height:1%;}
 
 /* Basic Typography */
-body{font-size:75%;color:#222;background:#fff;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;background:#F0F0F0;}
+body{font-size:75%;color:#222;background:#a30835;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
 h1,h2,h3,h4,h5,h6{font-weight:normal;color:#111;}
 h1{font-size:3em;line-height:1;margin-bottom:0.5em;}
 h2{font-size:2em;margin-bottom:1em;font-weight:bold;}
@@ -105,13 +105,13 @@ table tfoot td div.pagination .next_page { font-weight: bold; }
 
 /* Layout */
 div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hidden; }
-#content { background: #FFFFFF; border-top: 2px solid #E0E0E0; }
+#content { background: #FFFFFF; border: 2px solid #E0E0E0; border-left: none; border-right: none; }
 #content div.page_width { overflow: hidden; min-height: 350px; background: url('../images/sidebar_bg.gif') repeat-y 630px top; }
 #main { float: left; width: 610px; padding: 20px 0 40px; }
 #sidebar { float: right; width: 300px; padding: 20px 0 0 20px; overflow: hidden; }
 
 /* Masthead */
-#masthead { overflow: hidden; background: #a30835 url('../images/masthead_bg.png') repeat-x left bottom; padding: 20px 0; border-bottom: 1px solid #808080;}
+#masthead { overflow: hidden; background: #a30835 url('../images/masthead_bg.png') repeat-x left bottom; padding: 20px 0; border-bottom: 1px solid #808080; }
 #masthead h1 { margin-right: 20px; margin: 0; display: inline; }
 #masthead h1 a { color: #FFFFFF; font-weight: bold; font-size: 24px; text-decoration: none; }
 #masthead p { color: #B68291; font-size: 16px; margin: 0 0 10px; }
@@ -139,12 +139,13 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 #cellar_wines_controller.index h2.page_title { background:url("../images/icons/door.png") no-repeat scroll left center transparent; padding-left:25px;}
 
 /* Footer */
-#footer { overflow: hidden; margin: 0 auto; font-size: 12px; }
+#footer { overflow: hidden; margin: 0 auto; font-size: 12px; background: url('../images/masthead_bg.png') repeat-x left top;  border-top: 1px solid #808080; }
 #footer div.page_width { padding: 40px ;}
+#footer a { color: #FFFFFF; }
 #footer ul.nav { float: left; margin: 0; }
-#footer ul.nav li { float: left; display: block; margin-right: 5px; padding-right: 5px; border-right: 1px solid #C0C0C0; }
+#footer ul.nav li { float: left; display: block; margin-right: 5px; padding-right: 5px; border-right: 1px solid #B68291; }
 #footer ul.nav li.last { margin-right: 0; padding-right: 0; border-right: none; }
-#footer p.legal { float: right; color: #808080; margin: 0; }
+#footer p.legal { float: right; color: #B68291; margin: 0; }
 
 /* Form Elements */
 input[type="submit"] { background: #274B66; color: #FFFFFF; font-size: 14px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; line-height: 1; padding: 0 8px 6px; height: 28px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; text-shadow: 1px 1px 1px #142633; -webkit-text-shadow: 1px 1px 1px #142633; -moz-text-shadow: 1px 1px 1px #142633; }
