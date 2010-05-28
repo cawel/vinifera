@@ -4,7 +4,9 @@
 <% end %>
 
 <div id="sidebar_wines" class="panel">
-  <h3>Top des vins</h3>
+  <div class="header">
+    <h3>Top des vins</h3>
+  </div>
   <div class="content">
     <ol>
       <% @top_wines.andand.each do |wine| %>
@@ -18,7 +20,9 @@
 </div>
 
 <div id="sidebar_reviews" class="panel">
-  <h3>Top contributeurs</h3>
+  <div class="header">
+    <h3>Top contributeurs</h3>
+  </div>
   <div class="content">
     <ol>
       <% @top_contributers.andand.each do |review| %>
