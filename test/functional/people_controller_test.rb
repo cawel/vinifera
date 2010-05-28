@@ -10,7 +10,6 @@ class PeopleControllerTest < ActionController::TestCase
       should_respond_with :success
       should_render_template "new"
       should_not_set_the_flash
-      should_render_a_form
 
       should "have good old fashioned way of login in" do
         assert_form people_path, :post do
@@ -31,7 +30,6 @@ class PeopleControllerTest < ActionController::TestCase
       should_respond_with :success
       should_render_template "new"
       should_not_set_the_flash
-      should_render_a_form
     end
 
     context "on POST to :create with valid attributes" do
