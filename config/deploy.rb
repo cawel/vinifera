@@ -60,6 +60,7 @@ task :after_symlink do
   CMD
   run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   run "ln -nfs #{shared_path}/config/site_keys.rb #{release_path}/config/initializers/site_keys.rb"
+  run "ln -nfs #{shared_path}/config/emails.rb #{release_path}/config/initializers/emails.rb"
 end
 
 desc "Stop the sphinx server"
