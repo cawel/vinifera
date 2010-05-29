@@ -78,10 +78,10 @@ dl{margin:0 0 1.5em 0;}
 dl dt{font-weight:bold;}
 dd{margin-left:1.5em;}
 table{margin-bottom:1.4em;width:100%;}
-th{font-weight:bold;background:#ECCD7C;border-bottom:1px solid #B19A5D;vertical-align:bottom;}
+th{font-weight:bold;background:#EBE0CA;border-bottom:1px solid #D3C9B5;vertical-align:bottom;}
 th,td{padding:5px;}
 th,td{vertical-align:top;}
-tr.even td{background:#FAF9EE;}
+tr.even td{background:#FAF7F2;}
 tfoot{font-style:italic;}
 caption{background:#eee;}
 .hide{display:none;}
