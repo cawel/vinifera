@@ -1,8 +1,7 @@
 <% @title = h(@wine.name + ' ' +  @wine.year.to_s) %>
 
-<%= render :partial => "wines/wine_profile" %>
-
 <%= render :partial => "wines/wine_actions" %>
+<%= render :partial => "wines/wine_profile" %>
 
 <h2 class="l2">Critiques</h2>
 <% unless @reviews.empty? %>

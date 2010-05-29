@@ -270,16 +270,16 @@ table.reviews th {text-align: center;}
 td.nowrap {white-space: nowrap;}
 
 /* Wine Profile */
-div.wine_profile { overflow: hidden; }
-div.wine_profile div.bottle { float: right; display: block; background: url("../images/bottle_image_shadow_bg.gif") no-repeat left bottom; padding: 0 0 10px; }
+div.wine_profile { overflow: hidden; margin: 0 0 20px; }
+div.wine_profile div.bottle { float: left; display: block; background: url("../images/bottle_image_shadow_bg.gif") no-repeat left bottom; padding: 0 0 10px; }
 div.wine_profile div.bottle img { width: 100px; background: #FFF; padding: 9px; border: 1px solid #E0E0E0; border-bottom: 1px solid #C0C0C0; }
-div.wine_profile table { width: auto; }
+div.wine_profile table { width: auto; margin: 0 0 0 140px; }
 div.wine_profile table * { font-size: 14px; }
 div.wine_profile table th,
 div.wine_profile table td { padding: 0 10px 2px 0; }
 div.wine_profile table th { background: none; text-align: right; white-space: nowrap; border: none; width: 1%; }
-.wine_actions { margin-bottom: 20px; }
-.wine_actions .action { padding-right: 20px; }
+.wine_actions { float: right; }
+.wine_actions .action { display: block; margin: 0 0 10px; }
 .wine_actions .add{ vertical-align: middle; }
 
 /* User Profile */

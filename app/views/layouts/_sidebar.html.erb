@@ -1,8 +1,3 @@
-<% if logged_in? -%>
-  <p class="actions"><%= link_to "Mon journal de critiques (#{@review_count})", person_reviews_index_url(current_person), :title => "Mon journal de critiques", :class => "button reviews" %></p>
-  <p class="actions"><%= link_to "Mon cellier (#{@cellar_count})", person_cellar_wines_url(current_person) , :title => "Mon cellier", :class => "button cellar" %></p>
-<% end %>
-
 <div id="sidebar_wines" class="panel">
   <div class="header">
     <h3>Top des vins</h3>
