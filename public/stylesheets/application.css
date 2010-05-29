@@ -7,6 +7,16 @@
   Millésimé:    #ECCD7C
   New Chianti:  #6D0523
 */
+/*
+  Source: http://www.colourlovers.com/palette/334133/Wine_with_Italian...
+  cranberry glass: #73253C
+  I love this one: #341027
+  Yeah, it's nude: #C0A47F
+  Old Trees:       #414A37
+  vanilla cream:   #EBE0CA
+*/
+
+
 
 /* CSS Reset */
 html,body,div,span,object,iframe,
@@ -32,7 +42,7 @@ html[xmlns] .clearfix{display:block;}
 * html .clearfix{height:1%;}
 
 /* Basic Typography */
-body{font-size:75%;color:#222;background:#a30835;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
+body{font-size:75%;color:#222;background:#341027;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;}
 h1,h2,h3,h4,h5,h6{font-weight:normal;color:#111;}
 h1{font-size:3em;line-height:1;margin-bottom:0.5em;}
 h2{font-size:2em;margin-bottom:1em;font-weight:bold;}
@@ -105,28 +115,34 @@ table tfoot td div.pagination .next_page { font-weight: bold; }
 
 /* Layout */
 div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hidden; }
-#content { background: #FFFFFF; border: 2px solid #E0E0E0; border-left: none; border-right: none; }
+#content { background: #FFFFFF; border-top: 2px solid #E0E0E0; }
 #content div.page_width { overflow: hidden; min-height: 350px; background: url('../images/sidebar_bg.gif') repeat-y 630px top; }
 #main { float: left; width: 610px; padding: 20px 0 40px; }
 #sidebar { float: right; width: 300px; padding: 20px 0 0 20px; overflow: hidden; }
 
 /* Masthead */
-#masthead { overflow: hidden; background: #a30835 url('../images/masthead_bg.png') repeat-x left bottom; padding: 20px 0; border-bottom: 1px solid #808080; }
-#masthead h1 { margin-right: 20px; margin: 0; display: inline; }
-#masthead h1 a { color: #FFFFFF; font-weight: bold; font-size: 24px; text-decoration: none; }
-#masthead p { color: #B68291; font-size: 16px; margin: 0 0 10px; }
+#masthead { overflow: hidden; background: #341027; border-bottom: 1px solid #808080; height: 60px; position: relative; }
+#masthead:before { position: absolute; top: 0; left: 0; right: 0; background: url("../images/transparent_background_colors/white_05.png"); z-index: 1; height: 50%; content: ""; }
+#masthead > * { position: relative; z-index: 2; }
+#masthead #site_id { float: left; padding: 12px 20px 0 0; height: 48px; border-right: 1px solid #48283D; }
+#masthead #site_id img { float: left; height: 36px; }
+#masthead #site_id h1 { margin: 0; padding: 0; margin: 0 0 0 40px; }
+#masthead #site_id h1 a { color: #FFFFFF; font-weight: bold; font-size: 18px; text-decoration: none; white-space: nowrap; }
+#masthead #site_id p { color: #9A8893; font-size: 12px; margin: 0 0 0 40px; white-space: nowrap; }
 #masthead #nav { float: left; overflow: hidden; margin: 0; }
-#masthead #nav li { float: left; display: block; margin-right: 10px; list-style: none; }
-#masthead #nav li a { line-height: 1; padding: 5px 10px; text-decoration: none; display: block; background: #6D0523; font-size: 14px; color: #FFFFFF; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
-#masthead #nav li a:hover { background: #92445A; color: #FFFFFF; }
-#masthead #nav li.current a { background: #FAF3DE; color: #8D3739; }
-#masthead #utilities { margin: 0; position: absolute; top: 0; right: 0; }
-#masthead #utilities li { float: left; list-style: none; display: block; margin-left: 5px; padding-right: 5px; border-right: 1px solid #8D3739; }
-#masthead #utilities li.last { padding-right: 0; border: none; }
-#masthead #utilities li a { line-height: 1; color: #FFFFFF; font-size: 12px; }
-#masthead #search { position: absolute; right: 0; bottom: 0; }
-#masthead #search input[type="text"] { float: left; border: 1px solid #ECCD7C; font-size: 14px; width: 250px; }
-#masthead #search input[type="submit"] { float: right; top: 0; margin: 0 0 0 5px; }
+#masthead #nav li { float: left; display: block; list-style: none; border-right: 1px solid #48283D; }
+#masthead #nav li a { line-height: 60px; padding: 0 20px; text-decoration: none; display: block; font-size: 13px; color: #9A8893; font-weight: bold; overflow: hidden; position: relative; -webkit-text-shadow: 1px 1px 1px #000000; -moz-text-shadow: 1px 1px 1px #000000; }
+#masthead #nav li a:hover { color: #FFFFFF; }
+#masthead #nav li.current a { color: #8D3739; }
+#masthead #nav li a:hover:before { display: block; }
+#masthead #nav li a:before { display: none; position: absolute; bottom: -50%; left: 15%; right: 15%; height: 50%; background: #ffffff; content: ""; box-shadow: 0 0 80px #8A495D; -moz-box-shadow: 0 0 80px #8A495D; -webkit-box-shadow: 0 0 80px #8A495D; z-index: 1; }
+#masthead #utilities { margin: 0; float: right; }
+#masthead #utilities li { float: left; list-style: none; display: block; margin: 0 0 0 15px; }
+#masthead #utilities li a { line-height: 60px; color: #9A8893; font-size: 13px; text-decoration: none; }
+#masthead #utilities li a:hover { text-decoration: underline; color: #FFF; }
+#masthead #search { float: left; padding: 16px 20px; border-right: 1px solid #48283D; }
+#masthead #search input[type="text"] { float: left; border: 1px solid #9A8893; font-size: 13px; width: 200px; }
+#masthead #search input[type="submit"] { float: left; margin: 0 0 0 5px; background-image: url('../images/icons/magnifier.png'); background-repeat: no-repeat; background-position: center center; width: 28px; text-align: center; }
 
 /* Page Titles */
 #reviews_controller.user_reviews_index h2.page_title { background: url('../images/icons/page_edit.png') no-repeat left center; padding-left: 25px; }
@@ -139,13 +155,15 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 #cellar_wines_controller.index h2.page_title { background:url("../images/icons/door.png") no-repeat scroll left center transparent; padding-left:25px;}
 
 /* Footer */
-#footer { overflow: hidden; margin: 0 auto; font-size: 12px; background: url('../images/masthead_bg.png') repeat-x left top;  border-top: 1px solid #808080; }
-#footer div.page_width { padding: 40px ;}
-#footer a { color: #FFFFFF; }
+#footer { overflow: hidden; margin: 0 auto; font-size: 12px; position: relative; }
+#footer:before { display: block; position: absolute; top: -50%; left: -15%; right: -15%; height: 50%; background: #ffffff; content: ""; box-shadow: 0 0 80px #000; -moz-box-shadow: 0 0 80px #000; -webkit-box-shadow: 0 0 80px #000; z-index: 1; }
+#footer div.page_width { padding: 40px; position: relative; }
+#footer a { color: #9A8893; }
+#footer a:hover { color: #FFF; }
 #footer ul.nav { float: left; margin: 0; }
-#footer ul.nav li { float: left; display: block; margin-right: 5px; padding-right: 5px; border-right: 1px solid #B68291; }
+#footer ul.nav li { float: left; display: block; margin: 0 15px 0 0; }
 #footer ul.nav li.last { margin-right: 0; padding-right: 0; border-right: none; }
-#footer p.legal { float: right; color: #B68291; margin: 0; }
+#footer p.legal { float: right; color: #9A8893; margin: 0; }
 
 /* Form Elements */
 input[type="submit"] { background: #274B66; color: #FFFFFF; font-size: 14px; border: 1px solid #1D384D; border-top-color: #5D788C; border-left-color: #5D788C; line-height: 1; padding: 0 8px 6px; height: 28px; text-decoration: none; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; text-shadow: 1px 1px 1px #142633; -webkit-text-shadow: 1px 1px 1px #142633; -moz-text-shadow: 1px 1px 1px #142633; }
@@ -159,9 +177,9 @@ a.button.cellar { background-image: url('../images/icons/door.png'); background-
 a.button.add { background-image: url('../images/icons/add.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 a.button.save { background-image: url('../images/icons/disk.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 input[type="text"],
-input[type="password"] { border: 1px solid #C0C0C0; height: 22px; font-size: 14px; padding: 3px 20px 0 3px; }
-input[type="text"].search { background-image: url('../images/icons/magnifier.png'); background-repeat: no-repeat; background-position: 5px center; padding-left: 26px; }
-textarea { border: 1px solid #C0C0C0; padding: 3px; font-size: 14px; }
+input[type="password"] { border: 1px solid #C0C0C0; height: 25px; font-size: 14px; padding: 0 20px 0 3px; }
+/*input[type="text"].search { background-image: url('../images/icons/magnifier.png'); background-repeat: no-repeat; background-position: 5px center; padding-left: 26px; }
+*/textarea { border: 1px solid #C0C0C0; padding: 3px; font-size: 14px; }
 label { line-height: 25px; text-align: right; color: #404040; font-size: 14px; font-weight: bold; display: block; float: left; margin-right: 5px; }
 form.lw40 label { width: 40px; }
 form.lw40 p.indent { margin-left: 45px; }
@@ -253,7 +271,8 @@ td.nowrap {white-space: nowrap;}
 
 /* Wine Profile */
 div.wine_profile { overflow: hidden; }
-div.wine_profile img.bottle { float: right; display: block; width: 100px; }
+div.wine_profile div.bottle { float: right; display: block; background: url("../images/bottle_image_shadow_bg.gif") no-repeat left bottom; padding: 0 0 10px; }
+div.wine_profile div.bottle img { width: 100px; background: #FFF; padding: 9px; border: 1px solid #E0E0E0; border-bottom: 1px solid #C0C0C0; }
 div.wine_profile table { width: auto; }
 div.wine_profile table * { font-size: 14px; }
 div.wine_profile table th,
@@ -311,7 +330,7 @@ ul.star_rating li.stars_5 a:hover,
 ul.star_rating li.stars_5.current a { width: 80px; left: 0; }
 
 /* Sidebar Panels */
-#sidebar div.panel { margin: 0em 1em 2em 0; }
+#sidebar div.panel { margin: 0em 0 2em; }
 #sidebar div.panel div.header { padding: 10px 10px; line-height: 1; background: #A0A0A0; border-top-left-radius: 3px; -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; border-top-right-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; margin: 0; position: relative; }
 #sidebar div.panel div.header:before { display: block; content: ""; height: 50%; background: url('../images/transparent_background_colors/white_25.png'); position: absolute; top: 0; left: 0; right: 0; }
 #sidebar div.panel div.header h3 { margin: 0; color: #FFFFFF; font-size: 16px; text-shadow: 1px 1px 1px #808080; -webkit-text-shadow: 1px 1px 1px #808080; -moz-text-shadow: 1px 1px 1px #808080; }
