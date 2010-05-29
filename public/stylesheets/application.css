@@ -136,13 +136,13 @@ div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hid
 #masthead #nav li.current a { color: #8D3739; }
 #masthead #nav li a:hover:before { display: block; }
 #masthead #nav li a:before { display: none; position: absolute; bottom: -50%; left: 15%; right: 15%; height: 50%; background: #ffffff; content: ""; box-shadow: 0 0 80px #8A495D; -moz-box-shadow: 0 0 80px #8A495D; -webkit-box-shadow: 0 0 80px #8A495D; z-index: 1; }
+#masthead #search { float: right; padding: 16px 20px; border-right: 1px solid #48283D; }
+#masthead #search input[type="text"] { float: left; border: 1px solid #9A8893; font-size: 13px; width: 200px; }
+#masthead #search input[type="submit"] { float: left; margin: 0 0 0 5px; background-image: url('../images/icons/magnifier.png'); background-repeat: no-repeat; background-position: center center; width: 28px; text-align: center; }
 #masthead #utilities { margin: 0; float: right; }
 #masthead #utilities li { float: left; list-style: none; display: block; margin: 0 0 0 15px; }
 #masthead #utilities li a { line-height: 60px; color: #9A8893; font-size: 13px; text-decoration: none; }
 #masthead #utilities li a:hover { text-decoration: underline; color: #FFF; }
-#masthead #search { float: left; padding: 16px 20px; border-right: 1px solid #48283D; }
-#masthead #search input[type="text"] { float: left; border: 1px solid #9A8893; font-size: 13px; width: 200px; }
-#masthead #search input[type="submit"] { float: left; margin: 0 0 0 5px; background-image: url('../images/icons/magnifier.png'); background-repeat: no-repeat; background-position: center center; width: 28px; text-align: center; }
 
 /* Page Titles */
 #reviews_controller.user_reviews_index h2.page_title { background: url('../images/icons/page_edit.png') no-repeat left center; padding-left: 25px; }

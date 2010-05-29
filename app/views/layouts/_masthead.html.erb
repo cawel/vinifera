@@ -11,10 +11,6 @@
         <li><%= link_to "Mon cellier (#{@cellar_count})", person_cellar_wines_url(current_person) , :title => "Mon cellier" %></li>
       </ul>
     <% end -%>
-    <form id="search" action="/resultats-de-recherche" method="get">
-      <input type="text" name="q" value="<%= params[:q] %>" class="search"/>
-      <input type="submit" value=""/>
-    </form>
     <ul id="utilities">
       <% if logged_in? -%>
         <li><%= link_to "mon compte", person_url(current_person), :title => "Compte de #{person_display_name(current_person)}" %></li>
@@ -24,5 +20,9 @@
         <li><%= link_to "créer un compte", signup_path, :title => "Créer un compte" %></li>
       <% end -%>
     </ul>
+    <form id="search" action="/resultats-de-recherche" method="get">
+      <input type="text" name="q" value="<%= params[:q] %>" class="search"/>
+      <input type="submit" value=""/>
+    </form>
   </div>
 </div>
