@@ -1,80 +1,80 @@
-
 <div class="wine_profile">
-<%= bottle_image(@wine) %>
+  <div class="bottle"><%= bottle_image(@wine) %></div>
   <table>
     <tbody>
-        <th>Couleur</th>
-        <td><%=h @wine.color.name %></td>
-      </tr>
-      <% field_exists?(@wine.flavor) do  %>
-      <tr>
-        <th>Arome</th>
-        <td><%=h @wine.flavor.name %></td>
-      </tr>
-      <% end %>
       <% field_exists?(@wine.country) do  %>
-      <tr>
-        <th>Pays</th>
-        <td><%= country_flag @wine.country %>&nbsp;&nbsp;<%=h @wine.country.name %></td>
-      </tr>
+        <tr>
+          <th>Pays</th>
+          <td><%= country_flag @wine.country %>&nbsp;&nbsp;<%=h @wine.country.name %></td>
+        </tr>
       <% end %>
       <% field_exists?(@wine.appellation) do  %>
-      <tr>
-        <th>Appellation</th>
-        <td><%=h @wine.appellation.name %></td>
-      </tr>
+        <tr>
+          <th>Appellation</th>
+          <td><%=h @wine.appellation.name %></td>
+        </tr>
       <% end %>
       <% field_exists?(@wine.region) do  %>
-      <tr>
-        <th>Region</th>
-        <td><%=h @wine.region.name %></td>
-      </tr>
+        <tr>
+          <th>Region</th>
+          <td><%=h @wine.region.name %></td>
+        </tr>
       <% end %>
       <% field_exists?(@wine.sub_region) do  %>
-      <tr>
-        <th>Sous-Region</th>
-        <td><%=h @wine.sub_region.name %></td>
-      </tr>
+        <tr>
+          <th>Sous-Region</th>
+          <td><%=h @wine.sub_region.name %></td>
+        </tr>
       <% end %>
       <% field_exists?(@wine.provider) do  %>
-      <tr>
-        <th>Fournisseur</th>
-        <td><%=h @wine.provider %></td>
-      </tr>
+        <tr>
+          <th>Fournisseur</th>
+          <td><%=h @wine.provider %></td>
+        </tr>
       <% end %>
       <% field_exists?(@wine.year) do  %>
-      <tr>
-        <th>Ann&eacute;e</th>
-        <td><%=h @wine.year %></td>
-      </tr>
+        <tr>
+          <th>Ann&eacute;e</th>
+          <td><%=h @wine.year %></td>
+        </tr>
       <% end %>
       <tr>
         <th></th>
         <td>&nbsp;</td>
       </tr>
-      <% field_exists?(@wine.code_saq) do  %>
-      <tr>
-        <th>SAQ #</th>
-        <td><%=h @wine.code_saq %></td>
+      <tr class="quiet">
+        <th>Couleur</th>
+        <td><%=h @wine.color.name %></td>
       </tr>
-      <% end %>
-      <% field_exists?(@wine.format) do  %>
-      <tr>
-        <th>Format</th>
-        <td><%=h @wine.format.to_s.gsub('.',',') %></td>
-      </tr>
+      <% field_exists?(@wine.flavor) do  %>
+        <tr class="quiet">
+          <th>Arome</th>
+          <td><%=h @wine.flavor.name %></td>
+        </tr>
       <% end %>
       <% field_exists?(@wine.alcool) do  %>
-      <tr>
-        <th>Alcool</th>
-        <td><%=h @wine.alcool.to_s.gsub('.',',') %> %</td>
-      </tr>
+        <tr class="quiet">
+          <th>Alcool</th>
+          <td><%=h @wine.alcool.to_s.gsub('.',',') %> %</td>
+        </tr>
       <% end %>
       <% field_exists?(@wine.price) do  %>
-      <tr>
-        <th>Prix</th>
-        <td><%=h number_to_currency(@wine.price, :precision => 2, :delimiter => ',',:separator => ',', :unit => '$', :format => "%n %u") %></td>
-      </tr>
+        <tr class="quiet">
+          <th>Prix</th>
+          <td><%=h number_to_currency(@wine.price, :precision => 2, :delimiter => ',',:separator => ',', :unit => '$', :format => "%n %u") %></td>
+        </tr>
+      <% end %>
+      <% field_exists?(@wine.format) do  %>
+        <tr class="quiet">
+          <th>Format</th>
+          <td><%=h @wine.format.to_s.gsub('.',',') %></td>
+        </tr>
+      <% end %>
+      <% field_exists?(@wine.code_saq) do  %>
+        <tr class="quiet">
+          <th>SAQ #</th>
+          <td><%=h @wine.code_saq %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

@@ -65,7 +65,7 @@ module ApplicationHelper
   def bottle_image wine
     filename = "/images/bottles/#{wine.code_saq}.jpg"
     if File.exists?("#{RAILS_ROOT}/public" + filename)
-      image_tag filename, :title => @wine.name, :class => "bottle"
+      image_tag filename, :title => @wine.name
     else
       ""
     end

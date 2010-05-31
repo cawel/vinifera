@@ -1,20 +1,28 @@
 <div id="masthead">
   <div class="page_width">
-    <%= image_tag 'glasses/red_small.png', :style => "margin-left: -5px; padding-top: 3px; float: left" %>
-    <h1><%= link_to "Le Tastevin", root_url, :title => "Accueil" %></h1>
-    <p>Nos critiques de vin</p>
+    <div id="site_id">
+      <%= image_tag 'glasses/red_small.png' %>
+      <h1><%= link_to "Le Tastevin", root_url, :title => "Accueil" %></h1>
+      <p>Nos critiques de vin</p>
+    </div>
+    <% if logged_in? %>
+      <ul id="nav">
+        <li><%= link_to "Mon journal (#{@review_count})", person_reviews_index_url(current_person), :title => "Mon journal de critiques" %></li>
+        <li><%= link_to "Mon cellier (#{@cellar_count})", person_cellar_wines_url(current_person) , :title => "Mon cellier" %></li>
+      </ul>
+    <% end -%>
     <ul id="utilities">
       <% if logged_in? -%>
         <li><%= link_to "mon compte", person_url(current_person), :title => "Compte de #{person_display_name(current_person)}" %></li>
-        <li class="last"><%= link_to "terminer la session", logout_path, :title => "Terminer la session" %></li>
+        <li><%= link_to "terminer la session", logout_path, :title => "Terminer la session" %></li>
       <% else -%>
         <li><%= link_to "ouvrir une session", login_path,  :title => "Ouvrir une session" %></li>
-        <li class="last"><%= link_to "créer un compte", signup_path, :title => "Créer un compte" %></li>
+        <li><%= link_to "créer un compte", signup_path, :title => "Créer un compte" %></li>
       <% end -%>
     </ul>
     <form id="search" action="/resultats-de-recherche" method="get">
       <input type="text" name="q" value="<%= params[:q] %>" class="search"/>
-      <input type="submit" value="Rechercher"/>
+      <input type="submit" value=""/>
     </form>
   </div>
 </div>
