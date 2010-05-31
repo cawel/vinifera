@@ -115,14 +115,13 @@ table tfoot td div.pagination .next_page { font-weight: bold; }
 
 /* Layout */
 div.page_width { width: 950px; margin: 0 auto; position: relative; overflow: hidden; }
-#content { background: #FFFFFF; border-top: 2px solid #E0E0E0; }
+#content { background: #FFFFFF; border-top: 3px solid #E0E0E0; }
 #content div.page_width { overflow: hidden; min-height: 350px; background: url('../images/sidebar_bg.gif') repeat-y 630px top; }
 #main { float: left; width: 610px; padding: 20px 0 40px; }
 #sidebar { float: right; width: 300px; padding: 20px 0 0 20px; overflow: hidden; }
 
 /* Masthead */
-#masthead { overflow: hidden; background: #341027; border-bottom: 1px solid #808080; height: 60px; position: relative; }
-#masthead:before { position: absolute; top: 0; left: 0; right: 0; background: url("../images/transparent_background_colors/white_05.png"); z-index: 1; height: 50%; content: ""; }
+#masthead { overflow: hidden; background: #341027; height: 60px; position: relative; }
 #masthead > * { position: relative; z-index: 2; }
 #masthead #site_id { float: left; padding: 12px 20px 0 0; height: 48px; border-right: 1px solid #48283D; }
 #masthead #site_id img { float: left; height: 36px; }
@@ -331,8 +330,8 @@ ul.star_rating li.stars_5.current a { width: 80px; left: 0; }
 
 /* Sidebar Panels */
 #sidebar div.panel { margin: 0em 0 2em; }
-#sidebar div.panel div.header { padding: 10px 10px; line-height: 1; background: #A0A0A0; border-top-left-radius: 3px; -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; border-top-right-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; margin: 0; position: relative; }
-#sidebar div.panel div.header:before { display: block; content: ""; height: 50%; background: url('../images/transparent_background_colors/white_25.png'); position: absolute; top: 0; left: 0; right: 0; }
+#sidebar div.panel div.header { padding: 10px 10px; line-height: 1; background: #341027; border-top-left-radius: 3px; -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; border-top-right-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; margin: 0; position: relative; }
+#sidebar div.panel div.header:before { display: block; content: ""; height: 50%; background: url('../images/transparent_background_colors/white_15.png'); position: absolute; top: 0; left: 0; right: 0; }
 #sidebar div.panel div.header h3 { margin: 0; color: #FFFFFF; font-size: 16px; text-shadow: 1px 1px 1px #808080; -webkit-text-shadow: 1px 1px 1px #808080; -moz-text-shadow: 1px 1px 1px #808080; }
 #sidebar div.panel div.content { padding: 10px; border-bottom: 1px solid #c0c0c0; border-bottom-left-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; border-left: 1px solid #c0c0c0; border-right: 1px solid #c0c0c0; }
 #sidebar div.panel ol { margin-bottom: 0; }
