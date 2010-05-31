@@ -242,6 +242,7 @@ p.text { margin-bottom: 20px;}
 #contents_controller #content #main p.description {font-size: 12px; margin-top: 5px; margin-bottom: 20px;}
 
 img.framed {padding: 2px; border: 1px solid #c0c0c0; }
+img.splash {margin: 2px; }
 .bio p {margin-left: 130px;}
 .bio p.motivation {font-size: 14px; text-align: justify}
 .bio .title {font-size: 16px; font-weight: bold;}
