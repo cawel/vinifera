@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   map.contact       '/contact',                 :controller => 'contents',        :action => 'contact'
   map.ratings_help  '/signification-des-cotes', :controller => 'contents',        :action => 'ratings_help'
   map.wine_news     '/nouvelles-monde-du-vin',  :controller => 'contents',        :action => 'wine_news'
+  map.twitter_feed  '/twitter-feed',            :controller => 'contents',        :action => 'twitter_feed'
   
   map.login         '/ouvrir-session',          :controller => 'sessions',        :action => 'new'
   map.logout        '/terminer-session',        :controller => 'sessions',        :action => 'destroy'

@@ -1,0 +1,14 @@
+<table class="activity_stream">
+  <% @twitter_feed.entries[0..6].each do |item| %>
+    <tr>
+      <td class="post">
+        <div class="icon">
+          <%= image_tag("glasses/red_small.png") %>
+        </div>
+        <%= item.title.sub('le_tastevin:','') %>
+        <span class="date">
+          il y a <%= time_ago_in_words item.pubDate %>
+        </span>
+    </td></tr>
+  <% end %>
+</table>
