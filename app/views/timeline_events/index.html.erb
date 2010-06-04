@@ -1,26 +1,25 @@
-<div style="margin-bottom: 30px;">
-  <h1>Bienvenue sur Le-Tastevin !</h1>
-  <table>
-    <tr>
-      <td>
-        <% images = ["splash/wine_jaguar_80.png", "splash/wine_bottles_80.png", "splash/3_bottles_80.png", "splash/corks_80.png"].sort_by { rand } %>
-        <%= image_tag images[0], :class => 'framed splash' %>
-        <%= image_tag images[1], :class => 'framed splash' %><br/>
-        <%= image_tag images[2], :class => 'framed splash' %>
-        <%= image_tag images[3], :class => 'framed splash' %>
-      </td>
-      <td>
-        <ul>
-          <li>Consultez les critiques d'un vin</li>
-          <li>Ecrivez une critique pour un vin</li>
-          <li>Conservez vos critiques dans votre journal de critiques</li>
-          <li>Souvenez-vous des vins que vous souhaitez deguster</li>
-        </ul>
-    </td></tr>
-</table>
+<% @title = "Bienvenue sur Le-Tastevin!" %>
+
+<div id="features">
+  <div class="consult">
+    <%= image_tag "splash/wine_jaguar_80.png" %>
+    <span>Consultez les critiques d'un vin</span>
+  </div>
+  <div class="write">
+    <%= image_tag "splash/wine_bottles_80.png" %>
+    <span>Ecrivez une critique pour un vin</span>
+  </div>
+  <div class="conserve">
+    <%= image_tag "splash/3_bottles_80.png" %>
+    <span>Conservez vos critiques dans votre journal de critiques</span>
+  </div>
+  <div class="remember">
+    <%= image_tag "splash/corks_80.png" %>
+    <span>Souvenez-vous des vins que vous souhaitez deguster</span>
+  </div>
 </div>
 
-<h3 class="page_title">
+<h3>
   <%= link_to image_tag("/images/icons/feed.png"), activity_feed_url, :title => "Activit&eacute; sur le site " %>&nbsp; Activit&eacute; sur le site
 </h3>
 
@@ -62,7 +61,7 @@
   </tbody>
 </table>
 
-<h3 class="page_title">
+<h3>
   <%= link_to image_tag("/images/icons/feed.png"), activity_feed_url, :title => "Flux Twitter" %>&nbsp;Flux Twitter
 </h3>
 <div id="twitter_feed">

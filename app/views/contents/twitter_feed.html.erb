@@ -1,14 +1,15 @@
-<table class="activity_stream">
+<ul id="twitter_feed">
   <% @twitter_feed.entries[0..6].each do |item| %>
-    <tr>
-      <td class="post">
-        <div class="icon">
-          <%= image_tag("glasses/red_small.png") %>
+    <li>
+      <%= image_tag "glasses/red_small.png", :class => "thumb" %>
+      <div class="body">
+        <div class="content">
+          <span><%= item.title.sub('le_tastevin:','') %></span>
         </div>
-        <%= item.title.sub('le_tastevin:','') %>
-        <span class="date">
+        <div class="date">
           il y a <%= time_ago_in_words item.pubDate %>
-        </span>
-    </td></tr>
+        </div>
+      </div>
+    </li>
   <% end %>
-</table>
+</ul>
