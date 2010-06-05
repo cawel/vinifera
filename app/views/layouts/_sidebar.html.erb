@@ -6,7 +6,7 @@
     <ol>
       <% @top_wines.andand.each do |wine| %>
         <li>
-          <%= link_to content_tag(:strong, wine.name), wine_reviews_path(wine), :title => wine.name %>
+          <%= link_to content_tag(:strong, wine_full_name(wine)), wine_reviews_path(wine), :title => wine.name %>
           <small><%= pluralize(wine.review_count, 'critique') %></small>
         </li>
       <% end %>

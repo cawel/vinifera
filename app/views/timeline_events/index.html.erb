@@ -40,7 +40,7 @@
           <span class="bottle">
             <%= link_to image_tag( glass_image_filename(wine), :alt => wine.name), wine_reviews_url(wine), :title => wine.name %>
           </span>
-          <%= link_to wine.name, wine_reviews_url(wine), :title => wine.name, :class => "name" %>
+          <%= link_to wine_full_name(wine), wine_reviews_url(wine), :title => wine.name, :class => "name" %>
           <% if event.event_type != 'cellar_wine_created' %>
             <span class="rating">
               <%= stars_rating event.subject.rating %>

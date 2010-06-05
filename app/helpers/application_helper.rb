@@ -34,6 +34,10 @@ module ApplicationHelper
     I18n.localize(datetime.to_date, :format => :short) 
   end
 
+  def wine_full_name wine
+    wine.name + " " + wine.year.to_s
+  end
+
   def country_flag country
     return nil if Rails.env.test?
     image_path = get_flag_image_path(country)
