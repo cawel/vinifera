@@ -1,7 +1,6 @@
 <ul id="twitter_feed">
-  <% @twitter_feed.entries[0..6].each do |item| %>
+  <% @twitter_feed.entries[0..4].each do |item| %>
     <li>
-      <%= image_tag "glasses/red_small.png", :class => "thumb" %>
       <div class="body">
         <div class="content">
           <span><%= item.title.sub('le_tastevin:','') %></span>

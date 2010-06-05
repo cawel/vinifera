@@ -19,11 +19,12 @@
   </div>
 </div>
 
+
+<div style="width: 50%; float: left">
 <h3>
   <%= link_to image_tag("/images/icons/feed.png"), activity_feed_url, :title => "Activit&eacute; sur le site " %>&nbsp; Activit&eacute; sur le site
 </h3>
-
-<table class="activity_stream">
+<table class="activity_stream left_column">
   <tbody>
     <% @timeline_events.each do |event| %>
       <% wine = case event.event_type 
@@ -60,14 +61,17 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
-<h3>
-  <%= link_to image_tag("/images/icons/feed.png"), activity_feed_url, :title => "Flux Twitter" %>&nbsp;Flux Twitter
-</h3>
 <div id="twitter_feed">
+<h3>
+  <%= link_to image_tag("/images/icons/twitter.png"), activity_feed_url, :title => "Tweets Le-Tastevin" %>&nbsp;Tweets Le-Tastevin
+</h3>
+<div id="twitter_content">
+</div>
   <script type="text/javascript">
     $(document).ready(function() {
-        $.get('/twitter-feed', function(data) { $('#twitter_feed').html(data); }); 
+        $.get('/twitter-feed', function(data) { $('#twitter_content').html(data); }); 
     });
   </script>
 </div>
