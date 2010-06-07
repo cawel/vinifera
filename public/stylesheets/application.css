@@ -316,6 +316,10 @@ table.activity_stream td.post div.icon { float: left; height: 100px; width: 100p
 table.activity_stream td.post div.icon img { }
 table.activity_stream.left_column {margin-left: -10px; padding-right: 80px;} 
 
+.homepage_column.left { width: 300px; float: left; margin-right: 15px; }
+.homepage_column h3 a { margin-right: 10px; }
+.homepage_column h3 img { vertical-align: bottom; }
+
 /* Star Ratings */
 ul.star_rating { display: inline-block; width: 80px; height: 16px; margin: 3px 0 0 0; padding: 0; position: relative; background: url('../images/star_rating_bg.png') repeat-x left top; }
 ul.star_rating li { padding: 0; margin: 0; float: left; list-style: none; }
