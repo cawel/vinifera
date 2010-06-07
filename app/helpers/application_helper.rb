@@ -71,7 +71,7 @@ module ApplicationHelper
     if File.exists?("#{RAILS_ROOT}/public" + filename)
       image_tag filename, :title => @wine.name
     else
-      ""
+      image_tag "/images/blank_bottle.png", :title => @wine.name
     end
   end
 
