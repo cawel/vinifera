@@ -4,6 +4,7 @@ class CellarWinesController < ApplicationController
 
   def index
     @cellar_wines = CellarWine.for_person(@person)
+    @menu_cellar = true if @person == current_person
   end
 
   def create

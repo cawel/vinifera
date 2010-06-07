@@ -7,8 +7,8 @@
     </div>
     <% if logged_in? %>
       <ul id="nav">
-        <li class="current"><%= link_to "Mon journal <span class='count'>#{@review_count}</span>", person_reviews_index_url(current_person), :title => "Mon journal de critiques" %></li>
-        <li><%= link_to "Mon cellier <span class='count'>#{@cellar_count}</span>", person_cellar_wines_url(current_person) , :title => "Mon cellier" %></li>
+        <li class="<%= @menu_journal ? "current" : "" %>"><%= link_to "Mon journal <span class='count'>#{@review_count}</span>", person_reviews_index_url(current_person), :title => "Mon journal de critiques" %></li>
+        <li class="<%= @menu_cellar ? "current" : "" %>"><%= link_to "Mon cellier <span class='count'>#{@cellar_count}</span>", person_cellar_wines_url(current_person) , :title => "Mon cellier" %></li>
       </ul>
     <% end -%>
     <ul id="utilities">

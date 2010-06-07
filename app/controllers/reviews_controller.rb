@@ -19,6 +19,7 @@ class ReviewsController < ApplicationController
 
   def user_reviews_index
     @reviews = Review.find_all_by_person_id(@person.id, :order => 'updated_at DESC') 
+    @menu_journal = true if @person == current_person
   end
 
   index.response do |wants|
