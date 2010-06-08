@@ -250,9 +250,10 @@ p.text { margin-bottom: 20px;}
 
 img.framed {padding: 2px; border: 1px solid #c0c0c0; }
 img.splash {margin: 2px; }
-.bio p {margin-left: 130px;}
-.bio p.motivation {font-size: 14px; text-align: justify}
+.bio p, .bio .icons {margin-left: 130px;}
+.motivation {font-size: 14px; text-align: justify}
 .bio .title {font-size: 16px; font-weight: bold;}
+.bio { float: left; margin-bottom: 25px; }
 
 /* Wine Listings */
 table.wines td.wine span.bottle { float: left; display: block; width: 40px; height: 40px; overflow: hidden; margin-right: 5px; }
