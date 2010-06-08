@@ -1,20 +1,21 @@
 <% @title = "Bienvenue sur Le-Tastevin!" %>
 
 <div id="features">
+  <% images = ["splash/wine_jaguar_150.png", "splash/grapes_150.png", "splash/3_bottles_150.png", "splash/corks_150.png"].sort_by { rand } %>
   <div class="consult">
-    <%= image_tag "splash/wine_jaguar_150.png" %>
+    <%= image_tag images[0] %>
     <span>Consultez les critiques d'un vin</span>
   </div>
   <div class="write">
-    <%= image_tag "splash/grapes_150.png" %>
+    <%= image_tag images[1] %>
     <span>Ecrivez une critique pour un vin</span>
   </div>
   <div class="conserve">
-    <%= image_tag "splash/3_bottles_150.png" %>
+    <%= image_tag images[2] %>
     <span>Conservez vos critiques dans votre journal de critiques</span>
   </div>
   <div class="remember">
-    <%= image_tag "splash/corks_150.png" %>
+    <%= image_tag images[3] %>
     <span>Conservez vos d&eacute;gustations futures dans votre cellier</span>
   </div>
 </div>
