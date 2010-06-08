@@ -93,6 +93,15 @@ module ApplicationHelper
       # Aurelia Filion (bu sur le web)
       description = description.gsub(/\&lt.*?gt\;/, '').gsub(/\n/,'') 
   end
+
+  def link_links text
+    patterns = text.scan(%r{(http://[^ ]+)}).flatten
+    if patterns.size > 0
+      patterns.inject(text) do |memo, link|
+        memo.sub(link, %{<a href="#{link}">#{link}</a>})
+      end
+    end
+  end
   
   include WillPaginate::ViewHelpers 
   def will_paginate_with_i18n(collection, options = {}) 
