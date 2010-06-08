@@ -343,6 +343,8 @@ ul.star_rating li.stars_5 a { left: 64px; }
 ul.star_rating li.stars_5 a:hover,
 ul.star_rating li.stars_5.current a { width: 80px; left: 0; }
 
+.ratings_help td { vertical-align: middle;}
+
 /* Sidebar Panels */
 #sidebar div.panel { margin: 0em 0 2em; }
 #sidebar div.panel div.header { padding: 10px 10px; line-height: 1; background: #341027; border-top-left-radius: 3px; -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; border-top-right-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; margin: 0; position: relative; }
