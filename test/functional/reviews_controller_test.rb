@@ -97,4 +97,39 @@ class ReviewsControllerTest < ActionController::TestCase
     end
   end
 
+  def review_button_selector
+    ".wine_actions .action .reviews"
+  end
+
+  def cellar_button_selector
+    ".wine_actions .action .cellar"
+  end
+
+  context "GET /" do
+    setup do
+      get :index, :wine_id => Factory(:wine).id
+    end
+
+    should "not show any action buttons in sidebar" do
+      assert_select review_button_selector, 1
+      assert_select cellar_button_selector, 0
+    end
+  end
+
+  logged_in_as :mat do
+    context "GET /" do
+      setup do
+        get :index, :wine_id => Factory(:wine).id
+      end
+
+      should "show 'journal des critiques' button" do
+        assert_select review_button_selector
+      end
+
+      should "show 'mon cellier' button" do
+        assert_select cellar_button_selector
+      end
+    end
+  end
+
 end
