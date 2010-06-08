@@ -386,7 +386,7 @@ a.toggle_tooltip { margin-left: 20px; cursor: help; }
 #twitter_feed li { overflow: hidden; margin: 0 0 10px; }
 #twitter_feed li div.body { background: #FAF7F2; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; padding: 5px 10px; border-bottom: 1px solid #E1DEDA; }
 #twitter_feed li span.content { color: #000; font-size: 12px; }
-#twitter_feed li span.date { color: #808080; font-size: 11px; }
+#twitter_feed li span.date { display: block; margin: 3px 10px; color: #808080; font-size: 11px; }
 
 
 
