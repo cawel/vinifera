@@ -183,7 +183,7 @@ a.button.cellar { background-image: url('../images/icons/door.png'); background-
 a.button.add { background-image: url('../images/icons/add.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 a.button.save { background-image: url('../images/icons/disk.png'); background-position: 10px center; background-repeat: no-repeat; padding-left: 31px; }
 input[type="text"],
-input[type="password"] { border: 1px solid #C0C0C0; height: 25px; font-size: 14px; padding: 0 20px 0 3px; }
+input[type="password"] { line-height: 25px; border: 1px solid #C0C0C0; height: 25px; font-size: 14px; padding: 0 20px 0 3px; }
 /*input[type="text"].search { background-image: url('../images/icons/magnifier.png'); background-repeat: no-repeat; background-position: 5px center; padding-left: 26px; }
 */textarea { border: 1px solid #C0C0C0; padding: 3px; font-size: 14px; }
 label { line-height: 25px; text-align: right; color: #404040; font-size: 14px; font-weight: bold; display: block; float: left; margin-right: 5px; }
