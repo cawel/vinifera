@@ -10,7 +10,7 @@ class CellarWinesController < ApplicationController
   def create
     @cellar_wine = CellarWine.new(:person_id => @person.id, :wine_id => params[:wine_id])
     if @cellar_wine.save
-      render :text => "Ajout au cellier fait!"
+      render :text => "Bouteille au cellier!"
     else
       render :text => "Probleme lors de l'ajout au cellier!"
     end

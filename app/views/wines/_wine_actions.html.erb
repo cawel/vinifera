@@ -3,28 +3,30 @@
     <%= link_to "Écrire une critique", new_wine_review_url(params[:wine_id]), :title => "Écrire une critique", :class => "button reviews" %>
   </span>
   <% if current_person.andand.in_cellar?(@wine) %>
-    Bouteille au cellier!
+    <span class="action done">Bouteille au cellier!</span>
   <% elsif current_person %>
     <span class="action cellar_results">
       <%= link_to "Ajouter au cellier", "#", :title => "Ajouter au cellier", :class => "button cellar" %>
       <%= image_tag 'loading.gif', :class => 'ajax_loading', :style => "display: none" %>
-      <script type="text/javascript">
-        $(".ajax_loading").ajaxStart(function(){
-            $(this).show();
-        });
-        $(".ajax_loading").ajaxStop(function(){
-            $(this).hide();
-        }); 
-        $(".wine_actions .cellar_results").click(function() {
-            $.ajax({
-              url: "<%= person_cellar_wines_url(current_person, :wine_id => @wine.id) %>",
-              type: 'post',
-              success: function(data) {
-                $(".wine_actions .cellar_results").html(data);
-              }
-            });
-        });
-      </script>
     </span>
+    <script type="text/javascript">
+      $(".ajax_loading").ajaxStart(function(){
+          $(".wine_actions .cellar_results a").remove();
+          $(this).show();
+      });
+      $(".ajax_loading").ajaxStop(function(){
+          $(this).hide();
+      }); 
+      $(".wine_actions .cellar_results").click(function() {
+          $.ajax({
+            url: "<%= person_cellar_wines_url(current_person, :wine_id => @wine.id) %>",
+            type: 'post',
+            success: function(data) {
+              $(".wine_actions .cellar_results").addClass('done');
+              $(".wine_actions .cellar_results").html(data);
+            }
+          });
+      });
+    </script>
   <% end %>
 </div>
