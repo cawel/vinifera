@@ -66,4 +66,6 @@ Rails::Initializer.run do |config|
   # Better handling of erroneous fields
   #ActionView::Base.field_error_proc = Proc.new { |html_tag, instance| "<span class=\"fieldWithErrors\">#{html_tag}</span>" }
 
+  config.action_controller.page_cache_directory = RAILS_ROOT + '/tmp/cache'
+
 end
