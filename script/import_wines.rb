@@ -1,7 +1,7 @@
 require 'ruby-debug'
 
 # Wine.delete_all
-added = 0
+added = []
 already_had = 0
 
 InputBottle = Struct.new(:name, :code_saq, :year, :cup, :category_id, :color_id, :region_id, :country_id, :nature_id, :format, :price, :provider, :alcool, :sub_region_id, :appellation_id, :flavor_id, :image_filename)
@@ -102,11 +102,11 @@ File.open("../scraper/output") do |f|
       unless input.nature_id.nil?
         w = Wine.find_by_code_saq_and_year(input.code_saq, input.year)
         if w.nil?
-          added += 1
           wine = Wine.create(:name => input.name, :year => input.year, :code_saq => input.code_saq, :cup => input.cup, :category_id => input.category_id, :color_id => input.color_id, 
                              :region_id => input.region_id, :country_id => input.country_id, :nature_id => input.nature_id, :format => input.format, :price => input.price,
                              :provider => input.provider, :alcool => input.alcool, :sub_region_id => input.sub_region_id, :appellation_id => input.appellation_id, 
                              :flavor_id => input.flavor_id, :image_filename => input.code_saq + "_g.jpg", :times_updated => 0)
+          added << wine.code_saq
           puts wine.errors.full_messages if wine.errors.any?
         else
           already_had += 1
@@ -120,6 +120,8 @@ File.open("../scraper/output") do |f|
   end
 end
 
-puts "wines added = #{added}"
+puts "wines added = #{added.size}"
 puts "already had = #{already_had}"
 puts "wines count: #{Wine.count}"
+puts "--"
+puts added.join(' ')
