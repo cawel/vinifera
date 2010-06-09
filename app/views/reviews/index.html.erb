@@ -32,5 +32,7 @@
       <% end %>
     </tbody>
   </table>
+<% else %>
+  <p>Il n'y a pas encore de critiques. Soyez le premier à <%= link_to "écrire une critique", new_wine_review_url(params[:wine_id]) %>!</p>
 <% end %>
 
