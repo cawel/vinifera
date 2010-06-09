@@ -100,6 +100,8 @@ module ApplicationHelper
       patterns.inject(text) do |memo, link|
         memo.sub(link, %{<a href="#{link}">#{link}</a>})
       end
+    else 
+      text
     end
   end
   
