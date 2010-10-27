@@ -33,7 +33,13 @@ File.open("../scraper/output") do |f|
 
     if line =~ /^categorie:/
       category = line.gsub(/^\w+:/,'').strip 
+      begin
       input.category_id = Category.find_by_name(category).id 
+      rescue RuntimeError
+        puts "adding categorie: #{category}"
+        Category.create(:name => category)
+        retry
+      end
     end
     if line =~ /^couleur:/
       color = line.gsub(/^\w+:/,'').strip 
