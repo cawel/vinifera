@@ -1,19 +1,3 @@
-<div id="sidebar_wines" class="panel">
-  <div class="header">
-    <h3>Top des vins</h3>
-  </div>
-  <div class="content">
-    <ol>
-      <% @top_wines.andand.each do |wine| %>
-        <li>
-          <%= link_to content_tag(:strong, wine_full_name(wine)), wine_reviews_path(wine), :title => wine.name %>
-          <small><%= pluralize(wine.review_count, 'critique') %></small>
-        </li>
-      <% end %>
-    </ol>
-  </div>
-</div>
-
 <div id="sidebar_reviews" class="panel">
   <div class="header">
     <h3>Top contributeurs</h3>
@@ -30,3 +14,17 @@
   </div>
 </div>
 
+<div id="sidebar_wines" class="panel">
+
+  <div class="fb-like">
+    <div id="fb-root"></div>
+    <script>(function(d){
+        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+          js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+              d.getElementsByTagName('head')[0].appendChild(js);
+              }(document));</script>
+            <fb:like-box href="http://www.facebook.com/pages/Le-Tastevin/263204183702832" width="299" show_faces="true" stream="false" header="false"></fb:like-box>
+  </div>
+
+</div>
