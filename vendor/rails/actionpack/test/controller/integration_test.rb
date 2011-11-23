@@ -2,7 +2,7 @@ require 'abstract_unit'
 
 class SessionTest < Test::Unit::TestCase
   StubApp = lambda { |env|
-    [200, {"Content-Type" => "text/html", "Content-Length" => "13"}, "Hello, World!"]
+    [200, {"Content-Type" => "text/html", "Content-Length" => "13"}, ["Hello, World!"]]
   }
 
   def setup
@@ -207,6 +207,42 @@ class IntegrationTestTest < Test::Unit::TestCase
     assert_equal ::ActionController::Integration::Session, session2.class
     assert_not_equal session1, session2
   end
+
+  # RSpec mixes Matchers (which has a #method_missing) into
+  # IntegrationTest's superclass.  Make sure IntegrationTest does not
+  # try to delegate these methods to the session object.
+  def test_does_not_prevent_method_missing_passing_up_to_ancestors
+    mixin = Module.new do
+      def method_missing(name, *args)
+        name.to_s == 'foo' ? 'pass' : super
+      end
+    end
+    @test.class.superclass.__send__(:include, mixin)
+    begin
+      assert_equal 'pass', @test.foo
+    ensure
+      # leave other tests as unaffected as possible
+      mixin.__send__(:remove_method, :method_missing)
+    end
+  end
+end
+
+require 'active_record_unit'
+# Tests that fixtures are accessible in the integration test sessions
+class IntegrationTestWithFixtures < ActiveRecordTestCase
+  include ActionController::Integration::Runner
+
+  fixtures :companies
+
+  def test_fixtures_in_new_session
+    sym = :thirty_seven_signals
+    # fixtures are accessible in main session
+    assert_not_nil companies(sym)
+
+    # create a new session and the fixtures should be accessible in it as well
+    session1 = open_session { |sess| }
+    assert_not_nil session1.companies(sym)
+  end
 end
 
 # Tests that integration tests don't call Controller test methods for processing.
@@ -240,6 +276,22 @@ class IntegrationProcessTest < ActionController::IntegrationTest
       render :text => "foo: #{params[:foo]}", :status => 200
     end
 
+    def post_with_multiparameter_params
+      render :text => "foo(1i): #{params[:"foo(1i)"]}, foo(2i): #{params[:"foo(2i)"]}", :status => 200
+    end
+
+    def multipart_post_with_multiparameter_params
+      render :text => "foo(1i): #{params[:"foo(1i)"]}, foo(2i): #{params[:"foo(2i)"]}, filesize: #{params[:file].size}", :status => 200
+    end
+
+    def multipart_post_with_nested_params
+      render :text => "foo: #{params[:foo][0]}, #{params[:foo][1]}; [filesize: #{params[:file_list][0][:content].size}, filesize: #{params[:file_list][1][:content].size}]", :status => 200
+    end
+
+    def multipart_post_with_multiparameter_complex_params
+      render :text => "foo(1i): #{params[:"foo(1i)"]}, foo(2i): #{params[:"foo(2i)"]}, [filesize: #{params[:file_list][0][:content].size}, filesize: #{params[:file_list][1][:content].size}]", :status => 200
+    end
+
     def post
       render :text => "Created", :status => 201
     end
@@ -254,6 +306,8 @@ class IntegrationProcessTest < ActionController::IntegrationTest
       redirect_to :action => "get"
     end
   end
+
+  FILES_DIR = File.dirname(__FILE__) + '/../fixtures/multipart'
 
   def test_get
     with_test_route_set do
@@ -296,7 +350,6 @@ class IntegrationProcessTest < ActionController::IntegrationTest
       assert_equal "Gone", status_message
       assert_response 410
       assert_response :gone
-      assert_equal "cookie_1=; path=/\ncookie_3=chocolate; path=/", headers["Set-Cookie"]
       assert_equal({"cookie_1"=>"", "cookie_2"=>"oatmeal", "cookie_3"=>"chocolate"}, cookies)
       assert_equal "Gone", response.body
     end
@@ -360,6 +413,42 @@ class IntegrationProcessTest < ActionController::IntegrationTest
     end
   end
 
+  def test_post_with_multiparameter_attribute_parameters
+    with_test_route_set do
+      post '/post_with_multiparameter_params', :"foo(1i)" => "bar", :"foo(2i)" => "baz"
+
+      assert_equal 200, status
+      assert_equal "foo(1i): bar, foo(2i): baz", response.body
+    end
+  end
+
+  def test_multipart_post_with_multiparameter_attribute_parameters
+    with_test_route_set do
+      post '/multipart_post_with_multiparameter_params', :"foo(1i)" => "bar", :"foo(2i)" => "baz", :file => fixture_file_upload(FILES_DIR + "/mona_lisa.jpg", "image/jpg")
+
+      assert_equal 200, status
+      assert_equal "foo(1i): bar, foo(2i): baz, filesize: 159528", response.body
+    end
+  end
+
+  def test_multipart_post_with_nested_params
+    with_test_route_set do
+      post '/multipart_post_with_nested_params', :"foo" => ['a', 'b'], :file_list => [{:content => fixture_file_upload(FILES_DIR + "/mona_lisa.jpg", "image/jpg")}, {:content => fixture_file_upload(FILES_DIR + "/mona_lisa.jpg", "image/jpg")}]
+
+      assert_equal 200, status
+      assert_equal "foo: a, b; [filesize: 159528, filesize: 159528]", response.body
+    end
+  end
+
+  def test_multipart_post_with_multiparameter_complex_attribute_parameters
+    with_test_route_set do
+      post '/multipart_post_with_multiparameter_complex_params', :"foo(1i)" => "bar", :"foo(2i)" => "baz", :file_list => [{:content => fixture_file_upload(FILES_DIR + "/mona_lisa.jpg", "image/jpg")}, {:content => fixture_file_upload(FILES_DIR + "/mona_lisa.jpg", "image/jpg")}]
+
+      assert_equal 200, status
+      assert_equal "foo(1i): bar, foo(2i): baz, [filesize: 159528, filesize: 159528]", response.body
+    end
+  end
+
   def test_head
     with_test_route_set do
       head '/get'
@@ -389,9 +478,9 @@ class MetalTest < ActionController::IntegrationTest
   class Poller
     def self.call(env)
       if env["PATH_INFO"] =~ /^\/success/
-        [200, {"Content-Type" => "text/plain", "Content-Length" => "12"}, "Hello World!"]
+        [200, {"Content-Type" => "text/plain", "Content-Length" => "12"}, ["Hello World!"]]
       else
-        [404, {"Content-Type" => "text/plain", "Content-Length" => "0"}, '']
+        [404, {"Content-Type" => "text/plain", "Content-Length" => "0"}, []]
       end
     end
   end
@@ -413,5 +502,25 @@ class MetalTest < ActionController::IntegrationTest
     assert_response 404
     assert_response :not_found
     assert_equal '', response.body
+  end
+end
+
+class StringSubclassBodyTest < ActionController::IntegrationTest
+  class SafeString < String
+  end
+
+  class SafeStringMiddleware
+    def self.call(env)
+      [200, {"Content-Type" => "text/plain", "Content-Length" => "12"}, [SafeString.new("Hello World!")]]
+    end
+  end
+
+  def setup
+    @integration_session = ActionController::Integration::Session.new(SafeStringMiddleware)
+  end
+
+  def test_string_subclass_body
+    get '/'
+    assert_equal 'Hello World!', response.body
   end
 end

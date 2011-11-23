@@ -271,6 +271,9 @@ module ActionController
 
     ALLOWED_REQUIREMENTS_FOR_OPTIMISATION = [:controller, :action].to_set
 
+    mattr_accessor :generate_best_match
+    self.generate_best_match = true
+
     # The root paths which may contain controller files
     mattr_accessor :controller_paths
     self.controller_paths = []
@@ -374,7 +377,7 @@ module ActionController
     ActiveSupport::Inflector.module_eval do
       # Ensures that routes are reloaded when Rails inflections are updated.
       def inflections_with_route_reloading(&block)
-        returning(inflections_without_route_reloading(&block)) {
+        (inflections_without_route_reloading(&block)).tap {
           ActionController::Routing::Routes.reload! if block_given?
         }
       end

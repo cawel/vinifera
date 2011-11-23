@@ -48,16 +48,16 @@ module Rails
       # added *after* the application's <tt>lib</tt> directory, to ensure that an application
       # can always override code within a plugin.
       #
-      # Plugin load paths are also added to Dependencies.load_paths, and Dependencies.load_once_paths.
+      # Plugin load paths are also added to Dependencies.autoload_paths, and Dependencies.autoload_once_paths.
       def add_plugin_load_paths
         plugins.each do |plugin|
           plugin.load_paths.each do |path|
             $LOAD_PATH.insert(application_lib_index + 1, path)
 
-            ActiveSupport::Dependencies.load_paths << path
+            ActiveSupport::Dependencies.autoload_paths << path
 
             unless configuration.reload_plugins?
-              ActiveSupport::Dependencies.load_once_paths << path
+              ActiveSupport::Dependencies.autoload_once_paths << path
             end
           end
         end
@@ -73,6 +73,7 @@ module Rails
         def configure_engines
           if engines.any?
             add_engine_routing_configurations
+            add_engine_locales
             add_engine_controller_paths
             add_engine_view_paths
           end
@@ -82,6 +83,12 @@ module Rails
           engines.select(&:routed?).collect(&:routing_file).each do |routing_file|
             ActionController::Routing::Routes.add_configuration_file(routing_file)
           end
+        end
+
+        def add_engine_locales
+          # reverse it such that the last engine can overwrite translations from the first, like with routes
+          locale_files = engines.select(&:localized?).collect(&:locale_files).reverse.flatten
+          I18n.load_path += locale_files - I18n.load_path
         end
 
         def add_engine_controller_paths

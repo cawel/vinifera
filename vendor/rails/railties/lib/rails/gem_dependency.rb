@@ -29,6 +29,24 @@ module Rails
       end
     end
 
+    def self.from_directory_name(directory_name, load_spec=true)
+      directory_name_parts = File.basename(directory_name).split('-')
+      
+      version = directory_name_parts.find { |s| s.match(/^\d(\.\d|\.\w+)*$/) }
+      name    = directory_name_parts[0..directory_name_parts.index(version)-1].join('-') if version
+      
+      result = self.new(name, :version => version)
+      spec_filename = File.join(directory_name, '.specification')
+      if load_spec
+        raise "Missing specification file in #{File.dirname(spec_filename)}. Perhaps you need to do a 'rake gems:refresh_specs'\?" unless File.exists?(spec_filename)
+        spec = YAML::load_file(spec_filename)
+        result.specification = spec
+      end
+      result
+    rescue ArgumentError => e
+      raise "Unable to determine gem name and version from '#{directory_name}'"
+    end
+
     def initialize(name, options = {})
       require 'rubygems' unless Object.const_defined?(:Gem)
 
@@ -54,7 +72,15 @@ module Rails
         @load_paths_added = @loaded = @frozen = true
         return
       end
-      gem self
+
+      begin
+        dep = Gem::Dependency.new(name, requirement)
+        spec = Gem.source_index.find { |_,s| s.satisfies_requirement?(dep) }.last
+        spec.activate           # a way that exists
+      rescue
+        gem self.name, self.requirement # <  1.8 unhappy way
+      end
+
       @spec = Gem.loaded_specs[name]
       @frozen = @spec.loaded_from.include?(self.class.unpacked_path) if @spec
       @load_paths_added = true
@@ -67,7 +93,7 @@ module Rails
       specification.dependencies.reject do |dependency|
         dependency.type == :development
       end.map do |dependency|
-        GemDependency.new(dependency.name, :requirement => dependency.version_requirements)
+        GemDependency.new(dependency.name, :requirement => (dependency.respond_to?(:requirement) ? dependency.requirement : dependency.version_requirements))
       end
     end
 
@@ -95,14 +121,21 @@ module Rails
       end
     end
 
-    def requirement
-      r = version_requirements
-      (r == Gem::Requirement.default) ? nil : r
+    def specification=(s)
+      @spec = s
     end
 
     def built?
-      # TODO: If Rubygems ever gives us a way to detect this, we should use it
-      false
+      return false unless frozen?
+
+      if vendor_gem?
+        specification.extensions.each do |ext|
+          makefile = File.join(unpacked_gem_directory, File.dirname(ext), 'Makefile')
+          return false unless File.exists?(makefile)
+        end
+      end
+
+      true
     end
 
     def framework_gem?
@@ -155,15 +188,16 @@ module Rails
       specification && File.exists?(unpacked_gem_directory)
     end
 
-    def build
+    def build(options={})
       require 'rails/gem_builder'
-      unless built?
+      return if specification.nil?
+      if options[:force] || !built?
         return unless File.exists?(unpacked_specification_filename)
         spec = YAML::load_file(unpacked_specification_filename)
         Rails::GemBuilder.new(spec, unpacked_gem_directory).build_extensions
         puts "Built gem: '#{unpacked_gem_directory}'"
       end
-      dependencies.each { |dep| dep.build }
+      dependencies.each { |dep| dep.build(options) }
     end
 
     def install
@@ -223,7 +257,7 @@ module Rails
         real_spec = Gem::Specification.load(specification.loaded_from)
         write_specification(real_spec)
       end
-      dependencies.each { |dep| dep.unpack } if options[:recursive]
+      dependencies.each { |dep| dep.unpack(options) } if options[:recursive]
     end
 
     def write_specification(spec)
@@ -236,9 +270,10 @@ module Rails
     end
 
     def ==(other)
-      self.name == other.name && self.requirement == other.requirement
+      Gem::Dependency === other.class &&
+        self.name == other.name && self.requirement == other.requirement
     end
-    alias_method :"eql?", :"=="
+    alias_method :eql?, :"=="
 
     private
 

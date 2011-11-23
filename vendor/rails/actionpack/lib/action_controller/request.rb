@@ -95,6 +95,10 @@ module ActionController
       end
     end
 
+    def media_type
+      content_type.to_s
+    end
+
     # Returns the accepted MIME type for the request.
     def accepts
       @accepts ||= begin
@@ -383,7 +387,7 @@ EOM
     alias_method :params, :parameters
 
     def path_parameters=(parameters) #:nodoc:
-      @env["rack.routing_args"] = parameters
+      @env["action_controller.request.path_parameters"] = parameters
       @symbolized_path_parameters = @parameters = nil
     end
 
@@ -399,7 +403,7 @@ EOM
     #
     # See <tt>symbolized_path_parameters</tt> for symbolized keys.
     def path_parameters
-      @env["rack.routing_args"] ||= {}
+      @env["action_controller.request.path_parameters"] ||= {}
     end
 
     # The request body is an IO input stream. If the RAW_POST_DATA environment
@@ -442,8 +446,10 @@ EOM
     end
 
     def reset_session
-      @env['rack.session.options'].delete(:id)
-      @env['rack.session'] = {}
+      # session may be a hash, if so, we do not want to call destroy
+      # fixes issue 6440
+      session.destroy if session and session.respond_to?(:destroy)
+      self.session = {}
     end
 
     def session_options

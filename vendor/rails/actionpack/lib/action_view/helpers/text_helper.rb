@@ -29,34 +29,35 @@ module ActionView
           ActiveSupport::Deprecation.warn("The binding argument of #concat is no longer needed.  Please remove it from your views and helpers.", caller)
         end
 
-        output_buffer << string
+        output_buffer.safe_concat(string)
       end
 
       # Truncates a given +text+ after a given <tt>:length</tt> if +text+ is longer than <tt>:length</tt>
-      # (defaults to 30). The last characters will be replaced with the <tt>:omission</tt> (defaults to "...").
+      # (defaults to 30). The last characters will be replaced with the <tt>:omission</tt> (defaults to "...")
+      # for a total length not exceeding <tt>:length</tt>.
       #
       # ==== Examples
       #
       #   truncate("Once upon a time in a world far far away")
-      #   # => Once upon a time in a world f...
+      #   # => Once upon a time in a world...
       #
       #   truncate("Once upon a time in a world far far away", :length => 14)
       #   # => Once upon a...
       #
       #   truncate("And they found that many people were sleeping better.", :length => 25, "(clipped)")
-      #   # => And they found that many (clipped)
+      #   # => And they found t(clipped)
       #
-      #   truncate("And they found that many people were sleeping better.", :omission => "... (continued)", :length => 15)
-      #   # => And they found... (continued)
+      #   truncate("And they found that many people were sleeping better.", :omission => "... (continued)", :length => 25)
+      #   # => And they f... (continued)
       #
       # You can still use <tt>truncate</tt> with the old API that accepts the
       # +length+ as its optional second and the +ellipsis+ as its
       # optional third parameter:
       #   truncate("Once upon a time in a world far far away", 14)
-      #   # => Once upon a time in a world f...
+      #   # => Once upon a...
       #
-      #   truncate("And they found that many people were sleeping better.", 15, "... (continued)")
-      #   # => And they found... (continued)
+      #   truncate("And they found that many people were sleeping better.", 25, "... (continued)")
+      #   # => And they f... (continued)
       def truncate(text, *args)
         options = args.extract_options!
         unless args.empty?
@@ -180,7 +181,7 @@ module ActionView
       #   pluralize(0, 'person')
       #   # => 0 people
       def pluralize(count, singular, plural = nil)
-        "#{count || 0} " + ((count == 1 || count == '1') ? singular : (plural || singular.pluralize))
+        "#{count || 0} " + ((count == 1 || count =~ /^1(\.0+)?$/) ? singular : (plural || singular.pluralize))
       end
 
       # Wraps the +text+ into lines no longer than +line_width+ width. This method
@@ -234,12 +235,20 @@ module ActionView
       #
       #   textilize("Visit the Rails website "here":http://www.rubyonrails.org/.)
       #   # => "<p>Visit the Rails website <a href="http://www.rubyonrails.org/">here</a>.</p>"
-      def textilize(text)
+      #
+      #   textilize("This is worded <strong>strongly</strong>")
+      #   # => "<p>This is worded <strong>strongly</strong></p>"
+      #
+      #   textilize("This is worded <strong>strongly</strong>", :filter_html)
+      #   # => "<p>This is worded &lt;strong&gt;strongly&lt;/strong&gt;</p>"
+      #
+      def textilize(text, *options)
+        options ||= [:hard_breaks]
+
         if text.blank?
           ""
         else
-          textilized = RedCloth.new(text, [ :hard_breaks ])
-          textilized.hard_breaks = true if textilized.respond_to?(:hard_breaks=)
+          textilized = RedCloth.new(text, options)
           textilized.to_html
         end
       end
@@ -271,8 +280,8 @@ module ActionView
       end
 
       # Returns the text with all the Markdown codes turned into HTML tags.
-      # <i>This method requires BlueCloth[http://www.deveiate.org/projects/BlueCloth]
-      # to be available</i>.
+      # <i>This method requires BlueCloth[http://www.deveiate.org/projects/BlueCloth] or another
+      # Markdown library to be installed.</i>.
       #
       # ==== Examples
       #   markdown("We are using __Markdown__ now!")
@@ -288,7 +297,7 @@ module ActionView
       #   markdown('![The ROR logo](http://rubyonrails.com/images/rails.png "Ruby on Rails")')
       #   # => '<p><img src="http://rubyonrails.com/images/rails.png" alt="The ROR logo" title="Ruby on Rails" /></p>'
       def markdown(text)
-        text.blank? ? "" : BlueCloth.new(text).to_html
+        text.blank? ? "" : Markdown.new(text).to_html
       end
 
       # Returns +text+ transformed into HTML using simple formatting rules.
@@ -319,7 +328,7 @@ module ActionView
         text.gsub!(/\n\n+/, "</p>\n\n#{start_tag}")  # 2+ newline  -> paragraph
         text.gsub!(/([^\n]\n)(?=[^\n])/, '\1<br />') # 1 newline   -> br
         text.insert 0, start_tag
-        text << "</p>"
+        text.html_safe.safe_concat("</p>")
       end
 
       # Turns all URLs and e-mail addresses into clickable links. The <tt>:link</tt> option
@@ -523,9 +532,14 @@ module ActionView
         end
 
         AUTO_LINK_RE = %r{
-            ( https?:// | www\. )
+            (?: ([\w+.:-]+:)// | www\. )
             [^\s<]+
-          }x unless const_defined?(:AUTO_LINK_RE)
+          }x
+
+        # regexps for determining context, used high-volume
+        AUTO_LINK_CRE = [/<[^>]+$/, /^[^>]*>/, /<a\b.*?>/i, /<\/a>/i]
+
+        AUTO_EMAIL_RE = /[\w.!#\$%+-]+@[\w-]+(?:\.[\w-]+)+/
 
         BRACKETS = { ']' => '[', ')' => '(', '}' => '{' }
 
@@ -534,26 +548,26 @@ module ActionView
         def auto_link_urls(text, html_options = {})
           link_attributes = html_options.stringify_keys
           text.gsub(AUTO_LINK_RE) do
-            href = $&
-            punctuation = ''
-            left, right = $`, $'
-            # detect already linked URLs and URLs in the middle of a tag
-            if left =~ /<[^>]+$/ && right =~ /^[^>]*>/
-              # do not change string; URL is alreay linked
+            scheme, href = $1, $&
+            punctuation = []
+
+            if auto_linked?($`, $')
+              # do not change string; URL is already linked
               href
             else
               # don't include trailing punctuation character as part of the URL
-              if href.sub!(/[^\w\/-]$/, '') and punctuation = $& and opening = BRACKETS[punctuation]
-                if href.scan(opening).size > href.scan(punctuation).size
-                  href << punctuation
-                  punctuation = ''
+              while href.sub!(/[^\w\/-]$/, '')
+                punctuation.push $&
+                if opening = BRACKETS[punctuation.last] and href.scan(opening).size > href.scan(punctuation.last).size
+                  href << punctuation.pop
+                  break
                 end
               end
 
               link_text = block_given?? yield(href) : href
-              href = 'http://' + href unless href.index('http') == 0
+              href = 'http://' + href unless scheme
 
-              content_tag(:a, h(link_text), link_attributes.merge('href' => href)) + punctuation
+              content_tag(:a, h(link_text), link_attributes.merge('href' => href)) + punctuation.reverse.join('')
             end
           end
         end
@@ -561,17 +575,22 @@ module ActionView
         # Turns all email addresses into clickable links.  If a block is given,
         # each email is yielded and the result is used as the link text.
         def auto_link_email_addresses(text, html_options = {})
-          body = text.dup
-          text.gsub(/([\w\.!#\$%\-+.]+@[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)+)/) do
-            text = $1
+          text.gsub(AUTO_EMAIL_RE) do
+            text = $&
 
-            if body.match(/<a\b[^>]*>(.*)(#{Regexp.escape(text)})(.*)<\/a>/)
+            if auto_linked?($`, $')
               text
             else
               display_text = (block_given?) ? yield(text) : text
               mail_to text, display_text, html_options
             end
           end
+        end
+
+        # Detects already linked context or position in the middle of a tag
+        def auto_linked?(left, right)
+          (left =~ AUTO_LINK_CRE[0] and right =~ AUTO_LINK_CRE[1]) or
+            (left.rindex(AUTO_LINK_CRE[2]) and $' !~ AUTO_LINK_CRE[3])
         end
     end
   end

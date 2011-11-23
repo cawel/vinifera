@@ -223,6 +223,18 @@ class EagerAssociationTest < ActiveRecord::TestCase
     end
   end
 
+  def test_eager_association_loading_with_belongs_to_and_conditions_hash
+    comments = []
+    assert_nothing_raised do
+      comments = Comment.find(:all, :include => :post, :conditions => {:posts => {:id => 4}}, :limit => 3, :order => 'comments.id')
+    end
+    assert_equal 3, comments.length
+    assert_equal [5,6,7], comments.collect { |c| c.id }
+    assert_no_queries do
+      comments.first.post
+    end
+  end
+
   def test_eager_association_loading_with_belongs_to_and_conditions_string_with_quoted_table_name
     quoted_posts_id= Comment.connection.quote_table_name('posts') + '.' + Comment.connection.quote_column_name('id')
     assert_nothing_raised do
@@ -345,6 +357,18 @@ class EagerAssociationTest < ActiveRecord::TestCase
     assert_equal comments(:more_greetings), Author.find(authors(:david).id, :include => :comments_with_order_and_conditions).comments_with_order_and_conditions.first
   end
 
+  def test_eager_with_has_many_through_with_conditions_join_model_with_include
+    post_tags = Post.find(posts(:welcome).id).misc_tags
+    eager_post_tags = Post.find(1, :include => :misc_tags).misc_tags
+    assert_equal post_tags, eager_post_tags
+  end
+
+  def test_eager_with_has_many_through_association_with_order
+    author_comments = Author.find(authors(:david).id).comments_desc
+    eager_author_comments = Author.find(authors(:david).id, :include => :comments_desc).comments_desc
+    assert_equal eager_author_comments, author_comments
+  end
+  
   def test_eager_with_has_many_through_join_model_with_include
     author_comments = Author.find(authors(:david).id, :include => :comments_with_include).comments_with_include.to_a
     assert_no_queries do
@@ -818,5 +842,11 @@ class EagerAssociationTest < ActiveRecord::TestCase
       assert_equal expected, firm.account_using_primary_key
     end
   end
-  
+
+  def test_preloading_empty_polymorphic_parent
+    t = Tagging.create!(:taggable_type => 'Post', :taggable_id => Post.maximum(:id) + 1, :tag => tags(:general))
+
+    assert_queries(2) { @tagging = Tagging.find(t.id, :include => :taggable) }
+    assert_no_queries { assert ! @tagging.taggable }
+  end
 end
