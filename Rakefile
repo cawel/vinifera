@@ -4,6 +4,8 @@
 require(File.join(File.dirname(__FILE__), 'config', 'boot'))
 
 require 'rake'
+include Rake::DSL
+
 require 'rake/testtask'
 require 'rdoc/task'
 
