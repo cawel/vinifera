@@ -1,0 +1,14 @@
+download Excel sheet and fetch all relevant SAQ codes from it
+
+pad with zeros, sort
+
+download all pages locally using "fetch_pages.rb"
+
+scrape HTML using "scrape.rb"
+
+fetch db dump from production using "rake db:fetch"
+
+import wines
+
+copy all saq codes which were added into the file images_codes
+- Delete images which are invalid:  ls -l | grep 1536 | awk '{print $9;}' | xargs rm
