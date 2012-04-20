@@ -8,7 +8,27 @@ scrape HTML using "scrape.rb"
 
 fetch db dump from production using "rake db:fetch"
 
-import wines
+# load DB into local dev DB
+mysql -uroot -p vinifera_development < db/dump/vinifera_production.sql
 
-copy all saq codes which were added into the file images_codes
+# import wines
+
+# dump local dev DB on disk
+mysqldump -uroot -p vinifera_development -r out.sql
+
+# upload update dump to le-tastevin.com
+scp out.sql le-tastevin.com:~
+
+# load the update dump into the production DB
+mysql -uroot -p vinifera_production < out.sql
+
+copy all saq codes which were added into the file "image_codes"
+
+copy all images from public/images/bottles/ into [scraping dir]images/
+
+# fetch images from saq.com and dump it in images/
+ruby fetch_images.rb
+
+
+##############################
 - Delete images which are invalid:  ls -l | grep 1536 | awk '{print $9;}' | xargs rm
