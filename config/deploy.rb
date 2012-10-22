@@ -1,6 +1,6 @@
 set :application, "vinifera"
 set :repository,  "git@github.com:cawel/vinifera.git"
-set :domain, "209.20.85.218"
+set :domain, "50.56.94.9"
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
@@ -13,7 +13,7 @@ set :deploy_via, :remote_cache
 set :user, 'cawel'
 set :runner, 'cawel'
 set :use_sudo, false
-set :branch, 'master'
+set :branch, 'asylum'
 
 set :keep_releases, 5 
 
@@ -84,4 +84,4 @@ Dir[File.join(File.dirname(__FILE__), '..', 'vendor', 'gems', 'hoptoad_notifier-
   $: << File.join(vendored_notifier, 'lib')
 end
 
-require 'hoptoad_notifier/capistrano'
+# require 'hoptoad_notifier/capistrano'
