@@ -1,6 +1,6 @@
 set :application, "vinifera"
 set :repository,  "git@github.com:cawel/vinifera.git"
-set :domain, "209.20.85.218"
+set :domain, "67.212.16.78"
 
 # If you aren't deploying to /u/apps/#{application} on the target
 # servers (which is the default), you can specify the actual location
@@ -13,7 +13,7 @@ set :deploy_via, :remote_cache
 set :user, 'cawel'
 set :runner, 'cawel'
 set :use_sudo, false
-set :branch, 'master'
+set :branch, 'asylum'
 
 set :keep_releases, 5 
 
