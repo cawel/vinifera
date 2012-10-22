@@ -20,7 +20,7 @@ class ContentsController < ApplicationController
   end
 
   def twitter_feed
-     raw_twitter_feed = open "http://twitter.com/statuses/user_timeline/131055019.rss"
+     raw_twitter_feed = open "https://api.twitter.com/1/statuses/user_timeline.rss?screen_name=le_tastevin"
     # raw_twitter_feed = File.read(File.join(RAILS_ROOT, "test/feeds/twitter_feed.rss"))
     @twitter_feed = SimpleRSS.parse(raw_twitter_feed)
     render :layout => false
