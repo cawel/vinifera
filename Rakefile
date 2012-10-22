@@ -7,8 +7,8 @@ require 'rake'
 include Rake::DSL
 
 require 'rake/testtask'
-require 'rdoc/task'
+# require 'rdoc/task'
 
 require 'tasks/rails'
 
-# require 'thinking_sphinx/tasks'
+require 'thinking_sphinx/tasks'
