@@ -1,0 +1,26 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: vinifera_development
+  pool: 5
+  username: root
+  password: your_password
+  socket: /tmp/mysql.sock
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: vinifera_test
+  pool: 5
+  username: root
+  password: your_password
+  socket: /tmp/mysql.sock
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: vinifera_production
+  pool: 5
+  username: root
+  password: your_password
+  socket: /tmp/mysql.sock
