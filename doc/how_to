@@ -1,0 +1,46 @@
+# # # # # # #
+#   SAQ data
+# # # # # # #
+
+download Excel sheet and fetch all relevant SAQ codes from it
+
+pad with zeros, sort
+
+download all pages locally using "fetch_pages.rb"
+
+scrape HTML using "scrape.rb"
+
+fetch db dump from production using "rake db:fetch"
+
+# load DB into local dev DB
+mysql -uroot -p vinifera_development < db/dump/vinifera_production.sql
+
+# import wines
+script/runner script/import_wines.rb
+
+# dump local dev DB on disk
+mysqldump -uroot -p vinifera_development -r out.sql
+
+# upload update dump to le-tastevin.com
+scp out.sql le-tastevin.com:~
+
+# load the update dump into the production DB
+mysql -uroot -p vinifera_production < out.sql
+
+
+# # # # # # #
+#   images
+# # # # # # #
+
+copy all saq codes which were added into the file "image_codes"
+
+# fetch images from saq.com and dump it in [scraping dir]/images/
+ruby fetch_images.rb
+
+copy all images from [scraping dir]/images/ into public/images/bottles/
+
+
+
+##############################
+- Delete images which are invalid:  ls -l | grep 1536 | awk '{print $9;}' | xargs rm
+- Delete images which are empty:    ls -l | grep 3708 | awk '{print $9;}' | xargs rm
