@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     else
       render :template => "/layouts/500.html.erb", :layout => true, :status => 500
     end
-    notify_hoptoad(exception)
+    # notify_hoptoad(exception)
   end
 
   # See ActionController::Base for details 

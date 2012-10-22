@@ -37,7 +37,6 @@ Rails::Initializer.run do |config|
 
   # Application-specific dependencies
   config.gem "freelancing-god-thinking-sphinx", :lib => "thinking_sphinx", :source => "http://gems.github.com", :version => "1.2.11"
-  config.gem 'hoptoad_notifier'
   config.gem 'simple-rss'
 
 
